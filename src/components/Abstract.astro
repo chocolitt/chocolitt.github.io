@@ -1,0 +1,33 @@
+---
+interface Props {
+  label?: string;
+}
+
+const { label = "Abstract" } = Astro.props;
+---
+
+<details class="abstract">
+  <summary>{label}</summary>
+  <div><slot /></div>
+</details>
+
+<style>
+  .abstract {
+    border-block: 1px solid var(--line);
+    font-family: var(--sans);
+    margin-block: 1rem;
+    padding-block: 0.8rem;
+  }
+
+  summary {
+    color: var(--accent-dark);
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+
+  .abstract div {
+    color: var(--muted);
+    font-size: 0.83rem;
+  }
+</style>

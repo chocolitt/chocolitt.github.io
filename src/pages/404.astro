@@ -1,0 +1,18 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Page not found" description="The requested page could not be found.">
+  <section class="not-found shell reading-width">
+    <p class="eyebrow">Error 404</p>
+    <h1>Page not found.</h1>
+    <p class="lede">The address may have changed during the migration, or the page may no longer exist.</p>
+    <p><a href="/">Return home</a> or <a href="/blog">browse the writing archive</a>.</p>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found {
+    padding-block: clamp(5rem, 15vw, 10rem);
+  }
+</style>

@@ -1,0 +1,58 @@
+---
+interface Props {
+  urlId: string;
+  canonicalUrl?: string;
+}
+
+const { urlId } = Astro.props;
+if (!urlId.startsWith("/") || urlId.includes("?") || urlId.includes("#")) {
+  throw new Error(`FastComments urlId must be a clean site-relative path: ${urlId}`);
+}
+
+const tenantId = import.meta.env.PUBLIC_FASTCOMMENTS_TENANT_ID;
+const canonicalUrl = Astro.props.canonicalUrl ?? new URL(urlId, Astro.site).href;
+---
+
+<section class="comments" aria-labelledby="comments-heading">
+  <div class="comments-heading">
+    <p class="eyebrow">Conversation</p>
+    <h2 id="comments-heading">Comments</h2>
+  </div>
+  {tenantId ? (
+    <>
+      <div id="fastcomments-widget"></div>
+      <noscript>JavaScript is required to read and leave comments.</noscript>
+      <script is:inline define:vars={{ tenantId, urlId, canonicalUrl }}>
+        window.fcConfigs = [{ tenantId, urlId, url: canonicalUrl }];
+      </script>
+      <script is:inline async src="https://cdn.fastcomments.com/js/embed-v2-async.min.js"></script>
+    </>
+  ) : (
+    <p class="configuration-note">Comments are hidden in this build because the FastComments tenant ID is not configured.</p>
+  )}
+</section>
+
+<style>
+  .comments {
+    border-top: 1px solid var(--line);
+    margin-top: 4rem;
+    padding-top: 2rem;
+  }
+
+  .comments-heading {
+    margin-bottom: 1.4rem;
+  }
+
+  .comments h2 {
+    font-size: 1.8rem;
+    margin: 0;
+  }
+
+  .configuration-note {
+    background: var(--paper-deep);
+    color: var(--muted);
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    padding: 1rem;
+  }
+</style>

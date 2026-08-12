@@ -1,0 +1,54 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const courses = await getCollection("courses");
+---
+
+<BaseLayout title="Teaching" description="Course pages and teaching materials by Daniel Litt.">
+  <section class="page-intro shell reading-width">
+    <p class="eyebrow">University of Toronto</p>
+    <h1>Teaching</h1>
+    <p class="lede">Course information, syllabi, notes, and archived schedules.</p>
+  </section>
+  <section class="shell cards">
+    {courses.map((course) => (
+      <article>
+        <p class="eyebrow">{course.data.term}</p>
+        <h2><a href={`/teaching/${course.id}`}>{course.data.code}: {course.data.title}</a></h2>
+        <p>{course.data.summary}</p>
+      </article>
+    ))}
+  </section>
+</BaseLayout>
+
+<style>
+  .page-intro {
+    padding-block: clamp(4rem, 10vw, 7rem);
+  }
+
+  .cards {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(22rem, 100%), 1fr));
+  }
+
+  article {
+    border-top: 3px solid var(--accent);
+    padding: 1.3rem 0;
+  }
+
+  article h2 {
+    font-size: 1.6rem;
+    margin: 0;
+  }
+
+  article h2 a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  article > p:last-child {
+    color: var(--muted);
+  }
+</style>

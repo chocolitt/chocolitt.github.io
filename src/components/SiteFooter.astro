@@ -1,0 +1,34 @@
+<footer class="site-footer">
+  <div class="shell footer-inner">
+    <p>Daniel Litt · Mathematician</p>
+    <p><a href="/rss.xml">RSS</a> · <a href="mailto:daniel.litt@utoronto.ca">Email</a></p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-family: var(--sans);
+    font-size: 0.76rem;
+    margin-top: 5rem;
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    padding-block: 2rem 2.5rem;
+  }
+
+  .site-footer p {
+    margin: 0;
+  }
+
+  @media (max-width: 540px) {
+    .footer-inner {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+</style>

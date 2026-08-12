@@ -1,0 +1,79 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import FastComments from "../components/FastComments.astro";
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  entry: CollectionEntry<"blog">;
+}
+
+const { entry } = Astro.props;
+const { title, description, published, updated, tags, comments, legacyPath } = entry.data;
+const dateFormatter = new Intl.DateTimeFormat("en-CA", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+  timeZone: "UTC",
+});
+---
+
+<BaseLayout title={title} description={description} canonicalPath={legacyPath} type="article" math>
+  <article class="article-shell shell">
+    <div class="reading-width">
+      <Breadcrumbs items={[{ href: "/", label: "Home" }, { href: "/blog", label: "Writing" }, { label: title }]} />
+      <header class="article-header">
+        <p class="eyebrow">Essay</p>
+        <h1>{title}</h1>
+        <p class="lede">{description}</p>
+        <div class="article-meta cluster">
+          <time datetime={published.toISOString()}>{dateFormatter.format(published)}</time>
+          {updated && <span>Updated {dateFormatter.format(updated)}</span>}
+          {tags.length > 0 && <span>{tags.join(" · ")}</span>}
+        </div>
+      </header>
+      <div class="prose article-body">
+        <slot />
+      </div>
+      {comments && <FastComments urlId={legacyPath} />}
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .article-shell {
+    padding-top: clamp(2rem, 7vw, 5rem);
+  }
+
+  .article-header {
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+  }
+
+  .article-header h1 {
+    font-size: clamp(2.4rem, 8vw, 5rem);
+    max-width: 14ch;
+  }
+
+  .article-header .lede {
+    max-width: 34em;
+  }
+
+  .article-meta {
+    color: var(--muted);
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    margin-top: 1.5rem;
+  }
+
+  .article-body :global(img) {
+    border: 1px solid var(--line);
+    width: 100%;
+  }
+
+  .article-body :global(sup) {
+    font-family: var(--sans);
+    font-size: 0.7em;
+  }
+</style>

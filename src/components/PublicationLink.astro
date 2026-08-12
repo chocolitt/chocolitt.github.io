@@ -1,0 +1,35 @@
+---
+interface Props {
+  title: string;
+  href: string;
+  venue?: string;
+}
+
+const { title, href, venue } = Astro.props;
+---
+
+<article class="publication-link">
+  <h3><a href={href}>{title}</a></h3>
+  {venue && <p>{venue}</p>}
+  <slot />
+</article>
+
+<style>
+  .publication-link {
+    border-top: 1px solid var(--line);
+    padding-block: 1.1rem;
+  }
+
+  .publication-link h3 {
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  .publication-link p,
+  .publication-link :global(p) {
+    color: var(--muted);
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    margin: 0.35rem 0 0;
+  }
+</style>

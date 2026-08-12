@@ -1,0 +1,26 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import CourseLayout from "../../layouts/CourseLayout.astro";
+
+export async function getStaticPaths() {
+  const courses = await getCollection("courses");
+  return courses.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+interface Props {
+  entry: CollectionEntry<"courses">;
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<CourseLayout entry={entry}>
+  <ul slot="navigation">
+    <li><a href="#people">People</a></li>
+    <li><a href="#readings">Readings</a></li>
+    <li><a href="#assessment">Assessment</a></li>
+    <li><a href="#schedule">Schedule</a></li>
+  </ul>
+  <Content />
+</CourseLayout>

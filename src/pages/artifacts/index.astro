@@ -1,0 +1,67 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Artifacts" description="Interactive and bibliographic projects by Daniel Litt.">
+  <section class="page-intro shell reading-width">
+    <p class="eyebrow">Projects</p>
+    <h1>Artifacts</h1>
+    <p class="lede">Interactive mathematical objects and structured reading projects.</p>
+  </section>
+  <section class="artifact-grid shell">
+    <article>
+      <span class="number">01</span>
+      <div>
+        <p class="eyebrow">Interactive geometry</p>
+        <h2><a href="/fermat_fano_real_mesh_web.html">Real Fano surface visualization</a></h2>
+        <p>An interactive three-dimensional mesh visualization, preserved from the original GitHub Pages site.</p>
+      </div>
+    </article>
+    <article>
+      <span class="number">02</span>
+      <div>
+        <p class="eyebrow">Bibliography</p>
+        <h2><a href="/published-paper-reviews.html">Published paper review archive</a></h2>
+        <p>A searchable archive of brief reviews and reading notes.</p>
+      </div>
+    </article>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-intro {
+    padding-block: clamp(4rem, 10vw, 7rem);
+  }
+
+  .artifact-grid {
+    border-top: 1px solid var(--line);
+  }
+
+  article {
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 4rem minmax(0, 1fr);
+    padding-block: 2rem;
+  }
+
+  .number {
+    color: var(--accent);
+    font-family: var(--sans);
+    font-size: 0.75rem;
+  }
+
+  article h2 {
+    margin: 0;
+  }
+
+  article h2 a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  article p:last-child {
+    color: var(--muted);
+    max-width: 42rem;
+  }
+</style>

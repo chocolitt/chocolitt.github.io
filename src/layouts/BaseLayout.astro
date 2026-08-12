@@ -1,0 +1,78 @@
+---
+import SiteFooter from "../components/SiteFooter.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath?: string;
+  type?: "website" | "article";
+  math?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonicalPath = Astro.url.pathname,
+  type = "website",
+  math = false,
+} = Astro.props;
+const fullTitle = title === "Daniel Litt" ? title : `${title} · Daniel Litt`;
+const canonical = new URL(canonicalPath, Astro.site);
+const socialImage = new URL("/images/daniel-litt-social-card.png", Astro.site);
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Daniel Litt",
+  url: "https://www.daniellitt.com",
+  jobTitle: "Mathematician",
+  affiliation: {
+    "@type": "CollegeOrUniversity",
+    name: "University of Toronto",
+  },
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f5f1e8" />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" type="application/rss+xml" title="Daniel Litt" href={new URL("/rss.xml", Astro.site)} />
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>{fullTitle}</title>
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    {math && (
+      <>
+        <script is:inline>
+          window.MathJax = {
+            tex: {
+              inlineMath: [["$", "$"], ["\\(", "\\)"]],
+              displayMath: [["$$", "$$"], ["\\[", "\\]"]],
+            },
+            options: { skipHtmlTags: ["script", "noscript", "style", "textarea", "pre", "code"] },
+          };
+        </script>
+        <script is:inline async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      </>
+    )}
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <SiteHeader />
+    <main id="content">
+      <slot />
+    </main>
+    <SiteFooter />
+  </body>
+</html>

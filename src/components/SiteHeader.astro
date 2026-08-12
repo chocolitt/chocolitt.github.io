@@ -1,0 +1,110 @@
+---
+const pathname = Astro.url.pathname;
+const links = [
+  { href: "/blog", label: "Writing" },
+  { href: "/teaching", label: "Teaching" },
+  { href: "/artifacts", label: "Artifacts" },
+  { href: "/published-paper-reviews.html", label: "Reviews" },
+];
+---
+
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="wordmark" href="/" aria-label="Daniel Litt, home">
+      <span aria-hidden="true">DL</span>
+      <strong>Daniel Litt</strong>
+    </a>
+    <nav aria-label="Main navigation">
+      <ul>
+        {links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              aria-current={pathname === link.href || pathname.startsWith(`${link.href}/`) ? "page" : undefined}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--line);
+    font-family: var(--sans);
+  }
+
+  .header-inner {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    min-height: 5.25rem;
+  }
+
+  .wordmark {
+    align-items: center;
+    color: var(--ink);
+    display: inline-flex;
+    gap: 0.75rem;
+    text-decoration: none;
+  }
+
+  .wordmark span {
+    align-items: center;
+    background: var(--ink);
+    color: var(--paper);
+    display: inline-flex;
+    font-family: var(--serif);
+    font-size: 0.8rem;
+    height: 2rem;
+    justify-content: center;
+    letter-spacing: 0.03em;
+    width: 2rem;
+  }
+
+  .wordmark strong {
+    font-size: 0.95rem;
+  }
+
+  nav ul {
+    display: flex;
+    gap: clamp(0.75rem, 2.5vw, 1.7rem);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav a {
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 650;
+    text-decoration: none;
+  }
+
+  nav a:hover,
+  nav a[aria-current="page"] {
+    color: var(--accent-dark);
+  }
+
+  @media (max-width: 700px) {
+    .header-inner {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.8rem;
+      justify-content: center;
+      padding-block: 1rem;
+    }
+
+    nav {
+      overflow-x: auto;
+      width: 100%;
+    }
+
+    nav ul {
+      min-width: max-content;
+    }
+  }
+</style>
