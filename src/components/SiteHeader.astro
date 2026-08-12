@@ -29,7 +29,11 @@ const groupIsActive = (links: typeof workLinks) => links.some((link) => isActive
 <header class="site-header shell">
   <div class="header-inner">
     <div class="site-identity">
-      <a class="site-title" href="/">Daniel Litt</a>
+      {pathname === "/" ? (
+        <h1 class="site-title"><a href="/">Daniel Litt</a></h1>
+      ) : (
+        <a class="site-title" href="/">Daniel Litt</a>
+      )}
       <p>Algebraic Geometry, Number Theory, etc.</p>
     </div>
 
@@ -127,15 +131,21 @@ const groupIsActive = (links: typeof workLinks) => links.some((link) => isActive
     font-weight: 700;
     letter-spacing: 1px;
     line-height: 1.15;
+    margin: 0;
     text-transform: uppercase;
   }
 
-  .site-title:hover {
+  .site-title a {
+    color: inherit;
+  }
+
+  .site-title:hover,
+  .site-title a:hover {
     color: #111;
   }
 
   .site-identity p {
-    color: #7d7373;
+    color: var(--muted);
     font-family: var(--display-font);
     font-size: 12px;
     letter-spacing: 1px;
@@ -162,7 +172,7 @@ const groupIsActive = (links: typeof workLinks) => links.some((link) => isActive
 
   .desktop-nav a,
   .desktop-nav summary {
-    color: #777;
+    color: var(--muted);
     cursor: pointer;
     display: block;
     line-height: 1.6;
@@ -252,7 +262,7 @@ const groupIsActive = (links: typeof workLinks) => links.some((link) => isActive
     }
 
     .mobile-menu > summary {
-      color: #777;
+      color: var(--muted);
       cursor: pointer;
       font-size: 14px;
       list-style: none;

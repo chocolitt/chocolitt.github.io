@@ -22,13 +22,34 @@ PENDING_SQUARESPACE_ROUTES = {
     "/talks-and-expository-work",
 }
 
+PHASE3_PAGES = [
+    "index.html",
+    "404.html",
+    "artifacts/index.html",
+    "blog/index.html",
+    "blog/2026/2/20/mathematics-in-the-library-of-babel/index.html",
+    "teaching/index.html",
+    "teaching/mat445-winter-2026/index.html",
+]
+
+FORBIDDEN_PUBLIC_COPY = [
+    "phase 3 prototype",
+    "former github pages site",
+    "content conversion",
+    "original course-page address",
+    "hidden in this build",
+]
+
 
 class LinkParser(HTMLParser):
     def __init__(self) -> None:
         super().__init__()
         self.links: list[str] = []
+        self.headings: list[int] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if len(tag) == 2 and tag[0] == "h" and tag[1].isdigit():
+            self.headings.append(int(tag[1]))
         for key, value in attrs:
             if value and key in {"href", "src"}:
                 self.links.append(value)
@@ -96,6 +117,23 @@ def main() -> int:
         if not (dist / relative).is_file():
             failures.append((Path("<required>"), f"/{relative}"))
 
+    for relative in PHASE3_PAGES:
+        page = dist / relative
+        if not page.is_file():
+            continue
+        text = page.read_text(encoding="utf-8", errors="replace")
+        parser = LinkParser()
+        parser.feed(text)
+        if parser.headings.count(1) != 1:
+            failures.append((Path(relative), f"expected exactly one h1; found {parser.headings.count(1)}"))
+        for previous, current in zip(parser.headings, parser.headings[1:]):
+            if current > previous + 1:
+                failures.append((Path(relative), f"heading level skips from h{previous} to h{current}"))
+        lower_text = text.lower()
+        for phrase in FORBIDDEN_PUBLIC_COPY:
+            if phrase in lower_text:
+                failures.append((Path(relative), f"internal migration copy is public: {phrase!r}"))
+
     for relative in [
         "mat1101.html",
         "mat1190hs.html",
@@ -107,6 +145,15 @@ def main() -> int:
         text = (dist / relative).read_text(encoding="utf-8", errors="replace").lower()
         if "http-equiv=\"refresh\"" in text or "http-equiv='refresh'" in text:
             failures.append((Path(relative), "preserved page must not be a redirect"))
+
+    css = "\n".join(
+        path.read_text(encoding="utf-8", errors="replace") for path in (dist / "_astro").glob("*.css")
+    ).lower()
+    if "--muted:#707070" not in css:
+        failures.append((Path("<styles>"), "expected accessible --muted color #707070"))
+    for low_contrast_color in ["#777", "#888", "#7d7373"]:
+        if low_contrast_color in css:
+            failures.append((Path("<styles>"), f"low-contrast text color remains: {low_contrast_color}"))
 
     if failures:
         for page, link in failures:

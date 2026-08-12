@@ -34,7 +34,7 @@
   --background: #fcfcfc;
   --heading: #222;
   --text: #575757;
-  --muted: #888;
+  --muted: #707070;
   --line: #ddd;
   --link: #000475;
   --link-hover: #444;
@@ -48,7 +48,7 @@
   --paper: var(--background);
   --paper-deep: #f3f3f3;
   --wash: #f3f3f3;
-  --accent: #777;
+  --accent: #707070;
   --accent-dark: var(--link);
   --reading: var(--reading-width);
 }
