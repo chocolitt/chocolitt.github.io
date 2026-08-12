@@ -20,7 +20,7 @@ const {
 } = Astro.props;
 const fullTitle = title === "Daniel Litt" ? title : `${title} · Daniel Litt`;
 const canonical = new URL(canonicalPath, Astro.site);
-const socialImage = new URL("/images/daniel-litt-social-card.png", Astro.site);
+const socialImage = new URL("/images/site/publications.png", Astro.site);
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -41,7 +41,7 @@ const personSchema = {
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#f5f1e8" />
+    <meta name="theme-color" content="#fcfcfc" />
     <link rel="canonical" href={canonical} />
     <link rel="alternate" type="application/rss+xml" title="Daniel Litt" href={new URL("/rss.xml", Astro.site)} />
     <meta property="og:type" content={type} />
@@ -70,6 +70,7 @@ const personSchema = {
   <body>
     <a class="skip-link" href="#content">Skip to content</a>
     <SiteHeader />
+    <div class="shell"><div class="page-divider"></div></div>
     <main id="content">
       <slot />
     </main>

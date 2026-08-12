@@ -5,7 +5,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
   (a, b) => b.data.published.valueOf() - a.data.published.valueOf(),
 );
-const dateFormatter = new Intl.DateTimeFormat("en-CA", {
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
   day: "numeric",
   month: "long",
   year: "numeric",
@@ -13,22 +13,20 @@ const dateFormatter = new Intl.DateTimeFormat("en-CA", {
 });
 ---
 
-<BaseLayout title="Writing" description="Essays and notes by Daniel Litt on mathematics, research, and adjacent subjects.">
-  <section class="page-intro shell reading-width">
-    <p class="eyebrow">Archive</p>
-    <h1>Writing</h1>
-    <p class="lede">Essays and notes on mathematics, research, technology, and the culture around them.</p>
-  </section>
-  <section class="shell post-list" aria-label="Posts">
-    <ol class="plain-list">
+<BaseLayout title="Betalog" description="Blog of Daniel Litt, about math and other things.">
+  <section class="blog-index shell page-content">
+    <header class="section-intro">
+      <h1>βlog</h1>
+      <p>Blog of Daniel Litt, about math and other things.</p>
+    </header>
+    <ol class="post-list plain-list">
       {posts.map((post) => (
         <li>
           <article>
+            <h2><a href={post.data.legacyPath}>{post.data.title}</a></h2>
             <time datetime={post.data.published.toISOString()}>{dateFormatter.format(post.data.published)}</time>
-            <div>
-              <h2><a href={post.data.legacyPath}>{post.data.title}</a></h2>
-              <p>{post.data.description}</p>
-            </div>
+            <p>{post.data.description}</p>
+            <a class="read-more" href={post.data.legacyPath}>Read more</a>
           </article>
         </li>
       ))}
@@ -37,54 +35,43 @@ const dateFormatter = new Intl.DateTimeFormat("en-CA", {
 </BaseLayout>
 
 <style>
-  .page-intro {
-    padding-block: clamp(4rem, 10vw, 7rem);
+  .blog-index {
+    max-width: var(--site-width);
   }
 
-  .post-list {
-    border-top: 1px solid var(--line);
-  }
-
-  .post-list li {
-    border-bottom: 1px solid var(--line);
-  }
-
-  article {
-    display: grid;
-    gap: 1.5rem;
-    grid-template-columns: 10rem minmax(0, 1fr);
-    padding-block: 1.8rem;
-  }
-
-  time,
-  article p {
-    color: var(--muted);
-    font-family: var(--sans);
-    font-size: 0.76rem;
-  }
-
-  article h2 {
-    font-size: clamp(1.4rem, 3vw, 2rem);
+  .section-intro p {
     margin: 0;
   }
 
-  article h2 a {
-    color: var(--ink);
-    text-decoration: none;
+  .post-list li + li {
+    border-top: 1px solid var(--line);
+    margin-top: 2.5rem;
+    padding-top: 2.5rem;
   }
 
-  article h2 a:hover {
-    color: var(--accent-dark);
+  article h2 {
+    font-size: 2rem;
+    margin: 0 0 0.2rem;
+  }
+
+  article h2 a {
+    color: var(--heading);
+  }
+
+  time,
+  .read-more {
+    color: #777;
+    font-family: var(--display-font);
+    font-size: 0.78rem;
+    letter-spacing: 0.03em;
   }
 
   article p {
-    margin: 0.5rem 0 0;
-    max-width: 46rem;
+    margin-top: 1.25rem;
+    max-width: 58rem;
   }
 
-  @media (max-width: 620px) {
-    article {
-      grid-template-columns: 1fr;
-    }
+  .read-more {
+    color: var(--link);
   }
 </style>

@@ -1,54 +1,60 @@
 ---
-import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-
-const courses = await getCollection("courses");
 ---
 
-<BaseLayout title="Teaching" description="Course pages and teaching materials by Daniel Litt.">
-  <section class="page-intro shell reading-width">
-    <p class="eyebrow">University of Toronto</p>
-    <h1>Teaching</h1>
-    <p class="lede">Course information, syllabi, notes, and archived schedules.</p>
-  </section>
-  <section class="shell cards">
-    {courses.map((course) => (
-      <article>
-        <p class="eyebrow">{course.data.term}</p>
-        <h2><a href={`/teaching/${course.id}`}>{course.data.code}: {course.data.title}</a></h2>
-        <p>{course.data.summary}</p>
-      </article>
-    ))}
-  </section>
+<BaseLayout title="Teaching, Seminars, and Service" description="Teaching, seminars, course pages, and notes by Daniel Litt.">
+  <article class="shell page-content prose teaching-page">
+    <h1>Teaching, Seminars, and Service</h1>
+    <p>
+      This Phase 3 prototype currently incorporates the course pages and files that previously lived at{" "}
+      <code>chocolitt.github.io</code>. The existing Squarespace teaching, seminar, and service material will be added here
+      during the full content conversion, with every page kept at its current URL. The old GitHub file addresses remain
+      available as well.
+    </p>
+
+    <h2>Course Pages from the GitHub Site</h2>
+    <ul>
+      <li><a href="/mat445_winter2026.html">MAT445H1 – Representation Theory, Winter 2026</a></li>
+      <li><a href="/mat445.html">Math 445 – Representation Theory</a></li>
+      <li><a href="/mat1190hs.html">MAT1190HS – Algebraic Geometry</a></li>
+      <li><a href="/mat1101.html">Math 1101 – Algebra II, Winter 2025</a></li>
+    </ul>
+
+    <h2>Notes and Downloads</h2>
+    <ul>
+      <li><a href="/AG_notes_1.pdf">Algebraic geometry notes (PDF)</a> · <a href="/AG_notes_1.tex">TeX source</a></li>
+      <li><a href="/grassmannian_frobenius_counterexample.pdf">Grassmannian Frobenius counterexample (PDF)</a></li>
+      <li><a href="/jacob_mathilde_notes.pdf">Jacob and Mathilde’s notes (PDF)</a></li>
+      <li><a href="/Hartshorne%20III.png">Hartshorne III image</a></li>
+      <li>
+        <a href="/MAT445H1_%20Representation%20Theory%202026.docx%20-%20Google%20Docs%20%282%29.pdf">
+          MAT445H1 Representation Theory 2026 syllabus (PDF)
+        </a>
+      </li>
+    </ul>
+
+    <h2>Interactive and Bibliographic Material</h2>
+    <ul>
+      <li><a href="/fermat_fano_real_mesh_web.html">Real Fano surface visualization</a></li>
+      <li><a href="/published-paper-reviews.html">Published paper reviews, audits, and errata</a></li>
+    </ul>
+  </article>
 </BaseLayout>
 
 <style>
-  .page-intro {
-    padding-block: clamp(4rem, 10vw, 7rem);
+  .teaching-page {
+    max-width: var(--site-width);
   }
 
-  .cards {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(min(22rem, 100%), 1fr));
+  .teaching-page h1 {
+    margin-top: 0;
   }
 
-  article {
-    border-top: 3px solid var(--accent);
-    padding: 1.3rem 0;
+  .teaching-page :global(ul) {
+    padding-left: 1.4rem;
   }
 
-  article h2 {
-    font-size: 1.6rem;
-    margin: 0;
-  }
-
-  article h2 a {
-    color: var(--ink);
-    text-decoration: none;
-  }
-
-  article > p:last-child {
-    color: var(--muted);
+  .teaching-page :global(li) {
+    margin-bottom: 0.4rem;
   }
 </style>

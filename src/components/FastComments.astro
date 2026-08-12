@@ -14,10 +14,7 @@ const canonicalUrl = Astro.props.canonicalUrl ?? new URL(urlId, Astro.site).href
 ---
 
 <section class="comments" aria-labelledby="comments-heading">
-  <div class="comments-heading">
-    <p class="eyebrow">Conversation</p>
-    <h2 id="comments-heading">Comments</h2>
-  </div>
+  <h2 id="comments-heading">Comments</h2>
   {tenantId ? (
     <>
       <div id="fastcomments-widget"></div>
@@ -36,23 +33,17 @@ const canonicalUrl = Astro.props.canonicalUrl ?? new URL(urlId, Astro.site).href
   .comments {
     border-top: 1px solid var(--line);
     margin-top: 4rem;
-    padding-top: 2rem;
-  }
-
-  .comments-heading {
-    margin-bottom: 1.4rem;
+    padding-top: 1.6rem;
   }
 
   .comments h2 {
-    font-size: 1.8rem;
-    margin: 0;
+    margin-top: 0;
   }
 
   .configuration-note {
-    background: var(--paper-deep);
-    color: var(--muted);
-    font-family: var(--sans);
-    font-size: 0.8rem;
+    background: #f3f3f3;
+    color: #777;
+    font-size: 0.85rem;
     padding: 1rem;
   }
 </style>

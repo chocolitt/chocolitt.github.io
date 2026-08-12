@@ -1,6 +1,5 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import Breadcrumbs from "../components/Breadcrumbs.astro";
 import BaseLayout from "./BaseLayout.astro";
 
 interface Props {
@@ -8,110 +7,52 @@ interface Props {
 }
 
 const { entry } = Astro.props;
-const { title, code, institution, term, summary, archived } = entry.data;
+const { title, code, institution, term, summary, archived, legacyPath } = entry.data;
 ---
 
-<BaseLayout title={`${code}: ${title}`} description={summary} math>
-  <article class="course-shell shell">
-    <Breadcrumbs items={[{ href: "/", label: "Home" }, { href: "/teaching", label: "Teaching" }, { label: code }]} />
+<BaseLayout title={`${code}: ${title}`} description={summary} canonicalPath={legacyPath ?? Astro.url.pathname} math>
+  <article class="course-shell shell page-content">
     <header class="course-header">
-      <div>
-        <p class="eyebrow">{archived ? "Course archive" : "Current course"}</p>
-        <h1>{title}</h1>
-        <p class="lede">{summary}</p>
-      </div>
-      <dl>
-        <div><dt>Course</dt><dd>{code}</dd></div>
-        <div><dt>Term</dt><dd>{term}</dd></div>
-        <div><dt>Institution</dt><dd>{institution}</dd></div>
-      </dl>
+      <h1>{code}: {title}</h1>
+      <p>{institution} · {term}{archived ? " · Course archive" : ""}</p>
+      <p>{summary}</p>
+      {legacyPath && <p><a href={legacyPath}>Original course-page address</a></p>}
     </header>
-    <div class="course-grid">
-      <aside class="course-nav" aria-label="On this page">
-        <p class="eyebrow">On this page</p>
-        <slot name="navigation" />
-      </aside>
-      <div class="prose course-body">
-        <slot />
-      </div>
+    <nav class="course-nav" aria-label="On this page">
+      <slot name="navigation" />
+    </nav>
+    <div class="prose course-body">
+      <slot />
     </div>
   </article>
 </BaseLayout>
 
 <style>
-  .course-shell {
-    padding-top: clamp(2rem, 7vw, 5rem);
+  .course-header h1 {
+    margin-top: 0;
   }
 
   .course-header {
     border-bottom: 1px solid var(--line);
-    display: grid;
-    gap: 2rem;
-    grid-template-columns: minmax(0, 2fr) minmax(15rem, 0.8fr);
-    padding-bottom: 2.5rem;
-  }
-
-  .course-header h1 {
-    max-width: 14ch;
-  }
-
-  dl {
-    border-top: 3px solid var(--accent);
-    font-family: var(--sans);
-    margin: 0;
-  }
-
-  dl div {
-    border-bottom: 1px solid var(--line);
-    display: grid;
-    gap: 0.5rem;
-    grid-template-columns: 5rem 1fr;
-    padding-block: 0.75rem;
-  }
-
-  dt {
-    color: var(--muted);
-    font-size: 0.68rem;
-    font-weight: 700;
-    text-transform: uppercase;
-  }
-
-  dd {
-    font-size: 0.82rem;
-    margin: 0;
-  }
-
-  .course-grid {
-    display: grid;
-    gap: clamp(2rem, 7vw, 5rem);
-    grid-template-columns: minmax(9rem, 0.4fr) minmax(0, var(--reading));
-    margin-top: 2.5rem;
+    padding-bottom: 1.25rem;
   }
 
   .course-nav {
-    font-family: var(--sans);
-    font-size: 0.75rem;
+    font-family: var(--display-font);
+    font-size: 0.8rem;
+    margin-block: 1.5rem 2rem;
   }
 
   .course-nav :global(ul) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem 1.2rem;
     list-style: none;
     margin: 0;
     padding: 0;
   }
 
-  .course-nav :global(li) {
-    border-top: 1px solid var(--line);
-    padding-block: 0.45rem;
-  }
-
-  @media (max-width: 800px) {
-    .course-header,
-    .course-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .course-nav {
-      display: none;
-    }
+  .course-body {
+    max-width: 900px;
   }
 </style>

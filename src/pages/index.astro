@@ -1,235 +1,164 @@
 ---
-import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
-  (a, b) => b.data.published.valueOf() - a.data.published.valueOf(),
-);
-const courses = await getCollection("courses");
-const dateFormatter = new Intl.DateTimeFormat("en-CA", {
-  month: "short",
-  year: "numeric",
-  timeZone: "UTC",
-});
+const sections = [
+  {
+    href: "/publications-and-preprints",
+    label: "Publications and Preprints",
+    image: "/images/site/publications.png",
+    alt: "A mathematical diagram of a cut plane",
+  },
+  {
+    href: "/talks-and-expository-work",
+    label: "Talk Notes and Slides",
+    image: "/images/site/talks.jpg",
+    alt: "A page of a mathematical manuscript",
+  },
+  {
+    href: "/expository-notes",
+    label: "Expository Notes",
+    image: "/images/site/expository.jpg",
+    alt: "A historical diagram of the Pythagorean musical scale",
+  },
+  {
+    href: "/teaching",
+    label: "Teaching and Service",
+    image: "/images/site/teaching.jpg",
+    alt: "A historical astronomical diagram",
+  },
+  {
+    href: "/open-questions",
+    label: "Open Questions",
+    image: "/images/site/open-questions.jpg",
+    alt: "A historical illustration of musical notation",
+  },
+];
 ---
 
 <BaseLayout
   title="Daniel Litt"
   description="Daniel Litt is a mathematician working in algebraic geometry, arithmetic geometry, and related subjects."
 >
-  <section class="hero shell">
-    <div class="hero-copy">
-      <p class="eyebrow">Mathematics · Writing · Teaching</p>
-      <h1>Daniel Litt</h1>
-      <p class="lede">
-        I’m a mathematician at the University of Toronto. I work mainly in algebraic and arithmetic geometry,
-        and write about mathematics, research, and the culture around them.
+  <section class="home-intro shell page-content">
+    <div class="biography prose">
+      <p>
+        I am an Assistant Professor of mathematics at the <a href="https://www.math.toronto.edu/">University of Toronto</a>.
+        I was in a similar position at the University of Georgia from 2019–2022. I completed my PhD at Stanford in 2015;
+        from 2015–2018 I was an NSF Postdoc at Columbia; and from 2018–2019 I was a member at the Institute for Advanced Study.
       </p>
-      <div class="cluster hero-links">
-        <a class="primary-link" href="/blog">Read the writing</a>
-        <a href="mailto:daniel.litt@utoronto.ca">Get in touch</a>
-      </div>
+      <p>
+        Broadly speaking, I am interested in the interplay between algebraic geometry and number theory (and, to a lesser
+        extent, topology). Most of my work has focused on using arithmetic techniques to study classical questions about,
+        for example, complex algebraic varieties. Currently, I am thinking about the arithmetic structures on the
+        fundamental group of an algebraic variety, and the relationships between those structures and the geometry of the
+        variety. Some of my other interests include questions about positivity and vanishing theorems, dynamics of
+        algebraic varieties, and Hodge theory (broadly construed).
+      </p>
+      <p>
+        On this website you can find my <a href="/publications-and-preprints">publications and preprints</a>, some{" "}
+        <a href="/talks-and-expository-work">talk notes and slides</a>, some <a href="/expository-notes">expository notes</a>,
+        and information on my <a href="/teaching">teaching</a>. I’ve included some{" "}
+        <a href="/nonmathematical-writing">non-mathematical writing</a>. There’s also an embryonic{" "}
+        <a href="/blog">blog</a>, which may or may not be updated. Finally, I’m trying a little experiment—I’ll try to keep
+        a list of <a href="/open-questions">open questions</a> that come up in my work, which is likely not up to date.
+      </p>
+      <p>
+        Material from my former GitHub Pages site is being incorporated into the existing structure: course pages and
+        downloads live under <a href="/teaching">Teaching</a>, while the interactive visualization and paper-review archive
+        are collected under <a href="/artifacts">Interactive Artifacts</a>. Their original URLs continue to work.
+      </p>
     </div>
-    <aside class="research-note" aria-label="Research interests">
-      <p class="eyebrow">Research interests</p>
-      <p>Algebraic geometry</p>
-      <p>Arithmetic geometry</p>
-      <p>Fundamental groups</p>
-      <p>Hodge theory</p>
-    </aside>
+    <figure class="portrait">
+      <img src="/images/site/portrait.jpg" alt="Portrait of Daniel Litt" width="668" height="896" />
+    </figure>
   </section>
 
-  <section class="home-section shell">
-    <div class="section-heading">
-      <div>
-        <p class="eyebrow">Recent</p>
-        <h2>Writing</h2>
-      </div>
-      <a href="/blog">All writing →</a>
-    </div>
-    <ol class="feature-list plain-list">
-      {posts.slice(0, 3).map((post) => (
-        <li>
-          <a href={post.data.legacyPath}>
-            <time datetime={post.data.published.toISOString()}>{dateFormatter.format(post.data.published)}</time>
-            <span><strong>{post.data.title}</strong><small>{post.data.description}</small></span>
-            <span class="arrow" aria-hidden="true">↗</span>
-          </a>
-        </li>
-      ))}
-    </ol>
-  </section>
-
-  <section class="home-section shell twin-grid">
-    <div>
-      <p class="eyebrow">Teaching</p>
-      <h2>Courses and notes</h2>
-      <p>Course pages, syllabi, lecture schedules, and mathematical notes.</p>
-      <ul class="plain-list compact-links">
-        {courses.map((course) => (
-          <li><a href={`/teaching/${course.id}`}>{course.data.code}: {course.data.title}</a></li>
-        ))}
-      </ul>
-    </div>
-    <div>
-      <p class="eyebrow">Projects</p>
-      <h2>Interactive artifacts</h2>
-      <p>Small computational and bibliographic projects that live alongside the writing.</p>
-      <ul class="plain-list compact-links">
-        <li><a href="/fermat_fano_real_mesh_web.html">Real Fano surface visualization</a></li>
-        <li><a href="/published-paper-reviews.html">Published paper review archive</a></li>
-      </ul>
-    </div>
+  <section class="work-grid shell" aria-label="Work">
+    {sections.map((section) => (
+      <a class="work-item" href={section.href}>
+        <span class="image-frame"><img src={section.image} alt={section.alt} loading="lazy" /></span>
+        <span class="work-title">{section.label}</span>
+      </a>
+    ))}
   </section>
 </BaseLayout>
 
 <style>
-  .hero {
-    align-items: end;
+  .home-intro {
+    align-items: start;
     display: grid;
-    gap: clamp(2.5rem, 8vw, 8rem);
-    grid-template-columns: minmax(0, 1.8fr) minmax(14rem, 0.65fr);
-    min-height: 36rem;
-    padding-block: clamp(4rem, 11vw, 8rem);
+    gap: 5.5%;
+    grid-template-columns: minmax(0, 2fr) minmax(230px, 1fr);
   }
 
-  .hero-copy h1 {
-    font-size: clamp(4rem, 14vw, 9rem);
-    letter-spacing: -0.065em;
-    line-height: 0.9;
+  .biography p:first-child {
+    margin-top: 0;
   }
 
-  .hero-copy .lede {
-    max-width: 39rem;
-  }
-
-  .hero-links {
-    font-family: var(--sans);
-    font-size: 0.8rem;
-    margin-top: 2rem;
-  }
-
-  .primary-link {
-    background: var(--ink);
-    color: var(--paper);
-    padding: 0.65rem 0.9rem;
-    text-decoration: none;
-  }
-
-  .primary-link:hover {
-    background: var(--accent-dark);
-    color: white;
-  }
-
-  .research-note {
-    border-top: 3px solid var(--accent);
-    font-family: var(--sans);
-    padding-top: 1rem;
-  }
-
-  .research-note p:not(.eyebrow) {
-    border-bottom: 1px solid var(--line);
-    font-size: 0.78rem;
-    margin: 0;
-    padding-block: 0.5rem;
-  }
-
-  .home-section {
-    border-top: 1px solid var(--line);
-    padding-block: clamp(3rem, 7vw, 5rem);
-  }
-
-  .section-heading {
-    align-items: end;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1.5rem;
-  }
-
-  .section-heading h2,
-  .twin-grid h2 {
+  .portrait {
     margin: 0;
   }
 
-  .section-heading > a {
-    font-family: var(--sans);
-    font-size: 0.76rem;
-  }
-
-  .feature-list li {
-    border-top: 1px solid var(--line);
-  }
-
-  .feature-list a {
-    align-items: baseline;
-    color: var(--ink);
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: 7rem 1fr auto;
-    padding-block: 1.2rem;
-    text-decoration: none;
-  }
-
-  .feature-list time,
-  .feature-list small,
-  .arrow {
-    color: var(--muted);
-    font-family: var(--sans);
-    font-size: 0.72rem;
-  }
-
-  .feature-list strong,
-  .feature-list small {
+  .portrait img {
     display: block;
+    width: 100%;
   }
 
-  .feature-list strong {
-    font-size: 1.15rem;
-  }
-
-  .feature-list small {
-    margin-top: 0.25rem;
-  }
-
-  .twin-grid {
+  .work-grid {
     display: grid;
-    gap: clamp(3rem, 9vw, 8rem);
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 38px 3%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding-bottom: 50px;
   }
 
-  .twin-grid > div > p:not(.eyebrow) {
-    color: var(--muted);
-    max-width: 30rem;
+  .work-item {
+    color: var(--heading);
+    display: block;
+    font-family: var(--display-font);
+    text-align: center;
   }
 
-  .compact-links {
-    font-family: var(--sans);
-    font-size: 0.8rem;
-    margin-top: 1.5rem;
+  .image-frame {
+    align-items: center;
+    aspect-ratio: 4 / 3;
+    background: #f3f3f3;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
   }
 
-  .compact-links li {
-    border-top: 1px solid var(--line);
-    padding-block: 0.65rem;
+  .image-frame img {
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 160ms ease;
+    width: 100%;
   }
 
-  @media (max-width: 760px) {
-    .hero,
-    .twin-grid {
+  .work-item:hover img {
+    opacity: 0.82;
+  }
+
+  .work-title {
+    display: block;
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    line-height: 1.4;
+    padding-top: 12px;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 750px) {
+    .home-intro {
+      gap: 30px;
       grid-template-columns: 1fr;
     }
 
-    .hero {
-      align-items: start;
-      min-height: auto;
+    .portrait {
+      max-width: 340px;
     }
 
-    .feature-list a {
-      grid-template-columns: 1fr auto;
-    }
-
-    .feature-list time {
-      grid-column: 1 / -1;
+    .work-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>

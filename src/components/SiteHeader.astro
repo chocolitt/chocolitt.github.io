@@ -1,110 +1,306 @@
 ---
 const pathname = Astro.url.pathname;
-const links = [
-  { href: "/blog", label: "Writing" },
-  { href: "/teaching", label: "Teaching" },
-  { href: "/artifacts", label: "Artifacts" },
-  { href: "/published-paper-reviews.html", label: "Reviews" },
+
+const workLinks = [
+  { href: "/publications-and-preprints", label: "Publications and Preprints" },
+  { href: "/talks-and-expository-work", label: "Talk Notes and Slides" },
+  { href: "/expository-notes", label: "Expository Notes" },
+  { href: "/teaching", label: "Teaching, Seminars, and Service" },
+  { href: "/open-questions", label: "Open Questions" },
+  { href: "/artifacts", label: "Interactive Artifacts" },
+  { href: "/published-paper-reviews.html", label: "Published Paper Reviews" },
 ];
+
+const personalLinks = [
+  { href: "/blog", label: "βlog" },
+  { href: "/nonmathematical-writing", label: "Non-mathematical Writing" },
+];
+
+const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+const groupIsActive = (links: typeof workLinks) => links.some((link) => isActive(link.href));
 ---
 
-<header class="site-header">
-  <div class="shell header-inner">
-    <a class="wordmark" href="/" aria-label="Daniel Litt, home">
-      <span aria-hidden="true">DL</span>
-      <strong>Daniel Litt</strong>
-    </a>
-    <nav aria-label="Main navigation">
+<aside class="announcement" aria-label="Announcement">
+  <p>
+    New paper! <a href="https://arxiv.org/abs/2604.20970"><em>E</em><sub>6</sub>-local systems from cubic threefolds</a>,
+    joint with Krämer and Maculan.
+  </p>
+</aside>
+
+<header class="site-header shell">
+  <div class="header-inner">
+    <div class="site-identity">
+      <a class="site-title" href="/">Daniel Litt</a>
+      <p>Algebraic Geometry, Number Theory, etc.</p>
+    </div>
+
+    <nav class="desktop-nav" aria-label="Main navigation">
       <ul>
-        {links.map((link) => (
-          <li>
-            <a
-              href={link.href}
-              aria-current={pathname === link.href || pathname.startsWith(`${link.href}/`) ? "page" : undefined}
-            >
-              {link.label}
-            </a>
-          </li>
-        ))}
+        <li><a href="/s/CV-Daniel-Litt-akmg.pdf">CV</a></li>
+        <li class="nav-folder">
+          <details>
+            <summary aria-current={groupIsActive(workLinks) ? "page" : undefined}>Work <span aria-hidden="true">▾</span></summary>
+            <ul class="submenu">
+              {workLinks.map((link) => (
+                <li><a href={link.href} aria-current={isActive(link.href) ? "page" : undefined}>{link.label}</a></li>
+              ))}
+            </ul>
+          </details>
+        </li>
+        <li class="nav-folder">
+          <details>
+            <summary aria-current={groupIsActive(personalLinks) ? "page" : undefined}>Personal <span aria-hidden="true">▾</span></summary>
+            <ul class="submenu">
+              {personalLinks.map((link) => (
+                <li><a href={link.href} aria-current={isActive(link.href) ? "page" : undefined}>{link.label}</a></li>
+              ))}
+            </ul>
+          </details>
+        </li>
+        <li><a href="/about" aria-current={isActive("/about") ? "page" : undefined}>About</a></li>
+        <li><a href="/contact" aria-current={isActive("/contact") ? "page" : undefined}>Contact</a></li>
       </ul>
     </nav>
+
+    <details class="mobile-menu">
+      <summary>Menu</summary>
+      <nav aria-label="Mobile navigation">
+        <ul>
+          <li><a href="/s/CV-Daniel-Litt-akmg.pdf">CV</a></li>
+          <li class="mobile-group">
+            <span>Work</span>
+            <ul>
+              {workLinks.map((link) => <li><a href={link.href}>{link.label}</a></li>)}
+            </ul>
+          </li>
+          <li class="mobile-group">
+            <span>Personal</span>
+            <ul>
+              {personalLinks.map((link) => <li><a href={link.href}>{link.label}</a></li>)}
+            </ul>
+          </li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+    </details>
   </div>
 </header>
 
 <style>
+  .announcement {
+    background: #ededed;
+    color: #333;
+    font-size: 0.82rem;
+    padding: 0.55rem 20px;
+    text-align: center;
+  }
+
+  .announcement p {
+    margin: 0;
+  }
+
+  .announcement a {
+    border-bottom: 1px solid #b7b7b7;
+    color: inherit;
+  }
+
   .site-header {
-    border-bottom: 1px solid var(--line);
-    font-family: var(--sans);
+    margin-top: 10px;
   }
 
   .header-inner {
-    align-items: center;
+    align-items: flex-start;
     display: flex;
     justify-content: space-between;
-    min-height: 5.25rem;
+    padding-block: 14px 40px;
   }
 
-  .wordmark {
-    align-items: center;
-    color: var(--ink);
-    display: inline-flex;
-    gap: 0.75rem;
-    text-decoration: none;
+  .site-identity {
+    flex: 0 0 auto;
   }
 
-  .wordmark span {
-    align-items: center;
-    background: var(--ink);
-    color: var(--paper);
-    display: inline-flex;
-    font-family: var(--serif);
-    font-size: 0.8rem;
-    height: 2rem;
-    justify-content: center;
-    letter-spacing: 0.03em;
-    width: 2rem;
+  .site-title {
+    color: #111;
+    display: block;
+    font-family: var(--display-font);
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 1.15;
+    text-transform: uppercase;
   }
 
-  .wordmark strong {
-    font-size: 0.95rem;
+  .site-title:hover {
+    color: #111;
   }
 
-  nav ul {
+  .site-identity p {
+    color: #7d7373;
+    font-family: var(--display-font);
+    font-size: 12px;
+    letter-spacing: 1px;
+    line-height: 1.6;
+    margin: 7px 0 0;
+  }
+
+  .desktop-nav {
+    font-family: var(--display-font);
+    font-size: 13px;
+    letter-spacing: 1px;
+    padding-top: 10px;
+    text-transform: uppercase;
+  }
+
+  .desktop-nav > ul {
+    align-items: flex-start;
     display: flex;
-    gap: clamp(0.75rem, 2.5vw, 1.7rem);
+    gap: 30px;
     list-style: none;
     margin: 0;
     padding: 0;
   }
 
-  nav a {
-    color: var(--muted);
-    font-size: 0.78rem;
-    font-weight: 650;
-    text-decoration: none;
+  .desktop-nav a,
+  .desktop-nav summary {
+    color: #777;
+    cursor: pointer;
+    display: block;
+    line-height: 1.6;
   }
 
-  nav a:hover,
-  nav a[aria-current="page"] {
-    color: var(--accent-dark);
+  .desktop-nav a:hover,
+  .desktop-nav a[aria-current="page"],
+  .desktop-nav summary:hover,
+  .desktop-nav summary[aria-current="page"] {
+    color: #111;
   }
 
-  @media (max-width: 700px) {
+  .nav-folder {
+    position: relative;
+  }
+
+  .nav-folder details,
+  .nav-folder summary {
+    margin: 0;
+  }
+
+  .nav-folder summary {
+    list-style: none;
+  }
+
+  .nav-folder summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .nav-folder summary span {
+    font-size: 0.75em;
+  }
+
+  .submenu {
+    background: var(--background);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    display: none;
+    left: -18px;
+    list-style: none;
+    min-width: 260px;
+    padding: 14px 18px 16px;
+    position: absolute;
+    top: 100%;
+    z-index: 20;
+  }
+
+  .submenu li + li {
+    margin-top: 7px;
+  }
+
+  .submenu a {
+    letter-spacing: 0.06em;
+    text-transform: none;
+  }
+
+  .nav-folder:hover .submenu,
+  .nav-folder:focus-within .submenu,
+  .nav-folder details[open] .submenu {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+
+  @media (max-width: 900px) {
     .header-inner {
-      align-items: flex-start;
+      align-items: center;
       flex-direction: column;
-      gap: 0.8rem;
-      justify-content: center;
-      padding-block: 1rem;
+      padding-block: 14px 28px;
+      text-align: center;
     }
 
-    nav {
-      overflow-x: auto;
+    .desktop-nav {
+      display: none;
+    }
+
+    .site-title {
+      font-size: 34px;
+    }
+
+    .mobile-menu {
+      display: block;
+      font-family: var(--display-font);
+      margin-top: 20px;
       width: 100%;
     }
 
-    nav ul {
-      min-width: max-content;
+    .mobile-menu > summary {
+      color: #777;
+      cursor: pointer;
+      font-size: 14px;
+      list-style: none;
+      text-transform: uppercase;
+    }
+
+    .mobile-menu > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .mobile-menu nav {
+      border-top: 1px solid var(--line);
+      margin-top: 12px;
+      padding-top: 12px;
+      text-align: left;
+    }
+
+    .mobile-menu ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .mobile-menu nav > ul > li {
+      border-bottom: 1px solid #eee;
+      padding-block: 8px;
+    }
+
+    .mobile-menu a,
+    .mobile-group > span {
+      color: #666;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .mobile-group ul {
+      padding: 6px 0 0 16px;
+    }
+
+    .mobile-group li {
+      padding-block: 3px;
+    }
+
+    .mobile-group li a {
+      letter-spacing: 0;
+      text-transform: none;
     }
   }
 </style>
