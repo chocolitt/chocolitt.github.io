@@ -16,7 +16,6 @@ const { title, code, institution, term, summary, archived, legacyPath } = entry.
       <h1>{code}: {title}</h1>
       <p>{institution} · {term}{archived ? " · Course archive" : ""}</p>
       <p>{summary}</p>
-      {legacyPath && <p><a href={legacyPath}>Original course-page address</a></p>}
     </header>
     <nav class="course-nav" aria-label="On this page">
       <slot name="navigation" />

@@ -8,8 +8,6 @@ archived: true
 legacyPath: /mat445_winter2026.html
 ---
 
-This page preserves the course information as originally published for Winter 2026.
-
 [Download the syllabus (PDF)](/downloads/mat445-representation-theory-2026-syllabus.pdf)
 
 ## People

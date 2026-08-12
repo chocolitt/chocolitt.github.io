@@ -24,9 +24,7 @@ const canonicalUrl = Astro.props.canonicalUrl ?? new URL(urlId, Astro.site).href
       </script>
       <script is:inline async src="https://cdn.fastcomments.com/js/embed-v2-async.min.js"></script>
     </>
-  ) : (
-    <p class="configuration-note">Comments are hidden in this build because the FastComments tenant ID is not configured.</p>
-  )}
+  ) : null}
 </section>
 
 <style>
@@ -38,12 +36,5 @@ const canonicalUrl = Astro.props.canonicalUrl ?? new URL(urlId, Astro.site).href
 
   .comments h2 {
     margin-top: 0;
-  }
-
-  .configuration-note {
-    background: #f3f3f3;
-    color: #777;
-    font-size: 0.85rem;
-    padding: 1rem;
   }
 </style>
