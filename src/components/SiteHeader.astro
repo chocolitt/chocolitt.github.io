@@ -236,7 +236,6 @@ const groupIsActive = (links: typeof workLinks) => links.some((link) => isActive
   }
 
   .nav-folder:hover .submenu,
-  .nav-folder:focus-within .submenu,
   .nav-folder details[open] .submenu {
     display: block;
   }
@@ -320,3 +319,48 @@ const groupIsActive = (links: typeof workLinks) => links.some((link) => isActive
     }
   }
 </style>
+
+<script>
+  const desktopFolders = Array.from(
+    document.querySelectorAll<HTMLDetailsElement>(".desktop-nav .nav-folder > details"),
+  );
+
+  const closeFolder = (folder: HTMLDetailsElement) => {
+    folder.open = false;
+  };
+
+  for (const folder of desktopFolders) {
+    const wrapper = folder.closest<HTMLElement>(".nav-folder");
+    const summary = folder.querySelector<HTMLElement>("summary");
+
+    folder.addEventListener("toggle", () => {
+      if (!folder.open) return;
+      for (const otherFolder of desktopFolders) {
+        if (otherFolder !== folder) closeFolder(otherFolder);
+      }
+    });
+
+    wrapper?.addEventListener("pointerleave", (event) => {
+      if (event.pointerType === "mouse") closeFolder(folder);
+    });
+
+    folder.addEventListener("focusout", () => {
+      requestAnimationFrame(() => {
+        if (!folder.contains(document.activeElement)) closeFolder(folder);
+      });
+    });
+
+    folder.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape") return;
+      closeFolder(folder);
+      summary?.focus();
+    });
+  }
+
+  document.addEventListener("pointerdown", (event) => {
+    if (!(event.target instanceof Node)) return;
+    for (const folder of desktopFolders) {
+      if (!folder.contains(event.target)) closeFolder(folder);
+    }
+  });
+</script>
