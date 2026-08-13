@@ -123,6 +123,61 @@ def contains_math(body: str) -> bool:
     )
 
 
+ABSTRACT_HEADING_PATTERN = re.compile(
+    r'<h3(?:\s+[^>]*)?>\s*\\\(\\qquad\\\)\+\s*Abstract\s*</h3>',
+    flags=re.IGNORECASE,
+)
+
+
+def publication_abstracts(value: str, title: str) -> str:
+    """Restore the publications page's collapsed abstract controls.
+
+    Squarespace used an ``+ Abstract`` heading followed by either a blockquote
+    or plain text. Wrapping the abstract body in a raw HTML container both
+    restores the disclosure interaction and prevents Markdown from consuming
+    TeX backslashes inside the body.
+    """
+    if title != "Publications and Preprints":
+        return value
+
+    def compact(body: str) -> str:
+        body = re.sub(r"^(?:<p>\s*</p>\s*)+", "", body.strip(), flags=re.IGNORECASE)
+        body = re.sub(r"(?:\s*<p>\s*</p>)+$", "", body, flags=re.IGNORECASE)
+        return normalize_space(body)
+
+    def quoted(match: re.Match[str]) -> str:
+        body = compact(match.group(1))
+        return (
+            '<details class="publication-abstract"><summary>Abstract</summary>'
+            f'<blockquote><div class="publication-abstract-body">{body}</div></blockquote></details>'
+        )
+
+    quoted_pattern = re.compile(
+        ABSTRACT_HEADING_PATTERN.pattern + r"\s*<blockquote>(.*?)</blockquote>",
+        flags=re.DOTALL | re.IGNORECASE,
+    )
+    value, quoted_count = quoted_pattern.subn(quoted, value)
+
+    def unquoted(match: re.Match[str]) -> str:
+        body = compact(match.group(1))
+        return (
+            '<details class="publication-abstract"><summary>Abstract</summary>'
+            f'<div class="publication-abstract-body">{body}</div></details>'
+        )
+
+    unquoted_pattern = re.compile(
+        ABSTRACT_HEADING_PATTERN.pattern + r"\s*(.*?)(?=\s*<p>•|\s*<h2>|\Z)",
+        flags=re.DOTALL | re.IGNORECASE,
+    )
+    value, unquoted_count = unquoted_pattern.subn(unquoted, value)
+    if quoted_count + unquoted_count != 32:
+        raise SystemExit(
+            "Expected 32 collapsible publication abstracts, found "
+            f"{quoted_count + unquoted_count}"
+        )
+    return value
+
+
 def safe_filename(value: str) -> str:
     value = unquote(value).replace("\x00", "")
     value = re.sub(r"[^A-Za-z0-9._-]+", "-", value).strip("-.")
@@ -429,6 +484,7 @@ def clean_body(body: str, assets: AssetCatalog, title: str) -> str:
     parser.feed(body)
     parser.close()
     cleaned = SemanticRenderer(assets, title).children(parser.root)
+    cleaned = publication_abstracts(cleaned, title)
     # Markdown interprets four-space-indented HTML as a code block. Squarespace
     # emits presentation indentation between blocks, so remove it only when a
     # line begins with an HTML tag; indentation inside textual <pre> content is

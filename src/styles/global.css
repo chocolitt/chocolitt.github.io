@@ -310,6 +310,44 @@ figcaption {
   margin-block: 0.75rem;
 }
 
+.prose details.publication-abstract {
+  margin: 0.8rem 0 1.25rem;
+}
+
+.prose details.publication-abstract > summary {
+  color: var(--heading);
+  cursor: pointer;
+  font-family: var(--display-font);
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  list-style: none;
+  margin-left: 42px;
+  text-transform: uppercase;
+}
+
+.prose details.publication-abstract > summary::-webkit-details-marker {
+  display: none;
+}
+
+.prose details.publication-abstract > summary::before {
+  content: "+ ";
+}
+
+.prose details.publication-abstract[open] > summary::before {
+  content: "− ";
+}
+
+.prose details.publication-abstract blockquote,
+.prose details.publication-abstract > .publication-abstract-body {
+  margin-top: 0.8rem;
+}
+
+.prose details.publication-abstract > .publication-abstract-body {
+  padding-left: 51px;
+  width: 80%;
+}
+
 @media (max-width: 750px) {
   .shell {
     margin-top: 0;
@@ -325,6 +363,15 @@ figcaption {
   }
 
   blockquote {
+    padding-left: 24px;
+    width: 100%;
+  }
+
+  .prose details.publication-abstract > summary {
+    margin-left: 0;
+  }
+
+  .prose details.publication-abstract > .publication-abstract-body {
     padding-left: 24px;
     width: 100%;
   }

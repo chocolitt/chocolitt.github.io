@@ -225,6 +225,9 @@ def main() -> int:
         if len(sources) > 1:
             failures.append(f"duplicate content legacyPath {legacy_path}: {', '.join(sources)}")
 
+    publications_source = (content_root / "pages/publications-and-preprints.md").read_text(encoding="utf-8")
+    publications_body = publications_source.split("---", 2)[-1]
+
     expected_squarespace = expected_lines(validation / "expected-squarespace-paths.txt")
     expected_sitemap = expected_squarespace | EXTRA_SITEMAP_PATHS
     sitemap_root = ET.parse(dist / "sitemap.xml").getroot()
@@ -384,6 +387,18 @@ def main() -> int:
                 failures.append(f"{path}: missing Twitter summary-card metadata")
             if not meta_value(parser, name="viewport"):
                 failures.append(f"{path}: missing viewport metadata")
+
+        if path == "/publications-and-preprints":
+            if text.count('class="publication-abstract"') != 32 or text.count("<summary>Abstract</summary>") != 32:
+                failures.append(f"{path}: expected 32 native collapsible abstract controls")
+            for delimiter in (r"\(", r"\)", r"\[", r"\]", "$"):
+                expected_count = publications_body.count(delimiter)
+                actual_count = text.split("<article", 1)[-1].split("</article>", 1)[0].count(delimiter)
+                if actual_count != expected_count:
+                    failures.append(
+                        f"{path}: TeX delimiter {delimiter!r} count changed "
+                        f"from {expected_count} in source to {actual_count} in output"
+                    )
 
     public_files = [path for path in dist.rglob("*") if path.is_file()]
     oversized = [path for path in public_files if path.stat().st_size >= 100_000_000]
