@@ -1,10 +1,15 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
+import BlogFrame from "../../components/BlogFrame.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const posts = (await getCollection("blog", ({ data }) => !data.draft || import.meta.env.DEV)).sort(
   (a, b) => b.data.published.valueOf() - a.data.published.valueOf(),
 );
+const feedPosts = await Promise.all(
+  posts.slice(0, 20).map(async (post) => ({ post, Content: (await render(post)).Content })),
+);
+const olderPosts = posts.slice(20);
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
   day: "numeric",
   month: "long",
@@ -13,52 +18,88 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
 });
 ---
 
-<BaseLayout title="Betalog" description="Blog of Daniel Litt, about math and other things.">
-  <section class="blog-index shell page-content">
-    <header class="section-intro">
-      <h1>βlog</h1>
-      <p>Blog of Daniel Litt, about math and other things.</p>
-    </header>
-    <ol class="post-list plain-list">
-      {posts.map((post) => (
-        <li>
-          <article>
+<BaseLayout
+  title="Betalog"
+  description="Blog of Daniel Litt, about math and other things."
+  math={feedPosts.some(({ post }) => post.data.math)}
+>
+  <BlogFrame isIndex>
+    <div class="blog-feed">
+      {feedPosts.map(({ post, Content }) => (
+        <article class="feed-item" data-post-path={post.data.legacyPath}>
+          <header class="post-header">
             <h2>
               <a href={post.data.legacyPath}>{post.data.title}</a>
               {post.data.draft && <span class="draft-label">Draft</span>}
             </h2>
-            <time datetime={post.data.published.toISOString()}>{dateFormatter.format(post.data.published)}</time>
-            <p>{post.data.description}</p>
-            <a class="read-more" href={post.data.legacyPath}>Read more</a>
-          </article>
-        </li>
+            <p class="post-meta">
+              <time datetime={post.data.published.toISOString()}>{dateFormatter.format(post.data.published)}</time>
+            </p>
+          </header>
+          {post.data.indexExcerpt ? (
+            <div class="prose blog-post-body" set:html={post.data.indexExcerpt} />
+          ) : (
+            <div class="prose blog-post-body"><Content /></div>
+          )}
+          {post.data.indexExcerpt && (
+            <p class="read-more"><a href={post.data.legacyPath}>Read More →</a></p>
+          )}
+        </article>
       ))}
-    </ol>
-  </section>
+    </div>
+
+    {olderPosts.length > 0 && (
+      <details class="older-posts">
+        <summary>Older Posts →</summary>
+        <ol>
+          {olderPosts.map((post) => (
+            <li>
+              <a href={post.data.legacyPath}>{post.data.title}</a>
+              <time datetime={post.data.published.toISOString()}>{dateFormatter.format(post.data.published)}</time>
+            </li>
+          ))}
+        </ol>
+      </details>
+    )}
+  </BlogFrame>
 </BaseLayout>
 
+<script>
+  for (const article of document.querySelectorAll<HTMLElement>(".feed-item[data-post-path]")) {
+    const postPath = article.dataset.postPath;
+    if (!postPath) continue;
+    for (const link of article.querySelectorAll<HTMLAnchorElement>('a[href^="#"]')) {
+      link.href = `${postPath}${link.getAttribute("href")}`;
+    }
+  }
+</script>
+
 <style>
-  .blog-index {
-    max-width: var(--site-width);
-  }
-
-  .section-intro p {
-    margin: 0;
-  }
-
-  .post-list li + li {
+  .feed-item + .feed-item {
     border-top: 1px solid var(--line);
-    margin-top: 2.5rem;
-    padding-top: 2.5rem;
+    margin-top: 84px;
+    padding-top: 95px;
   }
 
-  article h2 {
+  .post-header {
+    margin-bottom: 15px;
+  }
+
+  .post-header h2 {
     font-size: 2rem;
-    margin: 0 0 0.2rem;
+    line-height: 1.5;
+    margin: 0 0 6px;
   }
 
-  article h2 a {
+  .post-header h2 a {
     color: var(--heading);
+  }
+
+  .post-meta {
+    color: #b3b3b3;
+    font-size: 0.9rem;
+    line-height: 2;
+    margin: 0;
   }
 
   .draft-label {
@@ -75,20 +116,66 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
     vertical-align: middle;
   }
 
-  time,
+  .blog-post-body :global(> :first-child) {
+    margin-top: 0;
+  }
+
+  .blog-post-body :global(img) {
+    display: block;
+    margin-inline: auto;
+  }
+
+  .blog-post-body :global(h2) {
+    line-height: 1.2;
+  }
+
   .read-more {
-    color: var(--muted);
     font-family: var(--display-font);
-    font-size: 0.78rem;
-    letter-spacing: 0.03em;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    margin: 1.5rem 0 0;
+    text-transform: uppercase;
   }
 
-  article p {
-    margin-top: 1.25rem;
-    max-width: 58rem;
+  .older-posts {
+    border-top: 1px solid var(--line);
+    margin-top: 90px;
+    padding-top: 36px;
   }
 
-  .read-more {
-    color: var(--link);
+  .older-posts summary {
+    color: var(--heading);
+    cursor: pointer;
+    font-family: var(--display-font);
+    letter-spacing: 0.06em;
+    list-style: none;
+    text-transform: uppercase;
+  }
+
+  .older-posts summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .older-posts ol {
+    list-style: none;
+    margin: 2rem 0 0;
+    padding: 0;
+  }
+
+  .older-posts li + li {
+    margin-top: 1rem;
+  }
+
+  .older-posts a {
+    display: block;
+    font-family: var(--display-font);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .older-posts time {
+    color: var(--muted);
+    display: block;
+    font-size: 0.85rem;
   }
 </style>

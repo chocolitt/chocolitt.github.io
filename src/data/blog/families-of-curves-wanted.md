@@ -1,6 +1,7 @@
 ---
 title: "Families of Curves Wanted"
 description: "An interesting problem Let \\(n\\) be a large positive integer. Recently I've been looking for a family of curves \\(f_n: \\mathscr{C}_n\\to \\mathbb{P}^1\\) with the following properties: \\(f_n\\) is flat and proper of relative dimension \\(1\\)…"
+indexExcerpt: "<h2>An interesting problem</h2><p>Let \\(n\\) be a large positive integer.  Recently I've been looking for a family of curves \\(f_n: \\mathscr{C}_n\\to \\mathbb{P}^1\\) with the following properties:</p><ul><li>\\(f_n\\) is flat and proper of relative dimension \\(1\\),</li><li>the general fiber of \\(f_n\\) is smooth, and the family is not isotrivial</li><li>every singularity that appears in a fiber of \\(f_n\\) is etale-locally of the form $$xy=t^n$$ where \\(t\\) is a parameter on \\(\\mathbb{P}^1\\)...</li></ul>"
 published: "2016-08-29T01:26:40Z"
 draft: false
 tags: [{"name": "curves", "path": "/blog/tag/curves"}, {"name": "open problem", "path": "/blog/tag/open+problem"}, {"name": "math", "path": "/blog/tag/math"}]

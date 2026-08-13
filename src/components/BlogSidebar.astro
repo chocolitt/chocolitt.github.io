@@ -1,0 +1,210 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  posts: CollectionEntry<"blog">[];
+}
+
+const { posts } = Astro.props;
+const sortedPosts = [...posts]
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf());
+const latestPosts = sortedPosts.slice(0, 10);
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+  timeZone: "UTC",
+});
+
+const blogroll = [
+  ["Geometry Bulletin Board", "https://burttotaro.wordpress.com/"],
+  ["Gowers's Weblog", "https://gowers.wordpress.com/"],
+  ["Mathbabe", "https://mathbabe.org/"],
+  ["Not Even Wrong", "http://www.math.columbia.edu/~woit/wordpress/"],
+  ["Quomodocumque", "https://quomodocumque.wordpress.com/"],
+  ["Shtetl Optimized", "http://www.scottaaronson.com/blog/"],
+  ["Slatestarcodex", "http://slatestarcodex.com/"],
+  ["Stacks Project Blog", "http://math.columbia.edu/~dejong/wordpress/"],
+  ["Totally Disconnected", "https://totallydisconnected.wordpress.com/"],
+  ["What's New", "https://terrytao.wordpress.com/"],
+] as const;
+
+const sidebarTagOrder = [
+  "biosphere",
+  "cool",
+  "fiction",
+  "math",
+  "open problem",
+  "politics",
+  "proofs",
+  "scientism",
+  "tautological ring",
+  "teaching",
+  "technocracy",
+  "twisted sheaves",
+  "typography",
+  "weird",
+];
+const sidebarCategoryOrder = [
+  "amazing",
+  "conferences",
+  "data",
+  "fiction",
+  "linguistics",
+  "links",
+  "math",
+  "politics",
+  "review",
+];
+
+const taxonomyLinks = (kind: "tags" | "categories", order: string[]) => {
+  const available = new Map<string, { name: string; path: string }>();
+  for (const post of sortedPosts) {
+    for (const item of post.data[kind]) available.set(item.name.toLocaleLowerCase(), item);
+  }
+  return order.flatMap((name) => {
+    const item = available.get(name);
+    return item ? [item] : [];
+  });
+};
+
+const sidebarTags = taxonomyLinks("tags", sidebarTagOrder);
+const sidebarCategories = taxonomyLinks("categories", sidebarCategoryOrder);
+---
+
+<aside class="blog-sidebar" aria-label="Blog sidebar">
+  <section class="sidebar-section">
+    <h2>Latest Posts</h2>
+    <ol class="latest-posts">
+      {latestPosts.map((post) => (
+        <li>
+          <a href={post.data.legacyPath}>{post.data.title}</a>
+          <time datetime={post.data.published.toISOString()}>{dateFormatter.format(post.data.published)}</time>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="sidebar-section">
+    <h2>Search</h2>
+    <form action="/search" method="get" role="search">
+      <label class="visually-hidden" for="blog-search">Search this site</label>
+      <input id="blog-search" name="q" type="search" />
+    </form>
+  </section>
+
+  <section class="sidebar-section blogroll">
+    <h2>Blogs I Like</h2>
+    <ul>
+      {blogroll.map(([label, href]) => <li><a href={href}>{label}</a></li>)}
+    </ul>
+  </section>
+
+  {sidebarTags.length > 0 && (
+    <section class="sidebar-section">
+      <h2>Tags</h2>
+      <ul class="taxonomy-links">
+        {sidebarTags.map((tag) => <li><a href={tag.path}>{tag.name}</a></li>)}
+      </ul>
+    </section>
+  )}
+
+  {sidebarCategories.length > 0 && (
+    <section class="sidebar-section">
+      <h2>Categories</h2>
+      <ul class="taxonomy-links">
+        {sidebarCategories.map((category) => <li><a href={category.path}>{category.name}</a></li>)}
+      </ul>
+    </section>
+  )}
+</aside>
+
+<style>
+  .blog-sidebar {
+    min-width: 0;
+  }
+
+  .sidebar-section + .sidebar-section {
+    margin-top: 54px;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+    line-height: 1.2;
+    margin: 0 0 29px;
+  }
+
+  ol,
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .latest-posts li + li {
+    margin-top: 24px;
+  }
+
+  .latest-posts a {
+    color: var(--muted);
+    display: block;
+    font-family: var(--display-font);
+    font-size: 1.2rem;
+    letter-spacing: 0.06em;
+    line-height: 1.35;
+    text-transform: uppercase;
+  }
+
+  .latest-posts a:hover,
+  .blogroll a:hover,
+  .taxonomy-links a:hover {
+    color: var(--heading);
+  }
+
+  time {
+    color: #aaa;
+    display: block;
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  input {
+    background: #fff;
+    border: 1px solid #d4d4d4;
+    border-radius: 0;
+    color: var(--text);
+    font: inherit;
+    padding: 0.55rem 0.65rem;
+    width: 100%;
+  }
+
+  .blogroll ul {
+    list-style: disc;
+    padding-left: 40px;
+  }
+
+  .blogroll li,
+  .taxonomy-links li {
+    line-height: 1.8;
+  }
+
+  .blogroll a,
+  .taxonomy-links a {
+    color: var(--muted);
+  }
+
+  .taxonomy-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 0.75rem;
+  }
+
+  @media (max-width: 900px) {
+    .blog-sidebar {
+      border-top: 1px solid var(--line);
+      margin-top: 70px;
+      padding-top: 55px;
+    }
+  }
+</style>

@@ -1,6 +1,7 @@
 ---
 title: "Krashen the party"
 description: "I'm at UGA for the week, in between SWAG and TAAAG . Today Danny Krashen gave a great talk on this paper of Auel, First, and Williams. The paper is one of the latest in a long tradition of papers which construct counterexamples by making…"
+indexExcerpt: "<p>I'm at UGA for the week, in between <a href=\"https://sites.google.com/site/ugaswag2016/\">SWAG</a> and <a href=\"http://torsor.github.io/taaag/\">TAAAG</a>.  Today <a href=\"http://dkrashen.github.io/\">Danny Krashen</a> gave a great talk on <a href=\"http://arxiv.org/abs/1510.06133\">this paper</a> of Auel, First, and Williams.  The paper is one of the latest in a long tradition of papers which construct counterexamples by making a topological computation and then approximating the relevant topological spaces by algebraic varieties.  (To my knowledge, this technique began with <a href=\"http://www.math.ucla.edu/~totaro/\">Totaro</a>, but it has been exploited to great effect by <a href=\"https://dantie1.people.uic.edu/\">Antieau</a>, <a href=\"http://www.math.ubc.ca/~tbjw/\">Williams</a>, and most recently, fellow Ravi student <a href=\"http://arxiv.org/abs/1601.06170\">Arnav Tripathy</a>.) ...</p>"
 published: "2016-08-30T03:35:26Z"
 draft: false
 tags: [{"name": "math", "path": "/blog/tag/math"}, {"name": "twisted sheaves", "path": "/blog/tag/twisted+sheaves"}]

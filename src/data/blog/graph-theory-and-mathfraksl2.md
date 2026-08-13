@@ -1,6 +1,7 @@
 ---
 title: "Graph Theory and \\(\\mathfrak{sl}_2\\)"
 description: "How many unlabeled graphs are there with \\(n\\) vertices and \\(k\\) edges? (More below the fold.)"
+indexExcerpt: "<p>How many unlabeled graphs are there with \\(n\\) vertices and \\(k\\) edges? (More below the fold.)</p>"
 published: "2016-12-15T14:18:00Z"
 draft: false
 tags: [{"name": "math", "path": "/blog/tag/math"}, {"name": "combinatorics", "path": "/blog/tag/combinatorics"}, {"name": "representation theory", "path": "/blog/tag/representation+theory"}]

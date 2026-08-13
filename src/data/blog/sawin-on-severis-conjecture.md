@@ -1,6 +1,7 @@
 ---
 title: "Sawin on Severi's Conjecture"
 description: "One of my favorite questions is: for which \\(g, n, p\\) is the moduli space of \\(n\\)-pointed genus \\(g\\) curves \\(\\mathscr{M}_{g,n, \\mathbb{F}_p}\\) unirational/uniruled? Will Sawin has just posted a beautiful paper on the ArXiv answering…"
+indexExcerpt: "<p>One of my favorite questions is: for which \\(g, n, p\\) is the moduli space of \\(n\\)-pointed genus \\(g\\) curves \\(\\mathscr{M}_{g,n, \\mathbb{F}_p}\\) unirational/uniruled?  <a href=\"http://williamsawin.com/\">Will Sawin</a> has just posted <a href=\"https://arxiv.org/pdf/1702.04404.pdf\">a beautiful paper</a> on the ArXiv answering this question in most cases, for \\(g=1\\).  Indeed, he shows that for \\(n\\geq p\\geq 11, \\mathscr{M}_{1, n, \\mathbb{F}_p}\\) is not uniruled... (more below the fold)</p>"
 published: "2017-02-23T14:54:00Z"
 draft: false
 tags: [{"name": "math", "path": "/blog/tag/math"}, {"name": "tautological ring", "path": "/blog/tag/tautological+ring"}, {"name": "proofs", "path": "/blog/tag/proofs"}]

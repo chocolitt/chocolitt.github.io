@@ -85,10 +85,10 @@ EDITORIAL_ALT_TEXT: dict[str, str] = json.loads(
     Path(__file__).with_name("editorial-image-alts.json").read_text(encoding="utf-8")
 )
 
-# Squarespace's WordPress export keeps media order but drops the Fluid Engine
-# grid, crop, and alignment data. These small, named roles restore the visual
-# treatment of permanent-page images without retaining Squarespace's runtime.
-PAGE_MEDIA_ROLES: dict[str, list[str]] = {
+# Squarespace's WordPress export keeps media order but drops grid, crop,
+# alignment, and intrinsic-size data. These small, named roles restore the
+# visual treatment of affected images without retaining Squarespace's runtime.
+CONTENT_MEDIA_ROLES: dict[str, list[str]] = {
     "publications and preprints": ["media-banner media-publications"],
     "teaching and service": ["media-ornament media-teaching-portrait", "media-banner media-teaching-divider"],
     "about": ["media-panel media-about"],
@@ -99,6 +99,7 @@ PAGE_MEDIA_ROLES: dict[str, list[str]] = {
     "open questions": ["media-ornament media-open-questions"],
     "mat138h1": ["media-banner media-mat138"],
     "agonize": ["media-poster"],
+    "the end of mathematics": ["media-slide"] * 16,
 }
 
 
@@ -495,7 +496,7 @@ class SemanticRenderer:
         self.seen_h1 = False
         self.used_ids: set[str] = set()
         self.image_index = 0
-        self.media_roles = PAGE_MEDIA_ROLES.get(self.title, [])
+        self.media_roles = CONTENT_MEDIA_ROLES.get(self.title, [])
 
     def unique_id(self, value: str) -> str:
         """Keep imported fragment targets valid while preventing duplicate IDs."""
@@ -743,19 +744,28 @@ def main() -> None:
         title = item.findtext("title") or "Untitled"
         body = item.findtext("content:encoded", namespaces=NAMESPACES) or ""
         cleaned = clean_body(body, catalog, title)
-        if contains_math(body):
+        excerpt = item.findtext("excerpt:encoded", namespaces=NAMESPACES) or ""
+        cleaned_excerpt = clean_body(excerpt, catalog, title) if text_from_html(excerpt) else ""
+        body_has_math = contains_math(body)
+        if body_has_math:
             math_paths.add(legacy_path)
         if post_type == "post":
+            tags = taxonomies_for(item, path_map, "post_tag")
+            categories = taxonomies_for(item, path_map, "category")
+            if body_has_math:
+                math_paths.add("/blog")
+                math_paths.update(item["path"] for item in [*tags, *categories])
             output = site_root / "src/data/blog" / output_name(legacy_path)
             data = [
                 ("title", title),
                 ("description", description_for(item, body)),
+                *([("indexExcerpt", cleaned_excerpt)] if cleaned_excerpt else []),
                 ("published", published_iso(item)),
                 ("draft", False),
-                ("tags", taxonomies_for(item, path_map, "post_tag")),
-                ("categories", taxonomies_for(item, path_map, "category")),
+                ("tags", tags),
+                ("categories", categories),
                 ("comments", item.findtext("wp:comment_status", namespaces=NAMESPACES) == "open"),
-                ("math", contains_math(body)),
+                ("math", body_has_math),
                 ("legacyPath", legacy_path),
                 ("imported", True),
             ]
@@ -768,7 +778,7 @@ def main() -> None:
                 ("displayTitle", display_title_for(body, title)),
                 ("description", description_for(item, body)),
                 ("legacyPath", legacy_path),
-                ("math", contains_math(body)),
+                ("math", body_has_math),
                 ("imported", True),
             ]
         write_markdown(output, data, cleaned)

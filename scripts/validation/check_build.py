@@ -287,7 +287,10 @@ def main() -> int:
             if phrase in lower_text:
                 failures.append((Path(relative), f"internal migration copy is public: {phrase!r}"))
         for link in parser.links:
-            if link.startswith("#") and link[1:] not in parser.ids:
+            # Full post bodies on /blog rewrite fragment-only links to their
+            # immutable post URLs in the page script, so they are not
+            # same-document links at runtime.
+            if relative != "blog/index.html" and link.startswith("#") and link[1:] not in parser.ids:
                 failures.append((Path(relative), f"missing same-page fragment target: {link}"))
 
     for relative in [

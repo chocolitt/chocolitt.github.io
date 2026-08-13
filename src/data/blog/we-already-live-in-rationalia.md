@@ -1,6 +1,7 @@
 ---
 title: "Rationalia, USA"
 description: "In June 2016, Neil deGrasse Tyson proposed (not entirely seriously, as this series of tweets should make obvious) the creation of a new country: Rationalia, governed by the dictum \" All policy shall be based on the weight of evidence .\"…"
+indexExcerpt: "<p>In June 2016, Neil deGrasse Tyson proposed (not entirely seriously, as <a href=\"https://twitter.com/neildgrasetyson/status/763846763115446272\">this series of tweets</a> should make obvious) the creation of a new country:  Rationalia, governed by the dictum \"<em>All policy shall be based on the weight of evidence</em><em>.\"</em>  To Tyson and the other citizens of Rationalia (including physicist Brian Greene, whose office I briefly occupied while mine was under construction this summer), this was obviously a good idea...</p>"
 published: "2016-10-12T13:20:00Z"
 draft: false
 tags: [{"name": "rationality", "path": "/blog/tag/rationality"}, {"name": "scientism", "path": "/blog/tag/scientism"}, {"name": "technocracy", "path": "/blog/tag/technocracy"}]

@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogFrame from "./BlogFrame.astro";
 
 interface Props {
   label: string;
@@ -10,7 +11,7 @@ interface Props {
 }
 
 const { label, kind, path, posts } = Astro.props;
-const sortedPosts = posts.sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf());
+const sortedPosts = [...posts].sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf());
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
   day: "numeric",
   month: "long",
@@ -23,27 +24,36 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
   title={`${kind}: ${label}`}
   description={`${kind} archive for ${label} on Daniel Litt's blog.`}
   canonicalPath={path}
+  math={sortedPosts.some((post) => post.data.math)}
 >
-  <section class="taxonomy-index shell page-content">
-    <header class="section-intro">
-      <p class="eyebrow"><a href="/blog">βlog</a></p>
-      <h1>{kind}: {label}</h1>
-    </header>
-    <ol class="plain-list">
-      {sortedPosts.map((post) => (
-        <li>
-          <h2><a href={post.data.legacyPath}>{post.data.title}</a></h2>
-          <time datetime={post.data.published.toISOString()}>{dateFormatter.format(post.data.published)}</time>
-          <p>{post.data.description}</p>
-        </li>
-      ))}
-    </ol>
-  </section>
+  <BlogFrame>
+    <section class="taxonomy-index">
+      <header class="taxonomy-header">
+        <h1>{kind}: {label}</h1>
+      </header>
+      <ol class="plain-list">
+        {sortedPosts.map((post) => (
+          <li>
+            <h2><a href={post.data.legacyPath}>{post.data.title}</a></h2>
+            <time datetime={post.data.published.toISOString()}>{dateFormatter.format(post.data.published)}</time>
+            <p>{post.data.description}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+  </BlogFrame>
 </BaseLayout>
 
 <style>
-  .taxonomy-index {
-    max-width: var(--site-width);
+  .taxonomy-header {
+    margin-bottom: 42px;
+  }
+
+  .taxonomy-header h1,
+  li h2 {
+    font-size: 2rem;
+    line-height: 1.5;
+    margin: 0 0 6px;
   }
 
   li + li {
@@ -52,17 +62,13 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
     padding-top: 2rem;
   }
 
-  h2 {
-    margin: 0 0 0.2rem;
-  }
-
   h2 a {
     color: var(--heading);
   }
 
   time {
-    color: var(--muted);
-    font-family: var(--display-font);
-    font-size: 0.78rem;
+    color: #b3b3b3;
+    font-size: 0.9rem;
+    line-height: 2;
   }
 </style>

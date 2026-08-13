@@ -1,6 +1,7 @@
 ---
 title: "Jie Liu on projective space"
 description: "Exciting news! Jie Liu has proven a conjecture of mine -- thereby resolving an old conjecture of Sommese. I'll briefly explain his result in this post."
+indexExcerpt: "<p>Exciting news!  <a href=\"http://math.unice.fr/laboratoire/fiche&amp;id=692\">Jie Liu</a> <a href=\"https://arxiv.org/pdf/1611.05823v1.pdf\">has proven</a> a conjecture of mine -- thereby <a href=\"http://link.springer.com/article/10.1007/s00229-016-0872-9\">resolving</a> an old conjecture of Sommese.  I'll briefly explain his result in this post.</p>"
 published: "2016-11-28T21:01:59Z"
 draft: false
 tags: [{"name": "math", "path": "/blog/tag/math"}, {"name": "open problem", "path": "/blog/tag/open+problem"}]

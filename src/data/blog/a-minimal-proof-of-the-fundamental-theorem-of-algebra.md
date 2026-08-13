@@ -1,6 +1,7 @@
 ---
 title: "A \"minimal\" proof of the fundamental theorem of algebra"
 description: "When I was in graduate school, I came up with what I think is a nice proof of the fundamental theorem of algebra. At the time, I wrote it up here somewhat formally; I thought it might make a nice blog post, since the formal write-up obsc…"
+indexExcerpt: "<p>When I was in graduate school, I came up with what I think is a nice proof of the fundamental theorem of algebra.  At the time, I wrote it up <a href=\"/s/FTAviaIFT.pdf\">here</a> somewhat formally; I thought it might make a nice blog post, since the formal write-up obscures the very simple underlying ideas.  The goal was to use the minimal amount of technology possible -- in the end I use just a little algebra and some elementary point-set topology, as well as the implicit function theorem...</p>"
 published: "2016-10-07T14:27:00Z"
 draft: false
 tags: [{"name": "math", "path": "/blog/tag/math"}, {"name": "proofs", "path": "/blog/tag/proofs"}, {"name": "teaching", "path": "/blog/tag/teaching"}]

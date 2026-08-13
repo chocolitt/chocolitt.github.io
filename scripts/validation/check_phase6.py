@@ -49,6 +49,9 @@ EXPECTED_DECORATIVE_IMAGES = {
     ("/teaching", "/assets/squarespace/52d8beda1b95-image-asset.webp"),
 }
 EXPECTED_VISUAL_FIDELITY = {
+    "/blog": {"feed-item": 20, "blog-sidebar": 1, "media-slide": 16},
+    "/blog/2026/8/11/the-end-of-mathematics": {"blog-sidebar": 1, "media-slide": 16},
+    "/blog/2026/2/20/mathematics-in-the-library-of-babel": {"blog-sidebar": 1},
     "/publications-and-preprints": {"media-publications": 1, "fidelity-grid--sidebar": 2},
     "/teaching": {"media-teaching-portrait": 1, "media-teaching-divider": 1, "fidelity-grid--two": 2},
     "/about": {"media-about": 1},
@@ -413,7 +416,10 @@ def main() -> int:
                     )
 
         for marker, expected_count in EXPECTED_VISUAL_FIDELITY.get(path, {}).items():
-            actual_count = text.count(marker)
+            actual_count = sum(
+                marker in attrs.get("class", "").split()
+                for _, attrs in parser.attrs
+            )
             if actual_count != expected_count:
                 failures.append(
                     f"{path}: expected visual-fidelity marker {marker!r} "

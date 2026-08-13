@@ -1,6 +1,7 @@
 ---
 title: "Varieties with infinitely generated automorphism group"
 description: "John Lesieutre has just sent me an exciting new preprint in which he constructs a smooth projective variety \\(X\\) such that \\(\\text{Aut}(X)\\) is discrete, and \\(\\text{Aut}(X)\\) is not finitely generated. Whether or not such varieties exi…"
+indexExcerpt: "<p><a href=\"http://jdl.people.uic.edu/\">John Lesieutre </a>has just sent me an exciting new preprint in which he constructs a smooth projective variety \\(X\\) such that</p><ol><li>\\(\\text{Aut}(X)\\) is discrete, and</li><li>\\(\\text{Aut}(X)\\) is not finitely generated.</li></ol><p>Whether or not such varieties existed has been an open question (asked by many people) for a long time.</p>"
 published: "2016-09-09T02:47:11Z"
 draft: false
 tags: [{"name": "automorphisms", "path": "/blog/tag/automorphisms"}, {"name": "math", "path": "/blog/tag/math"}]

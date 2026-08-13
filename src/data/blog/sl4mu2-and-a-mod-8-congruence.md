@@ -1,6 +1,7 @@
 ---
 title: "\\(SL_4/\\mu_2\\) and a mod \\(8\\) congruence"
 description: "This is a continuation of a previous post . Recall that we wanted to prove the following claim: Claim. Let \\(\\rho\\) be a representation of \\(SL_4\\) such that no irreducible subrepresentation of \\(\\rho\\) descends to \\(SL_4/\\mu_2\\). Then i…"
+indexExcerpt: "<p>This is a continuation of <a href=\"/blog/2016/8/29/krashen-the-party\">a previous post</a>.  Recall that we wanted to prove the following claim:</p><p><strong>Claim.</strong>  Let \\(\\rho\\) be a representation of \\(SL_4\\) such that no irreducible subrepresentation of \\(\\rho\\) descends to \\(SL_4/\\mu_2\\).  Then if \\(\\rho\\) is self-dual, we have that $$8\\mid\\dim \\rho.$$</p>"
 published: "2016-09-01T19:41:47Z"
 draft: false
 tags: [{"name": "math", "path": "/blog/tag/math"}, {"name": "twisted sheaves", "path": "/blog/tag/twisted+sheaves"}]

@@ -1,6 +1,7 @@
 ---
 title: "Morita Theory, Tannaka Duality, and Approximate Tannaka Duality"
 description: "Let \\(R\\) be a ring -- it is well-known that the category \\(R\\text{-mod}\\) of (left) \\(R\\)-modules does not determine \\(R\\). For example, the functor $$-\\otimes R^n: R\\text{-mod}\\to \\text{Mat}_{n\\times n}(R)\\text{-mod}$$ is an equivalenc…"
+indexExcerpt: "<p>Let \\(R\\) be a ring -- it is well-known that the category \\(R\\text{-mod}\\) of (left) \\(R\\)-modules does not determine \\(R\\).  For example, the functor $$-\\otimes R^n: R\\text{-mod}\\to \\text{Mat}_{n\\times n}(R)\\text{-mod}$$ is an equivalence of categories.</p><p>That said, there is one additional piece of data that lets us recover the ring \\(R\\) from the category \\(R\\text{-mod}\\). </p>"
 published: "2016-09-12T17:12:40Z"
 draft: false
 tags: [{"name": "math", "path": "/blog/tag/math"}]

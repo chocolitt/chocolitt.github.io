@@ -1,6 +1,7 @@
 ---
 title: "Are Shimura Varieties \\(K(\\pi, 1)\\)'s?"
 description: "Let \\(\\mathscr{A}_g\\) be the moduli space of principally polarized Abelian varieties of dimension \\(g\\). The complex-analytic space (stack) associated to \\(\\mathscr{A}_g\\) is a \\(K(\\pi,1)\\); that is, its only non-vanishing homotopy group…"
+indexExcerpt: "<p>Let \\(\\mathscr{A}_g\\) be the moduli space of principally polarized Abelian varieties of dimension \\(g\\).  The complex-analytic space (stack) associated to \\(\\mathscr{A}_g\\) is a \\(K(\\pi,1)\\); that is, its only non-vanishing homotopy group is \\(\\pi_1\\), which is \\(Sp_{2g}(\\mathbb{Z})\\).  In particular, the cohomology of \\(\\mathscr{A}_g\\) is the same as the cohomlogy of \\(Sp_{2g}(\\mathbb{Z})\\).</p><p>Jesse Silliman, a graduate student at Stanford, has told me an argument that shows that this is in some sense maximally untrue when one considers the \"etale homotopy type\" of \\(\\mathscr{A}_g\\). </p>"
 published: "2016-09-28T19:07:03Z"
 draft: false
 tags: [{"name": "math", "path": "/blog/tag/math"}, {"name": "fundamental-groups", "path": "/blog/tag/fundamental-groups"}]

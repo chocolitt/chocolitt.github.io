@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import BlogFrame from "../components/BlogFrame.astro";
 import FastComments from "../components/FastComments.astro";
 import BaseLayout from "./BaseLayout.astro";
 
@@ -18,55 +19,39 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
 ---
 
 <BaseLayout title={title} description={description} canonicalPath={legacyPath} type="article" math={math}>
-  <article class="article-shell shell page-content">
-    <p class="collection-title"><a href="/blog">βlog</a></p>
-    <header class="article-header">
-      <h1>{title}</h1>
-      <p class="article-meta">
-        <time datetime={published.toISOString()}>{dateFormatter.format(published)}</time>
-        {updated && <span> · Updated {dateFormatter.format(updated)}</span>}
-      </p>
-      {draft && <p class="draft-notice" role="status">Draft preview · comments are disabled</p>}
-    </header>
-    <div class="prose article-body">
-      <slot />
-    </div>
-    {comments && !draft && <FastComments urlId={legacyPath} />}
-  </article>
+  <BlogFrame>
+    <article class="blog-post">
+      <header class="article-header">
+        <h1>{title}</h1>
+        <p class="article-meta">
+          <time datetime={published.toISOString()}>{dateFormatter.format(published)}</time>
+          {updated && <span> · Updated {dateFormatter.format(updated)}</span>}
+        </p>
+        {draft && <p class="draft-notice" role="status">Draft preview · comments are disabled</p>}
+      </header>
+      <div class="prose article-body">
+        <slot />
+      </div>
+      {comments && !draft && <FastComments urlId={legacyPath} />}
+    </article>
+  </BlogFrame>
 </BaseLayout>
 
 <style>
-  .article-shell {
-    max-width: var(--site-width);
-  }
-
-  .collection-title {
-    font-family: var(--display-font);
-    font-size: 2rem;
-    font-weight: 300;
-    letter-spacing: 0.06em;
-    line-height: 1.35;
-    margin: 0 0 1.6em;
-    text-transform: uppercase;
-  }
-
-  .collection-title a {
-    color: var(--heading);
-  }
-
   .article-header {
-    margin-bottom: 2.3rem;
+    margin-bottom: 15px;
   }
 
   .article-header h1 {
-    margin: 0 0 0.35rem;
+    font-size: 2rem;
+    line-height: 1.5;
+    margin: 0 0 6px;
   }
 
   .article-meta {
-    color: var(--muted);
-    font-family: var(--display-font);
-    font-size: 0.78rem;
-    letter-spacing: 0.03em;
+    color: #b3b3b3;
+    font-size: 0.9rem;
+    line-height: 2;
     margin: 0;
   }
 
@@ -86,7 +71,17 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
     margin-block: 2rem;
   }
 
+  .article-body :global(h2) {
+    line-height: 1.2;
+  }
+
   .article-body :global(sup) {
     font-size: 0.7em;
+  }
+
+  @media (max-width: 750px) {
+    .article-header h1 {
+      line-height: 1.5;
+    }
   }
 </style>

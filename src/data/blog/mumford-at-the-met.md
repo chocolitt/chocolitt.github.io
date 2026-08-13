@@ -1,6 +1,7 @@
 ---
 title: "Mumford at the Met"
 description: "I was at the Met yesterday, where by chance I ran across the Concinnitas Project . (Pictures below the fold.)"
+indexExcerpt: "<p>I was at the Met yesterday, where by chance I ran across the <a href=\"http://www.concinnitasproject.org/\">Concinnitas Project</a>. (Pictures below the fold.)</p>"
 published: "2017-02-13T14:39:28Z"
 draft: false
 tags: [{"name": "art", "path": "/blog/tag/art"}, {"name": "math", "path": "/blog/tag/math"}, {"name": "weird", "path": "/blog/tag/weird"}]

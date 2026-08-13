@@ -328,6 +328,7 @@ const groupIsActive = (links: typeof workLinks) => links.some((link) => isActive
   const closeFolder = (folder: HTMLDetailsElement) => {
     folder.open = false;
   };
+  const supportsHover = window.matchMedia("(hover: hover) and (pointer: fine)");
 
   for (const folder of desktopFolders) {
     const wrapper = folder.closest<HTMLElement>(".nav-folder");
@@ -340,8 +341,18 @@ const groupIsActive = (links: typeof workLinks) => links.some((link) => isActive
       }
     });
 
+    wrapper?.addEventListener("pointerenter", (event) => {
+      if (event.pointerType === "mouse" && supportsHover.matches) folder.open = true;
+    });
+
     wrapper?.addEventListener("pointerleave", (event) => {
       if (event.pointerType === "mouse") closeFolder(folder);
+    });
+
+    summary?.addEventListener("click", (event) => {
+      if (event.detail === 0 || !supportsHover.matches) return;
+      event.preventDefault();
+      folder.open = true;
     });
 
     folder.addEventListener("focusout", () => {

@@ -1,6 +1,7 @@
 ---
 title: "More Tautological Classes?"
 description: "Still at UGA -- I just saw a great talk by Jason van Zelm (a student of Nicola Pagani who apparently does not have a webpage), constructing non-tautological cycles on \\(\\overline{\\mathscr{M}_g}\\) for \\(g\\geq 12\\)..."
+indexExcerpt: "<p>Still at UGA -- I just saw a great talk by Jason van Zelm (a student of <a href=\"http://pcwww.liv.ac.uk/~pagani/\">Nicola Pagani</a> who apparently does not have a webpage), constructing non-tautological cycles on \\(\\overline{\\mathscr{M}_g}\\) for \\(g\\geq 12\\)...</p>"
 published: "2016-09-01T03:31:44Z"
 draft: false
 tags: [{"name": "math", "path": "/blog/tag/math"}, {"name": "cycles", "path": "/blog/tag/cycles"}, {"name": "tautological ring", "path": "/blog/tag/tautological+ring"}]
