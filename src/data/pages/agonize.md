@@ -28,4 +28,4 @@ imported: true
 
 <h2>Conference Poster</h2>
 
-<img src="/assets/squarespace/bc890e597a7a-agonize_45071081-2.webp" alt="" loading="lazy" />
+<img src="/assets/squarespace/bc890e597a7a-agonize_45071081-2.webp" alt="Final AGONIZE conference poster for March 25, 2020, listing talks by Wanlin Li, Padma Srinivasan, Hannah Larson, and Isabel Vogt." loading="lazy" />

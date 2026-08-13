@@ -81,6 +81,9 @@ PRESERVED_TAGS = {
     "u",
     "ul",
 }
+EDITORIAL_ALT_TEXT: dict[str, str] = json.loads(
+    Path(__file__).with_name("editorial-image-alts.json").read_text(encoding="utf-8")
+)
 
 
 def yaml_string(value: str) -> str:
@@ -382,7 +385,9 @@ class SemanticRenderer:
                 attrs["id"] = self.unique_id(anchor_id)
         elif tag == "img":
             attrs["src"] = self.assets.localize(child.attrs.get("src", ""))
-            attrs["alt"] = normalize_space(child.attrs.get("alt", ""))
+            attrs["alt"] = EDITORIAL_ALT_TEXT.get(
+                attrs["src"], normalize_space(child.attrs.get("alt", ""))
+            )
             attrs["loading"] = "lazy"
         elif tag == "iframe":
             source = child.attrs.get("src", "")

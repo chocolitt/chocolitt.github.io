@@ -18,4 +18,4 @@ imported: true
 
 <p>The video has received exactly one comment so far:</p>
 
-<img src="/assets/squarespace/6cb9fc18c641-Screen-Shot-2018-09-30-at-7.40.27-PM.webp" alt="" loading="lazy" />
+<img src="/assets/squarespace/6cb9fc18c641-Screen-Shot-2018-09-30-at-7.40.27-PM.webp" alt="YouTube comment by beena alavudheen: “I guess you could say this was… Lit,” with two likes." loading="lazy" />

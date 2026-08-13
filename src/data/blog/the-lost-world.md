@@ -19,13 +19,13 @@ imported: true
 
 <div class="imported-gallery">
 
-<img src="/assets/squarespace/685afd1c136c-IMG_4066.webp" alt="" loading="lazy" />
+<img src="/assets/squarespace/685afd1c136c-IMG_4066.webp" alt="Dense rainforest vegetation silhouetted against Biosphere 2’s glass-and-steel roof." loading="lazy" />
 
-<img src="/assets/squarespace/d5f19cf666e1-IMG_4068.webp" alt="" loading="lazy" />
+<img src="/assets/squarespace/d5f19cf666e1-IMG_4068.webp" alt="A dense curtain of vines and aerial roots in the Biosphere 2 rainforest." loading="lazy" />
 
-<img src="/assets/squarespace/ad235204a085-IMG_4070.webp" alt="" loading="lazy" />
+<img src="/assets/squarespace/ad235204a085-IMG_4070.webp" alt="Plants and tangled vines growing beneath the rainforest biome’s roof beams." loading="lazy" />
 
-<img src="/assets/squarespace/8fa736364a51-IMG_4072.webp" alt="" loading="lazy" />
+<img src="/assets/squarespace/8fa736364a51-IMG_4072.webp" alt="Visitors gathered around a guide among the rainforest foliage." loading="lazy" />
 
 </div>
 
@@ -33,17 +33,17 @@ imported: true
 
 <div class="imported-gallery">
 
-<img src="/assets/squarespace/a8975a8447d0-IMG_4052.webp" alt="" loading="lazy" />
+<img src="/assets/squarespace/a8975a8447d0-IMG_4052.webp" alt="Trees and shrubs in the savanna biome beside a sloping glass wall." loading="lazy" />
 
-<img src="/assets/squarespace/a1e1106ab00f-IMG_4056.webp" alt="" loading="lazy" />
+<img src="/assets/squarespace/a1e1106ab00f-IMG_4056.webp" alt="A visitor boardwalk through the savanna beneath Biosphere 2’s glass roof." loading="lazy" />
 
-<img src="/assets/squarespace/28e7872d3060-IMG_4057.webp" alt="" loading="lazy" />
+<img src="/assets/squarespace/28e7872d3060-IMG_4057.webp" alt="The tree-covered savanna stretching along Biosphere 2’s curved glass enclosure." loading="lazy" />
 
-<img src="/assets/squarespace/b77e633e3606-IMG_4080.webp" alt="" loading="lazy" />
+<img src="/assets/squarespace/b77e633e3606-IMG_4080.webp" alt="Vines hanging beside the sweeping glass-and-steel roof over the savanna." loading="lazy" />
 
-<img src="/assets/squarespace/4aaa41cd6f0d-IMG_4082.webp" alt="" loading="lazy" />
+<img src="/assets/squarespace/4aaa41cd6f0d-IMG_4082.webp" alt="Daniel Litt smiling beneath the glass roof of the savanna biome." loading="lazy" />
 
-<img src="/assets/squarespace/49a32f6df6da-IMG_4086.webp" alt="" loading="lazy" />
+<img src="/assets/squarespace/49a32f6df6da-IMG_4086.webp" alt="Daniel Litt standing on the savanna boardwalk with trees and glass walls behind him." loading="lazy" />
 
 </div>
 
@@ -51,9 +51,9 @@ imported: true
 
 <div class="imported-gallery">
 
-<img src="/assets/squarespace/054db0a5dfa6-IMG_4075.webp" alt="" loading="lazy" />
+<img src="/assets/squarespace/054db0a5dfa6-IMG_4075.webp" alt="The artificial ocean pool beneath Biosphere 2’s glass wall, bordered by a dark rock barrier." loading="lazy" />
 
-<img src="/assets/squarespace/4b5833f1b70f-IMG_4076.webp" alt="" loading="lazy" />
+<img src="/assets/squarespace/4b5833f1b70f-IMG_4076.webp" alt="A wider view across Biosphere 2’s dark artificial ocean toward the rock wall." loading="lazy" />
 
 </div>
 
@@ -61,11 +61,11 @@ imported: true
 
 <div class="imported-gallery">
 
-<img src="/assets/squarespace/4acfd9edd195-IMG_4118.webp" alt="" loading="lazy" />
+<img src="/assets/squarespace/4acfd9edd195-IMG_4118.webp" alt="The desert biome seen through intersecting glass-and-steel supports." loading="lazy" />
 
-<img src="/assets/squarespace/84b4f88518f2-IMG_4089.webp" alt="" loading="lazy" />
+<img src="/assets/squarespace/84b4f88518f2-IMG_4089.webp" alt="A tall cactus rising toward the geometric glass roof of the desert biome." loading="lazy" />
 
-<img src="/assets/squarespace/2a7d9a51905b-IMG_4093.webp" alt="" loading="lazy" />
+<img src="/assets/squarespace/2a7d9a51905b-IMG_4093.webp" alt="Dry scrub, cacti, and rock terraces inside Biosphere 2’s desert biome." loading="lazy" />
 
 </div>
 
@@ -73,9 +73,9 @@ imported: true
 
 <div class="imported-gallery">
 
-<img src="/assets/squarespace/a5def9141bed-IMG_4095.webp" alt="" loading="lazy" />
+<img src="/assets/squarespace/a5def9141bed-IMG_4095.webp" alt="A dim technosphere corridor lined with pipes, ducts, and mechanical equipment." loading="lazy" />
 
-<img src="/assets/squarespace/3c5a6c0c1bbc-IMG_4102.webp" alt="" loading="lazy" />
+<img src="/assets/squarespace/3c5a6c0c1bbc-IMG_4102.webp" alt="The Biosphere 2 lung chamber with its immense aluminum pressure cap suspended overhead." loading="lazy" />
 
 </div>
 
@@ -83,17 +83,17 @@ imported: true
 
 <div class="imported-gallery">
 
-<img src="/assets/squarespace/a677a7c4f3cc-IMG_4126.webp" alt="" loading="lazy" />
+<img src="/assets/squarespace/a677a7c4f3cc-IMG_4126.webp" alt="Sunlight shining through the long, stepped glass roofs of Biosphere 2." loading="lazy" />
 
-<img src="/assets/squarespace/1e7879076822-IMG_4136.webp" alt="" loading="lazy" />
+<img src="/assets/squarespace/1e7879076822-IMG_4136.webp" alt="A broad frontal view of Biosphere 2’s tiered glass greenhouse." loading="lazy" />
 
-<img src="/assets/squarespace/928763c51628-IMG_4036.webp" alt="" loading="lazy" />
+<img src="/assets/squarespace/928763c51628-IMG_4036.webp" alt="An angled view of Biosphere 2’s stepped glass greenhouse beyond a cactus garden." loading="lazy" />
 
-<img src="/assets/squarespace/4bd3d2dfde5c-IMG_4107.webp" alt="" loading="lazy" />
+<img src="/assets/squarespace/4bd3d2dfde5c-IMG_4107.webp" alt="The white geodesic dome enclosing one of Biosphere 2’s pressure-regulating lungs." loading="lazy" />
 
-<img src="/assets/squarespace/01b61eb898be-IMG_4037.webp" alt="" loading="lazy" />
+<img src="/assets/squarespace/01b61eb898be-IMG_4037.webp" alt="Biosphere 2’s white geometric human habitat, with a central tower and curved greenhouse roofs." loading="lazy" />
 
-<img src="/assets/squarespace/6034eff85428-IMG_4131.webp" alt="" loading="lazy" />
+<img src="/assets/squarespace/6034eff85428-IMG_4131.webp" alt="Sunlight flaring through the triangular glass façade of a Biosphere 2 greenhouse." loading="lazy" />
 
 </div>
 
@@ -101,9 +101,9 @@ imported: true
 
 <div class="imported-gallery">
 
-<img src="/assets/squarespace/c603d210f454-IMG_4042.webp" alt="" loading="lazy" />
+<img src="/assets/squarespace/c603d210f454-IMG_4042.webp" alt="The original Biosphere 2 crew kitchen, with an island, cabinets, and hanging plant trellis." loading="lazy" />
 
-<img src="/assets/squarespace/3b8d5fcbafb8-IMG_4050.webp" alt="" loading="lazy" />
+<img src="/assets/squarespace/3b8d5fcbafb8-IMG_4050.webp" alt="A furnished Biosphere 2 crew apartment with a desk, armchairs, books, and artwork." loading="lazy" />
 
 </div>
 

@@ -36,6 +36,18 @@ KNOWN_LEGACY_DEAD_LINKS = {
     "/virtual-tea",
     "/zazoom",
 }
+EXPECTED_DECORATIVE_IMAGES = {
+    ("/contact", "/assets/squarespace/40d07a82fa49-image-asset.webp"),
+    ("/expository-notes", "/assets/squarespace/edeaca155c8f-image-asset.webp"),
+    ("/expository-notes", "/assets/squarespace/bf12674a0d68-image-asset.webp"),
+    ("/nonmathematical-writing", "/assets/squarespace/5965c094d8d5-cosmas.webp"),
+    ("/nonmathematical-writing", "/assets/squarespace/2f5c2c8cbfbd-aristotlespheres.webp"),
+    ("/open-questions", "/assets/squarespace/0d03d3058320-keplermusic.webp"),
+    ("/talks-and-expository-work", "/assets/squarespace/8d1aab1c96b5-Z3.webp"),
+    ("/talks-and-expository-work", "/assets/squarespace/c8c71c92862d-image-asset.webp"),
+    ("/teaching", "/assets/squarespace/c04fb0bb8140-image-asset.webp"),
+    ("/teaching", "/assets/squarespace/52d8beda1b95-image-asset.webp"),
+}
 DOWNLOAD_EXTENSIONS = {
     ".blend", ".doc", ".docx", ".gif", ".jpg", ".jpeg", ".obj", ".pdf",
     ".png", ".tex", ".webp", ".xls", ".xlsx", ".zip",
@@ -197,6 +209,11 @@ def main() -> int:
         return 2
 
     content_root = Path(__file__).resolve().parents[2] / "src/data"
+    editorial_alt_text: dict[str, str] = json.loads(
+        (Path(__file__).resolve().parents[1] / "migration/editorial-image-alts.json").read_text(encoding="utf-8")
+    )
+    if len(editorial_alt_text) != 47 or any(not value.strip() for value in editorial_alt_text.values()):
+        failures.append("editorial alt-text inventory must contain exactly 47 non-empty alternatives")
     content_paths: dict[str, list[str]] = defaultdict(list)
     for collection in ("blog", "pages", "courses"):
         for source in (content_root / collection).glob("*.md"):
@@ -265,6 +282,8 @@ def main() -> int:
     internal_references = 0
     download_references: set[str] = set()
     empty_alt_images = 0
+    seen_decorative_images: set[tuple[str, str]] = set()
+    seen_editorial_alt_text: set[str] = set()
     for page in html_pages:
         text = page.read_text(encoding="utf-8", errors="replace")
         parser = PageParser()
@@ -307,10 +326,20 @@ def main() -> int:
                     download_references.add(unquote(urlsplit(value).path).lstrip("/"))
 
         for image in parser.images:
+            image_src = image.get("src", "")
             if "alt" not in image:
-                failures.append(f"{path}: image is missing an alt attribute: {image.get('src', '')}")
+                failures.append(f"{path}: image is missing an alt attribute: {image_src}")
             elif not image.get("alt", "").strip():
                 empty_alt_images += 1
+                image_key = (path, image_src)
+                if image_key in EXPECTED_DECORATIVE_IMAGES:
+                    seen_decorative_images.add(image_key)
+                else:
+                    failures.append(f"{path}: image has an unapproved empty alt attribute: {image_src}")
+            if image_src in editorial_alt_text:
+                seen_editorial_alt_text.add(image_src)
+                if image.get("alt", "") != editorial_alt_text[image_src]:
+                    failures.append(f"{path}: editorial alt text changed for {image_src}")
         for iframe in parser.iframes:
             if not iframe.get("title", "").strip():
                 failures.append(f"{path}: iframe is missing a title: {iframe.get('src', '')}")
@@ -374,10 +403,20 @@ def main() -> int:
         if not target.is_file():
             failures.append(f"download reference has no file: /{relative}")
 
+    missing_decorative_images = EXPECTED_DECORATIVE_IMAGES - seen_decorative_images
+    if missing_decorative_images:
+        failures.append(
+            "approved decorative-image inventory is incomplete: "
+            + ", ".join(f"{path} {src}" for path, src in sorted(missing_decorative_images))
+        )
+    missing_editorial_alt_text = set(editorial_alt_text) - seen_editorial_alt_text
+    if missing_editorial_alt_text:
+        failures.append(
+            "approved editorial alt-text inventory is incomplete: " + ", ".join(sorted(missing_editorial_alt_text))
+        )
     if empty_alt_images:
         warnings.append(
-            f"{empty_alt_images} images retain an empty alt attribute from the source; captions or surrounding text "
-            "must be confirmed manually"
+            f"{empty_alt_images} images intentionally retain empty alt attributes after editorial sign-off"
         )
     warnings.append(
         "The five documented dead/private Squarespace links and one historic file:/// course link are preserved source artifacts"
@@ -397,6 +436,7 @@ def main() -> int:
         "download_references": len(download_references),
         "checked_download_and_media_files": checked_binary_files,
         "empty_alt_images": empty_alt_images,
+        "editorial_alt_images": len(seen_editorial_alt_text),
         "failures": failures,
         "warnings": warnings,
     }
