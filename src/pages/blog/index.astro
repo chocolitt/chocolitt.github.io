@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
-const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
+const posts = (await getCollection("blog", ({ data }) => !data.draft || import.meta.env.DEV)).sort(
   (a, b) => b.data.published.valueOf() - a.data.published.valueOf(),
 );
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
@@ -23,7 +23,10 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
       {posts.map((post) => (
         <li>
           <article>
-            <h2><a href={post.data.legacyPath}>{post.data.title}</a></h2>
+            <h2>
+              <a href={post.data.legacyPath}>{post.data.title}</a>
+              {post.data.draft && <span class="draft-label">Draft</span>}
+            </h2>
             <time datetime={post.data.published.toISOString()}>{dateFormatter.format(post.data.published)}</time>
             <p>{post.data.description}</p>
             <a class="read-more" href={post.data.legacyPath}>Read more</a>
@@ -56,6 +59,20 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
 
   article h2 a {
     color: var(--heading);
+  }
+
+  .draft-label {
+    border: 1px solid var(--line);
+    color: var(--muted);
+    display: inline-block;
+    font-family: var(--body-font);
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    margin-left: 0.7rem;
+    padding: 0.15rem 0.4rem;
+    text-transform: uppercase;
+    vertical-align: middle;
   }
 
   time,

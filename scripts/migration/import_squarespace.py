@@ -204,6 +204,8 @@ class AssetCatalog:
             self.used[unquote(parsed.path).lstrip("/")] = asset
             return urlunsplit(("", "", public_path, "", parsed.fragment))
         if host in SITE_HOSTS and not parsed.path.startswith("/s/"):
+            if (parsed.path or "/") == "/" and parsed.fragment.startswith("/"):
+                return parsed.fragment
             path = parsed.path or "/"
             return urlunsplit(("", "", path, parsed.query, parsed.fragment))
         if host not in SQUARESPACE_HOSTS:
@@ -293,6 +295,18 @@ class SemanticRenderer:
         self.assets = assets
         self.title = normalize_space(title).casefold()
         self.seen_h1 = False
+        self.used_ids: set[str] = set()
+
+    def unique_id(self, value: str) -> str:
+        """Keep imported fragment targets valid while preventing duplicate IDs."""
+        base = value.lstrip("#")
+        candidate = base
+        suffix = 2
+        while candidate in self.used_ids:
+            candidate = f"{base}-{suffix}"
+            suffix += 1
+        self.used_ids.add(candidate)
+        return candidate
 
     def node_text(self, node: Node) -> str:
         values: list[str] = []
@@ -365,7 +379,7 @@ class SemanticRenderer:
                 attrs["href"] = self.assets.localize(href)
             anchor_id = child.attrs.get("id") or child.attrs.get("name")
             if anchor_id:
-                attrs["id"] = anchor_id.lstrip("#")
+                attrs["id"] = self.unique_id(anchor_id)
         elif tag == "img":
             attrs["src"] = self.assets.localize(child.attrs.get("src", ""))
             attrs["alt"] = normalize_space(child.attrs.get("alt", ""))
@@ -385,7 +399,7 @@ class SemanticRenderer:
         else:
             for key in ("id", "colspan", "rowspan"):
                 if child.attrs.get(key):
-                    attrs[key] = child.attrs[key]
+                    attrs[key] = self.unique_id(child.attrs[key]) if key == "id" else child.attrs[key]
         encoded_attrs = "".join(
             f' {key}="{html.escape(value, quote=True)}"'
             for key, value in attrs.items()
@@ -393,7 +407,10 @@ class SemanticRenderer:
         )
         if tag in VOID_TAGS:
             return f"<{tag}{encoded_attrs} />"
-        return f"<{tag}{encoded_attrs}>{self.children(child)}</{tag}>"
+        content = self.children(child)
+        if tag == "a" and attrs.get("href") and not re.sub(r"<[^>]+>", "", content).strip() and "<img" not in content:
+            return ""
+        return f"<{tag}{encoded_attrs}>{content}</{tag}>"
 
 
 def clean_body(body: str, assets: AssetCatalog, title: str) -> str:
@@ -407,6 +424,11 @@ def clean_body(body: str, assets: AssetCatalog, title: str) -> str:
     parser.feed(body)
     parser.close()
     cleaned = SemanticRenderer(assets, title).children(parser.root)
+    # Markdown interprets four-space-indented HTML as a code block. Squarespace
+    # emits presentation indentation between blocks, so remove it only when a
+    # line begins with an HTML tag; indentation inside textual <pre> content is
+    # left untouched.
+    cleaned = re.sub(r"(?m)^[ \t]+(?=<)", "", cleaned)
     cleaned = re.sub(r"[ \t]+\n", "\n", cleaned)
     cleaned = re.sub(r"\n{3,}", "\n\n", cleaned)
     return cleaned.strip()

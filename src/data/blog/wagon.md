@@ -13,4 +13,4 @@ imported: true
 
 <p>For those of you who haven’t yet, you should <a href="https://sites.math.washington.edu/~jarod/wagon.html">register for WAGON</a>! Poster below — it’s going to be great.</p>
 
-      <img src="/assets/squarespace/a19653ec7c8d-wagon_45347640-4.webp" alt="" loading="lazy" />
+<img src="/assets/squarespace/a19653ec7c8d-wagon_45347640-4.webp" alt="" loading="lazy" />

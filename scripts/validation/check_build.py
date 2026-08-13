@@ -263,8 +263,8 @@ def main() -> int:
         "rss.xml",
         "sitemap.xml",
         "robots.txt",
-        "images/site/portrait.jpg",
-        "images/site/publications.png",
+        "images/site/portrait.webp",
+        "images/site/publications.webp",
     ]
     for relative in required:
         if not (dist / relative).is_file():

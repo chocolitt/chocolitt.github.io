@@ -3,7 +3,7 @@ import { getCollection, render, type CollectionEntry } from "astro:content";
 import ArticleLayout from "../../layouts/ArticleLayout.astro";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog", ({ data }) => !data.draft);
+  const posts = await getCollection("blog", ({ data }) => !data.draft || import.meta.env.DEV);
   return posts.map((entry) => ({
     params: { slug: entry.data.legacyPath.replace(/^\/blog\//, "") },
     props: { entry },

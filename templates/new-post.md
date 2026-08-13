@@ -19,4 +19,4 @@ Ordinary Markdown works for new posts. Put images in `public/images/blog/post-sl
 
 ![Useful alternative text](/images/blog/post-slug/example.jpg)
 
-For TeX, set `math: true` above and use `\(x^2 + y^2 = z^2\)` inline or `\[x^2 + y^2 = z^2\]` on its own line.
+For TeX in Markdown, set `math: true` above and use `\\(x^2 + y^2 = z^2\\)` inline or `\\[x^2 + y^2 = z^2\\]` on its own line. The doubled backslashes keep Markdown from consuming MathJax's delimiters.

@@ -16,6 +16,6 @@ imported: true
 <iframe src="https://www.youtube.com/embed/SwbqW23mB6Y?wmode=opaque&amp;enablejsapi=1" title="Embedded media" loading="lazy" width="854" height="480" allowfullscreen="allowfullscreen">
 </iframe>
 
-  <p>The video has received exactly one comment so far:</p>
+<p>The video has received exactly one comment so far:</p>
 
-      <img src="/assets/squarespace/6cb9fc18c641-Screen-Shot-2018-09-30-at-7.40.27-PM.webp" alt="" loading="lazy" />
+<img src="/assets/squarespace/6cb9fc18c641-Screen-Shot-2018-09-30-at-7.40.27-PM.webp" alt="" loading="lazy" />

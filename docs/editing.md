@@ -8,7 +8,9 @@ From this repository, run:
 pnpm site:preview
 ```
 
-This checks the Astro source, builds the entire site, validates the preserved URLs, assets, comments, and MathJax configuration, and starts a preview at `http://localhost:4321/`. Stop it with `Control-C`.
+This checks the Astro source, builds the entire production site, validates the preserved URLs, assets, comments, metadata, downloads, and MathJax configuration, and then starts an editing preview at `http://localhost:4321/`. Stop it with `Control-C`.
+
+The editing preview includes entries marked `draft: true`; the production build, sitemap, RSS feed, search index, and deployment exclude them. Draft pages display a clear preview notice and do not load FastComments, so rehearsing a post cannot create or replace a public comment thread.
 
 ## Edit existing writing
 
@@ -22,7 +24,7 @@ Imported Squarespace entries use clean HTML inside Markdown files. Edit the visi
 
 Do not change an imported entry's `legacyPath`. It controls the public URL, canonical URL, and FastComments thread identifier. Changing it would break old links and detach comments.
 
-Set `math: true` on an entry that uses TeX delimiters such as `\(...\)` or `\[...\]`; otherwise leave it `false`. Set `comments: false` only when a post should not show a comment thread.
+Set `math: true` on an entry that uses TeX. In new Markdown, write doubled delimiter backslashes such as `\\(x+y\\)` or `\\[x+y\\]`; Markdown emits those as the single-backslash delimiters MathJax needs. Imported HTML already contains single-backslash delimiters and does not need this adjustment. Set `comments: false` only when a published post should not show a comment thread.
 
 ## Start a post
 
