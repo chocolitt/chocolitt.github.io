@@ -22,10 +22,16 @@ const courses = defineCollection({
     title: z.string(),
     code: z.string(),
     institution: z.string(),
-    term: z.string(),
+    term: z.string().optional(),
     summary: z.string(),
     archived: z.boolean().default(true),
-    legacyPath: z.string().optional(),
+    legacyPath: z.string().startsWith("/").endsWith(".html"),
+    sections: z.array(
+      z.object({
+        id: z.string(),
+        label: z.string(),
+      }),
+    ),
   }),
 });
 

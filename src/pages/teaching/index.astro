@@ -7,11 +7,11 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
     <h1>Teaching, Seminars, and Service</h1>
 
     <h2>Course Pages</h2>
-    <ul>
-      <li><a href="/mat445_winter2026.html">MAT445H1 – Representation Theory, Winter 2026</a></li>
-      <li><a href="/mat445.html">Math 445 – Representation Theory</a></li>
-      <li><a href="/mat1190hs.html">MAT1190HS – Algebraic Geometry</a></li>
-      <li><a href="/mat1101.html">Math 1101 – Algebra II, Winter 2025</a></li>
+    <ul class="course-list">
+      <li><a href="/mat445_winter2026.html">MAT445H1 – Representation Theory, Winter 2026</a> <span>Archived course</span></li>
+      <li><a href="/mat445.html">Math 445 – Representation Theory, Winter 2025</a> <span>Archived course</span></li>
+      <li><a href="/mat1190hs.html">MAT1190HS – Algebraic Geometry</a> <span>Archived course</span></li>
+      <li><a href="/mat1101.html">Math 1101 – Algebra II, Winter 2025</a> <span>Archived course</span></li>
     </ul>
 
     <h2>Notes and Downloads</h2>
@@ -44,5 +44,15 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
   .teaching-page :global(li) {
     margin-bottom: 0.4rem;
+  }
+
+  .course-list :global(span) {
+    color: var(--muted);
+    font-family: var(--display-font);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    margin-left: 0.4rem;
+    text-transform: uppercase;
+    white-space: nowrap;
   }
 </style>

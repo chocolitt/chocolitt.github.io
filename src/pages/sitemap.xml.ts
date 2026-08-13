@@ -11,7 +11,7 @@ export async function GET({ site }: { site: URL }) {
     "/fermat_fano_real_mesh_web.html",
     "/published-paper-reviews.html",
     ...posts.map((post) => post.data.legacyPath),
-    ...courses.map((course) => `/teaching/${course.id}`),
+    ...courses.map((course) => course.data.legacyPath),
   ];
   const urls = paths.map((path) => `<url><loc>${new URL(path, site).href}</loc></url>`).join("");
   return new Response(

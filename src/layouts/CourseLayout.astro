@@ -7,18 +7,19 @@ interface Props {
 }
 
 const { entry } = Astro.props;
-const { title, code, institution, term, summary, archived, legacyPath } = entry.data;
+const { title, code, institution, term, summary, archived, legacyPath, sections } = entry.data;
 ---
 
-<BaseLayout title={`${code}: ${title}`} description={summary} canonicalPath={legacyPath ?? Astro.url.pathname} math>
+<BaseLayout title={`${code}: ${title}`} description={summary} canonicalPath={legacyPath} math>
   <article class="course-shell shell page-content">
     <header class="course-header">
       <h1>{code}: {title}</h1>
-      <p>{institution} · {term}{archived ? " · Course archive" : ""}</p>
-      <p>{summary}</p>
+      <p>{institution}{term ? ` · ${term}` : ""} · {archived ? "Archived course" : "Current course"}</p>
     </header>
     <nav class="course-nav" aria-label="On this page">
-      <slot name="navigation" />
+      <ul>
+        {sections.map((section) => <li><a href={`#${section.id}`}>{section.label}</a></li>)}
+      </ul>
     </nav>
     <div class="prose course-body">
       <slot />
@@ -53,5 +54,11 @@ const { title, code, institution, term, summary, archived, legacyPath } = entry.
 
   .course-body {
     max-width: 900px;
+  }
+
+  .course-body :global(> p:last-child) {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 3rem;
   }
 </style>

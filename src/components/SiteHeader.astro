@@ -1,5 +1,6 @@
 ---
 const pathname = Astro.url.pathname;
+const normalizedPathname = pathname !== "/" && pathname.endsWith("/") ? pathname.slice(0, -1) : pathname;
 
 const workLinks = [
   { href: "/publications-and-preprints", label: "Publications and Preprints" },
@@ -15,7 +16,13 @@ const personalLinks = [
   { href: "/nonmathematical-writing", label: "Non-mathematical Writing" },
 ];
 
-const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
+const teachingArchives = ["/mat1101.html", "/mat1190hs.html", "/mat445.html", "/mat445_winter2026.html"];
+const artifactArchives = ["/fermat_fano_real_mesh_web.html", "/published-paper-reviews.html"];
+const isActive = (href: string) =>
+  normalizedPathname === href ||
+  normalizedPathname.startsWith(`${href}/`) ||
+  (href === "/teaching" && teachingArchives.includes(normalizedPathname)) ||
+  (href === "/artifacts" && artifactArchives.includes(normalizedPathname));
 const groupIsActive = (links: typeof workLinks) => links.some((link) => isActive(link.href));
 ---
 

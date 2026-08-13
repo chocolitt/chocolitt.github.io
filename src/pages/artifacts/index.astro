@@ -7,6 +7,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
     <h1>Interactive Artifacts</h1>
     <h2><a href="/fermat_fano_real_mesh_web.html">Real Fano Surface Visualization</a></h2>
     <p>An interactive three-dimensional mesh visualization of the real Fano surface.</p>
+    <p class="loading-note">This self-contained visualization is approximately 4.8 MB and may take a moment to load.</p>
 
     <h2><a href="/published-paper-reviews.html">Published Paper Reviews</a></h2>
     <p>A searchable archive of automated reviews, mathematical audits, and errata for single-author papers.</p>
@@ -20,5 +21,10 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
   .artifacts-page h1 {
     margin-top: 0;
+  }
+
+  .loading-note {
+    color: var(--muted);
+    font-size: 0.85rem;
   }
 </style>
