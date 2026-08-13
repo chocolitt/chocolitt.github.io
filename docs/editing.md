@@ -22,6 +22,28 @@ The editing preview includes entries marked `draft: true`; the production build,
 
 Imported Squarespace entries use clean HTML inside Markdown files. Edit the visible text between tags and keep the surrounding tags balanced. New material can use ordinary Markdown.
 
+## Add or edit a publication
+
+Publication records live in `src/data/publications.yaml`. They are grouped under the same research-section headings
+shown on the page. Each record has three principal fields:
+
+```yaml
+            - title: |-
+                <em>Paper title</em>
+              citation: |-
+                (<a href="https://arxiv.org/abs/example">arXiv version</a>, 2026, joint with Someone Else)
+              abstract: |-
+                The abstract goes here, with TeX such as \(E_6\).
+```
+
+Copy `templates/new-publication.yaml` beneath the appropriate `publications:` line, retain its indentation, and edit
+the three fields. Reorder complete records to change their order on the page. The renderer automatically supplies the
+bullet, bold title, collapsed `Abstract` control, and surrounding layout. Inline HTML is allowed for links and emphasis;
+TeX in this YAML file uses ordinary single-backslash delimiters such as `\(x\)` and `\[x\]`.
+
+Most abstracts use the original indented quotation styling. Add `quoted: false` to a record only when the abstract
+should use the unindented style.
+
 Do not change an imported entry's `legacyPath`. It controls the public URL, canonical URL, and FastComments thread identifier. Changing it would break old links and detach comments.
 
 Set `math: true` on an entry that uses TeX. In new Markdown, write doubled delimiter backslashes such as `\\(x+y\\)` or `\\[x+y\\]`; Markdown emits those as the single-backslash delimiters MathJax needs. Imported HTML already contains single-backslash delimiters and does not need this adjustment. Set `comments: false` only when a published post should not show a comment thread.

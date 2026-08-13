@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import PublicationsContent from "../components/PublicationsContent.astro";
 import BaseLayout from "./BaseLayout.astro";
 
 interface Props {
@@ -14,7 +15,7 @@ const pageName = legacyPath.replace(/^\//, "").replace(/\//g, "-") || "home";
 <BaseLayout title={title} description={description} canonicalPath={legacyPath} math={math}>
   <article class="standard-page shell page-content prose" data-page={pageName}>
     <h1>{displayTitle ?? title}</h1>
-    <slot />
+    {legacyPath === "/publications-and-preprints" ? <PublicationsContent /> : <slot />}
   </article>
 </BaseLayout>
 

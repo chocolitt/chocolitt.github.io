@@ -25,6 +25,7 @@ Then open `http://localhost:4321/`. See [`docs/editing.md`](docs/editing.md) for
 
 - Blog posts live in `src/data/blog/`.
 - Ordinary Squarespace pages live in `src/data/pages/`.
+- Structured publication records live in `src/data/publications.yaml`.
 - Course offerings live in `src/data/courses/`.
 - Large downloads and self-contained artifacts live in `public/`.
 - Shared layouts and components live in `src/layouts/` and `src/components/`.

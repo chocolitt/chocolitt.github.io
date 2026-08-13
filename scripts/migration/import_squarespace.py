@@ -749,6 +749,18 @@ def main() -> None:
         body_has_math = contains_math(body)
         if body_has_math:
             math_paths.add(legacy_path)
+        if post_type == "page" and legacy_path == "/publications-and-preprints":
+            # This imported page has been promoted to a hand-editable structured
+            # collection. Still parse its source above so its media dependency
+            # and MathJax route remain part of deterministic migration output,
+            # but never overwrite the curated Markdown metadata or YAML records.
+            output = site_root / "src/data/pages/publications-and-preprints.md"
+            if not output.is_file() or not (site_root / "src/data/publications.yaml").is_file():
+                raise SystemExit("Missing curated structured publications source")
+            generated.append(output.relative_to(site_root))
+            public_paths.add(legacy_path)
+            counts[post_type] += 1
+            continue
         if post_type == "post":
             tags = taxonomies_for(item, path_map, "post_tag")
             categories = taxonomies_for(item, path_map, "category")

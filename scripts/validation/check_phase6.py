@@ -52,7 +52,11 @@ EXPECTED_VISUAL_FIDELITY = {
     "/blog": {"feed-item": 20, "blog-sidebar": 1, "media-slide": 16},
     "/blog/2026/8/11/the-end-of-mathematics": {"blog-sidebar": 1, "media-slide": 16},
     "/blog/2026/2/20/mathematics-in-the-library-of-babel": {"blog-sidebar": 1},
-    "/publications-and-preprints": {"media-publications": 1, "fidelity-grid--sidebar": 2},
+    "/publications-and-preprints": {
+        "media-publications": 1,
+        "fidelity-grid--sidebar": 2,
+        "publication-citation": 32,
+    },
     "/teaching": {"media-teaching-portrait": 1, "media-teaching-divider": 1, "fidelity-grid--two": 2},
     "/about": {"media-about": 1},
     "/contact": {"media-contact": 1},
@@ -240,8 +244,12 @@ def main() -> int:
         if len(sources) > 1:
             failures.append(f"duplicate content legacyPath {legacy_path}: {', '.join(sources)}")
 
-    publications_source = (content_root / "pages/publications-and-preprints.md").read_text(encoding="utf-8")
-    publications_body = publications_source.split("---", 2)[-1]
+    publications_source = (content_root / "publications.yaml").read_text(encoding="utf-8")
+    if publications_source.count("            - title: |-") != 32:
+        failures.append("structured publications source must contain exactly 32 records")
+    for field in ("citation: |-", "abstract: |-"):
+        if publications_source.count(field) != 32:
+            failures.append(f"structured publications source must contain 32 {field[:-3]} fields")
 
     expected_squarespace = expected_lines(validation / "expected-squarespace-paths.txt")
     expected_sitemap = expected_squarespace | EXTRA_SITEMAP_PATHS
@@ -407,7 +415,7 @@ def main() -> int:
             if text.count('class="publication-abstract"') != 32 or text.count("<summary>Abstract</summary>") != 32:
                 failures.append(f"{path}: expected 32 native collapsible abstract controls")
             for delimiter in (r"\(", r"\)", r"\[", r"\]", "$"):
-                expected_count = publications_body.count(delimiter)
+                expected_count = publications_source.count(delimiter)
                 actual_count = text.split("<article", 1)[-1].split("</article>", 1)[0].count(delimiter)
                 if actual_count != expected_count:
                     failures.append(

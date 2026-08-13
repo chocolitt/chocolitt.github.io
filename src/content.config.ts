@@ -1,5 +1,5 @@
 import { defineCollection } from "astro:content";
-import { glob } from "astro/loaders";
+import { file, glob } from "astro/loaders";
 import { z } from "astro/zod";
 
 const blog = defineCollection({
@@ -34,6 +34,40 @@ const pages = defineCollection({
   }),
 });
 
+const publication = z.object({
+  title: z.string(),
+  citation: z.string(),
+  abstract: z.string(),
+  quoted: z.boolean().default(true),
+  spacerParagraphs: z.number().int().min(0).max(2).default(0),
+});
+
+const publications = defineCollection({
+  loader: file("./src/data/publications.yaml"),
+  schema: z.object({
+    image: z.object({
+      src: z.string().startsWith("/"),
+      alt: z.string(),
+      caption: z.string(),
+      width: z.string(),
+    }),
+    grids: z.array(
+      z.object({
+        sidebar: z.object({
+          heading: z.string(),
+          body: z.string(),
+        }),
+        groups: z.array(
+          z.object({
+            heading: z.string(),
+            publications: z.array(publication),
+          }),
+        ),
+      }),
+    ),
+  }),
+});
+
 const courses = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/data/courses" }),
   schema: z.object({
@@ -53,4 +87,4 @@ const courses = defineCollection({
   }),
 });
 
-export const collections = { blog, courses, pages };
+export const collections = { blog, courses, pages, publications };

@@ -1,0 +1,53 @@
+---
+import { getEntry } from "astro:content";
+
+const entry = await getEntry("publications", "page");
+if (!entry) throw new Error("Missing structured publications data");
+
+const { image, grids } = entry.data;
+---
+
+<figure class="imported-figure" style={`--media-width: ${image.width}`}>
+  <img
+    src={image.src}
+    alt={image.alt}
+    loading="lazy"
+    class="imported-media media-banner media-publications"
+  />
+  <figcaption>{image.caption}</figcaption>
+</figure>
+
+{grids.map((grid) => (
+  <div class="fidelity-grid fidelity-grid--sidebar">
+    <section class="fidelity-section">
+      <h2>{grid.sidebar.heading}</h2>
+      <Fragment set:html={grid.sidebar.body} />
+    </section>
+    <section class="fidelity-section">
+      {grid.groups.map((group) => (
+        <>
+          <h2>{group.heading}</h2>
+          {group.publications.map((publication) => (
+            <>
+              <p class="publication-citation">
+                • <strong><Fragment set:html={publication.title} /></strong>{" "}
+                <Fragment set:html={publication.citation} />
+              </p>
+              <details class="publication-abstract">
+                <summary>Abstract</summary>
+                {publication.quoted ? (
+                  <blockquote>
+                    <div class="publication-abstract-body" set:html={publication.abstract} />
+                  </blockquote>
+                ) : (
+                  <div class="publication-abstract-body" set:html={publication.abstract} />
+                )}
+              </details>
+              {Array.from({ length: publication.spacerParagraphs }, () => <p aria-hidden="true"></p>)}
+            </>
+          ))}
+        </>
+      ))}
+    </section>
+  </div>
+))}
