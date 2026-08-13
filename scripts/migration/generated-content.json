@@ -63,8 +63,12 @@
     "src/data/blog/what-ive-been-thinking-about-recently.md",
     "src/data/blog/whats-wrong-with-the-world.md",
     "src/data/pages/about.md",
+    "src/data/pages/adding.md",
     "src/data/pages/ag-theory-seminar-2022-2023.md",
     "src/data/pages/agonize.md",
+    "src/data/pages/biopsy.md",
+    "src/data/pages/ccam.md",
+    "src/data/pages/commutative-algebra.md",
     "src/data/pages/contact.md",
     "src/data/pages/crag.md",
     "src/data/pages/curves-surfaces.md",
@@ -73,13 +77,16 @@
     "src/data/pages/hodge-theory.md",
     "src/data/pages/mat138h1.md",
     "src/data/pages/math-1100-algebra.md",
+    "src/data/pages/math-2250.md",
     "src/data/pages/nonmathematical-writing.md",
     "src/data/pages/open-questions.md",
     "src/data/pages/publications-and-preprints.md",
+    "src/data/pages/rational-points.md",
     "src/data/pages/rigid-local-systems.md",
     "src/data/pages/sezoom.md",
     "src/data/pages/tale-cohomology.md",
     "src/data/pages/talks-and-expository-work.md",
-    "src/data/pages/teaching.md"
+    "src/data/pages/teaching.md",
+    "src/data/pages/zazoom.md"
   ]
 }

@@ -1,3 +1,4 @@
+/adding
 /agonize
 /blog
 /blog/2016/10/6/a-minimal-proof-of-the-fundamental-theorem-of-algebra
@@ -51,6 +52,7 @@
 /blog/tag/technocracy
 /blog/tag/twisted+sheaves
 /blog/tag/weird
+/commutative-algebra
 /crag
 /fall-2017-topics-in-algebraic-geometry-deformation-theory
 /hodge-theory

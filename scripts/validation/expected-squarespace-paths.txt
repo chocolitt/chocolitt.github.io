@@ -1,7 +1,9 @@
 /
 /about
+/adding
 /ag-theory-seminar-2022-2023
 /agonize
+/biopsy
 /blog
 /blog/2016/10/11/we-already-live-in-rationalia
 /blog/2016/10/19/biospheres
@@ -107,6 +109,8 @@
 /blog/tag/twisted+sheaves
 /blog/tag/typography
 /blog/tag/weird
+/ccam
+/commutative-algebra
 /contact
 /crag
 /curves-surfaces
@@ -115,9 +119,11 @@
 /hodge-theory
 /mat138h1
 /math-1100-algebra
+/math-2250
 /nonmathematical-writing
 /open-questions
 /publications-and-preprints
+/rational-points
 /rigid-local-systems
 /search
 /sezoom
@@ -125,3 +131,4 @@
 /talks-and-expository-work
 /teaching
 /work
+/zazoom

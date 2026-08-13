@@ -99,7 +99,21 @@ CONTENT_MEDIA_ROLES: dict[str, list[str]] = {
     "open questions": ["media-ornament media-open-questions"],
     "mat138h1": ["media-banner media-mat138"],
     "agonize": ["media-poster"],
+    "adding": ["media-ornament", "media-poster"],
     "the end of mathematics": ["media-slide"] * 16,
+}
+
+# These pages were disabled in Squarespace when the initial public crawl was
+# captured, but their complete bodies remain in the owner's WXR export. They
+# are intentionally restored at their original URLs as historical archives.
+RECOVERED_ARCHIVE_PATHS = {
+    "/adding",
+    "/biopsy",
+    "/ccam",
+    "/commutative-algebra",
+    "/math-2250",
+    "/rational-points",
+    "/zazoom",
 }
 
 
@@ -644,6 +658,16 @@ def clean_body(body: str, assets: AssetCatalog, title: str) -> str:
         )
     cleaned = publication_abstracts(cleaned, title)
     cleaned = permanent_page_layout(cleaned, title)
+    if title == "Math 2250":
+        # Squarespace's separate calendar collection was not included in the
+        # export. Remove the otherwise empty heading instead of shipping a
+        # known-dead internal link.
+        cleaned = re.sub(
+            r'<h2><a href="/math-2250-schedule">Calendar</a></h2>',
+            "",
+            cleaned,
+            flags=re.IGNORECASE,
+        )
     # Markdown interprets four-space-indented HTML as a code block. Squarespace
     # emits presentation indentation between blocks, so remove it only when a
     # line begins with an HTML tag; indentation inside textual <pre> content is
@@ -674,6 +698,7 @@ def active_squarespace_paths(url_inventory: Path) -> set[str]:
             if row["source_site"] != "squarespace" or row["status"] != "200":
                 continue
             paths.add(urlsplit(row["path"]).path.rstrip("/") or "/")
+    paths.update(RECOVERED_ARCHIVE_PATHS)
     return paths
 
 

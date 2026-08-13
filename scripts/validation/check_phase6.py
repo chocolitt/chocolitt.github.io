@@ -31,10 +31,8 @@ EXTRA_SITEMAP_PATHS = {
 }
 KNOWN_LEGACY_DEAD_LINKS = {
     "/How-would-a-society-run-by-mathematicians-look-like",
-    "/biopsy",
     "/virtual-office-hours",
     "/virtual-tea",
-    "/zazoom",
 }
 EXPECTED_DECORATIVE_IMAGES = {
     ("/contact", "/assets/squarespace/40d07a82fa49-image-asset.webp"),
@@ -231,8 +229,8 @@ def main() -> int:
     editorial_alt_text: dict[str, str] = json.loads(
         (Path(__file__).resolve().parents[1] / "migration/editorial-image-alts.json").read_text(encoding="utf-8")
     )
-    if len(editorial_alt_text) != 47 or any(not value.strip() for value in editorial_alt_text.values()):
-        failures.append("editorial alt-text inventory must contain exactly 47 non-empty alternatives")
+    if len(editorial_alt_text) != 49 or any(not value.strip() for value in editorial_alt_text.values()):
+        failures.append("editorial alt-text inventory must contain exactly 49 non-empty alternatives")
     content_paths: dict[str, list[str]] = defaultdict(list)
     for collection in ("blog", "pages", "courses"):
         for source in (content_root / collection).glob("*.md"):
@@ -461,14 +459,14 @@ def main() -> int:
     missing_editorial_alt_text = set(editorial_alt_text) - seen_editorial_alt_text
     if missing_editorial_alt_text:
         failures.append(
-            "approved editorial alt-text inventory is incomplete: " + ", ".join(sorted(missing_editorial_alt_text))
+            "editorial alt-text inventory is incomplete: " + ", ".join(sorted(missing_editorial_alt_text))
         )
     if empty_alt_images:
         warnings.append(
             f"{empty_alt_images} images intentionally retain empty alt attributes after editorial sign-off"
         )
     warnings.append(
-        "The five documented dead/private Squarespace links and one historic file:/// course link are preserved source artifacts"
+        "The three documented dead/private Squarespace links and one historic file:/// course link are preserved source artifacts"
     )
     warnings.append(
         "GitHub Pages cannot return RSS XML specifically for the legacy /blog?format=rss query; /rss.xml is canonical"

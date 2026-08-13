@@ -14,10 +14,8 @@ from urllib.parse import unquote, urlsplit
 # in the imported prose for historical fidelity, but they are not launch gaps.
 KNOWN_LEGACY_DEAD_LINKS = {
     "/How-would-a-society-run-by-mathematicians-look-like",
-    "/biopsy",
     "/virtual-office-hours",
     "/virtual-tea",
-    "/zazoom",
 }
 
 VALIDATED_PAGES = [
