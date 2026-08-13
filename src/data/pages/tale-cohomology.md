@@ -1,5 +1,6 @@
 ---
 title: "Étale cohomology"
+displayTitle: "Étale cohomology and the weil Conjectures"
 description: "Étale cohomology and the weil Conjectures This course will focus on étale cohomology and the Weil conjectures. I plan to record all lectures and make them available on YouTube. We will use the following resources: Milne’s Lectures on éta…"
 legacyPath: "/tale-cohomology"
 math: true

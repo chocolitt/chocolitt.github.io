@@ -13,7 +13,7 @@ imported: true
 
 <p>A few years ago I made a picture of the 3-adic numbers in answer to a <a href="https://mathoverflow.net/questions/51905/how-to-picture-mathbbc-p/51912#51912">MathOverflow question</a> (using the free 3d modeling and rendering software <a href="https://www.blender.org/">Blender</a>, which I highly recommend despite its steep learning curve). Recently I discovered that I lost the original file, so I recreated it, with the following result:</p>
 
-<figure><img src="/assets/squarespace/877544f0a0d3-3-adics.webp" alt="Really this is \(\mathbb{Z}/243\mathbb{Z}\)" loading="lazy" /><figcaption>Really this is \(\mathbb{Z}/243\mathbb{Z}\)</figcaption></figure>
+<figure class="imported-figure" style="--media-width: 1920px"><img src="/assets/squarespace/877544f0a0d3-3-adics.webp" alt="Really this is \(\mathbb{Z}/243\mathbb{Z}\)" loading="lazy" class="imported-media" /><figcaption>Really this is \(\mathbb{Z}/243\mathbb{Z}\)</figcaption></figure>
 
 <p>After I posted the picture above on Twitter, <a href="http://math.umd.edu/~mkukla1/">Matt Kukla</a>, a budding mathematician and student at the University  of Maryland, asked for the source file, and today, he’s posted a beautiful 3D print of the 3-adic numbers!</p>
 

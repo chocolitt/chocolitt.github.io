@@ -13,7 +13,7 @@ imported: true
 
 <p>In 1910, G.K. Chesterton (one of my favorite authors -- I highly recommend <a href="https://www.amazon.com/dp/B00WVIIQAU/ref=dp-kindle-redirect?_encoding=UTF8&amp;btkr=1">The Man Who Was Thursday</a> and the <a href="https://www.amazon.com/Complete-Mysteries-Annotated-Introduction-Additional-ebook/dp/B002DMJMCU/ref=sr_1_1?s=digital-text&amp;ie=UTF8&amp;qid=1479152894&amp;sr=1-1&amp;keywords=complete+father+brown+mysteries">Father Brown </a>mysteries) diagnosed all the world's problems.  You can read his famous diagnosis, <a href="http://www.gutenberg.org/files/1717/1717-h/1717-h.htm#link2H_PART5">What's Wrong With the World</a>, at Project Gutenberg.  And if you do so, you'll find that Chesterton was a bit of a monster.</p>
 
-<figure><img src="/assets/squarespace/2505a6b02272-Aaaaayyyyyy.webp" alt="Aaaaaaayyyyyyyy...." loading="lazy" /><figcaption>Aaaaaaayyyyyyyy....</figcaption></figure>
+<figure class="imported-figure" style="--media-width: 300px"><img src="/assets/squarespace/2505a6b02272-Aaaaayyyyyy.webp" alt="Aaaaaaayyyyyyyy...." loading="lazy" class="imported-media" /><figcaption>Aaaaaaayyyyyyyy....</figcaption></figure>
 
 <p>If you don't want to read the whole thing, you can read Scott Alexander's <a href="http://slatestarcodex.com/2014/12/25/book-review-whats-wrong-with-the-world/">excellent review</a>.  Chesterton's ideas are wildly conservative, but they are beautifully written:</p>
 

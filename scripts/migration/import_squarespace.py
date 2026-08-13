@@ -85,6 +85,22 @@ EDITORIAL_ALT_TEXT: dict[str, str] = json.loads(
     Path(__file__).with_name("editorial-image-alts.json").read_text(encoding="utf-8")
 )
 
+# Squarespace's WordPress export keeps media order but drops the Fluid Engine
+# grid, crop, and alignment data. These small, named roles restore the visual
+# treatment of permanent-page images without retaining Squarespace's runtime.
+PAGE_MEDIA_ROLES: dict[str, list[str]] = {
+    "publications and preprints": ["media-banner media-publications"],
+    "teaching and service": ["media-ornament media-teaching-portrait", "media-banner media-teaching-divider"],
+    "about": ["media-panel media-about"],
+    "contact": ["media-banner media-contact"],
+    "talk notes and slides": ["media-banner media-talks-primary", "media-banner media-talks-secondary"],
+    "expository notes": ["media-banner media-expository-primary", "media-banner media-expository-secondary"],
+    "non-mathematical writing": ["media-banner media-prose-primary", "media-banner media-prose-secondary"],
+    "open questions": ["media-ornament media-open-questions"],
+    "mat138h1": ["media-banner media-mat138"],
+    "agonize": ["media-poster"],
+}
+
 
 def yaml_string(value: str) -> str:
     return json.dumps(value, ensure_ascii=False)
@@ -176,6 +192,126 @@ def publication_abstracts(value: str, title: str) -> str:
             f"{quoted_count + unquoted_count}"
         )
     return value
+
+
+H2_PATTERN = re.compile(r"<h2(?:\s+[^>]*)?>.*?</h2>", flags=re.DOTALL | re.IGNORECASE)
+
+
+def page_h2_sections(value: str) -> tuple[str, list[tuple[str, str]]]:
+    """Split rendered page HTML into its prefix and intact h2-led sections."""
+    matches = list(H2_PATTERN.finditer(value))
+    if not matches:
+        return value, []
+    sections: list[tuple[str, str]] = []
+    for index, match in enumerate(matches):
+        end = matches[index + 1].start() if index + 1 < len(matches) else len(value)
+        name = text_from_html(match.group(0)).casefold()
+        sections.append((name, value[match.start() : end].strip()))
+    return value[: matches[0].start()].strip(), sections
+
+
+def fidelity_grid(blocks: list[str], modifier: str) -> str:
+    sections = "".join(f'<section class="fidelity-section">{block}</section>' for block in blocks)
+    return f'<div class="fidelity-grid fidelity-grid--{modifier}">{sections}</div>'
+
+
+def detach_media(block: str, media_class: str) -> tuple[str, str]:
+    pattern = re.compile(
+        rf'\s*(<img\b[^>]*\b{re.escape(media_class)}\b[^>]*/>)\s*$',
+        flags=re.DOTALL | re.IGNORECASE,
+    )
+    match = pattern.search(block)
+    if not match:
+        raise SystemExit(f"Could not find {media_class!r} at the expected page-section boundary")
+    return block[: match.start()].strip(), match.group(1)
+
+
+def permanent_page_layout(value: str, title: str) -> str:
+    """Rebuild the few permanent-page grids omitted by the WXR export."""
+    key = normalize_space(title).casefold()
+    if key not in {"teaching and service", "talk notes and slides", "publications and preprints"}:
+        return value
+
+    prefix, named_sections = page_h2_sections(value)
+    section_names = [name for name, _ in named_sections]
+    blocks = {name: block for name, block in named_sections}
+
+    if key == "teaching and service":
+        expected = ["teaching", "mentorship, etc.", "seminars", "conferences"]
+        if section_names != expected:
+            raise SystemExit(f"Unexpected Teaching section order: {section_names}")
+        mentorship, divider = detach_media(blocks["mentorship, etc."], "media-teaching-divider")
+        return "\n\n".join(
+            [
+                prefix,
+                fidelity_grid([blocks["teaching"], mentorship], "two"),
+                divider,
+                fidelity_grid([blocks["seminars"], blocks["conferences"]], "two"),
+            ]
+        )
+
+    if key == "talk notes and slides":
+        expected = ["selected notes for talks", "for general audiences", "selected older notes", "miscellaneous"]
+        if section_names != expected:
+            raise SystemExit(f"Unexpected Talks section order: {section_names}")
+        general, divider = detach_media(blocks["for general audiences"], "media-talks-secondary")
+        return "\n\n".join(
+            [
+                prefix,
+                fidelity_grid([blocks["selected notes for talks"], general], "two"),
+                divider,
+                fidelity_grid([blocks["selected older notes"], blocks["miscellaneous"]], "two"),
+            ]
+        )
+
+    expected = [
+        "my current research program",
+        "papers on arithmetic and topology of algebraic varieties",
+        "writing on ai",
+        "classical algebraic geometry",
+        "miscellaneous",
+        "vanishing and positivity",
+        "dynamics",
+        "the grothendieck ring of varieties",
+    ]
+    if section_names != expected:
+        raise SystemExit(f"Unexpected Publications section order: {section_names}")
+    return "\n\n".join(
+        [
+            prefix,
+            fidelity_grid(
+                [
+                    blocks["my current research program"],
+                    blocks["papers on arithmetic and topology of algebraic varieties"] + blocks["writing on ai"],
+                ],
+                "sidebar",
+            ),
+            fidelity_grid(
+                [
+                    blocks["classical algebraic geometry"],
+                    "".join(
+                        blocks[name]
+                        for name in [
+                            "miscellaneous",
+                            "vanishing and positivity",
+                            "dynamics",
+                            "the grothendieck ring of varieties",
+                        ]
+                    ),
+                ],
+                "sidebar",
+            ),
+        ]
+    )
+
+
+def display_title_for(body: str, fallback: str) -> str:
+    match = re.search(r"<h1(?:\s+[^>]*)?>(.*?)</h1>", body, flags=re.DOTALL | re.IGNORECASE)
+    if not match:
+        return fallback
+    # Inline emphasis spans often split a single word (for example the
+    # AGONIZE acrostic), so strip tags without inserting artificial spaces.
+    return normalize_space(html.unescape(re.sub(r"<[^>]+>", "", match.group(1))).replace("\xa0", " "))
 
 
 def safe_filename(value: str) -> str:
@@ -339,13 +475,17 @@ class TreeParser(HTMLParser):
 
 
 def caption_markup(match: re.Match[str]) -> str:
-    inner = match.group(1)
+    shortcode_attrs = match.group(1)
+    inner = match.group(2)
     image_match = re.search(r"<img\b[^>]*>", inner, flags=re.DOTALL | re.IGNORECASE)
     if not image_match:
         return inner
     caption = text_from_html(inner[image_match.end() :])
     visible = html.escape(caption)
-    return f"<figure>{image_match.group(0)}<figcaption>{visible}</figcaption></figure>"
+    width_match = re.search(r'\bwidth=["\']?(\d+)', shortcode_attrs, flags=re.IGNORECASE)
+    width = int(width_match.group(1)) if width_match else 0
+    width_attr = f' data-imported-width="{min(width, 4000)}"' if width > 0 else ""
+    return f"<figure{width_attr}>{image_match.group(0)}<figcaption>{visible}</figcaption></figure>"
 
 
 class SemanticRenderer:
@@ -354,6 +494,8 @@ class SemanticRenderer:
         self.title = normalize_space(title).casefold()
         self.seen_h1 = False
         self.used_ids: set[str] = set()
+        self.image_index = 0
+        self.media_roles = PAGE_MEDIA_ROLES.get(self.title, [])
 
     def unique_id(self, value: str) -> str:
         """Keep imported fragment targets valid while preventing duplicate IDs."""
@@ -444,6 +586,9 @@ class SemanticRenderer:
                 attrs["src"], normalize_space(child.attrs.get("alt", ""))
             )
             attrs["loading"] = "lazy"
+            role = self.media_roles[self.image_index] if self.image_index < len(self.media_roles) else ""
+            attrs["class"] = normalize_space(f"imported-media {role}")
+            self.image_index += 1
         elif tag == "iframe":
             source = child.attrs.get("src", "")
             if source.startswith("//"):
@@ -456,6 +601,12 @@ class SemanticRenderer:
             for key in ("width", "height", "allow", "allowfullscreen"):
                 if key in child.attrs:
                     attrs[key] = child.attrs[key] or key
+            if attrs.get("width", "").isdigit() and attrs.get("height", "").isdigit():
+                attrs["style"] = f"aspect-ratio: {attrs['width']} / {attrs['height']}"
+        elif tag == "figure" and child.attrs.get("data-imported-width", "").isdigit():
+            width = min(int(child.attrs["data-imported-width"]), 4000)
+            attrs["class"] = "imported-figure"
+            attrs["style"] = f"--media-width: {width}px"
         else:
             for key in ("id", "colspan", "rowspan"):
                 if child.attrs.get(key):
@@ -475,7 +626,7 @@ class SemanticRenderer:
 
 def clean_body(body: str, assets: AssetCatalog, title: str) -> str:
     body = re.sub(
-        r"\[caption[^\]]*\](.*?)\[/caption\]",
+        r"\[caption([^\]]*)\](.*?)\[/caption\]",
         caption_markup,
         body,
         flags=re.DOTALL | re.IGNORECASE,
@@ -483,8 +634,15 @@ def clean_body(body: str, assets: AssetCatalog, title: str) -> str:
     parser = TreeParser()
     parser.feed(body)
     parser.close()
-    cleaned = SemanticRenderer(assets, title).children(parser.root)
+    renderer = SemanticRenderer(assets, title)
+    cleaned = renderer.children(parser.root)
+    if renderer.media_roles and renderer.image_index != len(renderer.media_roles):
+        raise SystemExit(
+            f"Expected {len(renderer.media_roles)} visual-fidelity images on {title!r}, "
+            f"found {renderer.image_index}"
+        )
     cleaned = publication_abstracts(cleaned, title)
+    cleaned = permanent_page_layout(cleaned, title)
     # Markdown interprets four-space-indented HTML as a code block. Squarespace
     # emits presentation indentation between blocks, so remove it only when a
     # line begins with an HTML tag; indentation inside textual <pre> content is
@@ -607,6 +765,7 @@ def main() -> None:
             output = site_root / "src/data/pages" / output_name(legacy_path)
             data = [
                 ("title", title),
+                ("displayTitle", display_title_for(body, title)),
                 ("description", description_for(item, body)),
                 ("legacyPath", legacy_path),
                 ("math", contains_math(body)),

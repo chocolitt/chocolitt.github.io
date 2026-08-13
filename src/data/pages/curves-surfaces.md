@@ -1,5 +1,6 @@
 ---
 title: "Curves & Surfaces"
+displayTitle: "Curves and surfaces"
 description: "Curves and surfaces This course serves as an introduction to the concrete aspects of algebraic geometry in low dimensions, loosely following Hartshorne Chapters IV and V (with additional outside topics). The goal is to serve as a transit…"
 legacyPath: "/curves-surfaces"
 math: false

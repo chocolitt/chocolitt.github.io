@@ -25,6 +25,7 @@ const pages = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/data/pages" }),
   schema: z.object({
     title: z.string(),
+    displayTitle: z.string().optional(),
     description: z.string(),
     legacyPath: z.string().startsWith("/"),
     math: z.boolean().default(false),

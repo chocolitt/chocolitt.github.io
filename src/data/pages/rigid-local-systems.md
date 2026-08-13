@@ -1,5 +1,6 @@
 ---
 title: "Rigid Local Systems"
+displayTitle: "rigid local systems"
 description: "rigid local systems The goal of this seminar is to learn about Katz’s classification of rigid local systems on \\(\\mathbb{P}^1\\setminus\\{x_1, \\cdots, x_n\\}\\), loosely following Volklein’s formalism in his paper The Braid Group and Linear…"
 legacyPath: "/rigid-local-systems"
 math: true

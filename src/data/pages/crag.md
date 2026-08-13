@@ -1,5 +1,6 @@
 ---
 title: "CRAG"
+displayTitle: "CRAG"
 description: "This is the page for the CRAAG Seminar at UGA. We’ll be reading classic papers in arithmetic and algebraic geometry (where the phrases “arithmetic geometry,” “algebraic geometry,” and “classic” are all broadly construed), presenting them…"
 legacyPath: "/crag"
 math: true

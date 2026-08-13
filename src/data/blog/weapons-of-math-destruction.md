@@ -13,7 +13,7 @@ imported: true
 
 <p>I've just finished reading <a href="https://mathbabe.org/">Cathy O'Neil's</a> book <a href="https://www.amazon.com/dp/B019B6VCLO/ref=dp-kindle-redirect?_encoding=UTF8&amp;btkr=1">Weapons of Math Destruction</a>, which I highly recommend.  (One notable feature of the book is that the skull and cross-bones on the cover is the second known example of <a href="https://en.wikipedia.org/wiki/Paul_Sally">mathematical piracy</a>.)  </p>
 
-<figure><img src="/assets/squarespace/75cbc438c71f-weaponsmath-r4-6-06.webp" alt="Wea-puns of mass destruction?" loading="lazy" /><figcaption>Wea-puns of mass destruction?</figcaption></figure>
+<figure class="imported-figure" style="--media-width: 300px"><img src="/assets/squarespace/75cbc438c71f-weaponsmath-r4-6-06.webp" alt="Wea-puns of mass destruction?" loading="lazy" class="imported-media" /><figcaption>Wea-puns of mass destruction?</figcaption></figure>
 
 <p>The book is, as you might guess from the title, quite negative about the use of big data and mathematical models in government and the corporate world.  This is a point of view that I felt some knee-jerk disagreement with; that said, Cathy is quite clear that her intent is only to discuss the negative features of big data and the use of mathematics in social and business planning:</p>
 

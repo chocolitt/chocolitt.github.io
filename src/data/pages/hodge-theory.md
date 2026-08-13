@@ -1,5 +1,6 @@
 ---
 title: "Hodge theory"
+displayTitle: "Topics in Algebraic geometry: Hodge Theory"
 description: "Topics in Algebraic geometry: Hodge Theory This is the course page for the Fall 2022 Hodge theory course. We will loosely follow Voisin’s books, but with lots of supplemental material to be posted here. Voisin, Hodge Theory and Complex A…"
 legacyPath: "/hodge-theory"
 math: true

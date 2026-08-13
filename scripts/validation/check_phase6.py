@@ -48,6 +48,18 @@ EXPECTED_DECORATIVE_IMAGES = {
     ("/teaching", "/assets/squarespace/c04fb0bb8140-image-asset.webp"),
     ("/teaching", "/assets/squarespace/52d8beda1b95-image-asset.webp"),
 }
+EXPECTED_VISUAL_FIDELITY = {
+    "/publications-and-preprints": {"media-publications": 1, "fidelity-grid--sidebar": 2},
+    "/teaching": {"media-teaching-portrait": 1, "media-teaching-divider": 1, "fidelity-grid--two": 2},
+    "/about": {"media-about": 1},
+    "/contact": {"media-contact": 1},
+    "/talks-and-expository-work": {"media-talks-primary": 1, "media-talks-secondary": 1, "fidelity-grid--two": 2},
+    "/expository-notes": {"media-expository-primary": 1, "media-expository-secondary": 1},
+    "/nonmathematical-writing": {"media-prose-primary": 1, "media-prose-secondary": 1},
+    "/open-questions": {"media-open-questions": 1},
+    "/mat138h1": {"media-mat138": 1},
+    "/agonize": {"media-poster": 1},
+}
 DOWNLOAD_EXTENSIONS = {
     ".blend", ".doc", ".docx", ".gif", ".jpg", ".jpeg", ".obj", ".pdf",
     ".png", ".tex", ".webp", ".xls", ".xlsx", ".zip",
@@ -399,6 +411,14 @@ def main() -> int:
                         f"{path}: TeX delimiter {delimiter!r} count changed "
                         f"from {expected_count} in source to {actual_count} in output"
                     )
+
+        for marker, expected_count in EXPECTED_VISUAL_FIDELITY.get(path, {}).items():
+            actual_count = text.count(marker)
+            if actual_count != expected_count:
+                failures.append(
+                    f"{path}: expected visual-fidelity marker {marker!r} "
+                    f"{expected_count} time(s), found {actual_count}"
+                )
 
     public_files = [path for path in dist.rglob("*") if path.is_file()]
     oversized = [path for path in public_files if path.stat().st_size >= 100_000_000]

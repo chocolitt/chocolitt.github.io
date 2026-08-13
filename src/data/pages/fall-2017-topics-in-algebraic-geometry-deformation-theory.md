@@ -1,5 +1,6 @@
 ---
 title: "Fall 2017 - Topics in Algebraic Geometry - Deformation theory"
+displayTitle: "Fall 2017 - topics in Algebraic geometry"
 description: "Fall 2017 - topics in Algebraic geometry deformation theory course description This course is an introduction to deformation theory, at the level of Hartshorne's book on the subject. Possible topics would include: Schlesinger's criterion…"
 legacyPath: "/fall-2017-topics-in-algebraic-geometry-deformation-theory"
 math: true

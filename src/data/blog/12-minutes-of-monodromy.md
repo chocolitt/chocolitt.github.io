@@ -13,9 +13,9 @@ imported: true
 
 <p>Here’s a video of a (12 minute!) talk I gave on Friday about some of my recent work, mostly from <a href="https://arxiv.org/abs/1809.03524">this paper of mine</a>. The talk is aimed at a general mathematical audience — please let me know if you have any questions!</p>
 
-<iframe src="https://www.youtube.com/embed/SwbqW23mB6Y?wmode=opaque&amp;enablejsapi=1" title="Embedded media" loading="lazy" width="854" height="480" allowfullscreen="allowfullscreen">
+<iframe src="https://www.youtube.com/embed/SwbqW23mB6Y?wmode=opaque&amp;enablejsapi=1" title="Embedded media" loading="lazy" width="854" height="480" allowfullscreen="allowfullscreen" style="aspect-ratio: 854 / 480">
 </iframe>
 
 <p>The video has received exactly one comment so far:</p>
 
-<img src="/assets/squarespace/6cb9fc18c641-Screen-Shot-2018-09-30-at-7.40.27-PM.webp" alt="YouTube comment by beena alavudheen: “I guess you could say this was… Lit,” with two likes." loading="lazy" />
+<img src="/assets/squarespace/6cb9fc18c641-Screen-Shot-2018-09-30-at-7.40.27-PM.webp" alt="YouTube comment by beena alavudheen: “I guess you could say this was… Lit,” with two likes." loading="lazy" class="imported-media" />

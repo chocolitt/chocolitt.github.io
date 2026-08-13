@@ -13,4 +13,4 @@ imported: true
 
 <p>For those of you who haven’t yet, you should <a href="https://sites.math.washington.edu/~jarod/wagon.html">register for WAGON</a>! Poster below — it’s going to be great.</p>
 
-<img src="/assets/squarespace/a19653ec7c8d-wagon_45347640-4.webp" alt="WAGON conference poster for April 18–19, 2020, listing eight speakers, panels on work-life balance and COVID, and virtual social events." loading="lazy" />
+<img src="/assets/squarespace/a19653ec7c8d-wagon_45347640-4.webp" alt="WAGON conference poster for April 18–19, 2020, listing eight speakers, panels on work-life balance and COVID, and virtual social events." loading="lazy" class="imported-media" />

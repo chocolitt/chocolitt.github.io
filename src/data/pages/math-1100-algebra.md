@@ -1,5 +1,6 @@
 ---
 title: "Math 1100 - Algebra"
+displayTitle: "Math 1100 - Algebra I, Fall 2023"
 description: "Math 1100 - Algebra I, Fall 2023 Instructor : Daniel Litt; daniel.litt [at] utoronto [dot] ca Office Hours : Thursdays 3-4 or by appointment at 215 Huron, Office 1028 Location : W 11-12, Th 11-1, BA6183 Syllabus Category theory: Universa…"
 legacyPath: "/math-1100-algebra"
 math: false

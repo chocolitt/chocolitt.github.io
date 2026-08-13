@@ -7,12 +7,13 @@ interface Props {
 }
 
 const { entry } = Astro.props;
-const { title, description, legacyPath, math } = entry.data;
+const { title, displayTitle, description, legacyPath, math } = entry.data;
+const pageName = legacyPath.replace(/^\//, "").replace(/\//g, "-") || "home";
 ---
 
 <BaseLayout title={title} description={description} canonicalPath={legacyPath} math={math}>
-  <article class="standard-page shell page-content prose">
-    <h1>{title}</h1>
+  <article class="standard-page shell page-content prose" data-page={pageName}>
+    <h1>{displayTitle ?? title}</h1>
     <slot />
   </article>
 </BaseLayout>

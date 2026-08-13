@@ -15,11 +15,11 @@ imported: true
 
 <div class="imported-gallery">
 
-<img src="/assets/squarespace/21ed65b5f083-IMG_3998.webp" alt="David Mumford’s handwritten formula for the canonical bundle of the moduli space of curves, written in white on black." loading="lazy" />
+<img src="/assets/squarespace/21ed65b5f083-IMG_3998.webp" alt="David Mumford’s handwritten formula for the canonical bundle of the moduli space of curves, written in white on black." loading="lazy" class="imported-media" />
 
-<img src="/assets/squarespace/230cbbc1db78-IMG_3999.webp" alt="Museum label for David Bryant Mumford’s work “Thirteen??”" loading="lazy" />
+<img src="/assets/squarespace/230cbbc1db78-IMG_3999.webp" alt="Museum label for David Bryant Mumford’s work “Thirteen??”" loading="lazy" class="imported-media" />
 
-<img src="/assets/squarespace/f1221f7778c4-IMG_4001.webp" alt="Museum placard describing Concinnitas, a 2014 portfolio in which mathematicians and physicists rendered the mathematical expressions they found most beautiful." loading="lazy" />
+<img src="/assets/squarespace/f1221f7778c4-IMG_4001.webp" alt="Museum placard describing Concinnitas, a 2014 portfolio in which mathematicians and physicists rendered the mathematical expressions they found most beautiful." loading="lazy" class="imported-media" />
 
 </div>
 
@@ -27,8 +27,8 @@ imported: true
 
 <div class="imported-gallery">
 
-<img src="/assets/squarespace/6cec3a6cd8dc-IMG_4002.webp" alt="Deer sculpture covered in hundreds of clear glass bubbles, installed against a red museum wall." loading="lazy" />
+<img src="/assets/squarespace/6cec3a6cd8dc-IMG_4002.webp" alt="Deer sculpture covered in hundreds of clear glass bubbles, installed against a red museum wall." loading="lazy" class="imported-media" />
 
-<img src="/assets/squarespace/718f03fe4a6b-IMG_4004.webp" alt="Close-up of the clear glass bubbles covering the deer sculpture’s torso and legs." loading="lazy" />
+<img src="/assets/squarespace/718f03fe4a6b-IMG_4004.webp" alt="Close-up of the clear glass bubbles covering the deer sculpture’s torso and legs." loading="lazy" class="imported-media" />
 
 </div>
