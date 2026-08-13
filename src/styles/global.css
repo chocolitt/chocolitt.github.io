@@ -269,6 +269,47 @@ figcaption {
   top: 1rem;
 }
 
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.prose iframe {
+  border: 0;
+  display: block;
+  max-width: 100%;
+  width: 100%;
+}
+
+.prose .imported-gallery {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  margin-block: 1.5rem;
+}
+
+.prose .imported-gallery img {
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+.prose .imported-chart svg {
+  background: #f7f7f7;
+  color: var(--link);
+  display: block;
+  width: 100%;
+}
+
+.prose .imported-chart details {
+  margin-block: 0.75rem;
+}
+
 @media (max-width: 750px) {
   .shell {
     margin-top: 0;

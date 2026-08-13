@@ -1,0 +1,68 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+interface Props {
+  label: string;
+  kind: "Category" | "Tag";
+  path: string;
+  posts: CollectionEntry<"blog">[];
+}
+
+const { label, kind, path, posts } = Astro.props;
+const sortedPosts = posts.sort((a, b) => b.data.published.valueOf() - a.data.published.valueOf());
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+  timeZone: "UTC",
+});
+---
+
+<BaseLayout
+  title={`${kind}: ${label}`}
+  description={`${kind} archive for ${label} on Daniel Litt's blog.`}
+  canonicalPath={path}
+>
+  <section class="taxonomy-index shell page-content">
+    <header class="section-intro">
+      <p class="eyebrow"><a href="/blog">βlog</a></p>
+      <h1>{kind}: {label}</h1>
+    </header>
+    <ol class="plain-list">
+      {sortedPosts.map((post) => (
+        <li>
+          <h2><a href={post.data.legacyPath}>{post.data.title}</a></h2>
+          <time datetime={post.data.published.toISOString()}>{dateFormatter.format(post.data.published)}</time>
+          <p>{post.data.description}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+</BaseLayout>
+
+<style>
+  .taxonomy-index {
+    max-width: var(--site-width);
+  }
+
+  li + li {
+    border-top: 1px solid var(--line);
+    margin-top: 2rem;
+    padding-top: 2rem;
+  }
+
+  h2 {
+    margin: 0 0 0.2rem;
+  }
+
+  h2 a {
+    color: var(--heading);
+  }
+
+  time {
+    color: var(--muted);
+    font-family: var(--display-font);
+    font-size: 0.78rem;
+  }
+</style>

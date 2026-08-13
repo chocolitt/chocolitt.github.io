@@ -1,0 +1,122 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const posts = await getCollection("blog", ({ data }) => !data.draft);
+const pages = await getCollection("pages");
+const courses = await getCollection("courses");
+const results = [
+  ...pages.map((entry) => ({
+    title: entry.data.title,
+    description: entry.data.description,
+    href: entry.data.legacyPath,
+  })),
+  ...posts.map((entry) => ({
+    title: entry.data.title,
+    description: entry.data.description,
+    href: entry.data.legacyPath,
+  })),
+  ...courses.map((entry) => ({
+    title: entry.data.title,
+    description: entry.data.summary,
+    href: entry.data.legacyPath,
+  })),
+].sort((a, b) => a.title.localeCompare(b.title));
+---
+
+<BaseLayout title="Search" description="Search Daniel Litt's website." canonicalPath="/search">
+  <section class="search-page shell page-content">
+    <header class="section-intro">
+      <h1>Search</h1>
+    </header>
+    <form class="search-form" role="search">
+      <label for="site-search">Search this site</label>
+      <input id="site-search" name="q" type="search" autocomplete="off" />
+    </form>
+    <p id="search-status" aria-live="polite">Enter a word or phrase to search.</p>
+    <ol id="search-results" class="plain-list" hidden>
+      {results.map((result) => (
+        <li data-search={`${result.title} ${result.description}`.toLocaleLowerCase()}>
+          <h2><a href={result.href}>{result.title}</a></h2>
+          <p>{result.description}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+</BaseLayout>
+
+<script>
+  const input = document.querySelector<HTMLInputElement>("#site-search");
+  const status = document.querySelector<HTMLElement>("#search-status");
+  const list = document.querySelector<HTMLOListElement>("#search-results");
+  const items = [...document.querySelectorAll<HTMLElement>("#search-results > li")];
+  const initialQuery = new URLSearchParams(window.location.search).get("q") || "";
+
+  const update = () => {
+    const query = input?.value.trim().toLocaleLowerCase() || "";
+    if (!list || !status) return;
+    if (!query) {
+      list.hidden = true;
+      for (const item of items) item.hidden = false;
+      status.textContent = "Enter a word or phrase to search.";
+      return;
+    }
+    let count = 0;
+    for (const item of items) {
+      const matches = (item.dataset.search || "").includes(query);
+      item.hidden = !matches;
+      if (matches) count += 1;
+    }
+    list.hidden = false;
+    status.textContent = `${count} ${count === 1 ? "result" : "results"}.`;
+  };
+
+  if (input) {
+    input.value = initialQuery;
+    input.addEventListener("input", update);
+    update();
+  }
+</script>
+
+<style>
+  .search-page {
+    max-width: var(--site-width);
+  }
+
+  .search-form {
+    max-width: 42rem;
+  }
+
+  label {
+    display: block;
+    font-family: var(--display-font);
+    font-size: 0.82rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+  }
+
+  input {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 0;
+    color: var(--text);
+    font: inherit;
+    padding: 0.65rem 0.75rem;
+    width: 100%;
+  }
+
+  li {
+    border-top: 1px solid var(--line);
+    padding-block: 1.4rem;
+  }
+
+  li h2 {
+    font-size: 1.2rem;
+    margin: 0 0 0.4rem;
+  }
+
+  li p {
+    margin: 0;
+  }
+</style>

@@ -6,7 +6,9 @@
     "dev": "astro dev",
     "check": "astro check",
     "build": "astro check && astro build",
-    "preview": "astro preview"
+    "validate": "python3 scripts/validation/check_build.py dist",
+    "preview": "astro preview",
+    "site:preview": "pnpm run build && pnpm run validate && astro preview"
   },
   "dependencies": {
     "@astrojs/check": "0.9.10",

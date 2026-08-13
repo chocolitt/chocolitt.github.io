@@ -1,6 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
+interface Props {
+  workPage?: boolean;
+}
+
+const { workPage = false } = Astro.props;
+
 const sections = [
   {
     href: "/publications-and-preprints",
@@ -39,6 +45,7 @@ const sections = [
   title="Daniel Litt"
   description="Daniel Litt is a mathematician working in algebraic geometry, arithmetic geometry, and related subjects."
 >
+  {workPage && <h1 class="visually-hidden">Daniel Litt</h1>}
   <section class="home-intro shell page-content">
     <div class="biography prose">
       <p>

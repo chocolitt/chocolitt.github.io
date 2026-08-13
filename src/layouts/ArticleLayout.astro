@@ -8,7 +8,7 @@ interface Props {
 }
 
 const { entry } = Astro.props;
-const { title, description, published, updated, comments, legacyPath } = entry.data;
+const { title, description, published, updated, comments, legacyPath, math } = entry.data;
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
   day: "numeric",
   month: "long",
@@ -17,7 +17,7 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
 });
 ---
 
-<BaseLayout title={title} description={description} canonicalPath={legacyPath} type="article" math>
+<BaseLayout title={title} description={description} canonicalPath={legacyPath} type="article" math={math}>
   <article class="article-shell shell page-content">
     <p class="collection-title"><a href="/blog">βlog</a></p>
     <header class="article-header">

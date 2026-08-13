@@ -1,12 +1,17 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getEntry, render } from "astro:content";
+import PageLayout from "../../layouts/PageLayout.astro";
+
+const entry = await getEntry("pages", "teaching");
+if (!entry) throw new Error("Missing imported /teaching page content");
+const { Content } = await render(entry);
 ---
 
-<BaseLayout title="Teaching, Seminars, and Service" description="Teaching, seminars, course pages, and notes by Daniel Litt.">
-  <article class="shell page-content prose teaching-page">
-    <h1>Teaching, Seminars, and Service</h1>
-
-    <h2>Course Pages</h2>
+<PageLayout entry={entry}>
+  <Content />
+  <section class="integrated-archives">
+    <h2>Course Archives and Downloads</h2>
+    <div class="teaching-page">
     <ul class="course-list">
       <li><a href="/mat445_winter2026.html">MAT445H1 – Representation Theory, Winter 2026</a> <span>Archived course</span></li>
       <li><a href="/mat445.html">Math 445 – Representation Theory, Winter 2025</a> <span>Archived course</span></li>
@@ -26,16 +31,14 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
         </a>
       </li>
     </ul>
-  </article>
-</BaseLayout>
+    </div>
+  </section>
+</PageLayout>
 
 <style>
   .teaching-page {
-    max-width: var(--site-width);
-  }
-
-  .teaching-page h1 {
-    margin-top: 0;
+    margin: 0;
+    padding: 0;
   }
 
   .teaching-page :global(ul) {

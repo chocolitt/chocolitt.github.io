@@ -10,17 +10,14 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 
-# These are live Squarespace navigation routes whose content has not yet been
-# converted in the deliberately partial Phase 3 prototype. They remain links at
-# their exact production paths and must become real build outputs before launch.
-PENDING_SQUARESPACE_ROUTES = {
-    "/about",
-    "/contact",
-    "/expository-notes",
-    "/nonmathematical-writing",
-    "/open-questions",
-    "/publications-and-preprints",
-    "/talks-and-expository-work",
+# These links were already dead on the captured Squarespace site. They remain
+# in the imported prose for historical fidelity, but they are not launch gaps.
+KNOWN_LEGACY_DEAD_LINKS = {
+    "/How-would-a-society-run-by-mathematicians-look-like",
+    "/biopsy",
+    "/virtual-office-hours",
+    "/virtual-tea",
+    "/zazoom",
 }
 
 VALIDATED_PAGES = [
@@ -145,6 +142,40 @@ def target_exists(dist: Path, url: str) -> bool:
     return (dist / relative / "index.html").is_file()
 
 
+def output_for_path(dist: Path, path: str) -> Path:
+    if path == "/":
+        return dist / "index.html"
+    relative = unquote(path).lstrip("/")
+    direct = dist / relative
+    if direct.is_file():
+        return direct
+    return direct / "index.html"
+
+
+def read_expected(path: Path) -> set[str]:
+    return {
+        line.strip()
+        for line in path.read_text(encoding="utf-8").splitlines()
+        if line.strip() and not line.lstrip().startswith("#")
+    }
+
+
+def detected_extension(path: Path) -> str:
+    with path.open("rb") as handle:
+        head = handle.read(16)
+    if head.startswith(b"\xff\xd8\xff"):
+        return ".jpg"
+    if head.startswith(b"\x89PNG\r\n\x1a\n"):
+        return ".png"
+    if head.startswith((b"GIF87a", b"GIF89a")):
+        return ".gif"
+    if head.startswith(b"RIFF") and head[8:12] == b"WEBP":
+        return ".webp"
+    if head.startswith(b"%PDF"):
+        return ".pdf"
+    return ""
+
+
 def main() -> int:
     dist = Path(sys.argv[1] if len(sys.argv) > 1 else "dist").resolve()
     if not dist.is_dir():
@@ -152,20 +183,66 @@ def main() -> int:
         return 2
 
     failures: list[tuple[Path, str]] = []
-    pending: set[str] = set()
+    known_dead_seen: set[str] = set()
     checked = 0
     for page in dist.rglob("*.html"):
         parser = LinkParser()
         parser.feed(page.read_text(encoding="utf-8", errors="replace"))
         for link in parser.links:
-            if link.startswith(("#", "mailto:", "tel:", "data:", "javascript:", "http://", "https://", "//")):
+            if link.startswith(("#", "mailto:", "tel:", "data:", "javascript:", "file:", "http://", "https://", "//")):
                 continue
             checked += 1
             path = unquote(urlsplit(link).path)
-            if path in PENDING_SQUARESPACE_ROUTES:
-                pending.add(path)
+            if path in KNOWN_LEGACY_DEAD_LINKS:
+                known_dead_seen.add(path)
             elif not target_exists(dist, link):
                 failures.append((page.relative_to(dist), link))
+
+    validation_root = Path(__file__).resolve().parent
+    expected_paths = read_expected(validation_root / "expected-squarespace-paths.txt")
+    expected_comments = read_expected(validation_root / "expected-comment-paths.txt")
+    expected_math = read_expected(validation_root / "expected-math-paths.txt")
+    for path in sorted(expected_paths):
+        output = output_for_path(dist, path)
+        if not output.is_file():
+            failures.append((Path("<expected-squarespace-path>"), path))
+            continue
+        text = output.read_text(encoding="utf-8", errors="replace")
+        parser = LinkParser()
+        parser.feed(text)
+        if parser.headings.count(1) != 1:
+            failures.append((output.relative_to(dist), f"expected exactly one h1; found {parser.headings.count(1)}"))
+        for previous, current in zip(parser.headings, parser.headings[1:]):
+            if current > previous + 1:
+                failures.append((output.relative_to(dist), f"heading level skips from h{previous} to h{current}"))
+        canonical = f'<link rel="canonical" href="https://www.daniellitt.com{path if path != "/" else "/"}">'
+        if canonical not in text:
+            failures.append((output.relative_to(dist), f"canonical URL does not preserve {path}"))
+        if path in expected_comments and f'const urlId = "{path}";' not in text:
+            failures.append((output.relative_to(dist), "FastComments urlId does not match the immutable post path"))
+        has_mathjax = "tex-chtml.js" in text
+        if path in expected_math and not has_mathjax:
+            failures.append((output.relative_to(dist), "MathJax is missing from math-bearing imported content"))
+        if path not in expected_math and has_mathjax:
+            failures.append((output.relative_to(dist), "MathJax was loaded on a page without imported TeX"))
+
+    asset_manifest = validation_root / "expected-squarespace-assets.sha256"
+    asset_count = 0
+    for line in asset_manifest.read_text(encoding="utf-8").splitlines():
+        if not line.strip():
+            continue
+        expected_sha, relative = line.split("  ", 1)
+        asset_count += 1
+        asset_path = dist / relative
+        if not asset_path.is_file():
+            failures.append((Path("<expected-squarespace-asset>"), f"/{relative}"))
+        elif hashlib.sha256(asset_path.read_bytes()).hexdigest() != expected_sha:
+            failures.append((Path(relative), "localized Squarespace asset checksum changed"))
+        else:
+            detected = detected_extension(asset_path)
+            suffixes = {".jpg", ".jpeg"} if detected == ".jpg" else {detected}
+            if detected and asset_path.suffix.lower() not in suffixes:
+                failures.append((Path(relative), f"file extension does not match {detected} content"))
 
     required = [
         "index.html",
@@ -258,6 +335,12 @@ def main() -> int:
         if low_contrast_color in css:
             failures.append((Path("<styles>"), f"low-contrast text color remains: {low_contrast_color}"))
 
+    for page in dist.rglob("*.html"):
+        text = page.read_text(encoding="utf-8", errors="replace")
+        for hostname in ("images.squarespace-cdn.com", "static1.squarespace.com", "daniel-litt.squarespace.com"):
+            if hostname in text:
+                failures.append((page.relative_to(dist), f"unlocalized Squarespace dependency: {hostname}"))
+
     if failures:
         for page, link in failures:
             print(f"BROKEN {page}: {link}")
@@ -265,14 +348,14 @@ def main() -> int:
         return 1
 
     print(
-        f"PASS: {checked} internal href/src references, {len(required)} required outputs, "
-        f"and {len(PRESERVED_SHA256)} preserved checksums"
+        f"PASS: {len(expected_paths)} Squarespace paths, {asset_count} localized assets, "
+        f"{len(expected_comments)} FastComments paths, {len(expected_math)} MathJax pages, "
+        f"{checked} internal href/src references, and {len(PRESERVED_SHA256)} preserved checksums"
     )
-    if pending:
+    if known_dead_seen:
         print(
-            "PENDING PHASE 5: "
-            f"{len(pending)} linked Squarespace routes still require conversion at their existing paths: "
-            + ", ".join(sorted(pending))
+            "KNOWN LEGACY DEAD LINKS: "
+            + ", ".join(sorted(known_dead_seen))
         )
     return 0
 

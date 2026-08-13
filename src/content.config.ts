@@ -10,9 +10,25 @@ const blog = defineCollection({
     published: z.coerce.date(),
     updated: z.coerce.date().optional(),
     draft: z.boolean().default(false),
-    tags: z.array(z.string()).default([]),
+    tags: z.array(z.object({ name: z.string(), path: z.string().startsWith("/blog/tag/") })).default([]),
+    categories: z
+      .array(z.object({ name: z.string(), path: z.string().startsWith("/blog/category/") }))
+      .default([]),
     comments: z.boolean().default(true),
+    math: z.boolean().default(false),
     legacyPath: z.string().startsWith("/blog/"),
+    imported: z.boolean().default(false),
+  }),
+});
+
+const pages = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/data/pages" }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    legacyPath: z.string().startsWith("/"),
+    math: z.boolean().default(false),
+    imported: z.boolean().default(false),
   }),
 });
 
@@ -35,4 +51,4 @@ const courses = defineCollection({
   }),
 });
 
-export const collections = { blog, courses };
+export const collections = { blog, courses, pages };

@@ -1,0 +1,28 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  entry: CollectionEntry<"pages">;
+}
+
+const { entry } = Astro.props;
+const { title, description, legacyPath, math } = entry.data;
+---
+
+<BaseLayout title={title} description={description} canonicalPath={legacyPath} math={math}>
+  <article class="standard-page shell page-content prose">
+    <h1>{title}</h1>
+    <slot />
+  </article>
+</BaseLayout>
+
+<style>
+  .standard-page {
+    max-width: var(--site-width);
+  }
+
+  .standard-page h1 {
+    margin-top: 0;
+  }
+</style>
