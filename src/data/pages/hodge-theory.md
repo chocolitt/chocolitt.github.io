@@ -1,8 +1,9 @@
 ---
 title: "Hodge theory"
 displayTitle: "Topics in Algebraic geometry: Hodge Theory"
-description: "Topics in Algebraic geometry: Hodge Theory This is the course page for the Fall 2022 Hodge theory course. We will loosely follow Voisin’s books, but with lots of supplemental material to be posted here. Voisin, Hodge Theory and Complex A…"
+description: "Archived course information and schedule for Hodge Theory at the University of Toronto, Fall 2022."
 legacyPath: "/hodge-theory"
+archiveLabel: "Archived course · Fall 2022"
 math: true
 imported: true
 ---

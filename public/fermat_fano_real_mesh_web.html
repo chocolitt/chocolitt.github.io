@@ -3,7 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Interactive three-dimensional visualization of the real Fano surface of lines on the Fermat cubic threefold.">
   <title>Fermat Fano Surface</title>
+  <link rel="canonical" href="https://www.daniellitt.com/fermat_fano_real_mesh_web.html">
+  <link rel="icon" type="image/webp" href="/images/site/portrait.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Fermat Fano Surface · Daniel Litt">
+  <meta property="og:description" content="Interactive three-dimensional visualization of the real Fano surface of lines on the Fermat cubic threefold.">
+  <meta property="og:url" content="https://www.daniellitt.com/fermat_fano_real_mesh_web.html">
+  <meta property="og:image" content="https://www.daniellitt.com/images/daniel-litt-social-card.png">
+  <meta property="og:image:alt" content="Daniel Litt — Algebraic Geometry, Number Theory, etc.">
+  <meta name="twitter:card" content="summary_large_image">
   <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/pako@2.1.0/dist/pako.min.js"></script>
   <script>
@@ -16,7 +26,7 @@
       }
     };
   </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js" integrity="sha384-KKWa9jJ1MZvssLeOoXG6FiOAZfAgmzsIIfw8BXwI9+kYm0lPCbC6yTQPBC00F1/L" crossorigin="anonymous"></script>
   <style>
     :root {
       --bg: #f7f1e6;
@@ -34,9 +44,24 @@
     body {
       position: relative;
     }
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
     #plot {
       width: 100vw;
       height: 100vh;
+    }
+    #plot:focus-visible {
+      outline: 3px solid var(--ink);
+      outline-offset: -3px;
     }
     .controls {
       position: fixed;
@@ -44,7 +69,9 @@
       left: 18px;
       z-index: 10;
       display: flex;
+      flex-wrap: wrap;
       gap: 10px;
+      max-width: calc(100vw - 36px);
       pointer-events: none;
     }
     .mode-button,
@@ -114,22 +141,40 @@
     .caption-content p:last-child {
       margin-bottom: 0;
     }
+    @media (max-width: 620px) {
+      .mode-button,
+      .toggle-button {
+        min-height: 44px;
+      }
+      .caption-box {
+        top: 130px;
+      }
+      .caption-close {
+        height: 44px;
+        width: 44px;
+      }
+      .caption-content {
+        padding-right: 44px;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="controls">
-    <button type="button" class="mode-button" data-mode="porcelain">Wireframe + mesh</button>
-    <button type="button" class="mode-button" data-mode="wireframe">Wireframe</button>
-    <button type="button" class="toggle-button active" id="divisor-toggle">Second-type divisor</button>
+  <h1 class="visually-hidden">Fermat Fano surface visualization</h1>
+  <div class="controls" role="group" aria-label="Visualization controls">
+    <button type="button" class="mode-button" data-mode="porcelain" aria-pressed="true">Wireframe + mesh</button>
+    <button type="button" class="mode-button" data-mode="wireframe" aria-pressed="false">Wireframe</button>
+    <button type="button" class="toggle-button active" id="divisor-toggle" aria-pressed="true">Second-type divisor</button>
   </div>
-  <div class="caption-box" id="caption-box">
-    <button type="button" class="caption-close" id="caption-close" aria-label="Close caption">&times;</button>
+  <div class="caption-box" id="caption-box" role="note" aria-label="Visualization description">
+    <button type="button" class="caption-close" id="caption-close" aria-label="Close caption" aria-controls="caption-box">&times;</button>
     <div class="caption-content">
       <p>This is a visualization of the (real points of the) Fano surface of lines on the Fermat cubic threefold. The gray curve is the (real points of the) divisor of lines of the second type, i.e. lines whose normal bundle is \(\mathcal{O}(1)\oplus \mathcal{O}(-1)\). For most cubic threefolds, this divisor is smooth, but for the Fermat it has 30 irreducible components, each smooth of genus one. Of these, 10 have real points.</p>
       <p>The surface was sampled in the Grassmannian \(\mathrm{Gr}(2,5)\), under its Pl&uuml;cker embedding, and projected down from a well-chosen chart to \(\mathbb{R}^3\) via PCA. Constructed with much help from Codex/GPT 5.4.</p>
     </div>
   </div>
-  <div id="plot"></div>
+  <p class="visually-hidden" id="plot-instructions">Focus the visualization and use the arrow keys to rotate it, plus and minus to zoom, and Home to reset the camera.</p>
+  <main id="plot" role="img" tabindex="0" aria-describedby="plot-instructions" aria-keyshortcuts="ArrowUp ArrowDown ArrowLeft ArrowRight + - Home" aria-label="Interactive three-dimensional visualization of the real Fano surface of lines on the Fermat cubic threefold"></main>
   <script>
     function decodeCompressedPayload(base64Text) {
       const binary = atob(base64Text);
@@ -360,8 +405,10 @@
 
       document.querySelectorAll(".mode-button").forEach((button) => {
         button.classList.toggle("active", button.dataset.mode === currentViewMode);
+        button.setAttribute("aria-pressed", String(button.dataset.mode === currentViewMode));
       });
       divisorToggle?.classList.toggle("active", divisorVisible);
+      divisorToggle?.setAttribute("aria-pressed", String(divisorVisible));
     }
 
     Plotly.newPlot(graphDiv, buildPlotData(currentChunkOrder), layout, config).then(() => {
@@ -381,6 +428,41 @@
     divisorToggle?.addEventListener("click", () => {
       divisorVisible = !divisorVisible;
       applyViewState();
+    });
+
+    graphDiv.addEventListener("keydown", (event) => {
+      const supportedKeys = ["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "+", "=", "-", "_", "Home"];
+      if (!supportedKeys.includes(event.key)) return;
+      event.preventDefault();
+
+      const camera = graphDiv.layout?.scene?.camera || layout.scene.camera;
+      const eye = camera?.eye || defaultCameraEye();
+      let radius = Math.hypot(eye.x, eye.y, eye.z) || Math.hypot(1.6, 1.35, 0.95);
+      let azimuth = Math.atan2(eye.y, eye.x);
+      let elevation = Math.asin(Math.max(-1, Math.min(1, eye.z / radius)));
+
+      if (event.key === "Home") {
+        Plotly.relayout(graphDiv, {"scene.camera": { ...camera, eye: {x: 1.6, y: 1.35, z: 0.95} }});
+        return;
+      }
+      if (event.key === "ArrowLeft") azimuth += 0.14;
+      if (event.key === "ArrowRight") azimuth -= 0.14;
+      if (event.key === "ArrowUp") elevation = Math.min(1.35, elevation + 0.10);
+      if (event.key === "ArrowDown") elevation = Math.max(-1.35, elevation - 0.10);
+      if (event.key === "+" || event.key === "=") radius *= 0.88;
+      if (event.key === "-" || event.key === "_") radius *= 1.14;
+
+      const horizontalRadius = radius * Math.cos(elevation);
+      Plotly.relayout(graphDiv, {
+        "scene.camera": {
+          ...camera,
+          eye: {
+            x: horizontalRadius * Math.cos(azimuth),
+            y: horizontalRadius * Math.sin(azimuth),
+            z: radius * Math.sin(elevation)
+          }
+        }
+      });
     });
 
     captionClose?.addEventListener("click", () => {

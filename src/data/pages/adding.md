@@ -1,8 +1,9 @@
 ---
 title: "ADDING"
 displayTitle: "ADDING"
-description: "Welcome to the workshop page for ADDING: Anabelian Days Down IN Georgia. The workshop aims to bring together researchers from various areas around anabelian geometry, very broadly construed. The workshop will be held (tentatively in-pers…"
+description: "Archived information, schedule, and participants for the ADDING workshop at the University of Georgia, April 30–May 1, 2022."
 legacyPath: "/adding"
+archiveLabel: "Archived workshop · April 30–May 1, 2022"
 math: true
 imported: true
 ---

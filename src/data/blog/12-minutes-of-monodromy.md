@@ -13,7 +13,7 @@ imported: true
 
 <p>Here’s a video of a (12 minute!) talk I gave on Friday about some of my recent work, mostly from <a href="https://arxiv.org/abs/1809.03524">this paper of mine</a>. The talk is aimed at a general mathematical audience — please let me know if you have any questions!</p>
 
-<iframe src="https://www.youtube.com/embed/SwbqW23mB6Y?wmode=opaque&amp;enablejsapi=1" title="Embedded media" loading="lazy" width="854" height="480" allowfullscreen="allowfullscreen" style="aspect-ratio: 854 / 480">
+<iframe src="https://www.youtube.com/embed/SwbqW23mB6Y?wmode=opaque&amp;enablejsapi=1" title="12 minutes of monodromy — talk by Daniel Litt" loading="lazy" width="854" height="480" allowfullscreen="allowfullscreen" style="aspect-ratio: 854 / 480">
 </iframe>
 
 <p>The video has received exactly one comment so far:</p>

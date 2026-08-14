@@ -82,6 +82,7 @@ a:hover {
 
 .prose a {
   border-bottom: 1px solid rgba(0, 4, 117, 0.2);
+  overflow-wrap: anywhere;
 }
 
 .prose a:hover {
@@ -90,9 +91,15 @@ a:hover {
 
 a:focus-visible,
 button:focus-visible,
-summary:focus-visible {
+summary:focus-visible,
+input:focus-visible {
   outline: 2px solid var(--link);
   outline-offset: 3px;
+}
+
+.prose {
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 img,

@@ -1,7 +1,7 @@
 ---
 title: "Non-Mathematical Writing"
 displayTitle: "non-mathematical writing"
-description: "non-mathematical writing Prose Every once in a while I might post some non-mathematical prose here. It's rare that I write fiction I'm not too embarrassed of to make public, but sometimes it happens. Of course there's a lot of non-fictio…"
+description: "Non-mathematical essays, fiction, and other prose by Daniel Litt."
 legacyPath: "/nonmathematical-writing"
 math: false
 imported: true

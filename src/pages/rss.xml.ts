@@ -1,4 +1,5 @@
 import { getCollection } from "astro:content";
+import { normalizeDescription } from "../utils/description";
 
 export async function GET({ site }: { site: URL }) {
   const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
@@ -9,7 +10,8 @@ export async function GET({ site }: { site: URL }) {
   const items = posts
     .map((post) => {
       const url = new URL(post.data.legacyPath, site).href;
-      return `<item><title>${escape(post.data.title)}</title><link>${url}</link><guid>${url}</guid><pubDate>${post.data.published.toUTCString()}</pubDate><description>${escape(post.data.description)}</description></item>`;
+      const description = normalizeDescription(post.data.description, post.data.title, 320);
+      return `<item><title>${escape(post.data.title)}</title><link>${url}</link><guid>${url}</guid><pubDate>${post.data.published.toUTCString()}</pubDate><description>${escape(description)}</description></item>`;
     })
     .join("");
 

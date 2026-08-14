@@ -1,7 +1,7 @@
 ---
 title: "Open Questions"
 displayTitle: "open questions"
-description: "open questions What I'm wondering about... Here I will store some questions which have either come up in research, or which I am idly curious about; my criterion for posting such a question here is that it should be easy to state and hav…"
+description: "Open research questions and mathematical problems collected by Daniel Litt."
 legacyPath: "/open-questions"
 math: true
 imported: true

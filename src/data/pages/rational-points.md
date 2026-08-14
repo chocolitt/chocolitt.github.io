@@ -1,8 +1,9 @@
 ---
 title: "Rational Points"
 displayTitle: "Rational Points"
-description: "Rational Points This course is about rational points, broadly speaking — in particular, we will talk about local-to-global principles and obstructions to them (e.g. the Brauer-Manin obstruction), explicit methods, decidability questions…"
+description: "Archived course information and schedule for Rational Points at the University of Georgia, Fall 2021."
 legacyPath: "/rational-points"
+archiveLabel: "Archived course · Fall 2021"
 math: false
 imported: true
 ---

@@ -4,7 +4,7 @@ Astro source for the in-progress migration of `www.daniellitt.com`. Production i
 
 ## Preview
 
-Requires Node.js 22.12 or newer and pnpm.
+Requires Node.js 24.19 and pnpm 11.19.
 
 ```sh
 pnpm install --frozen-lockfile
@@ -20,6 +20,8 @@ pnpm site:preview
 ```
 
 Then open `http://localhost:4321/`. See [`docs/editing.md`](docs/editing.md) for the concise editing workflow.
+
+When writing a post with `draft: true`, use `pnpm dev` instead; draft entries are deliberately excluded from the production-style preview.
 
 ## Content
 

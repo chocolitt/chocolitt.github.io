@@ -5,13 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Automated Refine reviews, mathematical audits, and errata for Daniel Litt's single-author published papers.">
   <title>Single-author paper reviews, audits, and errata</title>
+  <link rel="canonical" href="https://www.daniellitt.com/published-paper-reviews.html">
+  <link rel="icon" type="image/webp" href="/images/site/portrait.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Single-author paper reviews, audits, and errata · Daniel Litt">
+  <meta property="og:description" content="Automated Refine reviews, mathematical audits, and errata for Daniel Litt's single-author published papers.">
+  <meta property="og:url" content="https://www.daniellitt.com/published-paper-reviews.html">
+  <meta property="og:image" content="https://www.daniellitt.com/images/daniel-litt-social-card.png">
+  <meta property="og:image:alt" content="Daniel Litt — Algebraic Geometry, Number Theory, etc.">
+  <meta name="twitter:card" content="summary_large_image">
   <script>
     window.MathJax = {
       tex: {inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']], macros: {"Mod": "\\operatorname{Mod}", "PMod": "\\operatorname{PMod}", "MC": "\\operatorname{MC}", "End": "\\operatorname{End}", "GL": "\\operatorname{GL}", "SL": "\\operatorname{SL}", "PSL": "\\operatorname{PSL}", "id": "\\mathrm{id}", "I": "\\mathscr I", "Ql": "\\mathbb Q_\\ell", "Zl": "\\mathbb Z_\\ell", "OO": "\\mathcal O", "PP": "\\mathbb P", "perf": "\\mathrm{perf}", "sep": "\\mathrm{sep}", "Ass": "\\operatorname{Ass}", "II": "\\mathcal I", "Nef": "\\operatorname{Nef}", "Spec": "\\operatorname{Spec}", "Spf": "\\operatorname{Spf}", "ZZ": "\\mathbb Z", "Ext": "\\operatorname{Ext}", "Hom": "\\operatorname{Hom}", "MM": "\\mathscr M", "NN": "\\mathcal N", "TT": "\\mathcal T"}},
       options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']}
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js" integrity="sha384-AHAnt9ZhGeHIrydA1Kp1L7FN+2UosbF7RQg6C+9Is/a7kDpQ1684C2iH2VWil6r4" crossorigin="anonymous"></script>
   <style>
     :root { --ink:#17212b; --muted:#637081; --line:#d9dee5; --paper:#fff; --wash:#f5f6f8; --accent:#1f5f8b; --accent-soft:#e9f2f8; --serious:#934222; --serious-soft:#fff0e8; --shadow:0 1px 2px rgba(20,32,43,.05); }
     * { box-sizing:border-box; }
@@ -44,7 +53,6 @@
     h1 { margin:.1em 0 .28em; font-size:clamp(2.35rem,5vw,4.6rem); letter-spacing:-.035em; max-width:860px; }
     .lede { max-width:850px; margin:0; color:#445160; font-family:Georgia,"Times New Roman",serif; font-size:1.18rem; }
     .scope-note { max-width:850px; margin:15px 0 0; color:var(--muted); font-size:.84rem; }
-    .publication-note { max-width:850px; margin:20px 0 0; padding:11px 13px; border-left:3px solid #b5a36b; background:#fffbed; color:#554f3f; font-size:.82rem; }
     .metrics { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-top:30px; }
     .metric { padding:17px 18px; border-top:2px solid var(--ink); background:rgba(255,255,255,.66); }
     .metric b { display:block; font-family:Georgia,"Times New Roman",serif; font-size:1.75rem; font-weight:500; }
@@ -133,8 +141,7 @@
         <p class="eyebrow">Single-author papers · review archive</p>
         <h1>Refine reviews, audits, and errata</h1>
         <p class="lede">An organized record of the automated Refine reports for Daniel Litt's single-author published papers, the subsequent mathematical audits, and the resulting errata. Automated comments are reproduced as received; the audit and erratum panels record the independent evaluation and adopted correction.</p>
-        <p class="scope-note">Coauthored papers are omitted from this public draft pending permission from the coauthors.</p>
-        <p class="publication-note"><strong>Publication note.</strong> Before making the archive public, confirm that redistribution of the Refine-generated text is permitted under the agreement governing the reviews.</p>
+        <p class="scope-note">Coauthored papers are omitted.</p>
         <div class="metrics"><div class="metric"><b>8</b><span>single-author papers</span></div><div class="metric"><b>105</b><span>detailed Refine comments</span></div><div class="metric"><b>84</b><span>adopted erratum items</span></div><div class="metric"><b>99.0%</b><span>identified a real issue</span></div></div>
       </section>
       <section class="overview card" id="overall-audit">
@@ -3036,14 +3043,45 @@ K_0(\operatorname{Var}_k)[\mathbb L^{-1}]
     search.addEventListener('input', filterPapers); scope.addEventListener('change', filterPapers);
     document.querySelector('#open-all').addEventListener('click', () => papers.filter(p => !p.hidden).forEach(p => p.open = true));
     document.querySelector('#close-all').addEventListener('click', () => papers.forEach(p => p.open = false));
-    document.querySelectorAll('.tabs').forEach(tabs => {
-      tabs.addEventListener('click', event => {
-        const button = event.target.closest('[data-tab]'); if (!button) return;
-        const body = tabs.closest('.paper-body'); const target = button.dataset.tab;
-        tabs.querySelectorAll('[data-tab]').forEach(tab => tab.setAttribute('aria-selected', tab === button ? 'true' : 'false'));
-        body.querySelectorAll('[data-panel]').forEach(panel => panel.hidden = panel.dataset.panel !== target);
-        const panel = body.querySelector(`[data-panel="${target}"]`);
-        if (window.MathJax?.typesetPromise) window.MathJax.typesetPromise([panel]);
+    document.querySelectorAll('.tabs').forEach((tabs, tabsetIndex) => {
+      const body = tabs.closest('.paper-body');
+      const buttons = [...tabs.querySelectorAll('[data-tab]')];
+      const panels = [...body.querySelectorAll('[data-panel]')];
+      const prefix = tabs.closest('.paper')?.id || `paper-${tabsetIndex + 1}`;
+
+      function activate(button, moveFocus = false) {
+        const target = button.dataset.tab;
+        buttons.forEach(tab => {
+          const selected = tab === button;
+          tab.setAttribute('aria-selected', selected ? 'true' : 'false');
+          tab.tabIndex = selected ? 0 : -1;
+        });
+        panels.forEach(panel => { panel.hidden = panel.dataset.panel !== target; });
+        const panel = panels.find(candidate => candidate.dataset.panel === target);
+        if (moveFocus) button.focus();
+        if (window.MathJax?.typesetPromise && panel) window.MathJax.typesetPromise([panel]);
+      }
+
+      buttons.forEach((button, index) => {
+        const panel = panels.find(candidate => candidate.dataset.panel === button.dataset.tab);
+        button.id = `${prefix}-tab-${button.dataset.tab}`;
+        if (panel) {
+          panel.id = `${prefix}-panel-${button.dataset.tab}`;
+          button.setAttribute('aria-controls', panel.id);
+          panel.setAttribute('aria-labelledby', button.id);
+        }
+        button.tabIndex = button.getAttribute('aria-selected') === 'true' ? 0 : -1;
+        button.addEventListener('click', () => activate(button));
+        button.addEventListener('keydown', event => {
+          let nextIndex;
+          if (event.key === 'ArrowRight') nextIndex = (index + 1) % buttons.length;
+          if (event.key === 'ArrowLeft') nextIndex = (index - 1 + buttons.length) % buttons.length;
+          if (event.key === 'Home') nextIndex = 0;
+          if (event.key === 'End') nextIndex = buttons.length - 1;
+          if (nextIndex === undefined) return;
+          event.preventDefault();
+          activate(buttons[nextIndex], true);
+        });
       });
     });
     function openHash() {

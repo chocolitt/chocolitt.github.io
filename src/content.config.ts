@@ -29,6 +29,7 @@ const pages = defineCollection({
     displayTitle: z.string().optional(),
     description: z.string(),
     legacyPath: z.string().startsWith("/"),
+    archiveLabel: z.string().optional(),
     math: z.boolean().default(false),
     imported: z.boolean().default(false),
   }),

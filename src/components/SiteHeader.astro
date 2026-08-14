@@ -46,7 +46,7 @@ const groupIsActive = (links: typeof workLinks) => links.some((link) => isActive
 
     <nav class="desktop-nav" aria-label="Main navigation">
       <ul>
-        <li><a href="/s/CV-Daniel-Litt-akmg.pdf">CV</a></li>
+        <li><a href="/s/CV-Daniel-Litt.pdf">CV</a></li>
         <li class="nav-folder">
           <details>
             <summary aria-current={groupIsActive(workLinks) ? "page" : undefined}>Work <span aria-hidden="true">▾</span></summary>
@@ -76,21 +76,25 @@ const groupIsActive = (links: typeof workLinks) => links.some((link) => isActive
       <summary>Menu</summary>
       <nav aria-label="Mobile navigation">
         <ul>
-          <li><a href="/s/CV-Daniel-Litt-akmg.pdf">CV</a></li>
+          <li><a href="/s/CV-Daniel-Litt.pdf">CV</a></li>
           <li class="mobile-group">
             <span>Work</span>
             <ul>
-              {workLinks.map((link) => <li><a href={link.href}>{link.label}</a></li>)}
+              {workLinks.map((link) => (
+                <li><a href={link.href} aria-current={isActive(link.href) ? "page" : undefined}>{link.label}</a></li>
+              ))}
             </ul>
           </li>
           <li class="mobile-group">
             <span>Personal</span>
             <ul>
-              {personalLinks.map((link) => <li><a href={link.href}>{link.label}</a></li>)}
+              {personalLinks.map((link) => (
+                <li><a href={link.href} aria-current={isActive(link.href) ? "page" : undefined}>{link.label}</a></li>
+              ))}
             </ul>
           </li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><a href="/about" aria-current={isActive("/about") ? "page" : undefined}>About</a></li>
+          <li><a href="/contact" aria-current={isActive("/contact") ? "page" : undefined}>Contact</a></li>
         </ul>
       </nav>
     </details>
@@ -268,10 +272,14 @@ const groupIsActive = (links: typeof workLinks) => links.some((link) => isActive
     }
 
     .mobile-menu > summary {
+      align-items: center;
       color: var(--muted);
       cursor: pointer;
+      display: flex;
       font-size: 14px;
+      justify-content: center;
       list-style: none;
+      min-height: 44px;
       text-transform: uppercase;
     }
 
@@ -294,14 +302,17 @@ const groupIsActive = (links: typeof workLinks) => links.some((link) => isActive
 
     .mobile-menu nav > ul > li {
       border-bottom: 1px solid #eee;
-      padding-block: 8px;
+      padding-block: 0;
     }
 
     .mobile-menu a,
     .mobile-group > span {
+      align-items: center;
       color: #666;
+      display: flex;
       font-size: 13px;
       letter-spacing: 0.08em;
+      min-height: 44px;
       text-transform: uppercase;
     }
 
@@ -310,7 +321,7 @@ const groupIsActive = (links: typeof workLinks) => links.some((link) => isActive
     }
 
     .mobile-group li {
-      padding-block: 3px;
+      padding-block: 0;
     }
 
     .mobile-group li a {

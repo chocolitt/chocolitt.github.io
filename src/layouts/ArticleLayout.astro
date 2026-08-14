@@ -2,6 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import BlogFrame from "../components/BlogFrame.astro";
 import FastComments from "../components/FastComments.astro";
+import { normalizeDescription } from "../utils/description";
 import BaseLayout from "./BaseLayout.astro";
 
 interface Props {
@@ -16,9 +17,32 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
   year: "numeric",
   timeZone: "UTC",
 });
+const articleUrl = new URL(legacyPath, Astro.site).toString();
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: title,
+  description: normalizeDescription(description, title),
+  datePublished: published.toISOString(),
+  dateModified: (updated ?? published).toISOString(),
+  author: {
+    "@type": "Person",
+    name: "Daniel Litt",
+    url: "https://www.daniellitt.com",
+  },
+  mainEntityOfPage: articleUrl,
+  url: articleUrl,
+};
 ---
 
-<BaseLayout title={title} description={description} canonicalPath={legacyPath} type="article" math={math}>
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath={legacyPath}
+  type="article"
+  math={math}
+  structuredData={articleSchema}
+>
   <BlogFrame>
     <article class="blog-post">
       <header class="article-header">
@@ -46,10 +70,11 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
     font-size: 2rem;
     line-height: 1.5;
     margin: 0 0 6px;
+    overflow-wrap: anywhere;
   }
 
   .article-meta {
-    color: #b3b3b3;
+    color: var(--muted);
     font-size: 0.9rem;
     line-height: 2;
     margin: 0;

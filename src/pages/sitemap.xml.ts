@@ -11,7 +11,6 @@ export async function GET({ site }: { site: URL }) {
   const paths = [...new Set([
     "/",
     "/blog",
-    "/work",
     "/search",
     "/teaching",
     "/artifacts",

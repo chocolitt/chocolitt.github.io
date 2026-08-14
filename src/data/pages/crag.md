@@ -1,8 +1,9 @@
 ---
 title: "CRAG"
 displayTitle: "CRAG"
-description: "This is the page for the CRAAG Seminar at UGA. We’ll be reading classic papers in arithmetic and algebraic geometry (where the phrases “arithmetic geometry,” “algebraic geometry,” and “classic” are all broadly construed), presenting them…"
+description: "Archived schedules and resources for the CRAG classic papers seminar in arithmetic and algebraic geometry, 2020–2021."
 legacyPath: "/crag"
+archiveLabel: "Archived seminar · 2020–2021"
 math: true
 imported: true
 ---

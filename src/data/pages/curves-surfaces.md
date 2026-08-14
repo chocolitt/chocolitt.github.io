@@ -1,8 +1,9 @@
 ---
 title: "Curves & Surfaces"
 displayTitle: "Curves and surfaces"
-description: "Curves and surfaces This course serves as an introduction to the concrete aspects of algebraic geometry in low dimensions, loosely following Hartshorne Chapters IV and V (with additional outside topics). The goal is to serve as a transit…"
+description: "Archived course information and resources for Curves and Surfaces at the University of Toronto, Winter 2024."
 legacyPath: "/curves-surfaces"
+archiveLabel: "Archived course · Winter 2024"
 math: false
 imported: true
 ---

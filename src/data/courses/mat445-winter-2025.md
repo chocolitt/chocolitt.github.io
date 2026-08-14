@@ -77,7 +77,7 @@ There will be one term test, which is **2 hours long**, on **February 27** in cl
 
 <h2 id="final">Final Assessment</h2>
 
-The final assessment will be held during the final assessment period in April 2024, scheduled by the registrar.
+The final assessment will be held during the final assessment period in April 2025, scheduled by the registrar.
 
 <h2 id="schedule">Schedule of Lectures</h2>
 

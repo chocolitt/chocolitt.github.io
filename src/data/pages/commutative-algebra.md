@@ -1,8 +1,9 @@
 ---
 title: "Commutative Algebra"
 displayTitle: "Commutative algebra"
-description: "Commutative algebra This course is about commutative algebra, loosely following the textbook of Atiyah-Macdonald. Homework will be due weekly on Thursdays, starting Thursday January 20. Office hours will take place Tuesdays after class…"
+description: "Archived homework and course information for Commutative Algebra at the University of Georgia, Spring 2022."
 legacyPath: "/commutative-algebra"
+archiveLabel: "Archived course · Spring 2022"
 math: true
 imported: true
 ---

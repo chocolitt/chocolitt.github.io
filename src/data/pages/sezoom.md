@@ -1,8 +1,9 @@
 ---
 title: "SeZoom"
 displayTitle: "SeZoom"
-description: "SeZoom This is the website for our learning seminar on Serre’s book “ Abelian \\(\\ell\\)-Adic Representations and Elliptic Curves ” and the related Inventiones paper (see this translation by Pete Clark). We will meet on Fridays at 4pm; the…"
+description: "Archived schedule and notes from the SeZoom learning seminar on Serre's work, Winter 2021."
 legacyPath: "/sezoom"
+archiveLabel: "Archived seminar · Winter 2021"
 math: true
 imported: true
 ---

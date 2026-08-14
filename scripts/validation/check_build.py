@@ -10,13 +10,7 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 
-# These links were already dead on the captured Squarespace site. They remain
-# in the imported prose for historical fidelity, but they are not launch gaps.
-KNOWN_LEGACY_DEAD_LINKS = {
-    "/How-would-a-society-run-by-mathematicians-look-like",
-    "/virtual-office-hours",
-    "/virtual-tea",
-}
+KNOWN_LEGACY_DEAD_LINKS: set[str] = set()
 
 VALIDATED_PAGES = [
     "index.html",
@@ -24,6 +18,7 @@ VALIDATED_PAGES = [
     "artifacts/index.html",
     "blog/index.html",
     "blog/2026/2/20/mathematics-in-the-library-of-babel/index.html",
+    "blog/2020/4/20/wagon-lessons-learned/index.html",
     "teaching/index.html",
     "mat1101.html",
     "mat1190hs.html",
@@ -43,7 +38,7 @@ COURSE_CONTENT_MARKERS = {
         "Math 1101: Algebra II",
         "Matthew Bolan",
         "Unsolvability of the quintic",
-        "April 2024",
+        "April 2025",
     ],
     "mat1190hs.html": [
         "MAT1190HS: Algebraic Geometry",
@@ -54,7 +49,7 @@ COURSE_CONTENT_MARKERS = {
         "Math 445: Representation Theory",
         "Austin Sun",
         "Representation theory of",
-        "April 2024",
+        "April 2025",
     ],
     "mat445_winter2026.html": [
         "MAT445H1: Representation Theory",
@@ -96,9 +91,18 @@ PRESERVED_SHA256 = {
         "8b7d7fd450db762f246a38fab4a950561c690046e53c673bd628f986fe9d3f4e",
     "jacob_mathilde_notes.pdf": "57163cc8645611e42ec60889bfd65d847097c3b8c7843f06ceae385c3253c7f2",
     "fermat_fano_real_mesh_web.html":
-        "dd870edce82a60ec9a36a8e3f380adcf6487dc3a1585df6d61dfdf4ff9dd50b0",
-    "published-paper-reviews.html":
-        "cef3cecdcb846c0027befaedb1abb8f48ed9f06f92bca7f865d7929079a7d1a6",
+        "7c29148e9dc1afb17aaa642291a863908ba4e5ed18e765a950074e0ddd7d184f",
+    "s/CV-Daniel-Litt.pdf":
+        "5b69a5817b1955be8ea8fc88987efc11f5becd58c7ecf5312b29c1cc4e46d159",
+    "s/CV-Daniel-Litt-85b9.pdf":
+        "5b69a5817b1955be8ea8fc88987efc11f5becd58c7ecf5312b29c1cc4e46d159",
+    "s/CV-Daniel-Litt-akmg.pdf":
+        "5b69a5817b1955be8ea8fc88987efc11f5becd58c7ecf5312b29c1cc4e46d159",
+    "s/dbcohpn.pdf": "37d59c06b83ea0fde2acc01d3d7ae214237823a2cc0db8b4308333c1df8bd7eb",
+    "s/nonabelian-poincare-duality-and-friends.pdf":
+        "cb1324da0eac0ad176910afbfcaf1abdfdff91cac4fafa492f7e83511eab56f9",
+    "s/picardII.pdf": "4ca0f1af57b66ef7b99c9e70684f46b6c21787686820e137f5197af032e1fa8c",
+    "s/poincare_lemma.pdf": "c40fed61860694902a355b26febb646b4083c15bcb70b17c14c261b7f3dcaf8e",
 }
 
 FORBIDDEN_PUBLIC_COPY = [
@@ -213,15 +217,16 @@ def main() -> int:
         for previous, current in zip(parser.headings, parser.headings[1:]):
             if current > previous + 1:
                 failures.append((output.relative_to(dist), f"heading level skips from h{previous} to h{current}"))
-        canonical = f'<link rel="canonical" href="https://www.daniellitt.com{path if path != "/" else "/"}">'
+        canonical_path = "/" if path == "/work" else path
+        canonical = f'<link rel="canonical" href="https://www.daniellitt.com{canonical_path if canonical_path != "/" else "/"}">'
         if canonical not in text:
-            failures.append((output.relative_to(dist), f"canonical URL does not preserve {path}"))
+            failures.append((output.relative_to(dist), f"canonical URL does not match {canonical_path}"))
         if path in expected_comments and f'const urlId = "{path}";' not in text:
             failures.append((output.relative_to(dist), "FastComments urlId does not match the immutable post path"))
         has_mathjax = "tex-chtml.js" in text
         if path in expected_math and not has_mathjax:
             failures.append((output.relative_to(dist), "MathJax is missing from math-bearing imported content"))
-        if path not in expected_math and has_mathjax:
+        if path not in expected_math and path != "/search" and has_mathjax:
             failures.append((output.relative_to(dist), "MathJax was loaded on a page without imported TeX"))
 
     asset_manifest = validation_root / "expected-squarespace-assets.sha256"
@@ -257,6 +262,8 @@ def main() -> int:
         "MAT445H1_ Representation Theory 2026.docx - Google Docs (2).pdf",
         "grassmannian_frobenius_counterexample.pdf",
         "jacob_mathilde_notes.pdf",
+        "s/CV-Daniel-Litt.pdf",
+        "s/CV-Daniel-Litt-85b9.pdf",
         "s/CV-Daniel-Litt-akmg.pdf",
         "rss.xml",
         "sitemap.xml",
@@ -294,7 +301,6 @@ def main() -> int:
     for relative in [
         *COURSE_LEGACY_PAGES,
         "fermat_fano_real_mesh_web.html",
-        "published-paper-reviews.html",
     ]:
         text = (dist / relative).read_text(encoding="utf-8", errors="replace").lower()
         if "http-equiv=\"refresh\"" in text or "http-equiv='refresh'" in text:
@@ -315,6 +321,9 @@ def main() -> int:
             failures.append((Path(relative), "canonical URL does not preserve the legacy .html path"))
 
     sitemap = (dist / "sitemap.xml").read_text(encoding="utf-8", errors="replace")
+    reviews_url = "https://www.daniellitt.com/published-paper-reviews.html"
+    if f"<loc>{reviews_url}</loc>" not in sitemap:
+        failures.append((Path("sitemap.xml"), f"missing public paper-review archive: {reviews_url}"))
     for relative in COURSE_LEGACY_PAGES:
         url = f"https://www.daniellitt.com/{relative}"
         if f"<loc>{url}</loc>" not in sitemap:
@@ -326,6 +335,14 @@ def main() -> int:
             actual = hashlib.sha256(path.read_bytes()).hexdigest()
             if actual != expected:
                 failures.append((Path(relative), f"checksum changed: {actual}"))
+
+    contact = (dist / "contact/index.html").read_text(encoding="utf-8", errors="replace")
+    if "Office 1029" not in contact or "Office 1028" in contact:
+        failures.append((Path("contact/index.html"), "current office must be 1029"))
+    about = (dist / "about/index.html").read_text(encoding="utf-8", errors="replace")
+    for marker in ["2025 Cathleen Synge Morawetz Prize", "Fellow of the American Mathematical Society", "in 2026"]:
+        if marker not in about:
+            failures.append((Path("about/index.html"), f"missing approved honor: {marker!r}"))
 
     css = "\n".join(
         path.read_text(encoding="utf-8", errors="replace") for path in (dist / "_astro").glob("*.css")

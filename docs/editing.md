@@ -8,9 +8,9 @@ From this repository, run:
 pnpm site:preview
 ```
 
-This checks the Astro source, builds the entire production site, validates the preserved URLs, assets, comments, metadata, downloads, and MathJax configuration, and then starts an editing preview at `http://localhost:4321/`. Stop it with `Control-C`.
+This checks the Astro source, builds the entire production site, validates the preserved URLs, assets, comments, metadata, downloads, and MathJax configuration, and then serves that production build at `http://localhost:4321/`. Stop it with `Control-C`.
 
-The editing preview includes entries marked `draft: true`; the production build, sitemap, RSS feed, search index, and deployment exclude them. Draft pages display a clear preview notice and do not load FastComments, so rehearsing a post cannot create or replace a public comment thread.
+While writing an entry marked `draft: true`, run `pnpm dev` instead. Development mode includes drafts, displays a clear draft notice, and does not load FastComments on them. The production build, sitemap, RSS feed, search index, and deployment all exclude drafts.
 
 ## Edit existing writing
 
@@ -56,7 +56,7 @@ Copy the template, then edit the copy:
 cp templates/new-post.md src/data/blog/my-post-slug.md
 ```
 
-Choose the final date and slug before publishing. Keep `draft: true` while writing, preview the site, then set `draft: false` when the post is ready. A new image should normally go in `public/images/blog/my-post-slug/`.
+Choose the final date and slug before publishing. Keep `draft: true` while writing and preview it with `pnpm dev`; then set `draft: false` and run `pnpm site:preview` for the complete production check. A new image should normally go in `public/images/blog/my-post-slug/`.
 
 Tags and categories use the following shape when needed:
 

@@ -29,11 +29,7 @@ EXTRA_SITEMAP_PATHS = {
     "/mat445.html",
     "/mat445_winter2026.html",
 }
-KNOWN_LEGACY_DEAD_LINKS = {
-    "/How-would-a-society-run-by-mathematicians-look-like",
-    "/virtual-office-hours",
-    "/virtual-tea",
-}
+KNOWN_LEGACY_DEAD_LINKS: set[str] = set()
 EXPECTED_DECORATIVE_IMAGES = {
     ("/contact", "/assets/squarespace/40d07a82fa49-image-asset.webp"),
     ("/expository-notes", "/assets/squarespace/edeaca155c8f-image-asset.webp"),
@@ -47,7 +43,7 @@ EXPECTED_DECORATIVE_IMAGES = {
     ("/teaching", "/assets/squarespace/52d8beda1b95-image-asset.webp"),
 }
 EXPECTED_VISUAL_FIDELITY = {
-    "/blog": {"feed-item": 20, "blog-sidebar": 1, "media-slide": 16},
+    "/blog": {"feed-item": 10, "blog-sidebar": 1, "media-slide": 16},
     "/blog/2026/8/11/the-end-of-mathematics": {"blog-sidebar": 1, "media-slide": 16},
     "/blog/2026/2/20/mathematics-in-the-library-of-babel": {"blog-sidebar": 1},
     "/publications-and-preprints": {
@@ -64,6 +60,26 @@ EXPECTED_VISUAL_FIDELITY = {
     "/open-questions": {"media-open-questions": 1},
     "/mat138h1": {"media-mat138": 1},
     "/agonize": {"media-poster": 1},
+}
+ARCHIVED_PAGE_LABELS = {
+    "/adding": "Archived workshop · April 30–May 1, 2022",
+    "/ag-theory-seminar-2022-2023": "Archived seminar · 2022–2023",
+    "/agonize": "Archived conference · March 2020",
+    "/biopsy": "Archived seminar · Summer 2020",
+    "/ccam": "Archived seminar · Fall 2021",
+    "/commutative-algebra": "Archived course · Spring 2022",
+    "/crag": "Archived seminar · 2020–2021",
+    "/curves-surfaces": "Archived course · Winter 2024",
+    "/fall-2017-topics-in-algebraic-geometry-deformation-theory": "Archived course · Fall 2017",
+    "/hodge-theory": "Archived course · Fall 2022",
+    "/mat138h1": "Archived course · Fall 2022",
+    "/math-1100-algebra": "Archived course · Fall 2023",
+    "/math-2250": "Archived course · Fall 2019",
+    "/rational-points": "Archived course · Fall 2021",
+    "/rigid-local-systems": "Archived seminar · Winter 2023",
+    "/sezoom": "Archived seminar · Winter 2021",
+    "/tale-cohomology": "Archived course · Fall 2020",
+    "/zazoom": "Archived seminar · Fall 2020",
 }
 DOWNLOAD_EXTENSIONS = {
     ".blend", ".doc", ".docx", ".gif", ".jpg", ".jpeg", ".obj", ".pdf",
@@ -250,7 +266,7 @@ def main() -> int:
             failures.append(f"structured publications source must contain 32 {field[:-3]} fields")
 
     expected_squarespace = expected_lines(validation / "expected-squarespace-paths.txt")
-    expected_sitemap = expected_squarespace | EXTRA_SITEMAP_PATHS
+    expected_sitemap = (expected_squarespace - {"/work"}) | EXTRA_SITEMAP_PATHS
     sitemap_root = ET.parse(dist / "sitemap.xml").getroot()
     sitemap_namespace = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
     sitemap_urls = [node.text or "" for node in sitemap_root.findall("s:url/s:loc", sitemap_namespace)]
@@ -290,6 +306,8 @@ def main() -> int:
         description = (item.findtext("description") or "").strip()
         if not title or not description or link != guid or not link.startswith(SITE + "/"):
             failures.append(f"invalid RSS item metadata: {link or title or '<empty>'}")
+        if "[caption" in description.lower() or any(marker in description for marker in (r"\(", r"\)", r"\[", r"\]", "$$")):
+            failures.append(f"RSS description contains importer or raw-TeX artifacts: {link}")
         try:
             rss_dates.append(email.utils.parsedate_to_datetime(item.findtext("pubDate") or ""))
         except (TypeError, ValueError):
@@ -367,6 +385,8 @@ def main() -> int:
         for iframe in parser.iframes:
             if not iframe.get("title", "").strip():
                 failures.append(f"{path}: iframe is missing a title: {iframe.get('src', '')}")
+            elif iframe.get("title", "").strip().lower() == "embedded media":
+                failures.append(f"{path}: iframe uses the generic title 'Embedded media': {iframe.get('src', '')}")
         for link in parser.links:
             attrs = link["attrs"]
             assert isinstance(attrs, dict)
@@ -391,16 +411,28 @@ def main() -> int:
                 failures.append(f"{path}: expected one main landmark, found {parser.main_count}")
             if parser.headings.count(1) != 1:
                 failures.append(f"{path}: expected one h1, found {parser.headings.count(1)}")
-            if path != "/404" and len(parser.canonicals) != 1:
-                failures.append(f"{path}: expected one canonical URL, found {len(parser.canonicals)}")
-            expected_canonical_path = "/404" if path == "/404.html" else (path if path != "/" else "/")
-            if parser.canonicals and parser.canonicals[0] != SITE + expected_canonical_path:
-                failures.append(f"{path}: incorrect canonical URL {parser.canonicals[0]}")
-            if len(meta_value(parser, name="description")) != 1 or not meta_value(parser, name="description")[0].strip():
+            if path in {"/404", "/404.html"}:
+                if parser.canonicals:
+                    failures.append(f"{path}: error page must not emit a canonical URL")
+            else:
+                if len(parser.canonicals) != 1:
+                    failures.append(f"{path}: expected one canonical URL, found {len(parser.canonicals)}")
+                expected_canonical_path = "/" if path == "/work" else path
+                if parser.canonicals and parser.canonicals[0] != SITE + expected_canonical_path:
+                    failures.append(f"{path}: incorrect canonical URL {parser.canonicals[0]}")
+            descriptions = meta_value(parser, name="description")
+            if len(descriptions) != 1 or not descriptions[0].strip():
                 failures.append(f"{path}: missing meta description")
-            if meta_value(parser, name="robots"):
+            elif len(descriptions[0]) > 160:
+                failures.append(f"{path}: meta description exceeds 160 characters")
+            robots_values = meta_value(parser, name="robots")
+            if path in {"/404", "/404.html"}:
+                if robots_values != ["noindex,follow"]:
+                    failures.append(f"{path}: error page must contain robots noindex,follow metadata")
+            elif robots_values:
                 failures.append(f"{path}: production page unexpectedly contains robots noindex metadata")
-            for prop in ("og:title", "og:description", "og:url", "og:image"):
+            required_open_graph = ("og:title", "og:description", "og:image") if path in {"/404", "/404.html"} else ("og:title", "og:description", "og:url", "og:image")
+            for prop in required_open_graph:
                 values = meta_value(parser, prop=prop)
                 if len(values) != 1 or not values[0].strip():
                     failures.append(f"{path}: missing {prop} metadata")
@@ -408,6 +440,12 @@ def main() -> int:
                 failures.append(f"{path}: missing Twitter summary-card metadata")
             if not meta_value(parser, name="viewport"):
                 failures.append(f"{path}: missing viewport metadata")
+            if "cdn.jsdelivr.net/npm/mathjax@" in text:
+                if "mathjax@3.2.2/" not in text or 'integrity="sha384-' not in text:
+                    failures.append(f"{path}: MathJax is not version-pinned with subresource integrity")
+            archive_label = ARCHIVED_PAGE_LABELS.get(path)
+            if archive_label and archive_label not in text:
+                failures.append(f"{path}: missing archive label {archive_label!r}")
 
         if path == "/publications-and-preprints":
             if text.count('class="publication-abstract"') != 32 or text.count("<summary>Abstract</summary>") != 32:
@@ -420,6 +458,19 @@ def main() -> int:
                         f"{path}: TeX delimiter {delimiter!r} count changed "
                         f"from {expected_count} in source to {actual_count} in output"
                     )
+
+        if path == "/published-paper-reviews.html":
+            for marker in ("8 papers", "single-author published papers", "Coauthored papers are omitted."):
+                if marker not in text:
+                    failures.append(f"{path}: missing public archive marker {marker!r}")
+            for forbidden in ("public draft", "Before making the archive public"):
+                if forbidden in text:
+                    failures.append(f"{path}: obsolete pre-publication notice remains: {forbidden!r}")
+
+        if path == "/fermat_fano_real_mesh_web.html":
+            for marker in ('tabindex="0"', 'id="plot-instructions"', 'graphDiv.addEventListener("keydown"'):
+                if marker not in text:
+                    failures.append(f"{path}: missing keyboard visualization control marker {marker!r}")
 
         for marker, expected_count in EXPECTED_VISUAL_FIDELITY.get(path, {}).items():
             actual_count = sum(
@@ -465,9 +516,6 @@ def main() -> int:
         warnings.append(
             f"{empty_alt_images} images intentionally retain empty alt attributes after editorial sign-off"
         )
-    warnings.append(
-        "The three documented dead/private Squarespace links and one historic file:/// course link are preserved source artifacts"
-    )
     warnings.append(
         "GitHub Pages cannot return RSS XML specifically for the legacy /blog?format=rss query; /rss.xml is canonical"
     )
