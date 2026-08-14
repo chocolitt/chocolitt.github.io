@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Wireframe icosahedron</title>
+  <rect width="64" height="64" rx="13" fill="#000475"/>
+  <g fill="none" stroke="#fcfcfc" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.7">
+    <path d="M32 5 54 20 50 47 32 59 14 47 10 20Z"/>
+    <path d="m32 5 0 18-22-3m22 3 22-3M10 20l22 21 22-21M14 47l18-24 18 24M14 47l18-6 18 6M32 41v18"/>
+  </g>
+  <g fill="#f2c14e">
+    <circle cx="32" cy="5" r="2.25"/>
+    <circle cx="10" cy="20" r="2.25"/>
+    <circle cx="54" cy="20" r="2.25"/>
+    <circle cx="32" cy="23" r="2.25"/>
+    <circle cx="32" cy="41" r="2.25"/>
+    <circle cx="14" cy="47" r="2.25"/>
+    <circle cx="50" cy="47" r="2.25"/>
+    <circle cx="32" cy="59" r="2.25"/>
+  </g>
+</svg>

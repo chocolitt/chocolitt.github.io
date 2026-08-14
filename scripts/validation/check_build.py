@@ -91,7 +91,7 @@ PRESERVED_SHA256 = {
         "8b7d7fd450db762f246a38fab4a950561c690046e53c673bd628f986fe9d3f4e",
     "jacob_mathilde_notes.pdf": "57163cc8645611e42ec60889bfd65d847097c3b8c7843f06ceae385c3253c7f2",
     "fermat_fano_real_mesh_web.html":
-        "7c29148e9dc1afb17aaa642291a863908ba4e5ed18e765a950074e0ddd7d184f",
+        "0a48153f51bcc874f6c6330016a43dda617fc9d1b984e71b10b5b82da88760b9",
     "s/CV-Daniel-Litt.pdf":
         "5b69a5817b1955be8ea8fc88987efc11f5becd58c7ecf5312b29c1cc4e46d159",
     "s/CV-Daniel-Litt-85b9.pdf":
