@@ -1,0 +1,778 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath, amsthm, amssymb, mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+% ---------- Theorem environments ----------
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}[definition]{Example}
+\newtheorem{remark}[definition]{Remark}
+\newtheorem{exercise}[definition]{Exercise}
+
+\theoremstyle{plain}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{corollary}[definition]{Corollary}
+
+% ---------- Notation ----------
+\newcommand{\Ab}{\mathbf{Ab}}
+\newcommand{\Mod}{\mathbf{Mod}}
+\newcommand{\QCoh}{\mathbf{QCoh}}
+\newcommand{\Coh}{\mathbf{Coh}}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\Ext}{\mathrm{Ext}}
+\newcommand{\Tor}{\mathrm{Tor}}
+\newcommand{\im}{\mathrm{im}}
+\newcommand{\coker}{\mathrm{coker}}
+\newcommand{\Ker}{\mathrm{Ker}}
+\newcommand{\Coker}{\mathrm{Coker}}
+\newcommand{\Spec}{\mathrm{Spec}}
+\newcommand{\Proj}{\mathrm{Proj}}
+\newcommand{\OO}{\mathcal{O}}
+\newcommand{\shHom}{\mathcal{H}om}
+\newcommand{\shext}{\mathcal{E}xt}
+\newcommand{\PP}{\mathbf{P}}
+\newcommand{\GG}{\mathbf{G}}
+\newcommand{\ZZ}{\mathbf{Z}}
+
+\title{Hartshorne Chapter III: Cohomology and Derived Functors\\
+(Expanded notes for the first lectures)}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+%\tableofcontents
+
+\section{Orientation and motivation}
+
+These notes begin Chapter III of Hartshorne, with two goals:
+\begin{enumerate}[label=(\arabic*)]
+  \item motivate \emph{sheaf cohomology} (especially cohomology of quasi-coherent sheaves on schemes);
+  \item develop the abstract machine of \emph{derived functors} in an abelian category, emphasizing universal $\delta$-functors, effaceability, and injective resolutions.
+\end{enumerate}
+
+The starting point is the global sections functor
+\[
+\Gamma(X,-) : \{\text{sheaves on }X\}\to \Ab,\qquad \mathcal{F}\mapsto \mathcal{F}(X),
+\]
+which is always \emph{left exact} but rarely exact. The derived functors of $\Gamma$ will be denoted
+\[
+H^i(X,\mathcal{F}) := R^i\Gamma(X,\mathcal{F}),
+\]
+and these are the cohomology groups of $\mathcal{F}$.
+
+\subsection{Motivation: Maps to projective space}
+
+Let $X$ be a scheme (typically projective over a field $k$) and let $L$ be an invertible sheaf on $X$.
+A choice of a finite-dimensional subspace $V\subseteq H^0(X,L)$ gives the \emph{evaluation map}
+\begin{equation}\label{eq:eval}
+\mathrm{ev}_V:\; V\otimes_k \mathcal{O}_X \longrightarrow L,\qquad s\otimes f\mapsto f\cdot s,
+\end{equation}
+and hence (where defined) a morphism $\varphi_V:X\dashrightarrow \PP(V^\vee)$.
+
+What makes cohomology indispensable is that essentially every geometric property of $\varphi_V$ can be reformulated as a \emph{surjectivity problem for restriction maps of global sections}, and these surjectivity problems are controlled by $H^1$ of suitable ideal sheaves via the long exact sequence in cohomology.
+
+\subsubsection{Restriction to a finite subscheme and the $H^1$-obstruction}
+
+Let $Z\hookrightarrow X$ be a closed subscheme with ideal sheaf $\mathcal{I}_Z\subseteq \mathcal{O}_X$. Tensoring
+\[
+0\to \mathcal{I}_Z \to \mathcal{O}_X \to \mathcal{O}_Z \to 0
+\]
+by $L$ gives a short exact sequence
+\begin{equation}\label{eq:IZL}
+0 \longrightarrow \mathcal{I}_Z\otimes L \longrightarrow L \longrightarrow L|_Z \longrightarrow 0.
+\end{equation}
+Applying $\Gamma(X,-)$ yields the beginning of a long exact sequence
+\begin{equation}\label{eq:LES-restriction}
+0 \to H^0(X,\mathcal{I}_Z\!\otimes L) \to H^0(X,L) \xrightarrow{\mathrm{res}_Z} H^0(Z,L|_Z)
+\xrightarrow{\delta_Z} H^1(X,\mathcal{I}_Z\!\otimes L) \to \cdots.
+\end{equation}
+Thus the \emph{failure} of the restriction map $\mathrm{res}_Z$ to be surjective is measured by the connecting homomorphism $\delta_Z$; in particular:
+
+\begin{lemma}[A cohomological surjectivity criterion]\label{lem:H1-surj}
+If $H^1(X,\mathcal{I}_Z\otimes L)=0$, then $\mathrm{res}_Z:H^0(X,L)\to H^0(Z,L|_Z)$ is surjective.
+\end{lemma}
+
+\begin{remark}
+This lemma is the basic template: to show a linear system has good geometric properties, it is often enough to prove vanishing of $H^1(X,\mathcal{I}_Z\otimes L)$ for a suitable class of (small) subschemes $Z$.
+In projective geometry one then invokes vanishing theorems (e.g.\ Serre vanishing) to guarantee these $H^1$ groups vanish after twisting by a sufficiently positive line bundle.
+\end{remark}
+
+\subsubsection{Global generation (base-point-freeness) via $H^1(\mathcal{I}_x\otimes L)$}
+
+For a (closed) point $x\in X$, let $\mathcal{I}_x$ be its ideal sheaf. The restriction map in \eqref{eq:LES-restriction} for $Z=\{x\}$ is exactly the evaluation-at-$x$ map
+\[
+H^0(X,L) \longrightarrow H^0(\{x\},L|_x)\cong L\otimes k(x).
+\]
+Therefore $L$ is globally generated at $x$ iff this map is surjective, and by Lemma~\ref{lem:H1-surj} a sufficient condition is:
+\[
+H^1(X,\mathcal{I}_x\otimes L)=0 \quad \Rightarrow \quad
+\text{$L$ is generated by global sections at $x$.}
+\]
+In practice, if $X$ is projective and $A$ is ample, Serre vanishing gives
+$H^1(X,\mathcal{I}_x\otimes L\otimes A^{\otimes n})=0$ for $n\gg 0$, uniformly in $x$ once one makes the dependence precise; hence sufficiently positive twists of $L$ become globally generated.
+
+\subsubsection{Separating points via $H^1(\mathcal{I}_{\{x,y\}}\otimes L)$}
+
+To separate two (distinct) points $x\neq y$, one wants surjectivity of
+\[
+H^0(X,L)\longrightarrow H^0(\{x,y\},L|_{\{x,y\}})\cong (L\otimes k(x))\oplus (L\otimes k(y)).
+\]
+If this map is surjective, we can prescribe values at $x$ and $y$ independently, so in particular there exists a section vanishing at $x$ but not at $y$.
+
+Let $Z=\{x,y\}$ (scheme-theoretic union). Then Lemma~\ref{lem:H1-surj} gives:
+\[
+H^1(X,\mathcal{I}_{\{x,y\}}\otimes L)=0 \quad \Rightarrow \quad
+\text{$H^0(X,L)$ separates $x$ and $y$.}
+\]
+
+\subsubsection{Separating tangent vectors via $H^1(\mathcal{I}_{x^{(1)}}\otimes L)$}
+
+To control the \emph{differential} of $\varphi_V$, one must separate first-order infinitesimal data.
+Let $x^{(1)}\subseteq X$ denote the first infinitesimal neighborhood of $x$,
+\[
+x^{(1)} := \Spec(\mathcal{O}_{X,x}/\mathfrak m_x^2),
+\]
+with ideal sheaf $\mathcal{I}_{x^{(1)}}$.
+
+Surjectivity of the restriction map
+\[
+H^0(X,L)\longrightarrow H^0(x^{(1)},L|_{x^{(1)}})
+\]
+means global sections can prescribe both the value and first-order behavior at $x$ (equivalently: $H^0(X,L)$ separates tangent vectors at $x$). Again,
+\[
+H^1(X,\mathcal{I}_{x^{(1)}}\otimes L)=0 \quad \Rightarrow \quad
+\text{$H^0(X,L)$ separates tangent directions at $x$.}
+\]
+
+Consequently, once $L$ is base-point-free, cohomological control of the groups
+$H^1(X,\mathcal{I}_{x^{(1)}}\otimes L)$ provides a systematic way to prove that $\varphi_{|L|}$ is an immersion (and, on a proper scheme, often a closed immersion after checking injectivity/separation).
+
+\begin{remark}[Very ampleness as a length-$2$ condition]
+A useful reformulation is: $L$ is very ample if and only if, for every length-$2$ zero-dimensional subscheme $Z\subset X$ (including nonreduced ones such as $x^{(1)}$), the map
+\[
+H^0(X,L)\to H^0(Z,L|_Z)
+\]
+is surjective. The point is that length-$2$ subschemes simultaneously encode ``two distinct points'' and ``a tangent direction at one point.''
+Cohomology enters through \eqref{eq:LES-restriction}: vanishing of $H^1(X,\mathcal{I}_Z\otimes L)$ for all such $Z$ forces very ampleness.
+\end{remark}
+
+\subsubsection{Equations of the image and cohomology of the ideal sheaf}
+
+Suppose $L$ is very ample and gives an embedding
+\[
+i:X\hookrightarrow \PP^{N}=\PP(H^0(X,L)^\vee),
+\qquad \text{with } L\simeq i^*\mathcal{O}_{\PP^N}(1).
+\]
+Let $\mathcal{I}_X\subseteq \mathcal{O}_{\PP^N}$ be the ideal sheaf of the image.
+Twisting the defining short exact sequence $0\to \mathcal{I}_X\to \mathcal{O}_{\PP^N}\to i_*\mathcal{O}_X\to 0$ by $\mathcal{O}_{\PP^N}(d)$ gives
+\begin{equation}\label{eq:ideal-twist}
+0\to \mathcal{I}_X(d)\to \mathcal{O}_{\PP^N}(d)\to i_*L^{\otimes d}\to 0.
+\end{equation}
+Taking global sections yields
+\begin{equation}\label{eq:ideal-global}
+0\to H^0(\PP^N,\mathcal{I}_X(d)) \to H^0(\PP^N,\mathcal{O}(d)) \to H^0(X,L^{\otimes d})
+\to H^1(\PP^N,\mathcal{I}_X(d))\to \cdots.
+\end{equation}
+Here:
+\begin{itemize}
+\item $H^0(\PP^N,\mathcal{I}_X(d))$ is precisely the space of degree-$d$ homogeneous equations vanishing on $X$.
+\item The obstruction to the surjectivity of the restriction map
+$H^0(\PP^N,\mathcal{O}(d))\to H^0(X,L^{\otimes d})$
+is measured by $H^1(\PP^N,\mathcal{I}_X(d))$.
+\end{itemize}
+Thus cohomology controls not only whether a linear system gives a morphism/immersion/embedding, but also how complicated the embedded image is (its equations in each degree). This is one of the main reasons Hartshorne Chapter III quickly pivots from ``defining cohomology'' to ``proving vanishing and finite generation theorems'': those theorems translate directly into geometric statements about maps to projective space.
+
+\subsection{Motivation II: numerical invariants}
+
+Cohomology produces numbers:
+\[
+h^i(X,\mathcal{F}) := \dim_k H^i(X,\mathcal{F})
+\quad\text{(over a field, when finite dimensional),}
+\]
+and their alternating sum
+\[
+\chi(X,\mathcal{F}) := \sum_{i\ge 0} (-1)^i h^i(X,\mathcal{F}),
+\]
+the \emph{Euler characteristic}.
+
+For projective varieties, coherent cohomology groups are typically finite dimensional over $k$, and the Euler characteristic is often the most robust invariant.
+
+\begin{example}[Curves: genus]
+If $C$ is a smooth projective curve over $k$, then
+\[
+g(C) = \dim_k H^1(C,\OO_C).
+\]
+This is the (arithmetic) genus; it is a fundamental invariant in the classification of curves.
+\end{example}
+
+\begin{example}[Surfaces: $q$ and $p_g$]
+If $X$ is a smooth projective surface over $k$, one defines
+\[
+q(X):=\dim_k H^1(X,\OO_X)\quad\text{(irregularity)},\qquad
+p_g(X):=\dim_k H^2(X,\OO_X)\quad\text{(geometric genus)}.
+\]
+These invariants play a central role in the Enriques--Kodaira classification.
+\end{example}
+
+\begin{example}[Plurigenera]
+For a smooth projective variety $X$ with canonical bundle $\omega_X$, the numbers
+\[
+P_m(X):=\dim_k H^0(X,\omega_X^{\otimes m})
+\]
+are the \emph{plurigenera}. They are among the key birational invariants used in higher-dimensional classification.
+\end{example}
+
+\subsection{Motivation III: intersection theory via Euler characteristics}
+
+On a smooth projective surface $X$, one can package intersection numbers in terms of Euler characteristics (and later justify/compute them using Riemann--Roch).
+
+Let $C,D\subset X$ be (Cartier) divisors, and write $\OO_X(-C)$ for the associated line bundle.
+
+\begin{definition}[Intersection number via Euler characteristic (surface case)]\label{def:intersection}
+Define
+\[
+C\cdot D
+\;:=\;
+\chi\!\bigl(\OO_X(-C-D)\bigr)
+-\chi\!\bigl(\OO_X(-C)\bigr)
+-\chi\!\bigl(\OO_X(-D)\bigr)
++\chi(\OO_X).
+\]
+\end{definition}
+
+\begin{remark}
+This definition is engineered so that $C\cdot D$ depends only on numerical equivalence classes and behaves well in flat families: Euler characteristics of coherent sheaves are stable in proper flat families (a form of cohomology and base change). One later proves that Definition~\ref{def:intersection} recovers the usual geometric intersection pairing.
+\end{remark}
+
+\subsection{Motivation IV: comparison with familiar cohomology}
+
+Over $\mathbb{C}$, coherent cohomology is tied to singular cohomology by Hodge theory. For a smooth projective complex variety $X$,
+\[
+H^n(X^{an},\mathbb{C}) \cong \bigoplus_{p+q=n} H^q(X,\Omega_X^p),
+\]
+where $X^{an}$ is the associated complex manifold and $\Omega_X^p$ are algebraic differential forms. This is a major reason coherent cohomology is indispensable: it mediates between algebraic geometry and topology/analysis.
+
+\section{Global sections are left exact but not exact}
+
+Let $X$ be a topological space. Write $\Ab(X)$ for the category of sheaves of abelian groups on $X$; if $(X,\OO_X)$ is a ringed space, write $\Mod(\OO_X)$ for sheaves of $\OO_X$-modules.
+
+\begin{proposition}\label{prop:Gamma-left-exact}
+The global sections functor
+\[
+\Gamma(X,-):\Ab(X)\to \Ab\qquad (\text{and similarly } \Gamma(X,-):\Mod(\OO_X)\to \Mod(\Gamma(X,\OO_X)))
+\]
+is left exact.
+\end{proposition}
+
+\begin{proof}
+Let $0\to \mathcal{F}'\to \mathcal{F}\to \mathcal{F}''$ be an exact sequence of sheaves (exact on stalks).
+For any open $U\subseteq X$, applying ``sections on $U$'' gives an exact sequence
+\[
+0\to \mathcal{F}'(U)\to \mathcal{F}(U)\to \mathcal{F}''(U),
+\]
+because kernels of morphisms of sheaves are computed sectionwise. Taking $U=X$ yields left exactness of $\Gamma(X,-)$.
+\end{proof}
+
+Surjectivity on global sections generally fails.
+
+\begin{example}[A standard projective example]\label{ex:Gamma-not-exact}
+On $\PP^1_k$ there is an exact sequence of locally free sheaves
+\[
+0\longrightarrow \OO_{\PP^1}(-2)\longrightarrow \OO_{\PP^1}(-1)^{\oplus 2}\longrightarrow \OO_{\PP^1}\longrightarrow 0.
+\]
+Taking global sections gives
+\[
+0\longrightarrow H^0(\PP^1,\OO(-2))\longrightarrow H^0(\PP^1,\OO(-1))^{\oplus 2}\longrightarrow H^0(\PP^1,\OO)\longrightarrow \cdots
+\]
+but $H^0(\PP^1,\OO(-1))=0$, while $H^0(\PP^1,\OO)\cong k$, so the map
+$H^0(\PP^1,\OO(-1))^{\oplus 2}\to H^0(\PP^1,\OO)$ is the zero map and is not surjective. Thus $\Gamma(\PP^1,-)$ is not exact.
+\end{example}
+
+The remedy is to measure the failure of exactness by a sequence of functors $H^i(X,-)$, beginning with
+\[
+H^0(X,-)=\Gamma(X,-).
+\]
+
+\section{Abelian categories and left exact functors}
+
+Derived functors live naturally in abelian categories.
+
+\begin{definition}[Abelian category]\label{def:abelian-category}
+A category $\mathcal{A}$ is \emph{abelian} if:
+\begin{enumerate}[label=(\arabic*)]
+\item $\Hom_{\mathcal{A}}(A,B)$ is an abelian group for all $A,B$, and composition is bilinear;
+\item $\mathcal{A}$ has a zero object, finite products and coproducts (which then coincide as \emph{biproducts});
+\item every morphism has a kernel and cokernel;
+\item for every morphism $f$, the canonical map $\mathrm{coim}(f)\to \mathrm{im}(f)$ is an isomorphism.
+\end{enumerate}
+\end{definition}
+
+\begin{example}
+\begin{enumerate}[label=(\alph*)]
+\item $\Mod(R)$ for a ring $R$ (modules over $R$).
+\item $\Ab(X)$ for a topological space $X$.
+\item $\Mod(\OO_X)$ for a ringed space $(X,\OO_X)$; in particular $\QCoh(X)$ and $\Coh(X)$ for a scheme $X$.
+\end{enumerate}
+\end{example}
+
+\begin{example}[Non-examples]
+\begin{enumerate}[label=(\alph*)]
+\item Free abelian groups: the cokernel of $2\ZZ\hookrightarrow \ZZ$ is $\ZZ/2\ZZ$, not free.
+\item Hausdorff topological abelian groups: cokernels in the category of topological groups need not be Hausdorff; the abelian-category axioms fail in a serious way.
+\end{enumerate}
+\end{example}
+
+\begin{definition}[Left exact functor]
+An additive functor $F:\mathcal{A}\to\mathcal{B}$ between abelian categories is \emph{left exact} if it preserves finite limits, equivalently if for every short exact sequence
+\[
+0\to A'\to A\to A''\to 0
+\]
+the sequence
+\[
+0\to F(A')\to F(A)\to F(A'')
+\]
+is exact.
+\end{definition}
+
+\begin{remark}
+Many geometric functors are left exact:
+\[
+\Gamma(X,-),\qquad f_* \text{ (pushforward of sheaves)},\qquad
+\Hom_R(M,-)\text{ (in the second variable)},\qquad (-)^G \text{ (group invariants)}.
+\]
+Right exact functors (e.g.\ $-\otimes_R M$) lead instead to \emph{left derived functors} and projective/flat resolutions (\`a la $\Tor$).
+\end{remark}
+
+\section{$\delta$-functors and universality}
+
+\subsection{Cohomological $\delta$-functors}
+
+\begin{definition}[Cohomological $\delta$-functor]\label{def:delta-functor}
+Let $\mathcal{A},\mathcal{B}$ be abelian categories. A \emph{(cohomological) $\delta$-functor} from $\mathcal{A}$ to $\mathcal{B}$ is a sequence of additive functors
+\[
+T^i:\mathcal{A}\to\mathcal{B}\qquad (i\ge 0)
+\]
+together with, for every short exact sequence $0\to A'\to A\to A''\to 0$ in $\mathcal{A}$, connecting morphisms
+\[
+\delta^i:\; T^i(A'')\longrightarrow T^{i+1}(A')
+\]
+such that:
+\begin{enumerate}[label=(\arabic*)]
+\item \textbf{Long exactness:} for each short exact sequence, the induced sequence
+\[
+0\to T^0(A')\to T^0(A)\to T^0(A'')\xrightarrow{\delta^0} T^1(A')\to T^1(A)\to T^1(A'')\xrightarrow{\delta^1}\cdots
+\]
+is exact.
+\item \textbf{Naturality:} the connecting maps are functorial with respect to morphisms of short exact sequences.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Sheaf cohomology $H^i(X,-)$ is the prototype: given
+$0\to\mathcal{F}'\to\mathcal{F}\to\mathcal{F}''\to 0$,
+there is a natural long exact sequence in cohomology. The point of derived functors is that \emph{this exactness is forced} from the general formalism.
+\end{remark}
+
+\subsection{Morphisms and universal $\delta$-functors}
+
+\begin{definition}[Morphism of $\delta$-functors]\label{def:morphism-delta}
+A morphism $\varphi:T^\ast\to S^\ast$ of $\delta$-functors is a collection of natural transformations
+$\varphi^i:T^i\to S^i$ such that for every short exact sequence the squares involving $\delta^i$ commute, i.e.\ $\varphi^{i+1}\circ \delta_T^i=\delta_S^i\circ \varphi^i$.
+\end{definition}
+
+\begin{definition}[Universal $\delta$-functor]\label{def:universal-delta}
+A $\delta$-functor $T^\ast$ is \emph{universal} if for every $\delta$-functor $S^\ast$ and every natural transformation $\psi^0:T^0\to S^0$, there exists a unique morphism of $\delta$-functors $\psi^\ast:T^\ast\to S^\ast$ extending $\psi^0$.
+\end{definition}
+
+\begin{remark}
+Universality is the categorical formulation of: \emph{``there is only one reasonable way to add higher functors to a given left exact functor so as to obtain long exact sequences.''}
+\end{remark}
+
+\section{Effaceability and dimension shifting}
+
+\subsection{Effaceability}
+
+\begin{definition}[Effaceable]\label{def:effaceable}
+A $\delta$-functor $T^\ast$ is \emph{effaceable} if for every object $A\in\mathcal{A}$ and every $i>0$, there exists a monomorphism $f:A\hookrightarrow B$ in $\mathcal{A}$ such that
+\[
+T^i(f):T^i(A)\to T^i(B)
+\quad\text{is the zero map.}
+\]
+\end{definition}
+
+Effaceability is the key hypothesis guaranteeing universality.
+
+\begin{theorem}[Effaceable $\Rightarrow$ universal]\label{thm:effaceable-universal}
+Every effaceable cohomological $\delta$-functor is universal.
+\end{theorem}
+
+\begin{remark}
+Hartshorne states this as a basic formal result; the proof is a standard (and instructive) ``dimension shifting + diagram chase'' argument. A good first exposure is to do the proof at least once carefully.
+\end{remark}
+
+\subsection{Computing by induction if one can efface}
+
+Suppose $T^\ast$ is a cohomological $\delta$-functor and we can efface $T^i$ for $i>0$ by a monomorphism $A\hookrightarrow B$. Let $C:=B/A$ (so $0\to A\to B\to C\to 0$ is exact). Then the long exact sequence gives:
+
+\begin{itemize}
+\item Since $T^i(A)\to T^i(B)$ is zero (for $i>0$), exactness shows that
+\[
+T^i(A)\cong \coker\bigl(T^{i-1}(B)\to T^{i-1}(C)\bigr)\qquad (i\ge 1).
+\]
+\item In particular,
+\[
+T^1(A)=\coker\bigl(T^0(B)\to T^0(C)\bigr),
+\]
+and
+\[
+T^2(A)=\coker\bigl(T^1(B)\to T^1(C)\bigr),
+\]
+etc.
+\end{itemize}
+
+This is the ``inductive computation'' viewpoint: if we can keep embedding into objects with vanishing higher cohomology, we can compute everything from degree $0$ data.
+
+\section{Injective objects and enough injectives}
+
+\subsection{Injectives}
+
+\begin{definition}[Injective object]\label{def:injective}
+An object $I\in \mathcal{A}$ is \emph{injective} if for every monomorphism $u:X\hookrightarrow Y$ and every morphism $f:X\to I$, there exists $\tilde f:Y\to I$ with $\tilde f\circ u=f$.
+\end{definition}
+
+\begin{remark}
+Equivalently, $I$ is injective if and only if the contravariant functor $\Hom_{\mathcal{A}}(-,I)$ is exact (it is always left exact).
+\end{remark}
+
+\begin{definition}[Enough injectives]\label{def:enough-injectives}
+An abelian category $\mathcal{A}$ has \emph{enough injectives} if every object $A\in\mathcal{A}$ admits a monomorphism $A\hookrightarrow I$ with $I$ injective.
+\end{definition}
+
+\subsection{Effaceability forces vanishing on injectives}
+
+\begin{proposition}\label{prop:effaceable-vanish-inj}
+Let $T^\ast$ be an effaceable $\delta$-functor on an abelian category $\mathcal{A}$.
+If $I$ is injective in $\mathcal{A}$, then $T^i(I)=0$ for all $i>0$.
+\end{proposition}
+
+\begin{proof}
+Fix $i>0$. By effaceability, choose a monomorphism $f:I\hookrightarrow B$ such that $T^i(f)=0$.
+Let $C:=B/I$, so $0\to I\xrightarrow{f} B\to C\to 0$ is exact.
+
+Since $I$ is injective, this short exact sequence splits; hence there exists a retraction
+$p:B\to I$ with $p\circ f=\mathrm{id}_I$.
+
+Apply $T^i$:
+\[
+T^i(p)\circ T^i(f)=T^i(p\circ f)=T^i(\mathrm{id}_I)=\mathrm{id}_{T^i(I)}.
+\]
+But $T^i(f)=0$, so the left-hand side is $0$. Therefore $\mathrm{id}_{T^i(I)}=0$, hence $T^i(I)=0$.
+\end{proof}
+
+\section{Derived functors via injective resolutions}
+
+We now explain the construction of right derived functors of a left exact functor $F$.
+This is the abstract framework underlying sheaf cohomology.
+
+\subsection{Injective resolutions}
+
+\begin{definition}[Injective resolution]\label{def:inj-resolution}
+Let $\mathcal{A}$ be an abelian category with enough injectives. An \emph{injective resolution} of $A\in\mathcal{A}$ is an exact complex
+\[
+0\longrightarrow A\longrightarrow I^0\longrightarrow I^1\longrightarrow I^2\longrightarrow \cdots
+\]
+with each $I^n$ injective.
+\end{definition}
+
+Existence is proved inductively: embed $A$ into an injective $I^0$, set $C^0:=I^0/A$, embed $C^0$ into an injective $I^1$, etc.
+
+\subsection{Comparison theorem (functoriality up to homotopy)}
+
+The basic tool is:
+
+\begin{theorem}[Comparison theorem]\label{thm:comparison}
+Let $A,B\in\mathcal{A}$ and choose injective resolutions $A\to I^\bullet$, $B\to J^\bullet$.
+Any morphism $f:A\to B$ extends to a chain map $I^\bullet\to J^\bullet$, and any two such extensions are chain homotopic.
+\end{theorem}
+
+\begin{remark}
+This result is often proved by induction using injectivity to extend maps step-by-step, and then a second induction to produce the homotopy between two extensions. The ``unique up to homotopy'' clause is exactly what is needed to ensure derived functors are well-defined.
+\end{remark}
+
+\subsection{Definition of right derived functors}
+
+\begin{definition}[Right derived functors]\label{def:derived-functors}
+Let $F:\mathcal{A}\to\mathcal{B}$ be a left exact functor, with $\mathcal{A}$ having enough injectives.
+For $A\in\mathcal{A}$ choose an injective resolution $A\to I^\bullet$ and set
+\[
+R^iF(A):=H^i\bigl(F(I^\bullet)\bigr)\qquad (i\ge 0),
+\]
+the cohomology of the cochain complex $F(I^\bullet)$.
+\end{definition}
+
+\begin{proposition}[Well-definedness]\label{prop:well-defined}
+$R^iF(A)$ is independent of the chosen injective resolution, up to canonical isomorphism.
+Moreover $R^iF$ is functorial in $A$.
+\end{proposition}
+
+\begin{proof}[Sketch]
+Given two injective resolutions of $A$, the comparison theorem produces chain maps between them inducing mutually inverse isomorphisms on cohomology, and these isomorphisms do not depend on choices because of uniqueness up to homotopy.
+Functoriality in $A$ is obtained by extending maps $A\to B$ to maps of resolutions and passing to cohomology; uniqueness up to homotopy ensures the induced map on $H^i$ is independent of the extension.
+\end{proof}
+
+\subsection{The basic properties}
+
+\begin{proposition}\label{prop:basic-properties-derived}
+Let $F$ be left exact.
+\begin{enumerate}[label=(\arabic*)]
+\item $R^0F\simeq F$.
+\item For every short exact sequence $0\to A'\to A\to A''\to 0$ in $\mathcal{A}$ there is a natural long exact sequence
+\[
+0\to F(A')\to F(A)\to F(A'')\to R^1F(A')\to R^1F(A)\to R^1F(A'')\to R^2F(A')\to \cdots.
+\]
+\item $R^iF(I)=0$ for $i>0$ and $I$ injective.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}[Idea]
+(1) follows because the beginning of an injective resolution is left exact and $F$ is left exact.
+
+(2) is proved by choosing injective resolutions and applying the \emph{horseshoe lemma} to obtain a short exact sequence of complexes
+$0\to I'^\bullet\to I^\bullet\to I''^\bullet\to 0$,
+then using the long exact sequence in cohomology of complexes.
+
+(3) If $I$ is injective, use the resolution $0\to I\to I\to 0\to\cdots$, so $F(I^\bullet)$ has cohomology only in degree $0$.
+\end{proof}
+
+Thus $R^\ast F$ forms a cohomological $\delta$-functor extending $F$.
+
+\subsection{Universality of derived functors}
+
+\begin{proposition}\label{prop:derived-universal}
+If $\mathcal{A}$ has enough injectives, then $R^\ast F$ is an effaceable $\delta$-functor, hence universal.
+\end{proposition}
+
+\begin{proof}
+Let $A\in\mathcal{A}$ and choose a monomorphism $A\hookrightarrow I$ with $I$ injective.
+Then for $i>0$ the induced map
+\[
+R^iF(A)\to R^iF(I)
+\]
+is the zero map because $R^iF(I)=0$. Hence $R^\ast F$ is effaceable. By Theorem~\ref{thm:effaceable-universal}, it is universal.
+\end{proof}
+
+\begin{remark}
+This is the main conceptual payoff: \emph{derived functors are the universal way to repair the failure of exactness of a left exact functor.}
+\end{remark}
+
+\section{Acyclic objects and acyclic resolutions}
+
+Injective resolutions always exist (in good categories), but they can be unwieldy. Often one computes derived functors using a nicer resolution by ``acyclic'' objects.
+
+\begin{definition}[$F$-acyclic]\label{def:acyclic}
+Let $F:\mathcal{A}\to\mathcal{B}$ be left exact with right derived functors $R^iF$.
+An object $A\in\mathcal{A}$ is \emph{$F$-acyclic} if $R^iF(A)=0$ for all $i>0$.
+\end{definition}
+
+\begin{definition}[Acyclic resolution]\label{def:acyclic-resolution}
+An \emph{$F$-acyclic resolution} of $A$ is an exact complex
+\[
+0\to A\to A^0\to A^1\to A^2\to \cdots
+\]
+with each $A^n$ $F$-acyclic.
+\end{definition}
+
+\begin{theorem}[Computing with acyclic resolutions]\label{thm:acyclic-computation}
+If $0\to A\to A^\bullet$ is an $F$-acyclic resolution, then
+\[
+R^iF(A)\cong H^i\bigl(F(A^\bullet)\bigr)\qquad \text{for all } i\ge 0.
+\]
+\end{theorem}
+
+\begin{remark}
+For sheaf cohomology, common acyclic objects include injective sheaves, flasque (flabby) sheaves, and (on nice spaces) soft or fine sheaves. Cech resolutions are another computational tool under separation hypotheses.
+\end{remark}
+
+\section{Examples of derived functors}
+
+\subsection{Sheaf cohomology}
+
+Let $X$ be a topological space. The category $\Ab(X)$ has enough injectives (proved below), and we define:
+\[
+H^i(X,\mathcal{F}) := R^i\Gamma(X,\mathcal{F}).
+\]
+The long exact sequence of Proposition~\ref{prop:basic-properties-derived} is the usual long exact cohomology sequence.
+
+Similarly, on a ringed space $(X,\OO_X)$, the category $\Mod(\OO_X)$ has enough injectives, and for an $\OO_X$-module $\mathcal{F}$:
+\[
+H^i(X,\mathcal{F}) := R^i\Gamma(X,\mathcal{F})
+\quad\text{(cohomology of sheaves of modules).}
+\]
+
+\begin{remark}[A first answer to ``when is $\Gamma$ exact?'']
+Given $0\to \mathcal{F}'\to \mathcal{F}\to \mathcal{F}''\to 0$, the induced sequence
+\[
+0\to \Gamma(X,\mathcal{F}')\to \Gamma(X,\mathcal{F})\to \Gamma(X,\mathcal{F}'')\to 0
+\]
+is exact if and only if the connecting homomorphism
+\[
+\Gamma(X,\mathcal{F}'')\longrightarrow H^1(X,\mathcal{F}')
+\]
+vanishes; in particular, it is exact whenever $H^1(X,\mathcal{F}')=0$.
+More broadly, vanishing of higher cohomology is the condition under which $\Gamma$ behaves like an exact functor.
+\end{remark}
+
+\subsection{Derived pushforward}
+
+For a continuous map of ringed spaces (or schemes) $f:X\to Y$, the pushforward
+\[
+f_*:\Ab(X)\to \Ab(Y)\qquad (\text{or }\Mod(\OO_X)\to \Mod(\OO_Y))
+\]
+is left exact. Its right derived functors are denoted
+\[
+R^if_*.
+\]
+These package all higher direct images and are central in Leray spectral sequences, cohomology and base change, and many foundational results (e.g.\ proper mapping theorems).
+
+\subsection{Ext and group cohomology}
+
+\begin{example}[Ext]
+In $\Mod(R)$, the functor $\Hom_R(M,-)$ is left exact. Its right derived functors are
+\[
+R^i\Hom_R(M,-)=\Ext_R^i(M,-).
+\]
+(Here we are deriving in the \emph{second} variable; deriving in the first variable uses projective resolutions instead.)
+\end{example}
+
+\begin{example}[Group cohomology]
+Let $G$ be a group and consider the category of $\ZZ[G]$-modules.
+The invariants functor $(-)^G$ is left exact. Its derived functors give group cohomology:
+\[
+H^i(G,M)=R^i(M\mapsto M^G).
+\]
+\end{example}
+
+\section{Enough injectives for sheaves of modules}
+
+We now justify a crucial input: categories of sheaves of modules have enough injectives.
+
+\begin{proposition}\label{prop:enough-inj-modOX}
+Let $(X,\OO_X)$ be a ringed space. The abelian category $\Mod(\OO_X)$ has enough injectives.
+\end{proposition}
+
+\begin{proof}
+We give a standard construction.
+
+\medskip
+\noindent\textbf{Step 1: embed stalkwise into injectives.}
+Fix $\mathcal{F}\in\Mod(\OO_X)$.
+For each point $x\in X$, the stalk $\mathcal{F}_x$ is an $\OO_{X,x}$-module.
+Using the fact that $\Mod(\OO_{X,x})$ has enough injectives (a theorem in module theory), choose a monomorphism
+\[
+\iota_x:\mathcal{F}_x \hookrightarrow I_x
+\]
+with $I_x$ an injective $\OO_{X,x}$-module.
+
+\medskip
+\noindent\textbf{Step 2: build an injective sheaf from skyscrapers.}
+Let $j_x:\{x\}\hookrightarrow X$ be the inclusion. Define the skyscraper $\OO_X$-module $j_{x*}I_x$ by
+\[
+(j_{x*}I_x)(U)=
+\begin{cases}
+I_x & x\in U,\\
+0 & x\notin U.
+\end{cases}
+\]
+This is naturally an $\OO_X$-module, and any morphism $\mathcal{G}\to j_{x*}I_x$ is determined by its induced map on the stalk at $x$. Concretely,
+\begin{equation}\label{eq:Hom-to-skyscraper}
+\Hom_{\OO_X}(\mathcal{G},j_{x*}I_x)\;\cong\;\Hom_{\OO_{X,x}}(\mathcal{G}_x,I_x).
+\end{equation}
+Since $I_x$ is injective, the functor $\Hom_{\OO_{X,x}}(-,I_x)$ is exact; by \eqref{eq:Hom-to-skyscraper}, the functor $\Hom_{\OO_X}(-,j_{x*}I_x)$ is exact. Hence $j_{x*}I_x$ is injective in $\Mod(\OO_X)$.
+
+Now set
+\[
+\mathcal{I}:=\prod_{x\in X} j_{x*}I_x.
+\]
+Products of injectives are injective: for any $\mathcal{G}$,
+\[
+\Hom_{\OO_X}(\mathcal{G},\mathcal{I})
+\cong \prod_{x\in X}\Hom_{\OO_X}(\mathcal{G},j_{x*}I_x),
+\]
+and a product of surjections of abelian groups is surjective. Therefore $\mathcal{I}$ is injective.
+
+\medskip
+\noindent\textbf{Step 3: embed $\mathcal{F}$ into $\mathcal{I}$.}
+For each $x$, the inclusion $\iota_x:\mathcal{F}_x\hookrightarrow I_x$ corresponds (via \eqref{eq:Hom-to-skyscraper}) to a morphism of sheaves $\mathcal{F}\to j_{x*}I_x$.
+By the universal property of the product, these assemble into a morphism
+\[
+\mathcal{F}\longrightarrow \prod_{x\in X} j_{x*}I_x=\mathcal{I}.
+\]
+On stalks at $x$ this map is precisely $\mathcal{F}_x\hookrightarrow I_x$, hence injective. Since monomorphisms of sheaves are detected on stalks, $\mathcal{F}\hookrightarrow \mathcal{I}$ is a monomorphism into an injective object.
+
+Thus $\Mod(\OO_X)$ has enough injectives.
+\end{proof}
+
+\begin{corollary}\label{cor:enough-inj-AbX}
+For any topological space $X$, the category $\Ab(X)$ of sheaves of abelian groups has enough injectives.
+\end{corollary}
+
+\begin{proof}
+A sheaf of abelian groups is the same thing as a sheaf of $\ZZ$-modules, i.e.\ an $\OO_X$-module for the constant sheaf of rings $\OO_X=\ZZ_X$. Apply Proposition~\ref{prop:enough-inj-modOX}.
+\end{proof}
+
+\section{Cohomology as the derived functors of global sections}
+
+We now formally define sheaf cohomology.
+
+\begin{definition}[Sheaf cohomology]\label{def:sheaf-cohomology}
+Let $X$ be a topological space and $\mathcal{F}\in\Ab(X)$. Choose an injective resolution
+\[
+0\to \mathcal{F}\to \mathcal{I}^0\to \mathcal{I}^1\to \cdots
+\]
+and define
+\[
+H^i(X,\mathcal{F}) := H^i\bigl(\Gamma(X,\mathcal{I}^\bullet)\bigr).
+\]
+If $(X,\OO_X)$ is a ringed space and $\mathcal{F}\in\Mod(\OO_X)$, define $H^i(X,\mathcal{F})$ similarly.
+\end{definition}
+
+\begin{proposition}\label{prop:sheaf-cohomology-delta}
+$H^\ast(X,-)$ is a cohomological $\delta$-functor with $H^0(X,-)=\Gamma(X,-)$.
+It vanishes on injective sheaves in degrees $>0$, is effaceable, and is universal.
+\end{proposition}
+
+\begin{proof}
+This is Proposition~\ref{prop:basic-properties-derived} and Proposition~\ref{prop:derived-universal} applied to $F=\Gamma(X,-)$.
+\end{proof}
+
+\begin{remark}[Preview: quasi-coherent cohomology]
+When $X$ is a scheme, one is especially interested in $\mathcal{F}\in\QCoh(X)$ (or $\Coh(X)$ when $X$ is Noetherian). Many foundational results in Hartshorne III concern:
+\begin{itemize}
+\item vanishing on affines ($H^i(X,\mathcal{F})=0$ for $i>0$ and $\mathcal{F}$ quasi-coherent on $X$ affine);
+\item Cech computations for separated schemes;
+\item finiteness for projective schemes;
+\item Serre vanishing and Serre duality.
+\end{itemize}
+These will be developed after the abstract formalism is in place.
+\end{remark}
+
+\section{Suggested exercises for the first lectures}
+
+\begin{exercise}[Effaceable implies universal]\label{ex:effaceable-universal}
+Prove Theorem~\ref{thm:effaceable-universal}:
+given an effaceable $\delta$-functor $T^\ast$ and another $\delta$-functor $S^\ast$, show any natural map $T^0\to S^0$ extends uniquely to a morphism $T^\ast\to S^\ast$.
+(Hint: use dimension shifting from an effacing monomorphism $A\hookrightarrow B$ and the long exact sequences.)
+\end{exercise}
+
+\begin{exercise}[Comparison theorem]\label{ex:comparison}
+Prove the comparison theorem (Theorem~\ref{thm:comparison}) by inductively extending a map $A\to B$ to maps $I^n\to J^n$ using injectivity, and then proving uniqueness up to homotopy.
+\end{exercise}
+
+\end{document}

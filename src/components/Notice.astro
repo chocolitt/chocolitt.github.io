@@ -1,0 +1,27 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title } = Astro.props;
+---
+
+<aside class="notice">
+  {title && <strong>{title}</strong>}
+  <slot />
+</aside>
+
+<style>
+  .notice {
+    background: var(--wash);
+    border-left: 3px solid var(--accent);
+    font-family: var(--sans);
+    font-size: 0.88rem;
+    margin-block: 1.5rem;
+    padding: 1rem 1.1rem;
+  }
+
+  .notice :global(p) {
+    margin: 0.4rem 0 0;
+  }
+</style>

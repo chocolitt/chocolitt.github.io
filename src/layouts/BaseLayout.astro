@@ -1,0 +1,98 @@
+---
+import SiteFooter from "../components/SiteFooter.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import { normalizeDescription } from "../utils/description";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath?: string | false;
+  type?: "website" | "article";
+  math?: boolean;
+  noindex?: boolean;
+  structuredData?: Record<string, unknown>;
+}
+
+const {
+  title,
+  description,
+  canonicalPath = Astro.url.pathname,
+  type = "website",
+  math = false,
+  noindex = false,
+  structuredData,
+} = Astro.props;
+const fullTitle = title === "Daniel Litt" ? title : `${title} · Daniel Litt`;
+const metaDescription = normalizeDescription(description, title);
+const canonical = canonicalPath === false ? undefined : new URL(canonicalPath, Astro.site);
+const socialImage = new URL("/images/daniel-litt-social-card.png", Astro.site);
+const isPreview = import.meta.env.PUBLIC_SITE_ENV === "preview";
+const robots = isPreview ? "noindex,nofollow" : noindex ? "noindex,follow" : undefined;
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Daniel Litt",
+  url: "https://www.daniellitt.com",
+  jobTitle: "Mathematician",
+  affiliation: {
+    "@type": "CollegeOrUniversity",
+    name: "University of Toronto",
+  },
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={metaDescription} />
+    <meta name="theme-color" content="#fcfcfc" />
+    {robots && <meta name="robots" content={robots} />}
+    {canonical && <link rel="canonical" href={canonical} />}
+    <link rel="icon" type="image/webp" href="/images/site/portrait.webp" />
+    <link rel="apple-touch-icon" href="/images/site/portrait.webp" />
+    <link rel="alternate" type="application/rss+xml" title="Daniel Litt" href={new URL("/rss.xml", Astro.site)} />
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={metaDescription} />
+    {canonical && <meta property="og:url" content={canonical} />}
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:alt" content="Daniel Litt — Algebraic Geometry, Number Theory, etc." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>{fullTitle}</title>
+    {canonicalPath === "/" && <script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)} />}
+    {structuredData && <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />}
+    {math && (
+      <>
+        <script is:inline>
+          window.MathJax = {
+            tex: {
+              inlineMath: [["$", "$"], ["\\(", "\\)"]],
+              displayMath: [["$$", "$$"], ["\\[", "\\]"]],
+            },
+            options: { skipHtmlTags: ["script", "noscript", "style", "textarea", "pre", "code"] },
+          };
+        </script>
+        <script
+          is:inline
+          async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"
+          integrity="sha384-AHAnt9ZhGeHIrydA1Kp1L7FN+2UosbF7RQg6C+9Is/a7kDpQ1684C2iH2VWil6r4"
+          crossorigin="anonymous"
+        ></script>
+      </>
+    )}
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <SiteHeader />
+    <div class="shell"><div class="page-divider"></div></div>
+    <main id="content">
+      <slot />
+    </main>
+    <SiteFooter />
+  </body>
+</html>

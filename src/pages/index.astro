@@ -1,0 +1,167 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+interface Props {
+  workPage?: boolean;
+}
+
+const { workPage = false } = Astro.props;
+
+const sections = [
+  {
+    href: "/publications-and-preprints",
+    label: "Publications and Preprints",
+    image: "/images/site/publications.webp",
+    alt: "A mathematical diagram of a cut plane",
+  },
+  {
+    href: "/talks-and-expository-work",
+    label: "Talk Notes and Slides",
+    image: "/images/site/talks.webp",
+    alt: "A page of a mathematical manuscript",
+  },
+  {
+    href: "/expository-notes",
+    label: "Expository Notes",
+    image: "/images/site/expository.webp",
+    alt: "A historical diagram of the Pythagorean musical scale",
+  },
+  {
+    href: "/teaching",
+    label: "Teaching and Service",
+    image: "/images/site/teaching.webp",
+    alt: "A historical astronomical diagram",
+  },
+  {
+    href: "/open-questions",
+    label: "Open Questions",
+    image: "/images/site/open-questions.webp",
+    alt: "A historical illustration of musical notation",
+  },
+];
+---
+
+<BaseLayout
+  title="Daniel Litt"
+  description="Daniel Litt is a mathematician working in algebraic geometry, arithmetic geometry, and related subjects."
+  canonicalPath="/"
+>
+  {workPage && <h1 class="visually-hidden">Daniel Litt</h1>}
+  <section class="home-intro shell page-content">
+    <div class="biography prose">
+      <p>
+        I am an Assistant Professor of mathematics at the <a href="https://www.mathematics.utoronto.ca/">University of Toronto</a>.
+        I was in a similar position at the University of Georgia from 2019–2022. I completed my PhD at Stanford in 2015;
+        from 2015–2018 I was an NSF Postdoc at Columbia; and from 2018–2019 I was a member at the Institute for Advanced Study.
+      </p>
+      <p>
+        Broadly speaking, I am interested in the interplay between algebraic geometry and number theory (and, to a lesser
+        extent, topology). Most of my work has focused on using arithmetic techniques to study classical questions about,
+        for example, complex algebraic varieties. Currently, I am thinking about the arithmetic structures on the
+        fundamental group of an algebraic variety, and the relationships between those structures and the geometry of the
+        variety. Some of my other interests include questions about positivity and vanishing theorems, dynamics of
+        algebraic varieties, and Hodge theory (broadly construed).
+      </p>
+      <p>
+        On this website you can find my <a href="/publications-and-preprints">publications and preprints</a>, some{" "}
+        <a href="/talks-and-expository-work">talk notes and slides</a>, some <a href="/expository-notes">expository notes</a>,
+        and information on my <a href="/teaching">teaching</a>. I’ve included some{" "}
+        <a href="/nonmathematical-writing">non-mathematical writing</a>. There’s also an embryonic{" "}
+        <a href="/blog">blog</a>, which may or may not be updated. Finally, I’m trying a little experiment—I’ll try to keep
+        a list of <a href="/open-questions">open questions</a> that come up in my work, which is likely not up to date.
+      </p>
+    </div>
+    <figure class="portrait">
+      <img src="/images/site/portrait.webp" alt="Portrait of Daniel Litt" width="668" height="896" />
+    </figure>
+  </section>
+
+  <section class="work-grid shell" aria-label="Work">
+    {sections.map((section) => (
+      <a class="work-item" href={section.href}>
+        <span class="image-frame"><img src={section.image} alt={section.alt} loading="lazy" /></span>
+        <span class="work-title">{section.label}</span>
+      </a>
+    ))}
+  </section>
+</BaseLayout>
+
+<style>
+  .home-intro {
+    align-items: start;
+    display: grid;
+    gap: 5.5%;
+    grid-template-columns: minmax(0, 2fr) minmax(230px, 1fr);
+  }
+
+  .biography p:first-child {
+    margin-top: 0;
+  }
+
+  .portrait {
+    margin: 0;
+  }
+
+  .portrait img {
+    display: block;
+    width: 100%;
+  }
+
+  .work-grid {
+    display: grid;
+    gap: 38px 3%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding-bottom: 50px;
+  }
+
+  .work-item {
+    color: var(--heading);
+    display: block;
+    font-family: var(--display-font);
+    text-align: center;
+  }
+
+  .image-frame {
+    align-items: center;
+    aspect-ratio: 4 / 3;
+    background: #f3f3f3;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .image-frame img {
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 160ms ease;
+    width: 100%;
+  }
+
+  .work-item:hover img {
+    opacity: 0.82;
+  }
+
+  .work-title {
+    display: block;
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    line-height: 1.4;
+    padding-top: 12px;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 750px) {
+    .home-intro {
+      gap: 30px;
+      grid-template-columns: 1fr;
+    }
+
+    .portrait {
+      max-width: 340px;
+    }
+
+    .work-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

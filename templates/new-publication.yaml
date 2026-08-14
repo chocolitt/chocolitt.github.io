@@ -1,0 +1,8 @@
+# Paste this complete, indented record beneath the appropriate `publications:` line
+# in src/data/publications.yaml, then replace the example text.
+            - title: |-
+                <em>Paper title</em>
+              citation: |-
+                (<a href="https://arxiv.org/abs/example">arXiv version</a>, 2026, joint with Someone Else)
+              abstract: |-
+                The abstract goes here, with TeX such as \(E_6\).

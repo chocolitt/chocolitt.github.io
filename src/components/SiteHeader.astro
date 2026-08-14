@@ -1,0 +1,388 @@
+---
+const pathname = Astro.url.pathname;
+const normalizedPathname = pathname !== "/" && pathname.endsWith("/") ? pathname.slice(0, -1) : pathname;
+
+const workLinks = [
+  { href: "/publications-and-preprints", label: "Publications and Preprints" },
+  { href: "/talks-and-expository-work", label: "Talk Notes and Slides" },
+  { href: "/expository-notes", label: "Expository Notes" },
+  { href: "/teaching", label: "Teaching, Seminars, and Service" },
+  { href: "/open-questions", label: "Open Questions" },
+  { href: "/artifacts", label: "Interactive Artifacts" },
+];
+
+const personalLinks = [
+  { href: "/blog", label: "βlog" },
+  { href: "/nonmathematical-writing", label: "Non-mathematical Writing" },
+];
+
+const teachingArchives = ["/mat1101.html", "/mat1190hs.html", "/mat445.html", "/mat445_winter2026.html"];
+const artifactArchives = ["/fermat_fano_real_mesh_web.html", "/published-paper-reviews.html"];
+const isActive = (href: string) =>
+  normalizedPathname === href ||
+  normalizedPathname.startsWith(`${href}/`) ||
+  (href === "/teaching" && teachingArchives.includes(normalizedPathname)) ||
+  (href === "/artifacts" && artifactArchives.includes(normalizedPathname));
+const groupIsActive = (links: typeof workLinks) => links.some((link) => isActive(link.href));
+---
+
+<aside class="announcement" aria-label="Announcement">
+  <p>
+    New paper! <a href="https://arxiv.org/abs/2604.20970"><em>E</em><sub>6</sub>-local systems from cubic threefolds</a>,
+    joint with Krämer and Maculan.
+  </p>
+</aside>
+
+<header class="site-header shell">
+  <div class="header-inner">
+    <div class="site-identity">
+      {pathname === "/" ? (
+        <h1 class="site-title"><a href="/">Daniel Litt</a></h1>
+      ) : (
+        <a class="site-title" href="/">Daniel Litt</a>
+      )}
+      <p>Algebraic Geometry, Number Theory, etc.</p>
+    </div>
+
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="/s/CV-Daniel-Litt.pdf">CV</a></li>
+        <li class="nav-folder">
+          <details>
+            <summary aria-current={groupIsActive(workLinks) ? "page" : undefined}>Work <span aria-hidden="true">▾</span></summary>
+            <ul class="submenu">
+              {workLinks.map((link) => (
+                <li><a href={link.href} aria-current={isActive(link.href) ? "page" : undefined}>{link.label}</a></li>
+              ))}
+            </ul>
+          </details>
+        </li>
+        <li class="nav-folder">
+          <details>
+            <summary aria-current={groupIsActive(personalLinks) ? "page" : undefined}>Personal <span aria-hidden="true">▾</span></summary>
+            <ul class="submenu">
+              {personalLinks.map((link) => (
+                <li><a href={link.href} aria-current={isActive(link.href) ? "page" : undefined}>{link.label}</a></li>
+              ))}
+            </ul>
+          </details>
+        </li>
+        <li><a href="/about" aria-current={isActive("/about") ? "page" : undefined}>About</a></li>
+        <li><a href="/contact" aria-current={isActive("/contact") ? "page" : undefined}>Contact</a></li>
+      </ul>
+    </nav>
+
+    <details class="mobile-menu">
+      <summary>Menu</summary>
+      <nav aria-label="Mobile navigation">
+        <ul>
+          <li><a href="/s/CV-Daniel-Litt.pdf">CV</a></li>
+          <li class="mobile-group">
+            <span>Work</span>
+            <ul>
+              {workLinks.map((link) => (
+                <li><a href={link.href} aria-current={isActive(link.href) ? "page" : undefined}>{link.label}</a></li>
+              ))}
+            </ul>
+          </li>
+          <li class="mobile-group">
+            <span>Personal</span>
+            <ul>
+              {personalLinks.map((link) => (
+                <li><a href={link.href} aria-current={isActive(link.href) ? "page" : undefined}>{link.label}</a></li>
+              ))}
+            </ul>
+          </li>
+          <li><a href="/about" aria-current={isActive("/about") ? "page" : undefined}>About</a></li>
+          <li><a href="/contact" aria-current={isActive("/contact") ? "page" : undefined}>Contact</a></li>
+        </ul>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<style>
+  .announcement {
+    background: #222;
+    color: #f7f7f7;
+    font-size: 0.82rem;
+    padding: 0.55rem 20px;
+    text-align: center;
+  }
+
+  .announcement p {
+    margin: 0;
+  }
+
+  .announcement a {
+    border-bottom: 1px solid #999;
+    color: inherit;
+  }
+
+  .site-header {
+    margin-top: 38px;
+  }
+
+  .header-inner {
+    align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+    padding-block: 14px 40px;
+  }
+
+  .site-identity {
+    flex: 0 0 auto;
+  }
+
+  .site-title {
+    color: #111;
+    display: block;
+    font-family: var(--display-font);
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 1.15;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .site-title a {
+    color: inherit;
+  }
+
+  .site-title:hover,
+  .site-title a:hover {
+    color: #111;
+  }
+
+  .site-identity p {
+    color: var(--muted);
+    font-family: var(--display-font);
+    font-size: 12px;
+    letter-spacing: 1px;
+    line-height: 1.6;
+    margin: 7px 0 0;
+  }
+
+  .desktop-nav {
+    font-family: var(--display-font);
+    font-size: 13px;
+    letter-spacing: 1px;
+    padding-top: 10px;
+    text-transform: uppercase;
+  }
+
+  .desktop-nav > ul {
+    align-items: flex-start;
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .desktop-nav a,
+  .desktop-nav summary {
+    color: var(--muted);
+    cursor: pointer;
+    display: block;
+    line-height: 1.6;
+  }
+
+  .desktop-nav a:hover,
+  .desktop-nav a[aria-current="page"],
+  .desktop-nav summary:hover,
+  .desktop-nav summary[aria-current="page"] {
+    color: #111;
+  }
+
+  .nav-folder {
+    position: relative;
+  }
+
+  .nav-folder details,
+  .nav-folder summary {
+    margin: 0;
+  }
+
+  .nav-folder summary {
+    list-style: none;
+  }
+
+  .nav-folder summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .nav-folder summary span {
+    font-size: 0.75em;
+  }
+
+  .submenu {
+    background: var(--background);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    display: none;
+    left: -18px;
+    list-style: none;
+    min-width: 260px;
+    padding: 14px 18px 16px;
+    position: absolute;
+    top: 100%;
+    z-index: 20;
+  }
+
+  .submenu li + li {
+    margin-top: 7px;
+  }
+
+  .submenu a {
+    letter-spacing: 0.06em;
+    text-transform: none;
+  }
+
+  .nav-folder:hover .submenu,
+  .nav-folder details[open] .submenu {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+
+  @media (max-width: 900px) {
+    .header-inner {
+      align-items: center;
+      flex-direction: column;
+      padding-block: 14px 28px;
+      text-align: center;
+    }
+
+    .desktop-nav {
+      display: none;
+    }
+
+    .site-title {
+      font-size: 34px;
+    }
+
+    .mobile-menu {
+      display: block;
+      font-family: var(--display-font);
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    .mobile-menu > summary {
+      align-items: center;
+      color: var(--muted);
+      cursor: pointer;
+      display: flex;
+      font-size: 14px;
+      justify-content: center;
+      list-style: none;
+      min-height: 44px;
+      text-transform: uppercase;
+    }
+
+    .mobile-menu > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .mobile-menu nav {
+      border-top: 1px solid var(--line);
+      margin-top: 12px;
+      padding-top: 12px;
+      text-align: left;
+    }
+
+    .mobile-menu ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .mobile-menu nav > ul > li {
+      border-bottom: 1px solid #eee;
+      padding-block: 0;
+    }
+
+    .mobile-menu a,
+    .mobile-group > span {
+      align-items: center;
+      color: #666;
+      display: flex;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      min-height: 44px;
+      text-transform: uppercase;
+    }
+
+    .mobile-group ul {
+      padding: 6px 0 0 16px;
+    }
+
+    .mobile-group li {
+      padding-block: 0;
+    }
+
+    .mobile-group li a {
+      letter-spacing: 0;
+      text-transform: none;
+    }
+  }
+</style>
+
+<script>
+  const desktopFolders = Array.from(
+    document.querySelectorAll<HTMLDetailsElement>(".desktop-nav .nav-folder > details"),
+  );
+
+  const closeFolder = (folder: HTMLDetailsElement) => {
+    folder.open = false;
+  };
+  const supportsHover = window.matchMedia("(hover: hover) and (pointer: fine)");
+
+  for (const folder of desktopFolders) {
+    const wrapper = folder.closest<HTMLElement>(".nav-folder");
+    const summary = folder.querySelector<HTMLElement>("summary");
+
+    folder.addEventListener("toggle", () => {
+      if (!folder.open) return;
+      for (const otherFolder of desktopFolders) {
+        if (otherFolder !== folder) closeFolder(otherFolder);
+      }
+    });
+
+    wrapper?.addEventListener("pointerenter", (event) => {
+      if (event.pointerType === "mouse" && supportsHover.matches) folder.open = true;
+    });
+
+    wrapper?.addEventListener("pointerleave", (event) => {
+      if (event.pointerType === "mouse") closeFolder(folder);
+    });
+
+    summary?.addEventListener("click", (event) => {
+      if (event.detail === 0 || !supportsHover.matches) return;
+      event.preventDefault();
+      folder.open = true;
+    });
+
+    folder.addEventListener("focusout", () => {
+      requestAnimationFrame(() => {
+        if (!folder.contains(document.activeElement)) closeFolder(folder);
+      });
+    });
+
+    folder.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape") return;
+      closeFolder(folder);
+      summary?.focus();
+    });
+  }
+
+  document.addEventListener("pointerdown", (event) => {
+    if (!(event.target instanceof Node)) return;
+    for (const folder of desktopFolders) {
+      if (!folder.contains(event.target)) closeFolder(folder);
+    }
+  });
+</script>

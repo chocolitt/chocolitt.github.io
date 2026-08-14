@@ -1,0 +1,70 @@
+---
+import { getEntry, render } from "astro:content";
+import PageLayout from "../../layouts/PageLayout.astro";
+
+const entry = await getEntry("pages", "teaching");
+if (!entry) throw new Error("Missing imported /teaching page content");
+const { Content } = await render(entry);
+---
+
+<PageLayout entry={entry}>
+  <Content />
+  <section class="integrated-archives">
+    <h2>Course Archives</h2>
+    <div class="teaching-page">
+    <ul class="course-list">
+      <li><a href="/mat445_winter2026.html">MAT445H1 – Representation Theory, Winter 2026</a> <span>Archived course</span></li>
+      <li><a href="/mat445.html">Math 445 – Representation Theory, Winter 2025</a> <span>Archived course</span></li>
+      <li><a href="/mat1190hs.html">MAT1190HS – Algebraic Geometry</a> <span>Archived course</span></li>
+      <li><a href="/mat1101.html">Math 1101 – Algebra II, Winter 2025</a> <span>Archived course</span></li>
+      <li><a href="/curves-surfaces">Curves &amp; Surfaces, Winter 2024</a> <span>Archived course</span></li>
+      <li><a href="/math-1100-algebra">MAT1100 – Algebra I, Fall 2023</a> <span>Archived course</span></li>
+      <li><a href="/mat138h1">MAT138H1 – Introduction to Proofs, Fall 2022</a> <span>Archived course</span></li>
+      <li><a href="/hodge-theory">Hodge Theory, Fall 2022</a> <span>Archived course</span></li>
+      <li><a href="/commutative-algebra">Commutative Algebra, Spring 2022</a> <span>Archived course</span></li>
+      <li><a href="/rational-points">Rational Points, Fall 2021</a> <span>Archived course</span></li>
+      <li><a href="/tale-cohomology">Étale Cohomology, Fall 2020</a> <span>Archived course</span></li>
+      <li><a href="/math-2250">Math 2250 – Calculus I, Fall 2019</a> <span>Archived course</span></li>
+      <li><a href="/fall-2017-topics-in-algebraic-geometry-deformation-theory">Deformation Theory, Fall 2017</a> <span>Archived course</span></li>
+    </ul>
+
+    <h2>Seminar and Event Archives</h2>
+    <ul class="course-list">
+      <li><a href="/rigid-local-systems">Rigid Local Systems, Winter 2023</a> <span>Archived seminar</span></li>
+      <li><a href="/ag-theory-seminar-2022-2023">UofT Algebraic Geometry Seminar, 2022–2023</a> <span>Archived seminar</span></li>
+      <li><a href="/ccam">CCAM – Catalan’s Conjecture after Mihăilescu, Fall 2021</a> <span>Archived seminar</span></li>
+      <li><a href="/sezoom">SeZoom – Serre Seminar, Winter 2021</a> <span>Archived seminar</span></li>
+      <li><a href="/crag">CRAG – Classic Papers Seminar, 2020–2021</a> <span>Archived seminar</span></li>
+      <li><a href="/zazoom">ZaZoom – Zannier on Zoom, Fall 2020</a> <span>Archived seminar</span></li>
+      <li><a href="/biopsy">BIOPSY problem seminar, Summer 2020</a> <span>Archived seminar</span></li>
+      <li><a href="/agonize">AGONIZE online conference, March 2020</a> <span>Archived event</span></li>
+      <li><a href="/adding">ADDING – Anabelian Days Down in Georgia, 2022</a> <span>Archived event</span></li>
+    </ul>
+    </div>
+  </section>
+</PageLayout>
+
+<style>
+  .teaching-page {
+    margin: 0;
+    padding: 0;
+  }
+
+  .teaching-page :global(ul) {
+    padding-left: 1.4rem;
+  }
+
+  .teaching-page :global(li) {
+    margin-bottom: 0.4rem;
+  }
+
+  .course-list :global(span) {
+    color: var(--muted);
+    font-family: var(--display-font);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    margin-left: 0.4rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+</style>

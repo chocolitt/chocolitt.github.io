@@ -1,0 +1,26 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import TaxonomyIndex from "../../../components/TaxonomyIndex.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ data }) => !data.draft || import.meta.env.DEV);
+  const terms = new Map<string, string>();
+  for (const post of posts) {
+    for (const tag of post.data.tags) terms.set(tag.path, tag.name);
+  }
+  return [...terms].map(([path, label]) => ({
+    params: { term: path.replace(/^\/blog\/tag\//, "") },
+    props: { label, path, posts: posts.filter((post) => post.data.tags.some((tag) => tag.path === path)) },
+  }));
+}
+
+interface Props {
+  label: string;
+  path: string;
+  posts: CollectionEntry<"blog">[];
+}
+
+const { label, path, posts } = Astro.props;
+---
+
+<TaxonomyIndex label={label} kind="Tag" path={path} posts={posts} />

@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry } from "astro:content";
+import PublicationsContent from "../components/PublicationsContent.astro";
+import Notice from "../components/Notice.astro";
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  entry: CollectionEntry<"pages">;
+}
+
+const { entry } = Astro.props;
+const { title, displayTitle, description, legacyPath, archiveLabel, math } = entry.data;
+const pageName = legacyPath.replace(/^\//, "").replace(/\//g, "-") || "home";
+---
+
+<BaseLayout title={title} description={description} canonicalPath={legacyPath} math={math}>
+  <article class="standard-page shell page-content prose" data-page={pageName}>
+    <h1>{displayTitle ?? title}</h1>
+    {archiveLabel && (
+      <Notice title={archiveLabel}>
+        <p>Dates, locations, and administrative details below are historical.</p>
+      </Notice>
+    )}
+    {legacyPath === "/publications-and-preprints" ? <PublicationsContent /> : <slot />}
+  </article>
+</BaseLayout>
+
+<style>
+  .standard-page {
+    max-width: var(--site-width);
+  }
+
+  .standard-page h1 {
+    margin-top: 0;
+  }
+</style>

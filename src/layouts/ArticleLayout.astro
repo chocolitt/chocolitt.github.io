@@ -1,0 +1,112 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BlogFrame from "../components/BlogFrame.astro";
+import FastComments from "../components/FastComments.astro";
+import { normalizeDescription } from "../utils/description";
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  entry: CollectionEntry<"blog">;
+}
+
+const { entry } = Astro.props;
+const { title, description, published, updated, comments, legacyPath, math, draft } = entry.data;
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+  timeZone: "UTC",
+});
+const articleUrl = new URL(legacyPath, Astro.site).toString();
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: title,
+  description: normalizeDescription(description, title),
+  datePublished: published.toISOString(),
+  dateModified: (updated ?? published).toISOString(),
+  author: {
+    "@type": "Person",
+    name: "Daniel Litt",
+    url: "https://www.daniellitt.com",
+  },
+  mainEntityOfPage: articleUrl,
+  url: articleUrl,
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath={legacyPath}
+  type="article"
+  math={math}
+  structuredData={articleSchema}
+>
+  <BlogFrame>
+    <article class="blog-post">
+      <header class="article-header">
+        <h1>{title}</h1>
+        <p class="article-meta">
+          <time datetime={published.toISOString()}>{dateFormatter.format(published)}</time>
+          {updated && <span> · Updated {dateFormatter.format(updated)}</span>}
+        </p>
+        {draft && <p class="draft-notice" role="status">Draft preview · comments are disabled</p>}
+      </header>
+      <div class="prose article-body">
+        <slot />
+      </div>
+      {comments && !draft && <FastComments urlId={legacyPath} />}
+    </article>
+  </BlogFrame>
+</BaseLayout>
+
+<style>
+  .article-header {
+    margin-bottom: 15px;
+  }
+
+  .article-header h1 {
+    font-size: 2rem;
+    line-height: 1.5;
+    margin: 0 0 6px;
+    overflow-wrap: anywhere;
+  }
+
+  .article-meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 2;
+    margin: 0;
+  }
+
+  .draft-notice {
+    border-left: 3px solid var(--accent);
+    color: var(--muted);
+    margin: 1rem 0 0;
+    padding: 0.35rem 0 0.35rem 0.8rem;
+  }
+
+  .article-body :global(img) {
+    display: block;
+    margin-inline: auto;
+  }
+
+  .article-body :global(figure) {
+    margin-block: 2rem;
+  }
+
+  .article-body :global(h2) {
+    line-height: 1.2;
+  }
+
+  .article-body :global(sup) {
+    font-size: 0.7em;
+  }
+
+  @media (max-width: 750px) {
+    .article-header h1 {
+      line-height: 1.5;
+    }
+  }
+</style>

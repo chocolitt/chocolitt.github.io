@@ -1,0 +1,20 @@
+---
+title: "Weapons of Math Destruction"
+description: "I've just finished reading Cathy O'Neil's book Weapons of Math Destruction , which I highly recommend. (One notable feature of the book is that the skull and cross-bones on the cover is the second known example of mathematical piracy .)…"
+published: "2016-09-26T03:15:57Z"
+draft: false
+tags: [{"name": "math", "path": "/blog/tag/math"}, {"name": "book review", "path": "/blog/tag/book+review"}, {"name": "technocracy", "path": "/blog/tag/technocracy"}]
+categories: [{"name": "math", "path": "/blog/category/math"}, {"name": "review", "path": "/blog/category/review"}]
+comments: true
+math: false
+legacyPath: "/blog/2016/9/25/weapons-of-math-destruction"
+imported: true
+---
+
+<p>I've just finished reading <a href="https://mathbabe.org/">Cathy O'Neil's</a> book <a href="https://www.amazon.com/dp/B019B6VCLO/ref=dp-kindle-redirect?_encoding=UTF8&amp;btkr=1">Weapons of Math Destruction</a>, which I highly recommend.  (One notable feature of the book is that the skull and cross-bones on the cover is the second known example of <a href="https://en.wikipedia.org/wiki/Paul_Sally">mathematical piracy</a>.)  </p>
+
+<figure class="imported-figure" style="--media-width: 300px"><img src="/assets/squarespace/75cbc438c71f-weaponsmath-r4-6-06.webp" alt="Wea-puns of mass destruction?" loading="lazy" class="imported-media" /><figcaption>Wea-puns of mass destruction?</figcaption></figure>
+
+<p>The book is, as you might guess from the title, quite negative about the use of big data and mathematical models in government and the corporate world.  This is a point of view that I felt some knee-jerk disagreement with; that said, Cathy is quite clear that her intent is only to discuss the negative features of big data and the use of mathematics in social and business planning:</p>
+
+<p>And I think one should read the book with that comment in mind; <em>of course</em> the models the book complains about have some redeeming features and effects.  But that complaint (which is prevalent in the Amazon reviews) misses the point -- to decide whether, on balance, they are a good thing, one has to have a careful accounting of their evils.  This book is that accounting -- it makes no pretense at even-handedness and does not try to weigh the good against the bad, except in the most minimal way.  I don't view that as a strike against it.  </p><p>I do have some mild quibbles with the book -- I think that in some cases, the book is uncharitable to the users of the algorithms it objects to.  For example, on page 110, Cathy discusses the use of personality tests in job applications.  Certain answers on these tests reveal that the test-taker has "high narcissism."  "Who wants a workforce peopled with narcissists?," the text asks.  This section is at best misleading -- as the author probably knows, the narcissism these tests discuss is not necessarily pathological.  Rather, narcissism in this setting is a technical term, which may in fact be <a href="https://en.wikipedia.org/wiki/Healthy_narcissism">healthy</a>.  And throughout, the book offers the <em>potential</em> for abuse of algorithms as a strike against them (or offers anecdotal cases of abuse). For example, in the discussion of car insurance companies' use of opt-in technology that tracks one's driving habits, Cathy suggests that soon this technology will be opt-out, at a significant cost.  I'm not necessarily skeptical that this will happen, but I'd argue that we should wait for the abuse to occur before objecting to the technology.</p><p>In any case, I think this is an important (and excellent) book, and a necessary counterweight to the techno-utopianism to which I, and many in government (in particular in the current administration), business, and academia are often prone.  I doubt the book will cure me completely of my faith in technocracy.  But I think its real goal is likely to temper that faith with some skepticism. At bottom, the book advocates for rigor in modeling, and for internalizing negative externalities -- who can argue with that?</p>
