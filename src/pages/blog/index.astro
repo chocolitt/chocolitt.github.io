@@ -10,6 +10,7 @@ const feedPosts = await Promise.all(
   posts.slice(0, 10).map(async (post) => ({ post, Content: (await render(post)).Content })),
 );
 const olderPosts = posts.slice(10);
+const tenantId = import.meta.env.PUBLIC_FASTCOMMENTS_TENANT_ID;
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
   day: "numeric",
   month: "long",
@@ -34,6 +35,17 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
             </h2>
             <p class="post-meta">
               <time datetime={post.data.published.toISOString()}>{dateFormatter.format(post.data.published)}</time>
+              {post.data.comments && (
+                <>
+                  <span aria-hidden="true"> · </span>
+                  <a class="comment-count-link" href={`${post.data.legacyPath}#comments`}>
+                    <span
+                      class="fast-comments-count"
+                      data-fast-comments-url-id={post.data.legacyPath}
+                    >Comments</span>
+                  </a>
+                </>
+              )}
             </p>
           </header>
           {post.data.indexExcerpt ? (
@@ -55,7 +67,20 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
           {olderPosts.map((post) => (
             <li>
               <a href={post.data.legacyPath}>{post.data.title}</a>
-              <time datetime={post.data.published.toISOString()}>{dateFormatter.format(post.data.published)}</time>
+              <span class="older-post-meta">
+                <time datetime={post.data.published.toISOString()}>{dateFormatter.format(post.data.published)}</time>
+                {post.data.comments && (
+                  <>
+                    <span aria-hidden="true"> · </span>
+                    <a class="comment-count-link" href={`${post.data.legacyPath}#comments`}>
+                      <span
+                        class="fast-comments-count"
+                        data-fast-comments-url-id={post.data.legacyPath}
+                      >Comments</span>
+                    </a>
+                  </>
+                )}
+              </span>
             </li>
           ))}
         </ol>
@@ -73,6 +98,23 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
     }
   }
 </script>
+
+{tenantId && (
+  <script is:inline define:vars={{ tenantId }}>
+    (() => {
+      window.FastCommentsBulkCountConfig = { tenantId };
+
+      const existingScript = document.querySelector("script[data-fast-comments-counts]");
+      if (existingScript) return;
+
+      const script = document.createElement("script");
+      script.src = "https://cdn.fastcomments.com/js/embed-widget-comment-count-bulk.min.js";
+      script.async = true;
+      script.dataset.fastCommentsCounts = "";
+      document.head.append(script);
+    })();
+  </script>
+)}
 
 <style>
   .feed-item + .feed-item {
@@ -101,6 +143,19 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
     font-size: 0.9rem;
     line-height: 2;
     margin: 0;
+  }
+
+  .comment-count-link {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 0.16em;
+    transition: text-decoration-color 120ms ease;
+  }
+
+  .comment-count-link:hover,
+  .comment-count-link:focus-visible {
+    text-decoration-color: currentColor;
   }
 
   .draft-label {
@@ -174,9 +229,20 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
     text-transform: uppercase;
   }
 
-  .older-posts time {
+  .older-post-meta {
     color: var(--muted);
     display: block;
     font-size: 0.85rem;
+  }
+
+  .older-posts time {
+    display: inline;
+  }
+
+  .older-posts .comment-count-link {
+    display: inline;
+    font-family: var(--body-font);
+    letter-spacing: normal;
+    text-transform: none;
   }
 </style>
