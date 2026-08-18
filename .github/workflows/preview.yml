@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: preview-${{ github.event.pull_request.number || github.ref }}
@@ -19,20 +19,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
-        with:
-          ref: ${{ github.head_ref }}
-
-      - name: Preserve launcher permission
-        shell: bash
-        run: |
-          if git ls-files --stage "Preview Website.command" | grep -q '^100755 '; then
-            exit 0
-          fi
-          git update-index --chmod=+x "Preview Website.command"
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "Make preview launcher executable"
-          git push origin HEAD:${{ github.head_ref }}
 
       - name: Build and validate site
         uses: withastro/action@e84f40bd8d2caa9e768ec82ad30dd81f0b280853 # v6
