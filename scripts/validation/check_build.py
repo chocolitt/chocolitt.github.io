@@ -348,8 +348,8 @@ def main() -> int:
                 failures.append((Path(relative), f"checksum changed: {actual}"))
 
     contact = (dist / "contact/index.html").read_text(encoding="utf-8", errors="replace")
-    if "Office 1029" not in contact or "Office 1028" in contact:
-        failures.append((Path("contact/index.html"), "current office must be 1029"))
+    if "Office 1028" not in contact or "Office 1029" in contact:
+        failures.append((Path("contact/index.html"), "current office must be 1028"))
     about = (dist / "about/index.html").read_text(encoding="utf-8", errors="replace")
     for marker in ["2025 Cathleen Synge Morawetz Prize", "Fellow of the American Mathematical Society", "in 2026"]:
         if marker not in about:
