@@ -1,6 +1,7 @@
 node_modules/
 dist/
 .astro/
+.site-tools/
 .DS_Store
 .env
 .env.*
