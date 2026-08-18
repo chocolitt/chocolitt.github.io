@@ -1,6 +1,20 @@
 # Editing daniellitt.com
 
-## Preview one command
+## Preview and publish without command-line work
+
+Use [GitHub Desktop](https://desktop.github.com/) to keep the repository synchronized and to publish changes. The same workflow works on each Mac after the repository has been cloned there.
+
+1. In GitHub Desktop, click **Fetch origin** before editing.
+2. Edit the Markdown files in any editor.
+3. In Finder, double-click **Preview Website.command** at the top of the repository. The first launch downloads a private copy of the required preview tools into the repository's ignored `.site-tools` folder. Later launches reuse them.
+4. Wait for the production build and available validation checks to finish. The preview opens automatically in the default browser. Close the launcher window to stop the preview. GitHub repeats the complete validation before publishing.
+5. Return to GitHub Desktop, review the changed files, enter a short summary, and click **Commit to main**, then **Push origin**. Updating `main` automatically publishes the site through GitHub Pages.
+
+For changes that should be reviewed before publishing, use GitHub Desktop's **New Branch** button before editing. After previewing, commit and click **Publish branch**, then **Create Pull Request**. GitHub automatically runs the **Build and validate preview** check. When it is green, click **Merge pull request** and **Confirm merge** on GitHub; that merge publishes the site.
+
+The preview runtime and `node_modules` are local to each computer and are not committed. The Markdown content and launcher stay in GitHub, so edits and the workflow travel with the repository.
+
+## Command-line preview (optional for developers)
 
 From this repository, run:
 
@@ -69,4 +83,4 @@ Use empty arrays if none apply. Existing taxonomy paths should be reused exactly
 
 ## Before committing
 
-Run `pnpm site:preview` and check the changed page at both a wide and a narrow browser width. Confirm that links and downloads work, TeX renders when present, and the comments section appears at the intended immutable URL.
+Double-click **Preview Website.command** and check the changed page at both a wide and a narrow browser width. Confirm that links and downloads work, TeX renders when present, and the comments section appears at the intended immutable URL.
