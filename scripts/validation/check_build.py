@@ -223,6 +223,8 @@ def main() -> int:
             failures.append((output.relative_to(dist), f"canonical URL does not match {canonical_path}"))
         if path in expected_comments and f'const urlId = "{path}";' not in text:
             failures.append((output.relative_to(dist), "FastComments urlId does not match the immutable post path"))
+        if path in expected_comments and 'id="comments"' not in text:
+            failures.append((output.relative_to(dist), "FastComments section is missing its stable comments fragment"))
         has_mathjax = "tex-chtml.js" in text
         if path in expected_math and not has_mathjax:
             failures.append((output.relative_to(dist), "MathJax is missing from math-bearing imported content"))
@@ -274,6 +276,15 @@ def main() -> int:
     for relative in required:
         if not (dist / relative).is_file():
             failures.append((Path("<required>"), f"/{relative}"))
+
+    blog_index = (dist / "blog/index.html").read_text(encoding="utf-8", errors="replace")
+    if "embed-widget-comment-count-bulk.min.js" not in blog_index:
+        failures.append((Path("blog/index.html"), "FastComments bulk count loader is missing"))
+    for path in sorted(expected_comments):
+        if f'data-fast-comments-url-id="{path}"' not in blog_index:
+            failures.append((Path("blog/index.html"), f"missing comment count for {path}"))
+        if f'href="{path}#comments"' not in blog_index:
+            failures.append((Path("blog/index.html"), f"comment count does not link to {path}#comments"))
 
     for relative in VALIDATED_PAGES:
         page = dist / relative

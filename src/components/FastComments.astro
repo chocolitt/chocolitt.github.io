@@ -13,7 +13,7 @@ const tenantId = import.meta.env.PUBLIC_FASTCOMMENTS_TENANT_ID;
 const canonicalUrl = Astro.props.canonicalUrl ?? new URL(urlId, Astro.site).href;
 ---
 
-<section class="comments" aria-labelledby="comments-heading">
+<section id="comments" class="comments" aria-labelledby="comments-heading">
   <h2 id="comments-heading">Comments</h2>
   {tenantId ? (
     <>
