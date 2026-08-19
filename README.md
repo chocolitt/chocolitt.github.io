@@ -36,4 +36,4 @@ For an imported post, keep `legacyPath` equal to the original Squarespace path. 
 
 ## Deployment
 
-The GitHub Actions workflow builds and uploads the static Astro output when `main` is updated. Before the first deployment, configure the repository variable `PUBLIC_FASTCOMMENTS_TENANT_ID`, select GitHub Actions as the Pages source, and follow the staged launch plan. The custom-domain `CNAME` file and DNS cutover are deliberately deferred to the launch phase.
+The GitHub Actions workflow builds and uploads the static Astro output when `main` is updated. Production builds include the Google Analytics tag for `G-SQPKVD92TL`; local and pull-request preview builds do not send analytics. Before the first deployment, configure the repository variable `PUBLIC_FASTCOMMENTS_TENANT_ID`, select GitHub Actions as the Pages source, and follow the staged launch plan. The custom-domain `CNAME` file and DNS cutover are deliberately deferred to the launch phase.

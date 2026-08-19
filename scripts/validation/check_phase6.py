@@ -8,6 +8,7 @@ from collections import defaultdict
 import email.utils
 from html.parser import HTMLParser
 import json
+import os
 from pathlib import Path
 import re
 import sys
@@ -234,6 +235,7 @@ def main() -> int:
     args = argument_parser.parse_args()
     dist = args.dist.resolve()
     validation = Path(__file__).resolve().parent
+    preview = os.environ.get("PUBLIC_SITE_ENV") == "preview"
     failures: list[str] = []
     warnings: list[str] = []
 
@@ -426,7 +428,10 @@ def main() -> int:
             elif len(descriptions[0]) > 160:
                 failures.append(f"{path}: meta description exceeds 160 characters")
             robots_values = meta_value(parser, name="robots")
-            if path in {"/404", "/404.html"}:
+            if preview:
+                if robots_values != ["noindex,nofollow"]:
+                    failures.append(f"{path}: preview page must contain robots noindex,nofollow metadata")
+            elif path in {"/404", "/404.html"}:
                 if robots_values != ["noindex,follow"]:
                     failures.append(f"{path}: error page must contain robots noindex,follow metadata")
             elif robots_values:

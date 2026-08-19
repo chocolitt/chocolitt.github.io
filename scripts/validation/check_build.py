@@ -3,8 +3,9 @@
 
 from __future__ import annotations
 
-import sys
 import hashlib
+import os
+import sys
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
@@ -103,6 +104,11 @@ PRESERVED_SHA256 = {
         "cb1324da0eac0ad176910afbfcaf1abdfdff91cac4fafa492f7e83511eab56f9",
     "s/picardII.pdf": "4ca0f1af57b66ef7b99c9e70684f46b6c21787686820e137f5197af032e1fa8c",
     "s/poincare_lemma.pdf": "c40fed61860694902a355b26febb646b4083c15bcb70b17c14c261b7f3dcaf8e",
+}
+
+PRODUCTION_HTML_SHA256 = {
+    "fermat_fano_real_mesh_web.html":
+        "b614c25767870a6cd1f0cc87918b9b0988c433f79bfb48ef58e763961db8d763",
 }
 
 FORBIDDEN_PUBLIC_COPY = [
@@ -343,6 +349,8 @@ def main() -> int:
     for relative, expected in PRESERVED_SHA256.items():
         path = dist / relative
         if path.is_file():
+            if os.environ.get("PUBLIC_SITE_ENV") == "production":
+                expected = PRODUCTION_HTML_SHA256.get(relative, expected)
             actual = hashlib.sha256(path.read_bytes()).hexdigest()
             if actual != expected:
                 failures.append((Path(relative), f"checksum changed: {actual}"))

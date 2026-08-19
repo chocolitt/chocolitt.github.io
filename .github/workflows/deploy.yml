@@ -32,6 +32,7 @@ jobs:
           build-cmd: pnpm run build && pnpm run validate
         env:
           PUBLIC_FASTCOMMENTS_TENANT_ID: ${{ vars.PUBLIC_FASTCOMMENTS_TENANT_ID }}
+          PUBLIC_SITE_ENV: production
 
       - name: Deploy to GitHub Pages
         id: deployment
