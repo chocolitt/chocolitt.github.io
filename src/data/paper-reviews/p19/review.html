@@ -1,0 +1,233 @@
+<h4>Report metadata</h4>
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Field</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Category</td>
+        <td>Published</td>
+      </tr>
+      <tr>
+        <td>Processing status</td>
+        <td>completed</td>
+      </tr>
+      <tr>
+        <td>Detailed comments</td>
+        <td>10</td>
+      </tr>
+      <tr>
+        <td>Domain</td>
+        <td>stem/mathematics</td>
+      </tr>
+      <tr>
+        <td>Completed</td>
+        <td>2026-07-29T17:41:46.771823+00:00</td>
+      </tr>
+      <tr>
+        <td>Refine document ID</td>
+        <td><code>a7188689-c0fc-410b-b4a1-1e4e2a69a324</code></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<h4>Refine summary</h4>
+<p>This paper investigates continuous ℓ-adic representations of the étale fundamental group of normal algebraic varieties over finitely generated fields of characteristic zero. The main contribution is proving that any nontrivial, semisimple arithmetic representation is nontrivial modulo ℓ^N for a specific integer N, which also implies that ℓ-adic representations arising from geometry satisfy the same property.</p>
+<h4>Overall feedback</h4>
+<p>Here are some structural observations from a careful read of the manuscript.</p>
+<p><strong>Arithmetic subquotients and integral lattices</strong></p>
+<p>In Definition 1.1, both $\rho$ and its ambient extension take values in $GL_n$, but an ambient representation containing $\rho$ as a genuine subquotient can have a larger sequence rank. This tension surfaces structurally in Lemma 4.1: the Galois-orbit span $W$ can contain several conjugates of $\rho$, potentially giving it a rank strictly greater than $n$. Consequently, readers might scrutinize the assertion that its lattice $\beta$ fundamentally defines a $GL_n$-representation.</p>
+<p>Because triviality modulo $\ell^r$ strictly depends on the chosen integral lattice—and the proof navigates through rational socles, intersections, and quotients—the argument requires a methodical separation of rational constituents from finite-free integral subquotients. Explicitly proving saturation, finite freeness, and the exact preservation of the original congruence level is essential to anchor this component of the deduction.</p>
+<p><strong>Density estimates in Theorem 3.6</strong></p>
+<p>The iterative density argument in Theorem 3.6 presents a complication regarding integrality. Because $w_0$ is generally nonintegral, the difference $z_1 = z_0 - w_0$ need not lie in the integral completed group ring. Nevertheless, the subsequent step invokes an estimate established exclusively for integral graded elements.</p>
+<p>Furthermore, the displayed contraction by $\ell^{-r}$ relies on the assumption that a single step in the weight filtration strictly increases the augmentation degree. In the mixed weight $-1/-2$ setting, Proposition 2.7 only supplies the coarser relation $W^{-2n-1} \subset \mathscr{I}^n$. Bridging the central passage from finite-level eigenvectors to dense eigenvectors in the convergent ring requires explicit operator-norm and filtration-tail estimates. Structurally connecting the relevant $W^{-s}$ subspace inside the convergent ring with the corresponding Gauss-norm completion would solidify the mechanism that Section 4 relies upon to annihilate these elements.</p>
+<p><strong>Basepoint extension and uniformity in Theorem 1.4</strong></p>
+<p>A question of exact bounding arises with respect to the $N(\ell, m)$ parameter in Theorem 1.4. The proof of Theorem 1.2 replaces $k$ with a finite extension so the chosen geometric basepoint becomes rational. Conversely, Theorem 1.4 establishes a uniformity bound depending exclusively on $\ell$ and the original Galois-image index $m$.</p>
+<p>Executing this basepoint extension can inflate the index of the Galois image by a factor uncontrolled by $m$. Because Remark 2.11 regulates the available $\alpha$ using only the index over the field currently in use, Remark 4.2 does not fully establish the stated uniformity across the extension. Resolving this requires either bounding the effect of the field extension uniquely in terms of $m$, or structurally bypassing the extension via an outer-action or path-torsor argument.</p>
+<p><strong>Period bounds in the mod-3 example</strong></p>
+<p>There is a numerical discrepancy between the theoretical period bound and the mod-3 sharpness application. Remark 4.3 proposes that index one and $\ell &gt; 2$ permit $N=1$. Example 4.5 relies on this parameter to rule out the arithmeticity or geometricity of a representation trivial modulo 3.</p>
+<p>However, for a punctured projective line, $H^1$ is pure of weight 2, and Remark 3.11 therefore provides the period relation $r_\alpha = C(\alpha^2, 3, 1)$. If $\alpha$ topologically generates $\mathbb{Z}_3^\times$, then $v_3(\alpha^2 - 1) = 1$, and Lemma 3.10 dictates $C(\alpha^2, 3, 1) = 3/2$. This yields an integer threshold of at least 2, rather than 1, meaning the argument does not analytically exclude the representation in Example 4.5 based solely on its mod-3 triviality. Establishing a sharper, case-specific estimate, or mathematically restricting the scope of Remark 4.3 and Example 4.5, is necessary to support this deduction.</p>
+<h4>Detailed comments</h4>
+<h5>1. Dimension mismatch in Definition 1.1</h5>
+<ul>
+  <li>ID: <code>e848fe0d-1517-41b3-a481-bb00469d4a77</code></li>
+  <li>Refine score: <code>0.52</code></li>
+  <li>Original types: general</li>
+  <li>Refine status: open</li>
+</ul>
+<p><strong>Comment</strong></p>
+<p>Definition 1.1 assigns both $\rho$ and the ambient representation $\tilde{\rho}$ rank $n$. As written, a rank-$n$ free subquotient of a rank-$n$ representation has the same full dimension after tensoring with $\mathbb{Q}_\ell$, so the definition excludes proper lower-dimensional constituents of larger arithmetic representations. This is inconsistent with the broader subquotient notion used in the abstract and the geometric application.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote>
+  <p>Definition 1.1 Let $k$ be a field and $X$ a geometrically connected $k$-variety (an integral, separated scheme, finite type over $k$ ) with a geometric point $\bar{x}$. Then we say that a continuous $\ell$-adic representation of the geometric étale fundamental group of $X$</p>
+  <div class="display-math">$$
+  \rho: \pi_{1}^{\text {ét }}\left(X_{\bar{k}}, \bar{x}\right) \rightarrow G L_{n}\left(\mathbb{Z}_{\ell}\right)
+  $$</div>
+  <p>is arithmetic if there exists a finite extension $k^{\prime} / k$ and a representation</p>
+  <div class="display-math">$$
+  \tilde{\rho}: \pi_{1}^{\text {ét }}\left(X_{k^{\prime}}, \bar{x}\right) \rightarrow G L_{n}\left(\mathbb{Z}_{\ell}\right),
+  $$</div>
+  <p>such that $\rho$ is a subquotient of $\left.\tilde{\rho}\right|_{\pi_{1}^{\text {ét }}\left(X_{\bar{k}}, \bar{x}\right)}$.</p>
+</blockquote>
+<h5>2. Semisimplicity statement needs its finite-level scope</h5>
+<ul>
+  <li>ID: <code>a844ee35-dd45-45da-a512-4785ff531b56</code></li>
+  <li>Refine score: <code>0.34</code></li>
+  <li>Original types: general</li>
+  <li>Refine status: open</li>
+</ul>
+<p><strong>Comment</strong></p>
+<p>The stated scope of Theorem 2.20 is too broad: it proves that Frobenius acts semisimply on each quotient $\mathbb{Q}_\ell[[\pi_1^\ell(Y_{\overline{\mathbb{F}_q}},\bar y)]]/\mathscr I^n$, not that the entire completed algebra is semisimple in the ordinary algebraic sense. At the inverse-limit level, the relevant consequence is a dense span of eigenvectors in the $\mathscr I$-adic topology.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote>
+  <p>The key input here is a semi-simplicity result (Theorem 2.12). Arguments analogous to those of the proof of Theorem 2.12 prove Theorem 2.20: that if $Y$ is a smooth variety over $\mathbb{F}_{q}$, admitting a simple normal crossings compactification, then for $y \in Y\left(\mathbb{F}_{q}\right)$, Frobenius acts semisimply on $\mathbb{Q}_{\ell}\left[\left[\pi_{1}^{\ell}\left(Y_{\overline{\mathbb{F}_{q}}}, \bar{y}\right)\right]\right]$. Step 2 (Sect. 3). For each real number $r&gt;0$, we construct certain Galois-stable normed $\mathbb{Q}_{\ell}$-subalgebras</p>
+</blockquote>
+<h5>3. Step 3 overstates the socle reduction</h5>
+<ul>
+  <li>ID: <code>08c49c98-4c46-435c-88c2-08ff350a24e6</code></li>
+  <li>Refine score: <code>0.37</code></li>
+  <li>Original types: general</li>
+  <li>Refine status: open</li>
+</ul>
+<p><strong>Comment</strong></p>
+<p>Step 3 overstates Lemma 4.1: arithmeticity does not imply that the original $\rho$ extends after finite base change. In the full proof, one first reduces to an irreducible constituent and then replaces it by an arithmetic representation $\beta$ whose geometric restriction remains congruent to the identity and has that constituent as a subquotient. The equivariant map is constructed for $\beta$; unipotence then passes through subquotients and the socle filtration.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote>
+  <p>Suppose</p>
+  <div class="display-math">$$
+  \rho: \pi_{1}^{\ell}\left(X_{\bar{k}}, \bar{x}\right) \rightarrow G L(V)
+  $$</div>
+  <p>is an arithmetic representation on a finite free $\mathbb{Z}_{\ell}$-module $V$. Then by a socle argument (Lemma 4.1), we may assume that $\rho$ extends to a representation of $\pi_{1}^{\ell}\left(X_{k^{\prime}}, \bar{x}\right)$ for some $k^{\prime} / k$ finite. In particular, for $m$ such that $\sigma_{\alpha}^{m} \in G_{k^{\prime}} \subset$ $G_{k}, \sigma_{\alpha}^{m}$ acts on $\operatorname{End}(V)$ so that the morphism</p>
+</blockquote>
+<h5>4. Identity component is described by the wrong relations</h5>
+<ul>
+  <li>ID: <code>96e3a184-d80e-4824-9917-9725acbc4fe3</code></li>
+  <li>Refine score: <code>0.32</code></li>
+  <li>Original types: general</li>
+  <li>Refine status: open</li>
+</ul>
+<p><strong>Comment</strong></p>
+<p>In Step 1 of Lemma 2.10, the displayed condition describes the characters trivial on the full Zariski closure $H=\overline{\{\gamma^n\}}$, not necessarily those trivial on its identity component $T=H^\circ$. A character is trivial on $T$ when its value $\prod_i\lambda_i^{a_i}$ at $\gamma$ is a root of unity, rather than only when it equals $1$. The desired conclusion is recoverable: the proposed one-parameter subgroup lies in $H$ by the displayed relations and, being connected and containing the identity, lies in $H^\circ=T$. Additionally, the weight and absolute-value argument still places $T'$ in $T$, since every root of unity has complex absolute value $1$, meaning this is a local gap rather than a failure of the lemma. Nevertheless, the finite component group must be accounted for in the stated character-lattice argument.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote>
+  <p>Let $X^{*}(D), X^{*}(T)$ be the character lattices of $D, T$ respectively; identify $X^{*}(D) \simeq \mathbb{Z}^{m}$ via the basis $\left\{e_{i}\right\}$. The inclusion $T \hookrightarrow D$ induces a surjection $X^{*}(D) \rightarrow X^{*}(T)$, with kernel $K$ given by $\underline{a} \in \mathbb{Z}^{m}$ such that</p>
+  <div class="display-math">$$
+  \prod_{i=1}^{m} \lambda_{i}^{a_{i}}=1 .
+  $$</div>
+  <p>$T$ is precisely the torus cut out by the characters in $K$, i.e. the subtorus given by diagonal matrices $M$ such that $\chi(M)=1$ for all $\chi \in K$. But in particular, this holds for the matrices</p>
+</blockquote>
+<h5>5. The inertia logarithm is not a finite sum</h5>
+<ul>
+  <li>ID: <code>2f7f7b3b-6a19-4858-85f7-91f622e7a26a</code></li>
+  <li>Refine score: <code>0.23</code></li>
+  <li>Original types: general</li>
+  <li>Refine status: open</li>
+</ul>
+<p><strong>Comment</strong></p>
+<p>The statement that the logarithm is a finite sum merely because $\iota_{x_i}(\gamma)-1\in\mathscr I$ is literally incorrect: membership in the augmentation ideal gives $\mathscr I$-adic convergence, not nilpotence. The construction remains valid because its target is $\mathscr I/\mathscr I^n$, where the series truncates after degree $n-1$; equivalently, one may form the convergent logarithm in the completed Mal’cev algebra and then project to that quotient.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote>
+  <p>Here $\log \left(\iota_{x_{i}}(\gamma)\right)$ is the power series</p>
+  <div class="display-math">$$
+  \log \left(\iota_{x_{i}}(\gamma)\right)=\log \left(1+\left(\iota_{x_{i}}(\gamma)-1\right)\right)=\sum_{j=1}^{\infty}(-1)^{j+1} \frac{\left(\iota_{x_{i}}(\gamma)-1\right)^{j}}{j},
+  $$</div>
+  <p>which is in fact a finite sum because $\left(\iota_{x_{i}}(\gamma)-1\right) \in \mathscr{I}$.</p>
+</blockquote>
+<h5>6. Example 3.1 overstates integral eigenvectors</h5>
+<ul>
+  <li>ID: <code>a60e23bb-d311-4322-b2d7-2f9de7d96091</code></li>
+  <li>Refine score: <code>0.25</code></li>
+  <li>Original types: general</li>
+  <li>Refine status: open</li>
+</ul>
+<p><strong>Comment</strong></p>
+<p>The assertion about integral eigenvectors fails when $\chi(\sigma)$ is a nontrivial root of unity. If $\chi(\sigma)=-1$, for example, then $T^2/(1+T)\in\mathbb{Z}_\ell[[T]]$ is a nonconstant $\sigma$-invariant eigenvector. Moreover, all nonzero constants are eigenvectors, so even in the infinite-order case the statement is accurate only up to scalar multiples of $1$.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote>
+  <p>The elements</p>
+  <div class="display-math">$$
+  (\log (1+T))^{n} \in \mathbb{Q}_{\ell}[[T]], \quad n \in \mathbb{Z}_{\geq 0}
+  $$</div>
+  <p>are $\sigma$-eigenvectors with eigenvalue $\chi(\sigma)^{n}$; their span is dense in $\mathbb{Q}_{\ell}[[T]]$ for the $\left(T\right.$ )-adic topology, as $(\log (1+T))^{n}$ has leading term $T^{n}$. On the other hand, if $\chi(\sigma) \neq 1$, the only $\sigma$-eigenvector in $\mathbb{Z}_{\ell}[[T]]$ is 1 .</p>
+</blockquote>
+<h5>7. Theorem 3.6’s claimed equivalence loses density</h5>
+<ul>
+  <li>ID: <code>fcaa1617-9e18-4113-b4f0-3fbf80c6e5bb</code></li>
+  <li>Refine score: <code>0.28</code></li>
+  <li>Original types: general</li>
+  <li>Refine status: open</li>
+</ul>
+<p><strong>Comment</strong></p>
+<p>The sentence beginning “Equivalently” does not capture the full Gauss-norm density assertion. Pointwise linear denominator growth only places each eigenvector in some convergent group ring; it neither supplies a uniform radius for all eigenvectors nor implies density in the stronger Gauss-norm topology. The proof correctly establishes these additional properties separately.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote>
+  <p>Moreover $W^{-n} \mathbb{Q}_{\ell}\left[\left[\pi_{1}^{\ell}\left(X_{\bar{k}}, \bar{x}\right)\right]\right]^{\leq \ell^{-r}}$ admits a set of $\sigma_{\alpha}$-eigenvectors with eigenvalues in $\left\{\alpha^{n}, \alpha^{n+1}, \ldots\right\}$ and with $\mathbb{Q}_{\ell}$-span dense in the topology defined by the $r$-Gauss norm.</p>
+  <p>Equivalently, if $y$ is a $\sigma_{\alpha}$-eigenvector in $\mathbb{Q}_{\ell}\left[\left[\pi_{1}^{\ell}\left(X_{\bar{k}}, \bar{x}\right)\right]\right],-v_{n}\left(\pi_{n}(y)\right)$ grows at most linearly in $n$. We require several lemmas before giving the proof.</p>
+</blockquote>
+<h5>8. Gauss-norm decay in Theorem 3.6 is not justified</h5>
+<ul>
+  <li>ID: <code>50f6af55-414d-4846-a233-a41dcf54ac80</code></li>
+  <li>Refine score: <code>0.74</code></li>
+  <li>Original types: general</li>
+  <li>Refine status: open</li>
+</ul>
+<p><strong>Comment</strong></p>
+<p>The Gauss-norm decay used to prove density in Theorem 3.6 is not valid as written. Proposition 2.7 does not justify restricting the supremum to $n\geq i$ or gaining a factor of $\ell^{-r}$ after every single weight step. For $X=\mathbb G_m$, one has $W^{-2d}=W^{-2d+1}=(T^d)$; taking $z=T$ and $w_0=\log(1+T)$ gives $w_1=0$ and $z_2=z_1\neq0$, contradicting the asserted one-step contraction. Thus the displayed estimates do not establish Gauss-norm density without a revised argument accounting for the approximately two-to-one comparison between the weight and augmentation filtrations.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote>
+  <p>Note that, by the estimates in the previous two paragraphs, we have that if $\tilde{y} \in \operatorname{gr}_{W}^{-i} \mathbb{Z}_{\ell}\left[\left[\pi_{1}^{\ell}\left(X_{\bar{k}}, \bar{x}\right)\right]\right]$, then</p>
+  <div class="display-math">$$
+  \begin{aligned}
+  \left|s_{i}(\tilde{y})\right|_{r} &amp; =\sup _{n}\left\{\ell^{-v_{n}\left(\pi_{n}\left(s_{i}(\tilde{y})\right)\right)-n r}\right\} \\
+  &amp; \leq \sup _{n \geq i}\left\{\ell^{C(\alpha, \ell, 2 n-i-1)-n r}\right\} \\
+  &amp; =\ell^{C(\alpha, \ell, i-1)-i r}
+  \end{aligned}
+  $$</div>
+  <p>Note that this value tends to zero monotonically with $i$. We now check that the $\mathbb{Q}_{\ell}$-span of the $\sigma_{\alpha}$-eigenvectors in $W^{-i} \mathbb{Q}_{\ell}\left[\left[\pi_{1}^{\ell}\left(X_{\bar{k}}, \bar{x}\right)\right]\right]^{\leq \ell^{-r}}$ are dense in the topology defined by the Gauss norm. It suffices to show that $W^{-i} \mathbb{Z}_{\ell}\left[\left[\pi_{1}^{\ell}\left(X_{\bar{k}}, \bar{x}\right)\right]\right]$ is in the closure of the $\mathbb{Q}_{\ell}$-span of the $\sigma_{\alpha}$-eigenvectors, as the $\mathbb{Q}_{\ell}$-span of $W^{-i} \mathbb{Z}_{\ell}\left[\left[\pi_{1}^{\ell}\left(X_{\bar{k}}, \bar{x}\right)\right]\right]$ is evidently dense in the Gauss norm topology. Given $z \in W^{-i} \mathbb{Z}_{\ell}\left[\left[\pi_{1}^{\ell}\left(X_{\bar{k}}, \bar{x}\right)\right]\right]$, let $z_{0}=z, w_{0}=s_{i}\left(z_{0} \bmod W^{-i-1}\right)$ and in general,</p>
+  <div class="display-math">$$
+  z_{j}=z_{j-1}-w_{j-1}, w_{j}=s_{i+j}\left(z_{j} \bmod W^{-i-j-1}\right) .
+  $$</div>
+  <p>Then the $w_{j}$ are $\sigma_{\alpha}$-eigenvectors, so it suffices to show that</p>
+  <div class="display-math">$$
+  \sum w_{j} \rightarrow z,
+  $$</div>
+  <p>or equivalently that $\left|z_{j}\right|_{r} \rightarrow 0$. This follows from the estimates in the previous paragraph, which yield</p>
+  <div class="display-math">$$
+  \begin{aligned}
+  \left|z_{j}\right|_{r} &amp; \leq \max \left\{\left|z_{j-1}\right|_{r} \cdot \ell^{-r},\left|w_{j-1}\right|\right\} \\
+  &amp; \leq \max \left\{\left|z_{j-1}\right|_{r} \cdot \ell^{-r},\left|z_{j-1}\right|_{r} \cdot \ell^{C(\alpha, \ell, i+j)-(i+j) r}\right\} .
+  \end{aligned}
+  $$ $\square$
+</div>
+</blockquote>
+<h5>9. Remark 4.3 does not yield N=1 when ell=3</h5>
+<ul>
+  <li>ID: <code>6ca5e44d-d719-49b8-b56c-85ca0c2497a3</code></li>
+  <li>Refine score: <code>0.48</code></li>
+  <li>Original types: general</li>
+  <li>Refine status: open</li>
+</ul>
+<p><strong>Comment</strong></p>
+<p>The stated deduction of $N(X,\ell)=1$ is not supported by Remark 3.11 for a mixed-weight affine curve when $\ell=3$. For a topological generator $\alpha\in\mathbb{Z}_3^\times$, the available general estimate is $r_\alpha=2C(\alpha,3,1)=3/2$; the proof of Theorem 1.2 therefore gives $N=2$, not $N=1$. The $N=1$ assertion in this case requires a sharper estimate or an additional qualification.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote>
+  <p>If this index is 1 for some $\ell&gt;2$ (as is expected to be the case for almost all $\ell$ (see e.g. [37, § 10], [41], and [7] for discussion of the case where $H^{1}\left(X_{\bar{k}}, \mathbb{Z}_{\ell}\right)$ is pure of weight 1 -as far as we know, the mixed case has not been conjectured in the literature, though it seems natural to do so), we may take $N(X, \ell)=1$, by choosing $\alpha$ in Theorem 2.8 to be a topological generator of $\mathbb{Z}_{\ell}^{\times}$, and using Remark 3.11.</p>
+</blockquote>
+<h5>10. Question 4.7 lacks a Frobenius action at the basepoint</h5>
+<ul>
+  <li>ID: <code>36239f61-6ca2-4ad1-8656-e2579e60d09f</code></li>
+  <li>Refine score: <code>0.3</code></li>
+  <li>Original types: general</li>
+  <li>Refine status: open</li>
+</ul>
+<p><strong>Comment</strong></p>
+<p>As stated, Question 4.7 does not specify an actual Frobenius endomorphism of the based pro-$\ell$ group. For a general geometric basepoint, $G_k$ acts only outerly; a Frobenius lift or compatible basepoint/path produces an endomorphism, but different choices differ by inner twists. Because dense spanning by literal eigenvectors is a property of an actual linear operator and is not shown to be invariant under those twists, the intended Frobenius action is not fully defined.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote>
+  <p>A final remark: it is natural to ask whether the hypothesis (†) in Theorem 1.4 is necessary; it fails, for example, for many curves over finite fields. We could salvage this situation if the following question has a positive answer:</p>
+  <p>Question 4.7 Let $X$ be a smooth curve over a finite field $k$, and let $\ell$ be a prime different from the characteristic of $k$. Does there exist an $r=r(X)$ such that $\mathbb{Q}_{\ell}\left[\left[\pi_{1}^{\ell}\left(X_{\bar{k}}, \bar{x}\right)\right]\right]^{\leq \ell^{-r}}$ admits a set of Frobenius eigenvectors with dense span?</p>
+</blockquote>

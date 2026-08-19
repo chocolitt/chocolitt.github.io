@@ -1,0 +1,288 @@
+<h4>Report metadata</h4>
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Field</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Category</td>
+        <td>Published</td>
+      </tr>
+      <tr>
+        <td>Processing status</td>
+        <td>completed</td>
+      </tr>
+      <tr>
+        <td>Detailed comments</td>
+        <td>14</td>
+      </tr>
+      <tr>
+        <td>Domain</td>
+        <td>stem/mathematics</td>
+      </tr>
+      <tr>
+        <td>Completed</td>
+        <td>2026-07-29T16:30:50.536183+00:00</td>
+      </tr>
+      <tr>
+        <td>Refine document ID</td>
+        <td><code>e24ed041-37fa-4c72-8366-1338c08721d8</code></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<h4>Refine summary</h4>
+<p>This paper analyzes the dynamics of the Galois action on the deformation rings of mod ℓ representations of the geometric fundamental group of smooth curves. Its main contributions include various finiteness results for function fields over algebraically closed fields in arbitrary characteristic and a weak variant of the Frey-Mazur conjecture for function fields in characteristic 0.</p>
+<h4>Overall feedback</h4>
+<p><strong>Rigidity over the completed local ring</strong></p>
+<p>The proof of the algebraicity result in Theorem 3.2.3 handles the critical task of excluding non-algebraic points from a positive-dimensional Frobenius-fixed locus. In Step 4, the argument applies Lemma 3.2.1 to the completed local ring $\widehat S$. However, Lemma 3.2.1 is stated only for Artinian local algebras.</p>
+<p>To make this step rigorous, it appears necessary to pass through the quotients $\widehat S/\mathfrak m^a$. The argument must verify that the specialized irreducible representation is arithmetic and fixed by the relevant Frobenius power, and subsequently use Krull intersection to obtain constancy over $\widehat S$. An explicit explanation of why the injection $S\hookrightarrow\widehat S$ forces the original traces in $\mathbb C_\ell$ to lie in $\overline{\mathbb Q_\ell}$ is necessary to finalize the deduction.</p>
+<p><strong>Specialization models in arbitrary characteristic</strong></p>
+<p>In Step 2 of the proof of Theorem 1.1.3, an initial congruence with the trivial residual characteristic polynomial is treated as yielding a residually trivial representation, which is then used to factor through $\pi_1^\ell$. Because what is initially controlled is strictly the residual pseudorepresentation, readers must see why the residual image is necessarily a finite $\ell$-group and how the full compact image is proven to be pro-$\ell$. This must be shown either directly or after descent to a finite coefficient extension.</p>
+<p>Regarding the arbitrary-characteristic scope of the theorem, the spreading-out construction selects $R\subset k$ finitely generated over $\mathbb Z$. This construction is impossible when $\operatorname{char}k&gt;0$. Establishing a separate characteristic-$p$ model is required to support the theorem's application to arbitrary characteristics.</p>
+<p><strong>Integral eigensplitting and effective radius</strong></p>
+<p>The effective radius computation in Section 5.3 relies on assuming a basis of integral $\sigma_\alpha$-eigenvectors in $\mathfrak m'_{\rho}/\mathfrak m_{\rho}'^2$, passing to a coordinate change that satisfies $e_i\equiv x_i\pmod{\mathfrak m^2}$ without altering the integral power-series structure or the rigid ball. Theorem 5.1.8 supplies eigensplitting over the coefficient field. Because $\alpha$ and $\alpha^2$ are congruent modulo $\ell$, the integral tangent lattice is not automatically guaranteed to split into eigensublattices, and the current puncturing argument does not establish this integral compatibility.</p>
+<p>To secure the asserted bound $N&gt;3C(\alpha)$, which depends only on $c(\rho)$ and $\ell$, it is necessary to apply Lemmas 5.2.1–5.2.2 to explicitly bound the index and denominators of an integral eigensplitting, and then propagate that bound through the coefficient estimates. Without this control, the bound may conceal an unconstrained lattice discriminant.</p>
+<p><strong>Recovering the original representation after restriction</strong></p>
+<p>In Section 5.4, the proof strategy involves passing to the cover associated with $\ker(\pi_1\to G)$. Proving triviality on this cover demonstrates that $\widetilde\rho$ factors through $G$, but it does not establish that the resulting representation of $G$ is isomorphic to the specific $\rho$ initially identified.</p>
+<p>To derive Theorem 1.1.13 and its stated unique-lifting consequences, the proof requires a finite-character separation argument tailored for semisimple representations of $G$. Combining this separation argument with the radius obtained on the cover, and verifying that this additional bound remains compatible with $N_G(\ell)\to0$, will resolve this gap.</p>
+<p><strong>Deducing the higher-dimensional and complex conclusions</strong></p>
+<p>The abstract emphasizes discreteness and finiteness results for normal connected complex varieties, whereas the substantive main theorem concerns curves over finitely generated fields. The extension to the complex and higher-dimensional settings is delegated to Remark 1.1.9 via a Lefschetz argument and standard specialization.</p>
+<p>Because these are principal advertised conclusions of the paper, the document requires a formal corollary producing the appropriate curve. The proof accompanying this corollary needs to show explicitly that restriction detects isomorphism and convergence of semisimple representations. Furthermore, it must verify that representations arising from geometry remain arithmetic through restriction, spreading out, and specialization. This structural addition is vital for normal, potentially singular, or nonproper varieties, where the required fundamental-group reduction cannot be assumed without proof.</p>
+<h4>Detailed comments</h4>
+<h5>1. Theorem 1.1.13 needs an \(\ell\)-adic embedding</h5>
+<ul>
+  <li>ID: <code>bdf27e34-8c0c-42be-a9bb-15e0c1bbc50d</code></li>
+  <li>Refine score: <code>0.31</code></li>
+  <li>Original types: general</li>
+  <li>Refine status: open</li>
+</ul>
+<p><strong>Comment</strong></p>
+<p>Theorem 1.1.13 is under-specified: the congruence involving $\operatorname{ch}(\rho)$ and the scalar extension $\rho\otimes\overline{\mathbb{Q}}_\ell$ require a choice of embedding $\overline{\mathbb{Q}}\hookrightarrow\overline{\mathbb{Q}}_\ell$. Different choices can give different $\ell$-adic realizations and reductions of the finite-image representation.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote>
+  <p>THEOREM 1.1.13 Let $X, k, \bar{x}$ be as in Theorem 1.1.11. Let</p>
+  <div class="display-math">$$
+  \rho: \pi_{1}^{\mathrm{et}}\left(X_{\bar{k}}, \bar{x}\right) \rightarrow \mathrm{GL}_{n}(\overline{\mathbb{Q}})
+  $$</div>
+  <p>be a representation which factors through a finite quotient $G$ of $\pi_{1}^{\text {ét }}\left(X_{\bar{k}}, \bar{x}\right)$. Then there exists a sequence of constants $N_{G}(\ell)&gt;0$ with $N_{G}(\ell) \rightarrow 0$ as $\ell \rightarrow \infty$ such that if</p>
+  <div class="display-math">$$
+  \tilde{\rho}: \pi_{1}^{\mathrm{et}}\left(X_{\bar{k}}, \bar{x}\right) \rightarrow \mathrm{GL}_{n}\left(\overline{\mathbb{Q}_{\ell}}\right)
+  $$</div>
+  <p>is semisimple arithmetic with</p>
+  <div class="display-math">$$
+  \operatorname{ch}(\rho) \equiv \operatorname{ch}(\tilde{\rho}) \bmod \ell^{N_{G}(\ell)},
+  $$</div>
+  <p>then we have $\rho \otimes \overline{\mathbb{Q}_{\ell}} \simeq \tilde{\rho}$.</p>
+</blockquote>
+<h5>2. Esnault–Kerz Theorem 2.1 proves finiteness only for irreducible representations</h5>
+<ul>
+  <li>ID: <code>6d008c16-b231-46f9-86d6-15956cb6495a</code></li>
+  <li>Refine score: <code>0.73</code></li>
+  <li>Original types: external_references</li>
+  <li>Refine status: open</li>
+</ul>
+<p><strong>Comment</strong></p>
+<p>The cited theorem does not establish the claim for all semisimple representations. Esnault–Kerz’s Theorem 2.1 says that the set of <strong>irreducible</strong> rank-r sheaves with the prescribed ramification bound is finite up to a single twist by a character from the base finite field. Replacing “irreducible” with “semisimple” is material: direct sums permit independently varying base-field characters, and an overall twist does not eliminate their relative characters. For example, even representations of the form 1 ⊕ χ give infinitely many semisimple classes modulo an overall twist as χ varies. The sentence should say “irreducible,” not “semisimple,” unless additional determinant, purity, or constituent-wise twisting conditions are imposed. See https://arxiv.org/pdf/1208.0128.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote>
+  <p>Work of Deligne, Drinfel'd, and Lafforgue implies (via automorphic methods) that if $X$ is a variety over a finite field $\mathbb{F}_{q}$, then the set of semisimple $\overline{\mathbb{Q}_{\ell}}$ -representations of its Weil group $W(X)$, with fixed rank and bounded wild ramification at infinity, is finite up to twist by characters of $W\left(\mathbb{F}_{q}\right)$ (see [16, Theorem 2.1]).</p>
+</blockquote>
+<h5>3. Residue field mismatch in Section 2.1</h5>
+<ul>
+  <li>ID: <code>6609c7b1-aa60-4ab7-8ad9-5c803f493d09</code></li>
+  <li>Refine score: <code>0.21</code></li>
+  <li>Original types: general</li>
+  <li>Refine status: open</li>
+</ul>
+<p><strong>Comment</strong></p>
+<p>The stated residue field of $R_{\bar{\rho}}^{\square}$ should be $\mathbb{F}_{\ell^{r}}$, not $\mathbb{F}_{\ell}$. The coefficient ring is $\Lambda=W(\mathbb{F}_{\ell^{r}})$, and the deformation category consists of local Artinian $\Lambda$-algebras with residue field $\mathbb{F}_{\ell^{r}}$.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote>
+  <p>There is an evident map $D_{\bar{\rho}}^{\square} \rightarrow D_{\bar{\rho}}$, given by forgetting the framing. As $G$ satisfies Mazur's finiteness condition $\left(\Phi_{\ell}\right), D_{\bar{\rho}}^{\square}$ is prorepresentable by a local Noetherian $\Lambda$-algebra $R_{\bar{\rho}}^{\square}$ with residue field $\mathbb{F}_{\ell}$ (see proof of [27, Proposition 1]). In general the functor $D_{\bar{\rho}}$ is not prorepresentable, although it is if $\bar{\rho}$ is absolutely irreducible; in this case we call the prorepresenting object $R_{\bar{\rho}}$. The groups</p>
+</blockquote>
+<h5>4. Rigid connections and F-isocrystals has no Proposition 4.6</h5>
+<ul>
+  <li>ID: <code>0cc84971-2a05-4a28-add2-23ff880d8b71</code></li>
+  <li>Refine score: <code>0.73</code></li>
+  <li>Original types: external_references</li>
+  <li>Refine status: open</li>
+</ul>
+<p><strong>Comment</strong></p>
+<p>The pinpoint citation to Esnault and Groechenig’s “Rigid connections and F-isocrystals” is incorrect. In the final Acta Mathematica article identified by DOI 10.4310/ACTA.2020.v225.n1.a2, item 4.6 is Definition 4.6, not a proposition; it defines an f-periodic flat connection and does not give the claimed descent argument. A somewhat related projective-extension result occurs later as Proposition 5.7, but that does not validate the stated citation to “Proposition 4.6.” The pinpoint should therefore be corrected or removed. Source: https://archive.intlpress.com/site/pub/files/_fulltext/journals/acta/2020/0225/0001/ACTA-2020-0225-0001-a002.pdf</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote>
+  <p>A similar argument appears in [15, Proposition 4.6] and [14, Proposition 3.1].</p>
+</blockquote>
+<h5>5. Interpolation step in Lemma 4.1.3 needs repair</h5>
+<ul>
+  <li>ID: <code>62890e59-5868-467e-b736-3f12e95b0f4f</code></li>
+  <li>Refine score: <code>0.77</code></li>
+  <li>Original types: general</li>
+  <li>Refine status: open</li>
+</ul>
+<p><strong>Comment</strong></p>
+<p>The proof of Lemma 4.1.3 has a substantive gap. The asserted congruence $\varphi^{M_1}(\mathbf{x})\equiv\mathbf{x}\pmod{\varpi}$ need not hold for a general formal automorphism; for example, the reduction of $\varphi(x)=x+x^\ell$ has infinite compositional order in characteristic $\ell$. In addition, $\vartheta$ is an $N$-tuple interpolating coordinate maps, so the later expression $\vartheta(\varpi^{-1}f,m)$ does not define the required pullback of the scalar function $f$. Consequently, the claimed analytic interpolation of $z\circ\varphi^{j+Mm}(f)$, including its uniformity in $\varphi$, is not established by the argument as written.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote>
+  <p>There exists $M_{1}$ depending only on $c^{\prime}, N, \ell^{r}$ such that $\varphi^{M_{1}}(\mathbf{x})=\mathbf{x} \bmod \varpi$. Let</p>
+  <div class="display-math">$$
+  \tilde{\varphi}(\mathbf{x})=\frac{1}{\varpi} \varphi^{M_{1}}(\varpi \cdot \mathbf{x}) .
+  $$</div>
+  <p>Note that $\tilde{\varphi}$ lies in $\Lambda^{\prime}\left\langle x_{1}, \ldots, x_{N}\right\rangle^{N}$. Then there exists $M_{2}&gt;0$ depending only on $c^{\prime}, \ell^{r}, N$ such that $\tilde{\varphi}^{M_{2}}$ satisfies the hypotheses of Lemma 4.1.1; let $\vartheta \in$ $\Lambda^{\prime}\left\langle x_{1}, \ldots, x_{N}, n\right\rangle^{N}$ be such that $\vartheta(\mathbf{x}, m)=\tilde{\varphi}^{M_{2} m}(\mathbf{x})$ for each $m \in \mathbb{Z}_{\geq 0}$, and let $M=M_{1} M_{2}$.</p>
+</blockquote>
+<h5>6. Wrong embedding dimension in Corollary 4.1.5</h5>
+<ul>
+  <li>ID: <code>9161d256-6a01-403a-88d5-9f3badaa5de3</code></li>
+  <li>Refine score: <code>0.47</code></li>
+  <li>Original types: general</li>
+  <li>Refine status: open</li>
+</ul>
+<p><strong>Comment</strong></p>
+<p>The presentation used in Corollary 4.1.5 has an off-by-one cotangent-space count. For $S=\Lambda[[x_1,\ldots,x_N]]$, the space $\mathfrak m_S/\mathfrak m_S^2$ has dimension $N+1$ over the residue field because it includes the class of $\ell$. If the kernel is contained in $\mathfrak m_S^2$, the quotient has the same cotangent-space dimension, contradicting the stated definition $N=\dim(\mathfrak m_R/\mathfrak m_R^2)$. Consequently, the claimed invertibility of the lifted endomorphism is not justified by the presentation as written; the argument requires a corrected relative embedding-dimension presentation or an equivalent adjustment.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote>
+  <p>Let $\mathfrak{m}_{R}$ be the maximal ideal of $R$. Write $R=S / \mathcal{L}$, where $S=\Lambda\left[\left[x_{1}, \ldots, x_{N}\right]\right]$ with $N=\operatorname{dim} \mathfrak{m}_{R} / \mathfrak{m}_{R}^{2}$ and where $\mathscr{J} \subset \mathfrak{m}_{S}^{2}$ is an ideal, so the rigid generic fiber of $R$ is a closed analytic subset of the open unit ball. We may lift $\varphi$ to an automorphism $\tilde{\varphi}$ of $\Lambda\left[\left[x_{1}, \ldots, x_{N}\right]\right]$ (indeed any lift of $\varphi$ to an endomorphism of $\Lambda\left[\left[x_{1}, \ldots, x_{n}\right]\right]$ is an isomorphism, as the induced map on $\mathfrak{m}_{S} / \mathfrak{m}_{S}^{2}$ is invertible by our choice of $S$ ).</p>
+</blockquote>
+<h5>7. The kernel used in Corollary 4.1.5 need not cut out the point</h5>
+<ul>
+  <li>ID: <code>ddf3c379-7fd8-44ee-a565-229218344ded</code></li>
+  <li>Refine score: <code>0.42</code></li>
+  <li>Original types: general</li>
+  <li>Refine status: open</li>
+</ul>
+<p><strong>Comment</strong></p>
+<p>The ideal $\ker(S\to R\xrightarrow{z}L)$ is generally not maximal in the integral ring $S$ and may define all conjugates of the corresponding closed point rather than the selected geometric point $z$. Semilinearity of visits to that larger zero locus does not by itself imply $\varphi^M(z)=z$. The application of Lemma 4.1.3 therefore requires an ideal over $\mathcal O_{\mathbb C_\ell}$ whose zero locus is the chosen geometric point, rather than the contracted kernel displayed here.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote>
+  <p>By quasicompactness of affinoids, $U$ is contained in $U_{c}(S)$ for some $c$ with $1 \geq c&gt;0$. Now let $z: R \rightarrow L$ be a $\varphi$-periodic point of $U$; it is a $\tilde{\varphi}$-periodic point of $U_{c}(S)$. Let $\mathcal{I} \subset S$ be the maximal ideal cutting out $z$ (i.e., $\mathcal{d}=\operatorname{ker}(S \rightarrow R \xrightarrow{z} L)$ ). Now the result follows from Lemma 4.1.3, applied to $z, \ell$; note that the integer $M$ coming from Lemma 4.1.3 depends only on $U$, and not on $\varphi, z$, and so on. $\square$</p>
+</blockquote>
+<h5>8. Recursive weight filtration is circular in Definition 5.1.3</h5>
+<ul>
+  <li>ID: <code>08e53838-d0b1-4a28-a4ec-e16dc7c9ac12</code></li>
+  <li>Refine score: <code>0.3</code></li>
+  <li>Original types: general</li>
+  <li>Refine status: open</li>
+</ul>
+<p><strong>Comment</strong></p>
+<p>The recursive formula for $W^{-m}S_\rho$ does not restrict the summation indices. As written, the pairs $(i,j)=(0,m)$ and $(m,0)$ make the right-hand side depend on $W^{-m}S_\rho$ itself, so the formula does not uniquely define the higher filtration pieces.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote>
+  <div class="display-math">$$
+  \begin{aligned}
+  W^{i} S_{\rho} &amp; =S_{\rho} \quad \text { for } i \geq 0, \\
+  W^{-1} S_{\rho} &amp; =\mathfrak{m}_{\rho}, \\
+  W^{-2} S_{\rho} &amp; =\mathfrak{m}_{\rho}^{2}+W^{-2}\left(\mathfrak{m}_{\rho} / \mathfrak{m}_{\rho}^{2}\right),
+  \end{aligned}
+  $$</div>
+  <p>and</p>
+  <div class="display-math">$$
+  W^{-m} S_{\rho}=\sum_{i+j=m}\left(W^{-i} S_{\rho}\right) \cdot\left(W^{-j} S_{\rho}\right) \quad \text { for } m&gt;2 .
+  $$</div>
+  <p>Remark 5.1.4 If $X$ is proper, then $W^{-i}=\mathfrak{m}_{\rho}^{i}$ for $i \geq 0$.</p>
+</blockquote>
+<h5>9. Character and cocharacter lattices are conflated in Step 2</h5>
+<ul>
+  <li>ID: <code>2f2fe13e-5c5b-4c16-84ed-947f77e5a2ea</code></li>
+  <li>Refine score: <code>0.28</code></li>
+  <li>Original types: general</li>
+  <li>Refine status: open</li>
+</ul>
+<p><strong>Comment</strong></p>
+<p>The passage conflates character and cocharacter lattices. For the inclusion $T\hookrightarrow D$, the displayed surjection, its kernel $K$, the monomial relations $\prod_i\lambda_i^{a_i}=1$, and the equations cutting out $T$ belong to the character lattice $X^*(D)\to X^*(T)$. The induced map on cocharacter lattices instead goes injectively from $X_*(T)$ to $X_*(D)$.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote>
+  <p>The inclusion $T \hookrightarrow D$ induces a surjection on cocharacter lattices $X(D) \rightarrow X(T)$ with kernel $K ; T$ is precisely the subtorus of $D$ cut out by the characters in $K$. If we identify $D$ with $\mathbb{Z}^{\operatorname{dim} V}$ via the choice of basis $\left\{e_{i}\right\}$, then $K$ consists of the vectors $\underline{a}=\left(a_{1}, \ldots, a_{\operatorname{dim} V}\right)$ such that</p>
+  <div class="display-math">$$
+  \prod_{i} \lambda_{i}^{a_{i}}=1 .
+  $$</div>
+</blockquote>
+<h5>10. Weight sign in Theorem 5.1.8 appears reversed</h5>
+<ul>
+  <li>ID: <code>3fa1cf9a-dc20-4f09-8296-0e992697e4ea</code></li>
+  <li>Refine score: <code>0.35</code></li>
+  <li>Original types: general</li>
+  <li>Refine status: open</li>
+</ul>
+<p><strong>Comment</strong></p>
+<p>Theorem 5.1.8 has a sign/index mismatch. The nontrivial filtration pieces of $S_\rho$ are indexed as $\operatorname{gr}_W^{-i}S_\rho$, and the inverse element used in the proof acts on those pieces by $\alpha^i$. Read literally, the stated action on $\operatorname{gr}_W^iS_\rho$ by $\alpha^i$ gives the opposite scalar when $i&lt;0$.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote>
+  <p>THEOREM 5.1.8 Let</p>
+  <div class="display-math">$$
+  \rho: \pi_{1}^{\text {et }}\left(X_{\bar{k}}, \bar{c}\right) \rightarrow \mathrm{GL}_{n}\left(\overline{\mathbb{Q}_{\ell}}\right)
+  $$</div>
+  <p>be an irreducible representation which arises from geometry. Then for $\alpha \in \mathbb{Z}_{\ell}^{\times}$sufficiently close to 1, there exists $\sigma_{\alpha} \in G_{k}$ such that $\sigma_{\alpha}$ acts on $\operatorname{gr}_{W}^{i} S_{\rho}$ via $\alpha^{i} \cdot \mathrm{Id}$.</p>
+  <p>In fact, we will be able to choose the element $\sigma_{\alpha}$ in Theorem 5.1.8 to be inverse to the element $\sigma_{\alpha}$ constructed in Lemma 5.1.5.</p>
+</blockquote>
+<h5>11. The symmetric algebra must be completed in Step 1</h5>
+<ul>
+  <li>ID: <code>55a3b820-7d52-4ef8-a5aa-c81bd3fb0bba</code></li>
+  <li>Refine score: <code>0.25</code></li>
+  <li>Original types: general</li>
+  <li>Refine status: open</li>
+</ul>
+<p><strong>Comment</strong></p>
+<p>The displayed isomorphism is not literally correct for the ordinary symmetric algebra. Since $S_\rho$ is a complete formal power-series ring, the isomorphism requires the completed symmetric algebra $\widehat{\operatorname{Sym}}(\mathfrak m_\rho/\mathfrak m_\rho^2)$ and the continuous extension of the equivariant splitting.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote>
+  <p>Such a splitting induces a $\sigma_{\alpha}^{-1}$-equivariant isomorphism</p>
+  <div class="display-math">$$
+  \operatorname{Sym}^{*}\left(\mathfrak{m}_{\rho} / \mathfrak{m}_{\rho}^{2}\right) \xrightarrow{\sim} S_{\rho},
+  $$</div>
+  <p>which respects the weight filtrations, where the weight filtration on $\operatorname{Sym}^{*}\left(\mathfrak{m}_{\rho} / \mathfrak{m}_{\rho}^{2}\right)$ is induced from the filtration on $\mathfrak{m}_{\rho} / \mathfrak{m}_{\rho}^{2}$, by the multiplicativity of the weight filtration. The element $\sigma_{\alpha}^{-1} \in G_{k}$ clearly acts on $\operatorname{Sym}^{*}\left(\mathfrak{m}_{\rho} / \mathfrak{m}_{\rho}^{2}\right)$ as desired (again by multiplicativity), so we are done.</p>
+</blockquote>
+<h5>12. Module hypotheses are unchecked in Lemma 5.2.2</h5>
+<ul>
+  <li>ID: <code>69e9a63a-fac8-452a-b60c-36da6d9b74d6</code></li>
+  <li>Refine score: <code>0.25</code></li>
+  <li>Original types: general</li>
+  <li>Refine status: open</li>
+</ul>
+<p><strong>Comment</strong></p>
+<p>The application of Lemma 5.2.1 is not formally justified under that lemma’s stated finite-freeness hypotheses: the quotients involving $S_\rho^{\mathrm{int}}\cap W^{-r}$ are not shown to be finite free over the non-Noetherian ring $\overline{\mathbb{Z}}_\ell$. This does not appear to threaten Lemma 5.2.2, because the scalar argument used in Lemma 5.2.1 works here without finite freeness; if $\alpha^r=\alpha^i$, the new product factor is zero and the induction step is immediate.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote>
+  <p>Set</p>
+  <div class="display-math">$$
+  \begin{aligned}
+  V &amp; =\left(S_{\rho}^{\mathrm{int}} \cap W^{-r}+\overline{\mathbb{Z}_{\ell}} \cdot \bar{x}\right) /\left(S_{\rho}^{\mathrm{int}} \cap W^{-r-1}\right), \\
+  W &amp; =\left(S_{\rho}^{\mathrm{int}} \cap W^{-r}\right) /\left(S_{\rho}^{\mathrm{int}} \cap W^{-r-1}\right),
+  \end{aligned}
+  $$</div>
+  <p>and</p>
+  <div class="display-math">$$
+  v=\left(\prod_{j=i+1}^{r-1}\left(\alpha^{i}-\alpha^{j}\right)\right) \cdot x \bmod W^{-r-1}
+  $$</div>
+  <p>Then the hypotheses of Lemma 5.2.1 are satisfied by the induction hypothesis, giving the proof.</p>
+</blockquote>
+<h5>13. Integral eigen-coordinates need justification in Section 5.3</h5>
+<ul>
+  <li>ID: <code>b8a15f1f-6f16-4890-89ed-9192bcd9bb3a</code></li>
+  <li>Refine score: <code>0.74</code></li>
+  <li>Original types: general</li>
+  <li>Refine status: open</li>
+</ul>
+<p><strong>Comment</strong></p>
+<p>The integral-coordinate step in Section 5.3 is not established. Theorem 5.1.8 gives the $\alpha$- and $\alpha^2$-eigensplitting over $L$, but because $\alpha-\alpha^2$ is generally not a unit, the tangent lattice need not admit an $\mathcal O_L$-basis of eigenvectors. Consequently, the linear change making $e_i\equiv x_i\pmod{(\mathfrak m_\rho')^2}$ may lie only in $\mathrm{GL}_m(L)$, in which case the $x_i$ need not remain integral coordinates and the stated Gauss-norm and coefficient bounds do not follow with the claimed radius $s&gt;3C(\alpha)$. An integral splitting or a uniform bound on the resulting coordinate denominators is required.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote>
+  <p>Choose a basis of integral $\sigma_{\alpha}$-eigenvectors of $\mathfrak{m}_{\rho}^{\prime} / \mathfrak{m}_{\rho}^{\prime 2}$, and lift it to a set of $\sigma_{\alpha}$ eigenvectors $\left\{e_{1}, \ldots, e_{m}\right\}$ of $S_{\rho}^{\prime}$ (we may do this by the proof of Theorem 5.1.8). After a linear change of coordinates, we may assume that $e_{i} \equiv x_{i} \bmod \left(\mathfrak{m}_{\rho}^{\prime}\right)^{2}$.</p>
+</blockquote>
+<h5>14. Link from \(H_\ell\) to \(c(\rho_\ell)\) is unclear</h5>
+<ul>
+  <li>ID: <code>a37008ab-4ec7-46fb-a2d7-b05be66e37c2</code></li>
+  <li>Refine score: <code>0.35</code></li>
+  <li>Original types: general</li>
+  <li>Refine status: open</li>
+</ul>
+<p><strong>Comment</strong></p>
+<p>The implication in Remark 5.4.1 is not formal from the displayed definition of $H_\ell$. The index $c(\rho_\ell)$ also involves the weight-graded pieces of $H^1(Y_{\bar{k}},\rho_\ell\otimes\rho_\ell^\vee)$ and the boundary term from Lemma 5.1.5. The conclusion is plausible if the Tate-conjectural argument simultaneously realizes and controls these representations—through tensor constructions, geometric projectors, and the relevant boundary contribution—but that comparison is not made explicit here.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote>
+  <p>Assuming the Tate conjecture, one may show this index is uniformly bounded via the argument of [33, Section 2.3]. This gives, by the proof of Theorem 1.1.11, a much stronger version of Theorem 1.1.11. It implies (on the Tate conjecture) that if $\rho_{\ell}$ is a compatible system of $\ell$-adic representations arising from geometry (i.e., the monodromy representation underlying $R^{q} f_{*} \mathbb{Q}_{\ell}$ as above), then the constants $N\left(c\left(\rho_{\ell}\right), \ell\right)$ of Theorem 1.1.11 tend to zero as $\ell \rightarrow \infty$.</p>
+</blockquote>

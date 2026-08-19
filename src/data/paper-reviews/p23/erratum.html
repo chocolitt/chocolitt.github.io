@@ -1,0 +1,117 @@
+<p>These errata refer to the version published in <em>Proceedings of the American Mathematical Society</em> <strong>142</strong> (2014), no.&nbsp;12, 4079--4094, <a href="https://doi.org/10.1090/S0002-9939-2014-12155-1">doi:10.1090/S0002-9939-2014-12155-1</a>.  Page references below are to that version.</p>
+<ol class="errata-list">
+  <li>
+    <p><strong>Page 4083, Remark 8.</strong></p>
+    <p>The degree components of the Picard functor of a smooth projective geometrically integral curve are representable even when the curve has no rational point.  The obstruction to the projective-bundle calculation is instead the possible absence of a universal Poincar\'e line bundle.  Replace the three sentences beginning “For curves with no rational point” and ending “if this issue can be rectified” by the following.</p>
+    <blockquote>
+      <p>For curves with no rational point, this projective-bundle argument need not apply.  The schemes $\operatorname{Pic}^n(X)$ are still representable, but a universal Poincar\'e line bundle on $X\times\operatorname{Pic}^n(X)$ need not exist.  For $n&gt;2g-2$, the Abel--Jacobi morphism</p>
+      <div class="display-math">\[
+      \operatorname{Sym}^n(X)\longrightarrow\operatorname{Pic}^n(X)
+      \]</div>
+      <p>may therefore be a nontrivial Severi--Brauer scheme rather than the projectivization of a vector bundle, so the projective-bundle identity in $K_0(\operatorname{Var}_k)$ used in Kapranov's argument does not follow directly.</p>
+    </blockquote>
+    <p>No theorem in the paper uses Remark&nbsp;8, and Section&nbsp;5 separately assumes that the curve has a rational point.</p>
+  </li>
+  <li>
+    <p><strong>Page 4084, Theorem 9.</strong></p>
+    <p>Bittner's presentation requires the ambient variety in each blow-up relation to be smooth.  In the sentence following the displayed relation, replace “for $X$ proper” by “for $X$ smooth and proper,” so that the sentence reads:</p>
+    <blockquote>
+      <p>for $X$ smooth and proper, $Y$ a smooth closed subvariety of $X$, and $E$ the exceptional divisor of the blowup $\operatorname{Bl}_Y(X)$.</p>
+    </blockquote>
+    <p>This is the hypothesis in Bittner's cited Theorem&nbsp;3.1.  Every subsequent use of the presentation and of the duality map is on smooth proper varieties, so no later result changes.</p>
+  </li>
+  <li>
+    <p><strong>Page 4084, Conjecture 14.</strong></p>
+    <p>Denef and Loeser&nbsp;[2, Section&nbsp;3.3] do not support the conjecture that $\mathbb L$ is not a zero divisor.  They state that injectivity of</p>
+    <div class="display-math">\[
+    K_0(\operatorname{Var}_k)
+    \longrightarrow K_0(\operatorname{Var}_k)[\mathbb L^{-1}]
+    \]</div>
+    <p>is unknown and that their later discussion relies on the guess that this map is not injective.  That guess would imply that a nonzero class is annihilated by a power of $\mathbb L$.  Delete “[2, 3.3],” from the heading of Conjecture&nbsp;14.  The corrected heading and statement are:</p>
+    <blockquote>
+      <p><em>Conjecture 14 (Cancellation of the Lefschetz motive [13, remarks after Assertion 1]).</em> $\mathbb L$ is not a zero divisor in $K_0(\operatorname{Var}_k)$.</p>
+    </blockquote>
+    <p>The other citations following the conjecture remain unchanged, as do all results stated conditionally on Conjecture&nbsp;14.</p>
+  </li>
+  <li>
+    <p><strong>Page 4087, final paragraph of the proof of Theorem 19.</strong></p>
+    <p>A fiber of the restriction of $\pi_n$ to $\pi_m^{-1}(y)$ is contained in, but need not equal, a fiber of $\pi_n$ on $U$.  Thus the printed argument gives a lower bound for the dimension of the image, not an equality.  Replace the paragraph beginning “Choosing $x\in\operatorname{Sym}^n(X)$” through the end of the proof by the following.</p>
+    <blockquote>
+      <p>Choose $x\in\operatorname{Sym}^n(X)$ in the image of $\pi_n$ and outside the subvariety $W$ supplied by Theorem&nbsp;20.  Choose $y$ as above, and put</p>
+      <div class="display-math">\[
+      F=\pi_m^{-1}(y),
+      \qquad
+      Y=\overline{\pi_n(F)}\subset\operatorname{Sym}^n(X).
+      \]</div>
+      <p>Then $x\in Y\setminus W$.  The variety $F$ is a dense open subset of $\mathbb A^{2n-2m+l}$, so $Y$ is unirational.  Every fiber of $\pi_n|_F\colon F\to Y$ is contained in a fiber of $\pi_n\colon U\to\operatorname{Sym}^n(X)$ and hence has dimension at most $l$.  The fiber-dimension theorem therefore gives</p>
+      <div class="display-math">\[
+      \dim Y\geq \dim F-l=2n-2m.
+      \]</div>
+      <p>Since $Y\setminus W$ is a nonempty open subset of $Y$, it has the same dimension as $Y$; as $Y$ is unirational, its points correspond to rationally equivalent zero-cycles on $X$.  If $n&gt;2m$, then</p>
+      <div class="display-math">\[
+      \dim(Y\setminus W)\geq2n-2m&gt;n,
+      \]</div>
+      <p>contradicting Theorem&nbsp;20.</p>
+    </blockquote>
+    <p>The corrected lower bound is precisely what the contradiction requires. Theorem&nbsp;19 and Corollaries&nbsp;21 and&nbsp;23 are unchanged.</p>
+  </li>
+  <li>
+    <p><strong>Page 4088, Remarks 24 and 25.</strong></p>
+    <p>The $p$-adic point-counting argument proves nonconvergence and hence the failure of False Claim&nbsp;4.  It does not prove the failure of False Claim&nbsp;5: equality modulo $\mathbb L$ would imply only equality of point counts modulo $q$, which is compatible with failure of $p$-adic convergence.  Replace Remark&nbsp;24 by the following.</p>
+    <blockquote>
+      <p><em>Remark 24.</em> We sketch here a proof that False Claim&nbsp;4 also fails for $k=\mathbb F_q$.  Let</p>
+      <div class="display-math">\[
+      \psi_q\colon K_0(\operatorname{Var}_k)\longrightarrow\mathbb Z,
+      \qquad [X]\longmapsto \#X(\mathbb F_q),
+      \]</div>
+      <p>be the point-counting homomorphism.  It extends to a continuous homomorphism $\widehat\psi_q\colon R\to\mathbb Z_p$, so it is enough to find an $X$ for which $\widehat\psi_q([\operatorname{Sym}^n(X)])$ does not converge in $\mathbb Z_p$.</p>
+      <p>This happens if the zeta function</p>
+      <div class="display-math">\[
+      \zeta_X(t)=
+      \sum_{n=0}^{\infty}
+      \psi_q([\operatorname{Sym}^n(X)])t^n,
+      \]</div>
+      <p>which is rational by the Weil conjectures, has a pole at a unit $y\in\mathcal O_{\mathbb C_p}^{\times}$ with $y\neq1$.  There are many such abelian surfaces, by Honda--Tate theory; more simply, the product of two ordinary elliptic curves suffices.</p>
+    </blockquote>
+    <p>In Remark&nbsp;25, replace the first sentence by:</p>
+    <blockquote>
+      <p>More generally, if $X$ is a smooth projective variety over $k=\mathbb F_q$, with nonvanishing $h^0(\Omega_X^{2n})$ for some $n&gt;0$, and the $2n$-th Newton polygon of the zeta function of $X$ equals its $2n$-th Hodge polygon (for example, if $X$ is an ordinary abelian variety), then the same reasoning shows that False Claim&nbsp;4 is false.</p>
+    </blockquote>
+    <p>Thus these remarks make no assertion about False Claim&nbsp;5 or MSSP over finite fields.  The characteristic-zero results, including Corollary&nbsp;23, are unaffected.</p>
+  </li>
+  <li>
+    <p><strong>Page 4089, coefficient computation preceding Lemma 27.</strong></p>
+    <p>The displayed identities involving $\mathbb P^{g-2}$ and the use of Lemma&nbsp;27 do not cover genus zero, while the genus-one identity requires a convention for $\mathbb P^{-1}$.  After the sentence ending “let us compute its coefficients,” insert:</p>
+    <blockquote>
+      <p>If $g=0$, then the rational point identifies $X$ with $\mathbb P^1$, and</p>
+      <div class="display-math">\[
+      Z_X^{\mathrm{mot}}(t)
+      =\frac{1}{(1-t)(1-\mathbb L t)}.
+      \]</div>
+      <p>Hence</p>
+      <div class="display-math">\[
+      (1-t)(1-\mathbb L t)Z_X^{\mathrm{mot}}(t)=1,
+      \]</div>
+      <p>whose Newton polygon and Hodge polygon are both the trivial polygon.  For the remainder of the argument through Corollary&nbsp;33, assume $g\geq1$.</p>
+    </blockquote>
+    <p>After the sentence “Here we take $[\operatorname{Sym}^n(X)]=0$ for $n&lt;0$,” insert:</p>
+    <blockquote>
+      <p>When $g=1$, we also use the convention $[\mathbb P^{-1}]=0$.</p>
+    </blockquote>
+    <p>With these additions, the three displayed coefficient identities and Lemma&nbsp;27 are used only for $g\geq1$; the direct computation supplies the genus-zero cases of Corollaries&nbsp;30 and&nbsp;33.  Both corollaries remain valid for every genus.</p>
+  </li>
+  <li>
+    <p><strong>Page 4092, Proposition 35.</strong></p>
+    <p>The printed statement does not bind $n$ before its first occurrence and then uses the same symbol for the pluricanonical exponent and the symmetric-power degree.  Replace Proposition&nbsp;35 by:</p>
+    <blockquote>
+      <p><em>Proposition 35.</em> Let $n&gt;0$ be an integer, and let $S$ be smooth and projective, with $\dim(S)&gt;1$.  Suppose that either</p>
+      <div class="display-math">\[
+      \dim(S)\text{ is even and }h^0(S,\omega_S^n)\neq0,
+      \qquad\text{or}\qquad
+      h^0(S,\omega_S^{2n})\neq0.
+      \]</div>
+      <p>Then, for every integer $m\geq0$, if $\operatorname{Sym}^n(S)$ is stably birational to $\operatorname{Sym}^m(S)$, one has $m=n$.</p>
+    </blockquote>
+    <p>Thus both plurigenus hypotheses refer to the fixed positive integer $n$, and the phrase “for some $n$” is deleted.  In the following application, a nonzero pluricanonical section has nonzero positive powers, so the stated failures of False Claim&nbsp;5 and the conditional failures of MSSP for surfaces are unchanged.</p>
+  </li>
+</ol>

@@ -1,0 +1,247 @@
+<p>These errata refer to the accepted manuscript available as arXiv:2202.05340v4, submitted 10 June 2025 and dated 11 June 2025.  Page and statement references below are to that version.</p><ol class="errata-list"><li><p><strong>Page 3, Subsection 1.2, opening paragraph.</strong> The Frobenius-dependent part of the overview requires a finite base field, as is assumed in Subsection 9.1.  After the first sentence of Subsection 1.2, insert:</p>
+<blockquote><p>For the statements below involving Frobenius, assume in addition that \(k=\mathbf F_q\), where \(q\) is a power of \(p\).</p></blockquote>
+<p>The statements in the overview that do not involve Frobenius retain the base field specified in the opening sentence.</p></li><li><p><strong>Pages 4--5, Theorem 1.2.1(5) and the Berkovich--Coleman overview.</strong> The symmetrization result used here, Proposition 11.2.1, is proved for fiber functors attached to smooth points.  Replace part (5) of Theorem 1.2.1 by:</p>
+<blockquote><p>\textup{(5)} (Proposition 11.2.1) if \(F_a\) and \(F_b\) are attached to smooth points, symmetrization:</p>
+<div class="display-math">\[
+  \sum_{\sigma\in S_r}
+    \int_{p,a}^{b}\omega_{\sigma(1)}\cdots\omega_{\sigma(r)}
+  =\prod_{i=1}^{r}\int_{p,a}^{b}\omega_i.
+\]</div></blockquote>
+<p>On page 5, replace the sentence beginning “It inherits multilinearity” by:</p>
+<blockquote><p>It inherits multilinearity, concatenation, functoriality, and integration by parts from the integration theory on \((X,M)\); when the endpoint fiber functors are attached to smooth points, it also inherits symmetrization.</p></blockquote>
+<p>The symmetrization statements in Proposition 11.2.1 and Theorem 13.1.2(4) already have this hypothesis; their applications are unchanged.</p></li><li><p><strong>Page 5, paragraph defining the Vologodsky path.</strong> Frobenius acts after extension of scalars to \(K[\ell]\), so the canonical path lies in the extended groupoid module.  Replace the paragraph beginning “Vologodsky defined a path-independent integration theory” through the three displayed properties by:</p>
+<blockquote><p>Vologodsky defined a path-independent integration theory by making use of the Frobenius and monodromy operators, \(\varphi\) and \(N\), acting on \(\Pi_\ell((X,M);F_a,F_b)\), the scalar extension to \(K[\ell]\) of the completed dual coalgebra to the ring of functions on \(\pi_1^{\mathrm{rig},\mathrm{un}}((X,M);F_a,F_b)\).  Specifically, he defines a canonical element</p>
+<div class="display-math">\[
+  p_{\mathrm{Vol},\ell}\in \Pi_\ell((X,M);F_a,F_b)
+\]</div>
+<p>characterized by</p>
+<div class="display-math">\[
+  p_{\mathrm{Vol},\ell}\equiv 1\pmod{I_a},\qquad
+  \varphi(p_{\mathrm{Vol},\ell})=p_{\mathrm{Vol},\ell},\qquad
+  N^r(p_{\mathrm{Vol},\ell})\in W_{-r-1}\quad(r&gt;0).
+\]</div></blockquote>
+<p>Proposition 13.2.1 already places the Vologodsky path in this scalar-extended module.</p></li><li><p><strong>Page 6, displayed homotopy kernel in Subsection 1.4.</strong> The category on the base is the category denoted by \(\mathrm{nr}\), as in Corollary 8.2.5 and Definition 9.1.2.  In the target of the homomorphism inside the kernel, replace</p>
+<div class="display-math">\[
+  \pi_1^{\mathrm{rig},\varphi,\mathrm{un}}
+     ((S_t,N_t);\widetilde F_a,\widetilde F_b)_\ell
+\]</div>
+<p>by</p>
+<div class="display-math">\[
+  \pi_1^{\mathrm{rig},\varphi,\mathrm{nr}}
+     ((S_t,N_t);\widetilde F_a,\widetilde F_b)_\ell.
+\]</div>
+<p>The exact sequence used in the construction is already stated with the latter category.</p></li><li><p><strong>Pages 7 and 62--63, Proposition 1.4.1 and Definition 13.2.2.</strong> The displayed indices do not make the tropical forms composable from \(K^{n_0}\) to \(K^{n_n}\).  In the paragraph preceding Proposition 1.4.1, replace the displayed membership by</p>
+<div class="display-math">\[
+  \eta_i\in \Omega^1(\Gamma)\otimes
+  \operatorname{Hom}(K^{n_{i-1}},K^{n_i}),
+  \qquad 1\leq i\leq n.
+\]</div>
+<p>In Definition 13.2.2, retain</p>
+<div class="display-math">\[
+  \omega_{i+1}\in \Omega^1\otimes
+  \operatorname{Hom}(E^i/E^{i+1},E^{i+1}/E^{i+2}),
+\]</div>
+<p>and replace the residue definition and the following membership by</p>
+<div class="display-math">\[
+  \eta_{i+1}(e)=\operatorname{Res}_{(x,M)}(\omega_{i+1})
+  \in \operatorname{Hom}(K^{n_i},K^{n_{i+1}}),
+  \qquad 0\leq i\leq n-1,
+\]</div>
+<div class="display-math">\[
+  \eta_{i+1}\in \Omega^1(\Gamma)\otimes
+  \operatorname{Hom}(K^{n_i},K^{n_{i+1}}).
+\]</div>
+<p>Thus \(\eta_1\cdots\eta_n\) has coefficient map \(K^{n_0}\to K^{n_n}\), as required in Proposition 13.2.3.</p></li><li><p><strong>Page 9, second paragraph.</strong> The rank-one path-module assertion requires the endpoints to be in the same connected component.  Replace its opening sentence by:</p>
+<blockquote><p>If \(a\) and \(b\) lie in the same connected component of \(\Gamma\), the ring \(K[\pi_1(\Gamma,a)]\) acts naturally on the left on \(K[\pi_1(\Gamma;a,b)]\) by concatenation, making \(K[\pi_1(\Gamma;a,b)]\) a free left \(K[\pi_1(\Gamma,a)]\)-module of rank one.</p></blockquote>
+<p>When the endpoints are in different components the path set is empty.  The dual graphs used later are connected, so all subsequent rank-one torsor applications are unchanged.</p></li><li><p><strong>Page 14, Theorem 4.0.3.</strong> The essential image must retain convergence of the Taylor stratification. Replace the statement of the theorem by:</p>
+<blockquote><p><strong>Theorem 4.0.3.</strong> Let \(((X,M_X),(X,M_X),(P,L))\) be a proper log smooth frame.  Then \(\operatorname{Isoc}^{\dagger}((X,M)/(\operatorname{Spf}V,N))\) is equivalent to the category of coherent \(\mathcal O_{]X[_P}\)-modules \(E\) equipped with an integrable log connection</p>
+<div class="display-math">\[
+  \nabla:E\longrightarrow E\otimes
+  \Omega^1_{(]X[_P,L)/((\operatorname{Spf}V)^{\mathrm{an}},N)},
+\]</div>
+<p>whose associated Taylor stratification is convergent.  This equivalence is canonical for morphisms of proper log smooth frames.</p></blockquote>
+<p>The unipotent connections constructed later are convergent, so they and the subsequent fundamental-group constructions are unaffected.</p></li><li><p><strong>Page 17, paragraph following Definition 5.1.5.</strong> A morphism of weak log curves need not induce a submersion on log dual graphs: the definition does not impose surjectivity on the stars of vertices.  Replace the sentence containing the two graph assertions by:</p>
+<blockquote><p>A morphism of weak log curves induces a morphism \(\Gamma_X\to\Gamma_Y\) of log dual graphs, while a weak embedding induces a weak embedding of log dual graphs.</p></blockquote>
+<p>The induced graph morphism, which is all that is needed for the later functoriality statements, remains defined.</p></li><li><p><strong>Page 19, Subsection 5.3, display defining the tube.</strong> The identity element of the chart monoid represents the constant function \(1\), whose norm is not less than \(1\).  Replace the display by</p>
+<div class="display-math">\[
+  ]x[_P=\bigl\{y\in P_K:\lVert m(y)\rVert&lt;1
+  \text{ for every nonzero }m\in M\bigr\},
+\]</div>
+<p>where \(m\) is interpreted as the corresponding monomial function on \(P_K\).  For the sharp monoids used here, the nonzero elements are precisely the nonunits.  This gives the six tubes used in Proposition 5.3.2.</p></li><li><p><strong>Page 19, model (6) and Remark 5.3.1.</strong> The formal model for the \(\pi\)-\(t\) base change of a node is missing its nodal relation.  In model (6), replace the definition of \(P_{2,t}\) by</p>
+<div class="display-math">\[
+  P_{2,t}=\operatorname{Spf}
+  V\mathopen{[\![}x_1,x_2,t\mathclose{]\!]}/(x_1x_2-t).
+\]</div>
+<p>Then its closed formal subscheme defined by \(t=\pi\) is \(P_2=\operatorname{Spf}V\mathopen{[\![}x_1,x_2\mathclose{]\!]}/ (x_1x_2-\pi)\), as asserted in Remark 5.3.1.</p></li><li><p><strong>Page 21, Definition 6.2.2.</strong> The level of a universal object is only an upper bound for its unipotency index.  Replace the words “\(E_n\) has index of unipotency \(n\)” by “\(E_n\) has index of unipotency at most \(n\).”  With this change the universal mapping property and all later truncation arguments remain valid.</p></li><li><p><strong>Pages 21--22, alternative description of \(T_n\).</strong> The displayed description is shifted by one index: already \(T_0=H^1(\mathbf 1)^\vee\otimes\mathbf 1\), which corresponds to \(R^{(1)}\), not \(R^{(0)}=K\).  Replace</p>
+<div class="display-math">\[
+  T_n=(R^{(n)})^\vee\otimes\mathbf 1
+\]</div>
+<p>by</p>
+<div class="display-math">\[
+  T_n=(R^{(n+1)})^\vee\otimes\mathbf 1.
+\]</div>
+<p>The definitions of \(R^{(0)}\), \(R^{(1)}\), and the recurrence for \(R^{(n+1)}\) are unchanged.</p></li><li><p><strong>Pages 23--24, Subsection 6.4.</strong> In the de Rham case the Deligne--Goncharov diagram must retain the boundary divisor and use logarithmic de Rham cohomology.  Replace the de Rham conventions in the opening paragraph by:</p>
+<blockquote><p>In the de Rham setting, a space is a pair \((X,D)\), where \(X\) is a smooth proper scheme over \(\operatorname{Spec}K\) and \(D\subset X\) is a reduced effective divisor, and \(C(X,D)=C^{\mathrm{dR}}(X,D)\).  Every product \(X\times_K\cdots\times_K X\) in the diagram is equipped with the logarithmic structure induced by</p>
+<div class="display-math">\[
+  \sum_j\operatorname{pr}_j^{-1}D,
+\]</div>
+<p>and each \(Y_J\), diagonal, and fiber in the construction carries the induced logarithmic structure.  In this case \(H^\bullet(P^n_{X,a,b},\mathbf 1^\bullet)\) in Theorem 6.4.1 denotes logarithmic de Rham hypercohomology.</p></blockquote>
+<p>With these conventions Theorem 6.4.1 realizes the truncations attached to \(C^{\mathrm{dR}}(X,D)\), rather than those of the curve with the boundary forgotten.  The later applications in the log rigid setting are unchanged.</p></li><li><p><strong>Pages 26--27, Definition 7.1.6 and the following paragraph.</strong> As printed, \(F_{B,\pi}\) is already \(K[\ell]\)-valued and is then extended to \(K[\ell]\) a second time.  Replace the first paragraph of Definition 7.1.6 by:</p>
+<blockquote><p>Let \((x,M)\) be a log point, let \(B\) be a coordinate system on \(M\), and let \((x,M_t)\) be obtained by \(\pi\)-\(t\) base change.  The pushforward \(i_*F_B\) by the natural map \(i:(x,M)\to(x,M_t)\), considered as a \(K\)-valued fiber functor on \(C^{\mathrm{rig},\mathrm{un}}(x,M_t)\), will be denoted by \(F_{B,\pi}\).</p></blockquote>
+<p>The specialization path in the last paragraph is therefore a path from \(F_{B\cup\{e_t\}}\otimes_KK[\ell]\) to \(F_{B,\pi}\otimes_KK[\ell]\).  All later specialization paths use this single scalar extension.</p></li><li><p><strong>Page 27, Definition 7.1.7.</strong> The endpoint functors in the displayed torsor are functors on the log point \((x,M_t)\), not on the entire curve.  Replace the phrase “considered as the isomorphism of functors on \(C^{\mathrm{rig},\mathrm{un}}(X_t,M_t)\)” by</p>
+<blockquote><p>considered as the isomorphism of functors on \(C^{\mathrm{rig},\mathrm{un}}(x,M_t)\),</p>
+<div class="display-math">\[
+  F_{B\cup\{e_t\}}\otimes R
+  \xrightarrow{\ \sim\ }F_{B,\pi}\otimes R,
+\]</div>
+<p>given by \(t\mapsto\pi\) and \(\operatorname{Log}(t)\mapsto\ell\).</p></blockquote>
+<p>Definition 7.1.8 subsequently pulls these log-point functors back to a weak log curve.</p></li><li><p><strong>Pages 28--29, Lemma 7.2.1.</strong> The proof invokes Proposition 5.3.2, whose cohomology computation is for the standard log-point models listed in Subsection 5.3.  Replace the first two sentences of the lemma by:</p>
+<blockquote><p><strong>Lemma 7.2.1.</strong> Let \((x,M)\) be one of the log points over \((S,N)\) listed in Subsection 5.3, and let \(B\) be a coordinate system on \(M\).  Then</p>
+<div class="display-math">\[
+  \pi_1^{\mathrm{rig},\mathrm{un}}((x,M),F_B)
+  \simeq
+  \operatorname{Hom}\bigl((M/f^*\mathbf Z_{\geq0})^{\mathrm{gp}},
+  \mathbf G_a\bigr).
+\]</div>
+<p>This isomorphism is functorial among these log points over \((S,N)\).</p></blockquote>
+<p>The log basepoints used subsequently are among these standard models, so all later applications of the lemma remain valid.</p></li><li><p><strong>Page 33, Remark 7.5.2.</strong> The cohomological realization is the dual of the truncated groupoid module, and the universal object must be evaluated in the endpoint fiber.  Replace the remark by:</p>
+<blockquote><p><strong>Remark 7.5.2.</strong> The Deligne--Goncharov construction in Subsection 6.4 realizes \(\bigl(\Pi((X,M);F_a,F_b)/I^n\bigr)^\vee\) as the cohomology of a diagram of schemes; hence, by duality, it gives a weight filtration on \(\Pi((X,M);F_a,F_b)/I^n\).  When \(F_a\) and \(F_b\) are attached to smooth points, the universal-object description identifies</p>
+<div class="display-math">\[
+  \Pi((X,M);F_a,F_b)/I^n\simeq F_b(E^{(a)}_{n-1})
+\]</div>
+<p>as in Remark 6.2.3.  Transporting the filtration through these two identifications gives the weight filtration described above; the agreement is the one recorded in [11, Remark 3.10].  The definition extends to arbitrary log basepoints by the argument of Theorem 10.4.1.</p></blockquote></li><li><p><strong>Page 39, Definition 9.1.2.</strong> The notation conflates fiber functors on \((X,M)\) with their induced functors on the \(t=\pi\) fiber.  Replace the opening and the two kernel identifications by:</p>
+<blockquote><p>Let \(F_1,F_2\) be fiber functors attached to log points on \((X,M)\), and write \(F_{1,\pi},F_{2,\pi}\) for the induced fiber functors on \((X_t,M_t)\).  Let \(\widetilde F_1,\widetilde F_2\) be the corresponding tangential fiber functors, identified with \(F_{1,\pi},F_{2,\pi}\) after extension to \(K[\ell]\) by the specialization and tangential paths.  The homotopy exact sequence gives</p>
+<div class="display-math">\[\begin{multline}\pi_1^{\mathrm{rig},\mathrm{un}}((X,M);F_1,F_2)_\ell\simeq\\
+\ker\!\left(
+\pi_1^{\mathrm{rig},\varphi,\mathrm{un}(f_t,\mathrm{nr})}
+ ((X_t,M_t);F_{1,\pi},F_{2,\pi})_\ell
+\longrightarrow
+\pi_1^{\mathrm{rig},\varphi,\mathrm{nr}}
+ ((S_t,N_t);F_{1,\pi},F_{2,\pi})_\ell
+\right)\end{multline}\]</div>
+<p>and, after transport along those paths, this kernel is isomorphic to</p>
+<div class="display-math">\[
+\ker\!\left(
+\pi_1^{\mathrm{rig},\varphi,\mathrm{un}(f_t,\mathrm{nr})}
+ ((X_t,M_t);\widetilde F_1,\widetilde F_2)_\ell
+\longrightarrow
+\pi_1^{\mathrm{rig},\varphi,\mathrm{nr}}
+ ((S_t,N_t);\widetilde F_1,\widetilde F_2)_\ell
+\right).
+\]</div></blockquote>
+<p>The subsequent Frobenius action is defined on this transported kernel.</p></li><li><p><strong>Page 46, Remark 10.1.6.</strong> An arbitrary element of the completed groupoid module need not be group-like, so its monodromy translate is not necessarily a point of the fundamental torsor.  For \(\delta\in\Pi((X,M);F_1,F_2)_\ell/I^{n+1}\), replace the displayed membership by</p>
+<div class="display-math">\[
+  T(s_1,s_2)(\gamma_u)(\delta)
+  \in
+  \Pi((X_t,M_t);\widetilde F_1,\widetilde F_2)_\ell/I^{n+1}.
+\]</div>
+<p>When \(\delta\) is group-like this element is again a torsor point.  The linear residue computation in the remainder of the remark applies in either case.</p></li><li><p><strong>Page 48, Subsection 10.4, definition of the monodromy filtration.</strong> The printed condition has an extraneous \(N\) on the right and therefore does not say that \(N\) lowers the filtration by two.  Replace</p>
+<div class="display-math">\[
+  NM_i\subset NM_{i-2}
+\]</div>
+<p>by</p>
+<div class="display-math">\[
+  N(M_i)\subset M_{i-2}.
+\]</div>
+<p>This is the condition used by the following maps on associated graded objects.</p></li><li><p><strong>Page 51, Definition 11.1.1.</strong> The connection formula contains the undefined form \(\omega_0\) and uses \(n\) where the number of forms is \(r\).  Replace the displayed formula for the connection by</p>
+<div class="display-math">\[
+  \nabla e_i=
+  \begin{cases}
+    -\omega_{i+1}\otimes e_{i+1},&amp;0\leq i\leq r-1,\\
+    0,&amp;i=r.
+  \end{cases}
+\]</div>
+<p>This defines the intended isocrystal \(E_{\omega_1\cdots\omega_r}\) used in the subsequent integral formulas.</p></li><li><p><strong>Page 52, naturality of the lifted bases after Lemma 11.1.3.</strong> The printed projection sends every basis vector to \(e_k\), contradicting \((p_k)_*(h_i)=h_i\) and failing to be horizontal.  Replace it by the horizontal quotient map</p>
+<div class="display-math">\[
+  p_k:E_{\omega_1\cdots\omega_r}\longrightarrow
+      E_{\omega_1\cdots\omega_k},
+  \qquad
+  p_k(e_i)=
+  \begin{cases}
+    e_i,&amp;0\leq i\leq k,\\
+    0,&amp;k&lt;i\leq r.
+  \end{cases}
+\]</div>
+<p>Then \((p_k)_*(h_i)=h_i\) for \(0\leq i\leq k\), as stated.</p></li><li><p><strong>Pages 54--55, matrix preceding Proposition 11.1.8 and the proposition.</strong> For a general linear path \(p\), the induced map on each trivial graded quotient is multiplication by its augmentation \(\epsilon(p)\), rather than the identity.  Define the integral of the empty word by</p>
+<div class="display-math">\[
+  \int_{p,a}^{b}1:=\epsilon(p).
+\]</div>
+<p>With this convention, the matrix of \(p\) in the lifted bases is the lower triangular matrix whose \((i,j)\)-entry, for \(0\leq i,j\leq r\), is</p>
+<div class="display-math">\[
+  \begin{cases}
+  \displaystyle\int_{p,a}^{b}\omega_{j+1}\cdots\omega_i,&amp;j\leq i,\\[6pt]
+  0,&amp;j&gt;i,
+  \end{cases}
+\]</div>
+<p>where the first case is the empty-word integral when \(i=j\).  In particular, every diagonal entry is \(\epsilon(p)\).  Proposition 11.1.8 then reads, for arbitrary \(p\in\Pi((X,M);F_a,F_b)\) and \(q\in\Pi((X,M);F_b,F_c)\),</p>
+<div class="display-math">\[
+  \int_{pq,a}^{c}\omega_1\cdots\omega_r
+  =\sum_{k=0}^{r}
+    \left(\int_{p,a}^{b}\omega_1\cdots\omega_k\right)
+    \left(\int_{q,b}^{c}\omega_{k+1}\cdots\omega_r\right).
+\]</div>
+<p>For group-like paths the augmentation is \(1\), so the displayed formulas specialize to the usual concatenation formula used later.</p></li><li><p><strong>Page 55, Lemma 11.1.11, last identity.</strong> The iterated integrals are scalars, whereas the final printed term uses the unevaluated analytic function \(g\).  Let \(g(b)\) denote the value supplied by the lifted endpoint fiber functor: it is ordinary evaluation when \(b\) is a smooth point and the constant term of the pulled-back Log-analytic function when \(b\) is a log point.  Replace the last identity by</p>
+<div class="display-math">\[
+  \int_{p,a}^{b}\omega_1\cdots\omega_r(dg)
+  =g(b)\int_{p,a}^{b}\omega_1\cdots\omega_r
+   -\int_{p,a}^{b}\omega_1\cdots\omega_{r-1}(g\omega_r).
+\]</div>
+<p>Together with the assumption that \(g\) vanishes at \(a\), this is the scalar endpoint form of integration by parts.</p></li><li><p><strong>Page 56, proof of Proposition 11.2.1.</strong> The sum of the algebra maps \(j_i\) is not a unital algebra map and omits mixed-slot terms.  Replace the paragraph defining \(j\) by:</p>
+<blockquote><p>There is also a horizontal morphism</p>
+<div class="display-math">\[
+  j:E_r^\Omega\longrightarrow(E_1^\Omega)^{\otimes r}
+\]</div>
+<p>induced by the unique algebra homomorphism extending the linear map</p>
+<div class="display-math">\[
+  \Omega^\vee\longrightarrow(T^{\leq1}\Omega^\vee)^{\otimes r},
+  \qquad
+  v\longmapsto
+  \sum_{i=1}^{r}1\otimes\cdots\otimes
+  \underset{i\text{-th factor}}{v}\otimes\cdots\otimes1.
+\]</div></blockquote>
+<p>This is the primitive algebra map whose expansion supplies the shuffle terms.</p></li><li><p><strong>Page 57, proof of Proposition 11.2.1, first paragraph.</strong> The projection \(q_{\omega_1\cdots\omega_r}\) has domain \(E_r^\Omega\), so it cannot be applied to \(s\in F_b((E_1^\Omega)^{\otimes r})\).  Delete the sentence beginning “By treating \(\omega_1\otimes\cdots\otimes\omega_r\)” and replace it by the functional identity</p>
+<div class="display-math">\[
+  F_b(j)^*(\omega_1\otimes\cdots\otimes\omega_r)
+  =\sum_{\sigma\in S_r}
+  [e_r]\circ F_b
+  \bigl(q_{\omega_{\sigma(1)}\cdots\omega_{\sigma(r)}}\bigr),
+\]</div>
+<p>where \([e_r]\) denotes the \(e_r\)-component.  This is the identity used in the following displayed calculation and completes the shuffle argument with the correct domains.</p></li><li><p><strong>Pages 60--61, Example 12.1.6.</strong> With the branch assignment in the example, the coordinate at the branch near \(\infty\) is \(x_1=w=z^{-1}\), so \(g^*(dz/z)=-dx_1/x_1\).  Replace the sentence computing the nodal contribution by</p>
+<div class="display-math">\[
+  \int_{\delta_0,\infty}^{0}g^*\nu^r
+  =(-1)^r\frac{\ell^r}{r!}.
+\]</div>
+<p>Consequently, for the orientation specified in the example, replace the final display by</p>
+<div class="display-math">\[
+  {}^{\mathrm{BC}}\!\int_p\nu^r=(-1)^r\frac{\ell^r}{r!}.
+\]</div>
+<p>This is the Tate period \(-\ell\) for that orientation.  Reversing the loop orientation gives the positive convention used in Example 12.1.7, whose path is explicitly described as suitably oriented.</p></li><li><p><strong>Page 63, proof of Proposition 13.2.3, single-edge case.</strong> Definition 3.1.2 includes the factor \(1/n!\) in a single-edge combinatorial iterated integral.  Replace the displayed equality in the base case by</p>
+<div class="display-math">\[
+  \operatorname{Res}_{(x,M_2)}(\omega_1)\cdots
+  \operatorname{Res}_{(x,M_2)}(\omega_n)
+  =n!\,{}^c\!\int_e\eta_1\cdots\eta_n.
+\]</div>
+<p>This agrees with the factor \(n!\) in the statement of Proposition 13.2.3 and with the induction on page 64.</p></li><li><p><strong>Page 66, Corollary 13.3.2.</strong> The asserted dual bases exist only when the pairing between ordinary homology and tropical one-forms is perfect; for the spaces appearing here, this requires the graph to have no half-open edges.  Replace the opening of the corollary by:</p>
+<blockquote><p><strong>Corollary 13.3.2.</strong> Let \(F_a,F_b\) be fiber functors on \((X,M_X)\) attached to log points anchored at components \(a,b\in V(\Gamma)\) and equipped with lifts \(a,b\).  Assume that \(\Gamma\) is proper, equivalently that it has no half-open edges.  Let \(C_1,\ldots,C_h\in H_1(\Gamma;K)\) and \(\eta_1,\ldots,\eta_h\in\Omega^1(\Gamma)\) be dual bases with respect to single combinatorial integration.  Let \(\gamma_1,\ldots,\gamma_h\in\pi_1^{\mathrm{un}}(\Gamma,a)\) be loops whose homology classes are \(C_1,\ldots,C_h\), respectively, and pick a path \(p\) in \(\Gamma\) from \(a\) to \(b\).  Then</p>
+<div class="display-math">\[
+  {}^V\!\int_a^b\omega
+  ={}^{\mathrm{BC}}\!\int_{p,a}^b\omega
+   -\sum_i
+    \left({}^{\mathrm{BC}}\!\int_{\gamma_i,a}^a\omega\right)
+    \left({}^c\!\int_p\eta_i\right)
+\]</div>
+<p>for every \(\omega\in\Omega^1\).</p></blockquote>
+<p>The subsequent comparison in the proper-graph case and Example 13.3.3 are unchanged.  For a graph with half-open edges, the pairing with \(H_1(\Gamma;K)\) is not perfect and this dual-basis formulation does not apply.</p></li><li><p><strong>Pages 66--67, Example 13.3.3.</strong> On \(\Gamma=\mathbf R/m\mathbf Z\), the full cycle pairs with \(dt\) as \(m\), so its dual tropical form is \(dt/m\), not \(dt\).  Replace the two sentences beginning “For the tropical 1-form” by:</p>
+<blockquote><p>The tropical form dual to the closed loop \(\gamma\) from \(a\) to \(a+m\) is</p>
+<div class="display-math">\[
+  \eta=\frac{dt}{m},
+  \qquad
+  {}^c\!\int_p\eta=\frac{\widetilde b-\widetilde a}{m}.
+\]</div>
+<p>Moreover, \({}^{\mathrm{BC}}\!\int_{\gamma,a}^a\nu=m\ell\).</p></blockquote>
+<p>The factors of \(m\) cancel in Corollary 13.3.2, so the displayed conclusion of the example remains</p>
+<div class="display-math">\[
+  {}^V\!\int_a^b\nu
+  =\operatorname{Log}(\widetilde b)-\operatorname{Log}(\widetilde a)
+   -\ell(\widetilde b-\widetilde a).
+\]</div></li></ol>

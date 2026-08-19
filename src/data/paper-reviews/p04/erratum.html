@@ -1,0 +1,139 @@
+<p>These errata refer to the version published in <em>Annals of Mathematics</em> <strong>199</strong> (2024), 823--897, \href{https://doi.org/10.4007/annals.2024.199.2.6} {doi:10.4007/annals.2024.199.2.6}. Page and statement references below refer to that version.</p><ol class="errata-list"><li><p><strong>Pages 831 and 894, Section 1.8.3 and reference [Kor02].</strong> The cited paper [Kor02] is a survey of low-dimensional homology groups and does not establish the stated bounds on dimensions of linear representations. On page 831, replace \textup{[Kor02]} by \textup{[Kor23]}. On page 894, replace the entry \textup{[Kor02]} by:</p>
+<blockquote><p>\raggedright \textup{[Kor23]}  M. Korkmaz, <em>Low-dimensional linear representations of mapping class groups</em>, J. Topol. <strong>16</strong> no.&nbsp;3 (2023), 899--935, <a href="https://doi.org/10.1112/topo.12305">doi:10.1112/topo.12305</a>; <a href="https://arxiv.org/abs/1104.4816">arXiv:1104.4816</a>.</p></blockquote>
+<p>The prior-work sentence in Section&nbsp;1.8.3 is correct with this citation, and no proof in the paper uses the replaced reference.</p></li><li><p><strong>Page 832, Section 1.9.1.</strong> The proof outline conflates integrality of the projective representation, integrality of the original linear representation, and the construction of a complex linear lift on the total space. Replace the paragraph beginning <em>We construct from \(\rho\)</em> and ending <em>a bona fide local system</em> by:</p>
+<blockquote><p>We construct from \(\rho\) a finite étale cover \(\mathscr M\) of \(\mathscr M_{g,n}\), with associated family of punctured curves \(\pi^\circ:\mathscr C^\circ\to\mathscr M\), and a projective unitary local system \(\mathbb V\) on \(\mathscr C^\circ\) whose restriction to a fiber \(C^\circ\) has monodromy \(\mathbb P\rho\). Proposition&nbsp;8.2.1 gives strong cohomological rigidity. The boundary-monodromy argument in Lemma&nbsp;8.3.3, together with Lemma&nbsp;8.1.3, gives cohomological rigidity, so the main result of \textup{[KP22]} implies that \(\mathbb P\rho\) is integral. Lemma&nbsp;8.3.4 then uses the finite determinant of \(\rho\) and the finite morphism \(G\to\operatorname{PGL}_r\) to show that \(\rho\) is defined over the ring of integers \(\mathscr O_K\) of a number field \(K\).</p>
+<p>Separately, Proposition&nbsp;2.3.4 shows that, after replacing \(\mathscr M\) by a pointed dominant étale base change, the projective local system on the total space lifts to a complex \(\operatorname{GL}_r\)-local system. This is the complex lifting step used to realize the fibral representation in a family; it is distinct from the arithmetic integrality argument above.</p></blockquote>
+<p>Lemmas&nbsp;8.3.3--8.3.4 contain these three steps in this order, so Proposition&nbsp;8.4.1 and Theorem&nbsp;1.2.1 are unchanged.</p></li><li><p><strong>Page 833, Section 1.9.3.</strong> An extension of \(\rho_2\) by \(\rho_1\) represents a class in \(\operatorname{Ext}^1(\rho_2,\rho_1)\), not in \(\operatorname{Ext}^1(\rho_1,\rho_2)\). Replace the two sentences beginning <em>The splitting of this extension</em> by:</p>
+<blockquote><p>The splitting of this extension of \(\rho_2\) by \(\rho_1\) corresponds to the vanishing of a certain element in</p>
+<div class="display-math">\[
+\operatorname{Ext}^1_{\pi_1(\Sigma_{g',n'})}(\rho_2,\rho_1).
+\]</div>
+<p>Because we arranged that \(\rho_1\) and \(\rho_2\) have trivial monodromy on \(\pi_1(\Sigma_{g',n'})\), this extension class corresponds to a map</p>
+<div class="display-math">\[
+\pi_1(\Sigma_{g',n'})\longrightarrow \rho_2^\vee\otimes\rho_1
+\]</div>
+<p>with unipotent abelian image.</p></blockquote>
+<p>This agrees with the calculation in Lemma&nbsp;8.6.1. The remainder of the outline and the proof of Theorem&nbsp;1.2.1 are unchanged.</p></li><li><p><strong>Pages 838--839, Lemma 2.2.2.</strong> Irreducibility makes each exact linear intertwiner \(M_\gamma\) unique up to scalar, which gives the displayed projective representation, but it does not make that representation the unique projective extension: a projective self-twist can lie in the projective centralizer.</p>
+<p>In the statement, replace <em>there exists a unique representation</em> by <em>there exists a representation</em>. In the proof, delete the final paragraph beginning <em>Finally, uniqueness of \(\widetilde\rho\) follows</em>. The construction preceding that paragraph proves existence and commutativity of diagram&nbsp;(2.2). Lemma&nbsp;2.2.3 and every later application use only this constructed extension, so they are unchanged.</p></li><li><p><strong>Pages 840--843, Lemma 2.3.3 and Proposition 2.3.4.</strong> The generic étale neighborhoods used in the proof need not contain the fixed point \(m\), so the asserted fiber and fibral representation are not preserved. Replace Lemma&nbsp;2.3.3 by the following pointed version:</p>
+<blockquote><p><strong>2.3.3 Lemma.</strong> Let \(i&gt;0\), let \(M\) be a smooth connected complex variety, and let \(m\in M\). Suppose that \(\mu\) is a finite abelian group and \(\sigma\in H^i(\pi_1(M,m),\mu)\). Then there are a smooth connected complex variety \(M'\), a point \(m'\in M'\), and a dominant étale morphism</p>
+<div class="display-math">\[
+f:(M',m')\longrightarrow(M,m)
+\]</div>
+<p>such that \(f^*\sigma=0\) in \(H^i(\pi_1(M',m'),\mu)\).</p>
+<p><em>Proof.</em> Let \(\alpha\in H^i(M,\mu)\) be the image of \(\sigma\). Since \(i&gt;0\), the class \(\alpha\) is étale-locally zero at \(m\). Choose a pointed étale neighborhood \((N,n)\to(M,m)\) on which \(\alpha\) vanishes, and replace \(N\) by the connected component containing \(n\). Its image is a nonempty open subset of \(M\), hence is dense because a smooth connected complex variety is irreducible. Thus \(N\to M\) is dominant. By \textup{[SGA73, Exp.&nbsp;XI, 4.6]}, choose a further pointed étale neighborhood \((M',m')\to(N,n)\) that is a \(K(\pi,1)\). The natural map</p>
+<div class="display-math">\[
+H^i(\pi_1(M',m'),\mu)\longrightarrow H^i(M',\mu)
+\]</div>
+<p>is then an isomorphism. The image of \(f^*\sigma\) on the right is \(\alpha|_{M'}=0\), and hence \(f^*\sigma=0\).</p></blockquote>
+<p>In Proposition&nbsp;2.3.4, replace conclusion&nbsp;(1) by</p>
+<blockquote><p>\textup{(1)} a pointed dominant étale map \((\mathscr M',m')\to(\mathscr M,m)\);</p></blockquote>
+<p>take \(c'=(m',c)\) in the pullback \(\mathscr C'^\circ=\mathscr M'\times_{\mathscr M}\mathscr C^\circ\), and delete the phrase <em>upon choosing some \(m'\) over \(m\)</em>.</p>
+<p>After the Hochschild--Serre short exact sequence in the proof of Proposition&nbsp;2.3.4, replace the remainder of the proof by:</p>
+<blockquote><p>Choose a finite étale pointed cover \((\mathscr M_1,m_1)\to(\mathscr M,m)\) on which \(\pi_1(\mathscr M_1,m_1)\) acts trivially on the finite group \(H^1(\pi_1(C_m^\circ,c),\mu)\), and set \(c_1=(m_1,c)\). Apply Lemma&nbsp;2.3.3 successively at \(m_1\) to representatives of the finitely many classes in \(H^{2,0}\) and \(H^{1,1}\). This gives a pointed dominant étale map \((\mathscr M_2,m_2)\to(\mathscr M_1,m_1)\) on which every class in \(\ker\eta\) vanishes. Set \(c_2=(m_2,c)\). It follows that \(\varepsilon(\widetilde\rho)=0\) after pullback to \(\pi_1(\mathscr C_2^\circ,c_2)\), so exactness of the left column of diagram&nbsp;(2.6) gives a \(G\)-valued lift</p>
+<div class="display-math">\[
+\rho_2':\pi_1(\mathscr C_2^\circ,c_2)\longrightarrow G.
+\]</div>
+<p>The restriction of \(\rho_2'\) to \(\pi_1(C_{m_2}^\circ,c_2)\) differs from \(\rho\) by a class \(\sigma\in H^1(\pi_1(C_m^\circ,c),\mu)\). In the Hochschild--Serre sequence, let</p>
+<div class="display-math">\[
+\chi(\sigma)\in
+H^2\bigl(\pi_1(\mathscr M_2,m_2),
+         H^0(\pi_1(C_m^\circ,c),\mu)\bigr)
+\]</div>
+<p>be its transgression. Apply Lemma&nbsp;2.3.3 at \(m_2\) to obtain a pointed dominant étale map \((\mathscr M',m')\to(\mathscr M_2,m_2)\) on which \(\chi(\sigma)\) vanishes, and set \(c'=(m',c)\). Exactness now places \(\sigma\) in the image of</p>
+<div class="display-math">\[
+H^1(\pi_1(\mathscr C'^\circ,c'),\mu)
+\longrightarrow H^1(\pi_1(C_{m'}^\circ,c'),\mu).
+\]</div>
+<p>Twisting the pulled-back lift \(\rho_2'\) by a preimage of \(\sigma^{-1}\) gives a representation</p>
+<div class="display-math">\[
+\rho':\pi_1(\mathscr C'^\circ,c')\longrightarrow G
+\]</div>
+<p>whose projectivization is the pullback of \(\widetilde\rho\) and whose restriction to \(\pi_1(C_{m'}^\circ,c')\) is \(\rho\). This is precisely diagram&nbsp;(2.5).</p></blockquote>
+<p>All obstruction classes are killed without losing the chosen fiber. Corollary&nbsp;2.3.5 and its later applications are therefore unchanged.</p></li><li><p><strong>Pages 843--844, proof of Lemma 2.4.1(1).</strong> The proof again invokes the false uniqueness of a projective intertwiner. Replace the passage beginning <em>For each \(g\in G\)</em> and ending <em>by uniqueness</em> by:</p>
+<blockquote><p>Let \(t=\#\operatorname{im}(\rho|_H)\). Since \(H\) is normal in \(G\), conjugation by \(\rho(g)\) permutes the \(t\)-element set \(\operatorname{im}(\rho|_H)\). The order of this permutation divides \(t!\), and hence, for every \(h\in H\),</p>
+<div class="display-math">\[
+\rho(g^{t!})\rho(h)\rho(g^{-t!})=\rho(h).
+\]</div>
+<p>Thus \(\rho(g^{t!})\) commutes with the irreducible representation \(\rho|_H\), so it is scalar by Schur's lemma. Therefore \(\mathbb P\rho(g^{t!})=\operatorname{id}\).</p></blockquote>
+<p>The image of \(\mathbb P\rho\) consequently has exponent dividing \(t!\), and the existing application of Burnside's theorem finishes the proof. No hypothesis or later use of Lemma&nbsp;2.4.1 changes.</p></li><li><p><strong>Pages 844--845, Lemma 2.4.2.</strong> The proof invokes Corollary&nbsp;2.3.5, which assumes \(g\ge1\). Replace the opening sentence of Lemma&nbsp;2.4.2 by:</p>
+<blockquote><p>Let \(g\ge1\), and let \(A\) be an Artin local \(\mathbb C\)-algebra with residue field \(\mathbb C\).</p></blockquote>
+<p>The existing proof then applies. Every nonvacuous downstream application is unchanged: Theorem&nbsp;6.2.1 has a nonzero local system of rank \(&lt;g\), and hence has \(g\ge2\); the genus-zero assertion of Theorem&nbsp;7.2.1 has a negative dimension bound and is vacuous; and Theorem&nbsp;1.2.1 allows only rank zero when \(g=0\).</p></li><li><p><strong>Page 860, proof of Lemma 6.1.1.</strong> The identity</p>
+<div class="display-math">\[
+\widetilde{R^1\pi_*^\circ\mathbb V}
+=R^1\pi_*^\circ\widetilde{\mathbb V}
+\]</div>
+<p>fails when \(\mathbb V\) has no real structure but \(R^1\pi_*^\circ\mathbb V\) does. Replace the proof of Lemma&nbsp;6.1.1 by:</p>
+<blockquote><p><em>Proof.</em> Set</p>
+<div class="display-math">\[
+\mathbb H=R^1\pi_*^\circ\mathbb V,\qquad
+\mathbb W_{\mathbb R}=R^1\pi_*^\circ\widetilde{\mathbb V}.
+\]</div>
+<p>By Theorem&nbsp;4.1.1, \(\mathbb W_{\mathbb R}\) is an admissible graded-polarizable real variation of mixed Hodge structure. Its complexification contains \(\mathbb H\) as a direct summand. The given inclusion</p>
+<div class="display-math">\[
+\mathbb L\lhook\joinrel\longrightarrow\mathbb H
+\lhook\joinrel\longrightarrow(\mathbb W_{\mathbb R})_{\mathbb C}
+\]</div>
+<p>and Proposition&nbsp;4.2.2 give a nonzero real mixed Hodge structure \(Q_{\mathbb R}\) and a nonzero morphism of real variations</p>
+<div class="display-math">\[
+\iota:Q_{\mathbb R}\otimes\widetilde{\mathbb L}
+\longrightarrow\mathbb W_{\mathbb R}.
+\]</div>
+<p>Let \(p:(\mathbb W_{\mathbb R})_{\mathbb C}\to\mathbb H\) be the projection to the indicated summand. In the fixed-part construction of Proposition&nbsp;4.2.2, the original inclusion \(\mathbb L\hookrightarrow\mathbb H\) is one of the constant homomorphisms evaluated by \(\iota_{\mathbb C}\). Hence \(p\circ\iota_{\mathbb C}\) is nonzero.</p>
+<p>Decompose \(Q=Q_{\mathbb R}\otimes_{\mathbb R}\mathbb C\) into Hodge components and, when \(\widetilde{\mathbb L}_{\mathbb C} =\mathbb L\oplus\overline{\mathbb L}\), restrict to a summand on which \(p\circ\iota_{\mathbb C}\) is nonzero. After replacing \(\mathbb V\) and \(\mathbb L\) by their complex conjugates if necessary, this summand is \(\mathbb L\). After regrading and replacing \(Q\) by a nonzero Hodge component, there are two cases:</p>
+<ol><li><p>the bigrading on \(\mathbb L\) is supported in degree \((0,0)\), while the bigrading on \(Q\) is supported in one of \((1,0),(0,1),(1,1)\);</p></li><li><p>the bigrading on \(\mathbb L\) is supported in \(\{(1,0),(0,1)\}\), while \(Q\) is supported in degree \((0,0)\).</p></li></ol>
+<p>In the first case, after conjugating once more if necessary, choose \((i,j)\in\{(1,0),(1,1)\}\), \(q\in Q^{i,j}\), and \(\ell\in L_m\) such that</p>
+<div class="display-math">\[
+v=(p\circ\iota_{\mathbb C})_m(q\otimes\ell)
+\]</div>
+<p>is nonzero. Then \(v\in F^1H_m\). The period map of \(\mathbb L\) is zero, so \(\nabla_m(v)\) has rank zero.</p>
+<p>In the second case, conjugate if necessary so that \(\dim L_m^{1,0}\ge\dim L_m^{0,1}\), and choose nonzero \(q\in Q\) and \(\ell\in L_m^{1,0}\) with the same expression for \(v\) nonzero. Again \(v\in F^1H_m\). Since \(q\) is constant and \(p\circ\iota_{\mathbb C}\) is horizontal, the rank of \(\nabla_m(v)\) is at most the rank of the period map</p>
+<div class="display-math">\[
+\nabla_{\mathbb L,m}:F^1L_m
+\longrightarrow L_m/F^1L_m\otimes\Omega^1_{\mathscr M,m}.
+\]</div>
+<p>Consequently,</p>
+<div class="display-math">\[
+\operatorname{rk}\nabla_m(v)
+\le\dim L_m/F^1L_m
+=\dim L_m^{0,1}
+\le\frac{\operatorname{rk}\mathbb L}{2}.
+\]</div>
+<p>This proves the lemma.</p></blockquote>
+<p>Thus Lemma&nbsp;6.1.1 supplies the same vector and rank bound used in the proof of Theorem&nbsp;1.7.1; that theorem and all subsequent vanishing and rank estimates are unchanged.</p></li><li><p><strong>Page 865, final paragraph of the proof of Theorem 7.2.1.</strong> The fixed cover carries the action of its stabilizer \(\Gamma\), not an action of all of \(\operatorname{Mod}_{g,n}\). Replace</p>
+<div class="display-math">\[
+\text{\(\operatorname{Mod}_{g,n}\)-equivariant isomorphism}
+\]</div>
+<p>by</p>
+<div class="display-math">\[
+\text{\(\Gamma\)-equivariant isomorphism}.
+\]</div>
+<p>Poincaré duality and the intersection pairing are \(\Gamma\)-equivariant, which is exactly what is required for every finite-index \(\Gamma'\subset\Gamma\). The statement of Theorem&nbsp;7.2.1 is unchanged.</p></li><li><p><strong>Pages 867--868, Proposition 8.2.1 and proof of Lemma 8.3.3.</strong> Strong cohomological rigidity is the vanishing of \(H^1(X,\operatorname{ad}\rho)\), whereas Definition&nbsp;8.1.1 also requires quasi-unipotent monodromy at infinity before the term <em>cohomologically rigid</em> applies.</p>
+<p>In Proposition&nbsp;8.2.1, delete the final sentence <em>In particular, \(\mathbb V\) is cohomologically rigid</em>. Replace the first sentence of its proof by:</p>
+<blockquote><p>We prove that \(H^1(\mathscr C^\circ,\operatorname{ad}\mathbb V)=0\).</p></blockquote>
+<p>In the proof of Lemma&nbsp;8.3.3, replace the three sentences beginning <em>It suffices to show that \(\widetilde\rho\) is integral</em> by:</p>
+<blockquote><p>It suffices to show that \(\widetilde\rho\) is integral. By Proposition&nbsp;8.2.1, \(\widetilde\rho\) is strongly cohomologically rigid. We next verify that it has quasi-unipotent local monodromy around every boundary component of a good, that is, strict normal crossings compactification of \(\mathscr C^\circ\). Once this is established, Lemma&nbsp;8.1.3 shows that \(\widetilde\rho\) is cohomologically rigid. Since the abelianization of \(\operatorname{PGL}_r(\mathbb C)\) is trivial, \textup{[KP22, Th.&nbsp;1.2]} then implies that \(\widetilde\rho\) is integral.</p></blockquote>
+<p>The boundary verification is supplied by the corrected compactification argument in the next item. Lemmas&nbsp;8.3.3--8.3.4 and Theorem&nbsp;1.2.1 are unchanged.</p></li><li><p><strong>Page 868, proof of Lemma 8.3.3.</strong> Normalization in the function field of a finite étale cover need not be smooth and need not have strict normal crossings boundary. Replace the paragraph beginning <em>One may construct a strict normal crossing compactification</em> through the end of the proof by:</p>
+<blockquote><p>Let \(\overline{\mathscr M}_{g,n+1}'\) be the strict normal crossings compactification of \(\mathscr M_{g,n+1}\) obtained by blowing up boundary strata of the Deligne--Mumford compactification, as above. Let \(\overline{\mathscr C}_{\mathrm{nor}}\) be its normalization in the function field of \(\mathscr C^\circ\), and choose a log resolution</p>
+<div class="display-math">\[
+\tau:\overline{\mathscr C}\longrightarrow
+\overline{\mathscr C}_{\mathrm{nor}}
+\]</div>
+<p>that is an isomorphism over \(\mathscr C^\circ\). Then \(\overline{\mathscr C}\) is smooth and \(\overline{\mathscr C}\setminus\mathscr C^\circ\) is a strict normal crossings divisor.</p>
+<p>Let \(E\) be any irreducible component of this boundary, including an exceptional component. At the generic point of \(E\), a small meridian maps to</p>
+<div class="display-math">\[
+\delta_1^{a_1}\cdots\delta_k^{a_k}
+\]</div>
+<p>in a local fundamental group of \(\mathscr M_{g,n+1}\), where the \(\delta_i\) are commuting meridians around the boundary components through the image stratum and the \(a_i\) are nonnegative ramification or valuation multiplicities. By \textup{[LLSS23, Lemma&nbsp;2.1.1]}, the \(\delta_i\) are products of commuting Dehn twists about disjoint simple closed curves. Passing to the finite-cover subgroup replaces them by suitable positive powers.</p>
+<p>Apply Proposition&nbsp;8.3.2 to the linear representation</p>
+<div class="display-math">\[
+\operatorname{Ad}\circ\widetilde\rho:
+\pi_1(\mathscr C^\circ)\longrightarrow
+\operatorname{GL}(\mathfrak{pgl}_r).
+\]</div>
+<p>The images of the relevant powers of the \(\delta_i\) are commuting quasi-unipotent matrices. They are simultaneously triangularizable, and the diagonal entries of their product are roots of unity. Thus the monodromy around \(E\) is quasi-unipotent. Since the adjoint representation of \(\operatorname{PGL}_r\) is faithful, the same conclusion holds for \(\widetilde\rho\). This proves quasi-unipotence around every old and exceptional boundary component and completes the proof.</p></blockquote>
+<p>This supplies the good compactification and all boundary cases required by Lemma&nbsp;8.1.3 and \textup{[KP22]}; the integrality conclusions are unchanged.</p></li><li><p><strong>Page 878, Example 9.2.3.</strong> The group-theoretic construction gives the displayed surjections for every prime \(p\), but Corollary&nbsp;9.2.2 proves non-liftability only for \(p\gg_r0\). Replace the sentence</p>
+<blockquote><p>In particular, these representations do not admit arithmetic lifts to characteristic \(0\).</p></blockquote>
+<p>by</p>
+<blockquote><p>When \(p\gg_r0\), these representations do not admit arithmetic lifts to characteristic \(0\).</p></blockquote>
+<p>The existence assertion for every prime is unchanged; only the non-liftability conclusion is restricted to the range of Corollary&nbsp;9.2.2.</p></li><li><p><strong>Pages 878--879, Remarks 9.2.5--9.2.6.</strong> Failure of flatness over \(\mathbb Z_p\) does not imply failure to be a complete intersection: for example, \(\mathbb Z_p/(p)\) is a complete-intersection \(\mathbb Z_p\)-algebra but is not flat over \(\mathbb Z_p\). Consequently, the asserted complete-intersection conclusions do not follow from Corollary&nbsp;9.2.2.</p>
+<p>Delete Remark&nbsp;9.2.5. In Remark&nbsp;9.2.6, delete its final sentence beginning <em>Our result Corollary 9.2.2 shows</em>. These deletions do not affect Corollary&nbsp;9.2.2, the non-liftability examples, or any later result.</p></li></ol>

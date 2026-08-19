@@ -1,0 +1,147 @@
+<p>These errata refer to the version published in <em>Algebraic Geometry</em> <strong>6</strong> (2019), no.&nbsp;1, 1--25, <a href="https://doi.org/10.14231/AG-2019-001">doi:10.14231/AG-2019-001</a>. Page numbers below refer to that version.</p><ol class="errata-list"><li><p><strong>Pages 5--6, introductory discussion preceding Example 2.1.</strong> Theorem 1.3 bounds the periods of the arithmetic progressions, but by itself does not bound their finite exceptional parts. Replace the first paragraph on page 6 by:</p>
+<blockquote><p>Theorem 1.3 supplies a bound, independent of $j$, on the periods of the arithmetic progressions occurring in the sets $A_\phi(Y^{(j)},Z)$. In Lemmas 4.2--4.4, the nesting of these sets and the nonperiodicity of $C$ are combined with this period bound to obtain a uniform bound on the order of tangency between $C$ and $\phi^n(C)$ for nonzero $n$. More general statements in this direction appear as Lemmas 4.4 and 4.5.</p></blockquote>
+<p>The proofs in Section 4 already use these additional ingredients.</p></li><li><p><strong>Page 6, Example 2.2.</strong> The hypotheses on $\psi$ do not ensure that the chosen plane has an infinite orbit. Replace the first four sentences of the example by:</p>
+<blockquote><p><strong>Example 2.2.</strong> Let $\psi\colon\PP^3\to\PP^3$ be an automorphism fixing two distinct points $p_1,p_2$ and inducing an infinite-order automorphism of the pencil of planes through the line $p_1p_2$. Let $\pi\colon X\to\PP^3$ be the blow-up at $p_1$ and $p_2$, with exceptional divisors $E_1$ and $E_2$, and let $\phi\colon X\to X$ be the automorphism induced by $\psi$. Choose a plane in the pencil with infinite $\psi$-orbit, let $D$ be its strict transform, and let $L$ be the strict transform of $p_1p_2$. Then $V_D=L$ is not Zariski dense in $D$.</p></blockquote>
+<p>For example, after choosing coordinates in which $p_1$ and $p_2$ are the first two coordinate points, a diagonal automorphism whose last two eigenvalues have non-torsion ratio has the required action on the pencil. Distinct planes in the orbit intersect along $p_1p_2$, so the normal-bundle calculation that follows is unchanged.</p></li><li><p><strong>Page 7, Example 2.4.</strong> The Skolem--Mahler--Lech theorem permits more than one infinite progression. Replace “the union of a finite set and an arithmetic progression” by “the union of a finite set and finitely many arithmetic progressions.” The remainder of the example is unchanged.</p></li><li><p><strong>Page 9, statement and proof of Lemma 3.3.</strong> The preliminary iterate is an exponent of the affine linear group in dimension $n$, so the bound also depends on $n$. In the statement, replace the final parenthetical phrase by</p>
+<blockquote><p>for some $N=N(n,\#\kappa,|\pi|_p)$, independent of $Y$, $Z$, and $f$.</p></blockquote>
+<p>In the proof, replace “this $N$ depends only on $\#|\kappa|$” by “this $N$ depends only on $n$ and $\#\kappa$.” Since $n=\dim X$ is fixed in the global applications, their uniformity in the varying subschemes is unchanged.</p></li><li><p><strong>Pages 9--12, Lemma 3.3 and Proposition 3.7.</strong> The zero-set dichotomy used in Lemma 3.3 fails when $\OO_Y$ has vertical torsion. For example, with $A=R[[x]]$, $f(x)=x+\pi$, and</p>
+<div class="display-math">\[
+ Y=Z=\Spf\bigl(A/(\pi^a,x)\bigr),
+\]</div>
+<p>one has $f^m(Y)\subseteq Z$ exactly when $m\pi=0$ modulo $\pi^a$, and the period is unbounded as $a$ varies. In the statement of Lemma 3.3, replace “for any two closed formal subschemes $Y$ and $Z$” by</p>
+<blockquote><p>for any two closed formal subschemes $Y$ and $Z$ such that $\OO_Y$ is flat over $R$.</p></blockquote>
+<p>Make the same addition to the hypotheses of Proposition 3.7. In the proof of Lemma 3.3, replace the sentence beginning “But this last is a $p$-adic analytic function” and the following remark by:</p>
+<blockquote><p>For fixed $h$ and $s$, put</p>
+<div class="display-math">\[
+ F(r)=q\circ f^s\circ g(h,r)\in\OO_Y.
+\]</div>
+<p>This is an $\OO_Y$-valued $p$-adic analytic function. Because $\OO_Y$ is $R$-flat, $F$ vanishes identically if and only if its image in $\OO_Y\otimes_RK$ does. If the latter image is nonzero, coefficientwise Krull intersection gives an integer $q&gt;0$ for which its image in the finite dimensional $K$-vector space</p>
+<div class="display-math">\[
+ (\OO_Y\otimes_RK)/(x_1,\ldots,x_n)^q
+\]</div>
+<p>is nonzero. Choose a $K$-linear functional on this quotient which detects a nonzero coefficient of $F$. Its composite with $F$ is a nonzero scalar-valued $p$-adic analytic function, and therefore has only finitely many zeros by Strassmann's theorem. Consequently, $F$ either vanishes identically or has only finitely many zeros. The remainder of the proof applies verbatim.</p></blockquote>
+<p>The $\pi$-saturated models used in the corrected proof of Theorem 1.3 below are $R$-flat, so Theorems 1.2 and 1.3 retain their stated conclusions.</p></li><li><p><strong>Pages 10--11, proof of Corollary 3.6.</strong> The printed induction identifies a closed test point with an associated point and does not remove an associated point from the quotient. Replace the proof by:</p>
+<blockquote><p><em>Proof.</em> It is enough to show that the maps to the indicated completed local rings detect every nonzero local section of $\OO_Y$. Let $a$ be such a section. Its support contains an associated point $\eta$ of $Y$. By hypothesis, there is a chosen closed point $y_i\in\overline{\{\eta\}}$. Since the support of $a$ is closed and contains $\eta$, it also contains $y_i$, so the germ of $a$ in $\OO_{Y,y_i}$ is nonzero. The natural map</p>
+<div class="display-math">\[
+ \OO_{Y,y_i}\longrightarrow\widehat{\OO}_{Y,y_i}
+\]</div>
+<p>is injective by the Krull intersection theorem. Thus $a$ remains nonzero in the completion at $y_i$. Applying this to the image in $\OO_Y$ of each local section of $\II_Z$ proves that $Y\subseteq Z$ if and only if all the stated formal-local containments hold. \qed</p></blockquote>
+<p>This proof treats minimal and embedded associated points uniformly and gives the detection statement used in Proposition 3.7.</p></li><li><p><strong>Pages 11--12, proof of Proposition 3.7.</strong> The closed points chosen to specialize the associated points need not belong to the eventual image $I$. Replace the proof from “Let $r$ be such that” through the final application of Corollary 3.6 by:</p>
+<blockquote><p>For each of the finitely many associated points under consideration, choose a closed specialization, and enlarge the residue field once so that all these points are rational. On the finite set of residue-field points, choose a common integer $T$ after which every chosen point enters the eventual image</p>
+<div class="display-math">\[
+ I=\bigcap_{n\geq0}f^n\bigl(X(\mathbb F_{q^r})\bigr).
+\]</div>
+<p>Choose $N&gt;0$ so that $f^N$ fixes $I$, and put $g=f^N$. Subdivide the decomposition into residue classes modulo $N$ to absorb the finitely many iterates preceding $T$.</p>
+<p>For each remaining residue class and each chosen specialization $y$, the maps along its transient orbit are <em>\'etale</em> and induce isomorphisms of completed local rings. Transport the completed germ of the corresponding scheme $f^i(Y)$ along this orbit to its endpoint $x\in I$. The automorphism of $\widehat{\OO}_{X,x}$ induced by $g$ fixes the closed point and satisfies the hypotheses of Lemmas 3.3 and 3.4. Those lemmas therefore make the set of exponents giving containment of each transported germ semilinear, with a period depending only on the finite residue extensions used for the chosen specializations. Corollary 3.6, applied to the transported germs of the finitely many schemes $f^i(Y)$, detects the global containment. Finally, the discarded initial iterates form a finite exceptional set. This proves both assertions. \qed</p></blockquote>
+<p>The same argument works when different chosen points have different transient lengths by taking their maximum. The period bound retains the dependence stated in the proposition.</p></li><li><p><strong>Pages 12--13, proof of Theorem 1.3.</strong> The proof spreads the data over a finite-type integral $\ZZ$-algebra but does not choose the $p$-adic place required by Proposition 3.7. After spreading out the finite collection of defining ideals, the maps, and, in part&nbsp;(i), the localization data at $x$, insert the following reduction before applying Proposition 3.7:</p>
+<blockquote><p>After enlarging and localizing $R$, choose a prime $p$, a finite extension $K/\mathbb Q_p$ with valuation ring $\OO_K$, and an injective homomorphism</p>
+<div class="display-math">\[
+ R\longrightarrow\OO_K
+\]</div>
+<p>which avoids the finitely many loci where the required smoothness, geometric connectedness, <em>\'etaleness</em>, and localization conditions fail. Such a homomorphism is obtained from Noether normalization by choosing algebraically independent $p$-adic values and then passing to a finite extension of $\mathbb Q_p$.</p>
+<p>Write $F=\operatorname{Frac}(R)$. Test generic-fiber ideal containment after the field extension $F\hookrightarrow K$, which is faithfully flat; no flatness of $R\to\OO_K$ is asserted or needed. Write $\mathcal f$ for the resulting <em>\'etale</em> endomorphism of the smooth $\OO_K$-model. Replace every generic-fiber subscheme used in the argument by its $\pi$-saturated schematic closure. The structure sheaf of each such closure is $\pi$-torsion-free and hence flat over the discrete valuation ring $\OO_K$. Moreover, for saturated closures $\mathcal Y$ and $\mathcal Z$,</p>
+<div class="display-math">\[
+ f_K^n(Y_K)\subseteq Z_K
+ \quad\Longleftrightarrow\quad
+ \mathcal f^n(\mathcal Y)\subseteq\mathcal Z:
+\]</div>
+<p>the reverse implication is immediate, and the forward implication follows because the image of $\II_{\mathcal Z}$ in $\OO_{\mathcal Y}$ vanishes on the generic fiber and $\OO_{\mathcal Y}$ is torsion-free.</p>
+<p>The associated primes of a saturated closure avoid the special fiber and lie over the associated primes of its generic fiber. The finite field extension to $K$ may split these primes, but only into a finite set. Thus the finiteness hypotheses on associated points used in parts&nbsp;(i) and&nbsp;(ii) are preserved. Proposition 3.7, in its flat form above, now applies and gives the required uniform semilinear sets. Faithful flatness descends the resulting generic containments to the original field.</p></blockquote>
+<p>This supplies the missing arithmetic specialization in both parts of the theorem; their statements and subsequent uses are unchanged.</p></li><li><p><strong>Page 13, proof of Theorem 3.9(ii).</strong> Brodmann's stabilization theorem is stated too broadly. Replace the sentence beginning “But for any $R$-module $M$” by:</p>
+<blockquote><p>But if $M$ is a finitely generated $R$-module and $J\subset R$ is an ideal, the sets $\Ass(M/J^nM)$ stabilize for $n\gg0$ [Bro79].</p></blockquote>
+<p>Here $M=R/I$ is finitely generated, so the application and the conclusion of Theorem 3.9(ii) are unchanged.</p></li><li><p><strong>Page 14, final display in the proof of Lemma 4.2.</strong> At an index attaining the printed maximum, the defining containment still holds. Replace the final display by:</p>
+<div class="display-math">\[
+ k=1+\max_{1\leq i\leq N}
+ \bigl(\max\{j:D^{(j)}\subset D\cap\phi^i(D)\}\bigr).
+\]</div>
+<p>Then $D^{(k)}$ is not contained in $D\cap\phi^i(D)$ for any $1\leq i\leq N$, as required. Lemmas 4.3--4.5 use only the resulting existence of a finite $A_k$ and are unchanged.</p></li><li><p><strong>Pages 16--17, final calculation in the proof of Theorem 4.6.</strong> The displayed equivariance calculation moves the two factors inconsistently and omits that $\psi_0$ lifts $\phi^r$. Replace the sentence beginning “In general, we obtain” and the following sentence by:</p>
+<blockquote><p>For arbitrary $m,n\in\ZZ$, transport the intersection by $\psi_0^{-m}$. Since $\pi_0\circ\psi_0^m=\phi^{rm}\circ\pi_0$, one obtains</p>
+<div class="display-math">\[
+ \pi_0\!\left(\psi_0^m(\widetilde D)\cap
+                   \psi_0^n(\widetilde D)\right)
+ =\phi^{rm}\!\left(
+   \pi_0\!\left(\widetilde D\cap
+                      \psi_0^{\,n-m}(\widetilde D)\right)\right).
+\]</div>
+<p>The expression in parentheses is disjoint from $U_{r(n-m)}$, by the case $m=0$ already proved. Hence the displayed image is disjoint from the open subset $\phi^{rm}(U_{r(n-m)})$ of $V$, as required.</p></blockquote>
+<p>This proves part&nbsp;(iii) for all $m\ne n$ and leaves Theorem 4.6 unchanged.</p></li><li><p><strong>Page 17, Lemma 4.7(ii)--(iii).</strong> The statement mixes subvarieties of $X$ with subvarieties of $Y$ and does not record which iterate is lifted. Replace parts&nbsp;(ii) and&nbsp;(iii) by:</p>
+<blockquote><p>\textup{(ii)} for some $r&gt;0$, the iterate $\phi^r$ lifts to an automorphism $\psi\colon Y\to Y$;</p>
+<p>\textup{(iii)} for every $n$, the codimension-two part of</p>
+<div class="display-math">\[
+ \widetilde D\cap\psi^n(\widetilde D)\cap\pi^{-1}(V)
+\]</div>
+<p>is a union $\bigcup_iV_i$ of finitely many $\psi$-invariant codimension-two subvarieties $V_i\subset Y$, and $\widetilde D$ is smooth at the generic point of every $V_i$.</p></blockquote>
+<p>This is the statement established by the proof and used in the proof of Theorem 1.4.</p></li><li><p><strong>Page 20, first paragraph of the proof of Theorem 5.3.</strong> The hypothesis excludes intersections only when $|n|&gt;N$, so the iterate $\phi^N$ does not handle the boundary exponents $\pm N$. Replace “Replacing $\phi$ by the iterate $\phi^N$” by</p>
+<blockquote><p>Choose an integer $M&gt;N$. Replacing $\phi$ by the iterate $\phi^M$,</p></blockquote>
+<p>since every nonzero power of $\phi^M$ has exponent of absolute value greater than $N$. The remainder of this paragraph is unchanged.</p></li><li><p><strong>Page 20, middle paragraph of the proof of Theorem 5.3.</strong> The dichotomy is written for the wrong moving subvariety, and the cited result should be Lemma 4.3. Replace the paragraph beginning “Thus the set” through the sentence ending “we continue the induction” by:</p>
+<blockquote><p>Thus the set</p>
+<div class="display-math">\[
+ A_{\phi^{-1}}(V,D)
+ =\{n:\phi^{-n}(V)\subset D\}
+ =\{n:V\subset\phi^n(D)\}
+\]</div>
+<p>is infinite. By Lemma 4.3, after replacing $\phi$ by an iterate, we may assume either that $V\nsubseteq\phi^n(D)$ for every nonzero $n$, or that $V\subseteq\phi^n(D)$ for every $n$. In the former case, $V$ is no longer a component of $V(D,\phi)$, and we continue the induction. In the latter case, we proceed with the periodicity argument below.</p></blockquote>
+<p>The next sentence, beginning “So we may then assume,” is thereby replaced and should be deleted. The remainder of the proof applies to the second case and proves Theorem 5.3 as stated.</p></li><li><p><strong>Page 21, proof of Lemma 6.1(i).</strong> The two fibers need not initially have the same dimension, and equality of one fiber does not alone imply equality of the exceptional divisors. Replace the proof of part&nbsp;(i) through the sentence “Hence $E_i=E_j$” by:</p>
+<blockquote><p>Suppose that $E_i\cap E_j$ is nonempty, choose $x$ in the intersection, and put $s_i=\dim\pi_i(E_i)$ and $s_j=\dim\pi_j(E_j)$. Let</p>
+<div class="display-math">\[
+ F_i\simeq\PP^{n-s_i-1},\qquad
+ F_j\simeq\PP^{n-s_j-1}
+\]</div>
+<p>be the fibers through $x$. Their intersection has dimension at least</p>
+<div class="display-math">\[
+ n-s_i-s_j-2\geq1,
+\]</div>
+<p>so it contains a curve $\Gamma$. If $H_i$ is an ample divisor on $Y_i$, then $\pi_i^*H_i|_{F_j}\simeq\OO_{F_j}(a)$ for some $a\geq0$. Its degree on $\Gamma$ is zero because $\pi_i$ contracts $\Gamma$, and hence $a=0$. It follows that $\pi_i$ contracts all of $F_j$. By symmetry, $\pi_j$ contracts all of $F_i$; therefore $F_i=F_j=:F$, and $s_i=s_j=:s$.</p>
+<p>For either blow-down, the normal-bundle sequence is</p>
+<div class="display-math">\[
+ 0\longrightarrow\OO_F^{\oplus s}
+ \longrightarrow N_{F/X}
+ \longrightarrow\OO_F(-1)\longrightarrow0.
+\]</div>
+<p>It splits because $H^1(F,\OO_F(1))=0$, so</p>
+<div class="display-math">\[
+ N_{F/X}\simeq\OO_F^{\oplus s}\oplus\OO_F(-1).
+\]</div>
+<p>In particular, $H^1(F,N_{F/X})=0$ and $h^0(F,N_{F/X})=s$; the Hilbert scheme of $X$ is therefore smooth of dimension $s$ at $[F]$. The family of fibers of $E_i\to\pi_i(E_i)$ maps to this Hilbert scheme, and its tangent map at $[F]$ is</p>
+<div class="display-math">\[
+ H^0(F,N_{F/E_i})\longrightarrow H^0(F,N_{F/X}).
+\]</div>
+<p>This is an isomorphism because $H^0(F,\OO_F(-1))=0$. The same holds for the family of fibers of $E_j$. Both fiber families are consequently open in the same smooth local Hilbert germ at $[F]$. Their universal families agree over a dense open neighborhood and sweep dense open subsets of both $E_i$ and $E_j$. Taking closures gives $E_i=E_j$.</p></blockquote>
+<p>The linear-independence argument that follows now proves the finiteness claim, and Lemma 6.1(i) remains valid.</p></li><li><p><strong>Pages 21--22, Lemma 6.2 and proof of Theorem 1.6.</strong> An orbit of size $d\leq B$ need not have size dividing $B$. Set</p>
+<div class="display-math">\[
+ L(B)=\operatorname{lcm}(1,\ldots,B).
+\]</div>
+<p>In Lemma 6.2, replace the final sentence of the statement by:</p>
+<blockquote><p>Then the iterate $\phi^{L(B(E))}$ descends to an automorphism of $X$, where $B(E)$ is an upper bound for the number of projective-bundle structures on $E$; one may take $B(E)=\dim E$ by the corrected use of [Wi\'s91, Theorem 2.2] below.</p></blockquote>
+<p>Indeed, the orbit of the original bundle structure has some size $d\leq B(E)$, and $d$ divides $L(B(E))$.</p>
+<p>In the proof of Theorem 1.6, replace the paragraph beginning “First, assume that the $\widetilde E_j$ are all periodic” through “as claimed” by:</p>
+<blockquote><p>First, assume that the $\widetilde E_j$ are all periodic under $\phi$. Let $e$ be a common upper bound, supplied by Lemma 6.3 on the finitely many models $X_i$, for their possible periods, and put</p>
+<div class="display-math">\[
+ N=L(e)\prod_{i=1}^{n}L(B(E_i)).
+\]</div>
+<p>Because every period at most $e$ divides $L(e)$, the iterate $\phi^{L(e)}$ fixes every $\widetilde E_j$. At each stage of the blow-up tower, Lemma 6.2 shows that taking the additional factor $L(B(E_i))$ preserves the relevant projective-bundle fibers and permits descent to the preceding model. Descending successively through the tower shows that $\phi^N$ descends to an automorphism of $X$.</p></blockquote>
+<p>In the paragraph beginning “Suppose that some $\widetilde E_j$ is not periodic,” take</p>
+<div class="display-math">\[
+ N=L(e)\prod_{i=j+1}^{n}L(B(E_i))
+\]</div>
+<p>for the periodic exceptional divisors with indices greater than $j$. The same descent then gives an automorphism of $X_j$. Theorem 1.6 and Corollaries 1.7 and 1.9 require only a uniform exponent and are otherwise unchanged.</p></li><li><p><strong>Page 22, proof of Lemma 6.2 and reference [Wi\'s91].</strong> The cited theorem bounds the number of relevant contractions by dimension, not by the Picard number. Replace the final sentence of the proof by:</p>
+<blockquote><p>Each projective-bundle structure $E\to B_i$ has relative Picard number one and determines a fiber-type extremal ray, and distinct structures determine distinct rays. By [Wi\'s91, Theorem 2.2],</p>
+<div class="display-math">\[
+ \sum_i\bigl(\dim E-\dim B_i\bigr)\leq\dim E.
+\]</div>
+<p>Every summand is positive, so $E$ has at most $\dim E$ such structures. Thus one may take $B(E)=\dim E$ in the revised statement of Lemma 6.2. \qed</p></blockquote>
+<p>Reference [Wi\'s91] is correctly listed as J.&nbsp;A. Wi\'sniewski, <em>On contractions of extremal rays of Fano manifolds</em>, J. reine angew. Math. <strong>417</strong> (1991), 141--157. Only the asserted bound and the consequent exponent change.</p></li><li><p><strong>Pages 23--24, final paragraph of the proof of Lemma 7.1.</strong> The scheme-containment direction is reversed. Replace the paragraph beginning “Likewise, $A_k$ is the set” by:</p>
+<blockquote><p>Up to reindexing by $n\mapsto-n$, membership in $A_k$ means that</p>
+<div class="display-math">\[
+ \Spec\bigl(\OO_{Y,V}/\mathfrak m_V^k\bigr)
+ \subseteq
+ \bigl(Y\cap\phi^n(Z)\bigr)_{V},
+\]</div>
+<p>not the reverse containment. In the discrete valuation ring $\OO_{Y,V}$, this says that the local intersection has order at least $k$. If $Y\cap\phi^n(Z)$ has the expected dimension along $V$, then $n\notin A_\infty=A_K$. Its local intersection order is therefore less than $K$, which is equivalent to</p>
+<div class="display-math">\[
+ \mathfrak m_V^K
+ \subseteq \II_{Y,V}+\II_{\phi^n(Z),V}
+ \qquad\text{in }\OO_{X,V}.
+\]</div>
+<p>This proves the first assertion of the lemma. \qed</p></blockquote>
+<p>The semilinearity assertion proved in the preceding paragraph is unchanged, and the corrected ideal containment gives the length bound used in Theorem 7.2.</p></li></ol>

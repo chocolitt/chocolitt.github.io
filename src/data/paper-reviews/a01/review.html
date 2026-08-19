@@ -1,0 +1,314 @@
+<h4>Report metadata</h4>
+<div class="table-wrap"><table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr><td>Category</td><td>Submitted</td></tr><tr><td>Processing status</td><td>completed</td></tr><tr><td>Detailed comments</td><td>31</td></tr><tr><td>Domain</td><td>stem/mathematics</td></tr><tr><td>Completed</td><td>2026-07-29T18:28:13.585244+00:00</td></tr><tr><td>Refine document ID</td><td><code>680d983e-5b2f-4466-b419-e7bb02beca8a</code></td></tr></tbody></table></div>
+<h4>Refine summary</h4>
+<p>This paper reformulates the theory of $p$-adic iterated integrals on semistable curves using the unipotent log rigid fundamental group. The authors establish the basic properties of the Frobenius and monodromy operators on this group and characterize Berkovich-Coleman and Vologodsky integration methods.</p>
+<h4>Overall feedback</h4>
+<p>Here are some observations on the document's framework and arguments.</p>
+<p><strong>Homotopy exact sequence in logarithmic generality</strong></p>
+<p>Proposition 8.2.1 provides the working foundation for both $\varphi$ and $N$. The argument references the non-logarithmic approach of [45] paired with relative log-convergent pushforwards and a Katz-Oda setup. Readers will look for an explicit verification of the Tannakian exactness criterion for relatively unipotent F-isocrystals with nilpotent residues on weak log curves, particularly at annular points.</p>
+<p>Furthermore, the assertions in Remark 8.2.2 regarding the relative universal objects $W_n$ exhibiting the required Frobenius structures and restricting to the absolute universal objects $E_n$ stand as assertions in the text. Expanding these points into explicit proofs and demonstrating how they carry over from groups to the log-basepoint torsors used in Sections 9-10 will anchor the foundational architecture.</p>
+<p><strong>Proposition 9.2.1 and Frobenius-fixed paths</strong></p>
+<p>The non-abelian classification of Frobenius-fixed paths over $K[\ell]$ relies on Lemma 9.2.3, which identifies $H^1(\Gamma)$ with the Frobenius invariants of rigid cohomology via the $E_2$-degeneration of the Steenbrink-Zucker spectral sequence. Degeneration by itself leaves the eigenvalue statement on the remaining graded pieces open.</p>
+<p>Passing from cohomological invariants to the abelianization of the fixed pro-unipotent group introduces the semilinear extension $\varphi(\ell)=q\ell$. The Tate-twisted residue pieces originating from nodes and punctures make this interaction an actively moving part; establishing that shifted fixed classes are excluded is necessary logic here. Because Proposition 9.2.1 provides the unique Frobenius lift vital to Sections 12-13, proving the result through a $\varphi$-stable lower-central or weight filtration that navigates $K[\ell]$ and all permitted log basepoints explicitly will close this progression.</p>
+<p><strong>Monodromy operator compatibilities</strong></p>
+<p>The Vologodsky comparison depends on the monodromy operator $N$. Definition 10.1.1 builds $N$ from sections $s_1$ and $s_2$, while Definition 10.1.4 selects varied local sections depending on whether the basepoint is smooth, punctured, nodal, or annular. Remarks 10.1.6-10.1.7 relate this block to both residue/Gauss-Manin and Deligne-Goncharov monodromy without providing an accompanying proof detailing independence from, or controlled dependence on, changes of sections and coordinates across arbitrary log basepoints.</p>
+<p>To equate the $N$ in Theorem 13.2.5 with Vologodsky's operator, the document requires a dedicated theorem. A comprehensive statement covering choice control, functoriality, concatenation, abelianization, and the preservation of the weight and monodromy filtrations will seal this comparison.</p>
+<p><strong>Berkovich-Coleman integration equivalence</strong></p>
+<p>Theorem 12.1.1 outlines the formal properties of the newly defined Frobenius-invariant integration, placing the core identification with established Coleman-de Shalit and Berkovich integration in Remarks 12.1.2-12.1.3. The nodal calculation featured in Example 11.1.5 successfully treats repeated dlog forms, whereas the broad comparison demands integration of arbitrary unipotent connections and forms across good-reduction pieces, residue discs, annuli, and nodes, alongside compatible logarithm branches and lifted log basepoints.</p>
+<p>Converting this claim from a remark into an explicitly formulated and proved comparison theorem showing that the local identifications glue globally along graph paths will cement the equivalence between the integration theories.</p>
+<p><strong>Uniqueness and normalization in the Vologodsky theory</strong></p>
+<p>The final comparison with Vologodsky's path theory involves several moving parts. Proposition 13.2.1 states that Vologodsky's three conditions determine a unique element over the stated scope of punctures, arbitrary log basepoints, completed torsors, and the document's normalization of $N$. Because Theorem 13.2.5 verifies the conditions without proving uniqueness independently, it steps short of assuring equality with Vologodsky's original path.</p>
+<p>Looking at the nodal base case in Proposition 13.2.3, the residue product is equated with the combinatorial integral. Definition 3.1.2 introduces the latter as $1/n!$ multiplied by that product. Theorem 13.2.5 incorporates the compensating factor $n!$, but tracking it through the proof requires formal systematizing. A consolidated uniqueness argument at the exact claimed scope, paired with an explicit verification of factorials, composition orders, signs, node-branch-to-tropical-edge orientations, and the filtration step applied for punctures, will complete the logic required for the comparison.</p>
+<h4>Detailed comments</h4>
+<h5>1. Frobenius requires a stronger field hypothesis in 1.2</h5>
+<ul><li>ID: <code>3f361ba4-ea0b-4e46-9066-7af7a6865399</code></li><li>Refine score: <code>0.38</code></li><li>Original types: general</li><li>Refine status: open</li></ul>
+<p><strong>Comment</strong></p>
+<p>The standing hypotheses in Subsection 1.2 appear too broad for the ensuing Frobenius-based results. Sections 8.1 and 9.1 construct the relevant endomorphism under the assumption that $(X,M)$ is defined over $k=\mathbf{F}_q$; for a general field of positive characteristic, identifying the $q$-Frobenius twist with the original object requires additional descent or Frobenius data. Thus the introductory statements involving Frobenius-invariant lifts need the corresponding stronger hypothesis.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote><p>1.2. Berkovich-Coleman and Vologodsky integration. Let $k$ be a field of finite characteristic; $W=W(k)$, the ring of Witt vectors; $V$, a totally ramified extension of $W$ with uniformizer $\pi$; and $K$ the field of fractions of $V$. Let $(X, M)$ be a proper log smooth curve defined over the standard log point $(S, \mathbb{N})$ (with $S=\operatorname{Spec} k$ ) with dual graph $\Gamma$. Pick a lift of $X$ to a log smooth formal curve $(\mathcal{P}, L)$ over $(\operatorname{Spf} V, N)$ where $N$ is the log structure induced by $\mathbb{Z}_{\geq 0} \rightarrow V$ given by $e_{\pi} \mapsto \pi$.</p></blockquote>
+<h5>2. Symmetrization claim omits its basepoint hypothesis</h5>
+<ul><li>ID: <code>e7c21819-5cef-41b2-a9fc-b44683154eb2</code></li><li>Refine score: <code>0.36</code></li><li>Original types: general</li><li>Refine status: open</li></ul>
+<p><strong>Comment</strong></p>
+<p>The symmetrization claim is stated in the context of arbitrary log basepoints, but Proposition 11.2.1 and Theorem 12.1.1(4) establish it only when the endpoint fiber functors are attached to smooth points. For nontrivial log basepoints, the lifted bases are instead normalized through constant terms of Log-analytic sections, and the tensor compatibility needed for the same group-like argument is not established in the paper. The overview therefore states symmetrization more generally than the proved result.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote><p>where $p$ is the Frobenius-invariant path specializing to $\bar{p}$. This definition is a natural generalization of Besser's characterization of Coleman integration as parallel transport along the Frobenius-invariant path. We show that our definition of Berkovich integration coincides with the usual one. It inherits multilinearity, concatenation, functoriality, integration by parts, and symmetrization properties from the integration theory on $(X, M)$.</p></blockquote>
+<h5>3. Vologodsky path is missing scalar extension</h5>
+<ul><li>ID: <code>586d6095-cf2e-4165-90c4-7e49fb8c607a</code></li><li>Refine score: <code>0.29</code></li><li>Original types: general</li><li>Refine status: open</li></ul>
+<p><strong>Comment</strong></p>
+<p>The Vologodsky path in this characterization belongs to the scalar-extended module $\Pi((X,M);F_a,F_b)_\ell$, not the unextended module displayed here. Definition 9.1.2 constructs the relevant Frobenius action after extension to $K[\ell]$, with $\varphi(\ell)=q\ell$, and Proposition 13.2.1 places $p_{\mathrm{Vol}}$ in that extended module. Omitting the subscript $\ell$ therefore creates a coefficient mismatch in the Frobenius-invariance condition.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote><p>Vologodsky defined a path-independent integration theory by making use of the Frobenius and monodromy operators, $\varphi$ and $N$, acting on $\Pi\left((X, M) ; F_{a}, F_{b}\right)$, the completed dual coalgebra to the ring of functions on $\pi^{\text {rig, un }}\left((X, M) ; F_{a}, F_{b}\right)$. Specifically, he defines a canonical element $p_{\text {Vol }}$ in $\Pi\left((X, M) ; F_{a}, F_{b}\right)$, characterized by the following three properties:</p>
+<p>(1) $p_{\text {Vol }}=1 \bmod \mathscr{I}_{a}$ (2) $\varphi\left(p_{\text {Vol }}\right)=p_{\text {Vol }}$ (3) $N^{r}\left(p_{\text {Vol }}\right) \in W_{-r-1}$ for all $r&gt;0$.</p></blockquote>
+<h5>4. Base term in the homotopy kernel is inconsistent</h5>
+<ul><li>ID: <code>405e0382-ac14-4249-a25b-9433aeb3698c</code></li><li>Refine score: <code>0.26</code></li><li>Original types: general</li><li>Refine status: open</li></ul>
+<p><strong>Comment</strong></p>
+<p>The base term in the introductory homotopy kernel is labeled $\pi_1^{\mathrm{rig},\varphi,\mathrm{un}}$, but Proposition 8.2.1, Corollary 8.2.5, and Definition 9.1.2 use $\pi_1^{\mathrm{rig},\varphi,\mathrm{nr}}$ for this target. Since the paper does not identify these Tannakian categories, the displayed kernel is inconsistent with the exact sequence used to define Frobenius.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote><p>By means of a homotopy exact sequence, we reinterpret $\pi_{1}^{\text {rig, un }}\left((X, M) ; F_{a}, F_{b}\right)$ as the kernel of homomorphism of Tannakian fundamental groups of weakly unipotent overconvergent $F$-isocrystals on a weak log curve ( $X_{t}, M_{t}$ ) over a log point ( $S_{t}, \mathbb{N}_{t}$ ) corresponding to a standard log disc: $\pi_{1}^{\mathrm{rig}, \text { un }}\left((X, M) ; F_{a}, F_{b}\right)_{\ell} \cong \operatorname{ker}\left(\pi_{1}^{\mathrm{rig}, \varphi, \text { un }\left(f_{t}, \text { nr }\right)}\left(\left(X_{t}, M_{t}\right) ; \tilde{F}_{a}, \tilde{F}_{b}\right)_{\ell} \rightarrow \pi_{1}^{\mathrm{rig}, \varphi, \text { un }}\left(\left(S_{t}, \mathbb{N}_{t}\right) ; \tilde{F}_{a}, \tilde{F}_{b}\right)_{\ell}\right)$.</p></blockquote>
+<h5>5. Index shift in the tropical residue forms in Proposition 1.4.1 and Definition 13.2.2</h5>
+<ul><li>ID: <code>7bdc3761-aa3f-4665-8547-19be345a7558</code></li><li>Refine score: <code>0.32</code></li><li>Original types: general</li><li>Refine status: open</li></ul>
+<p><strong>Comment</strong></p>
+<p>The tropical residue forms are indexed inconsistently. The displayed type corresponds to a zero-based family $\eta_0,\ldots,\eta_{n-1}$, whereas Proposition 1.4.1 uses $\eta_1,\ldots,\eta_n$ to map $K^{n_0}$ to $K^{n_n}$, which requires $\eta_i\in\Omega^1(\Gamma)\otimes\operatorname{Hom}(K^{n_{i-1}},K^{n_i})$. The same shift recurs in Definition 13.2.2, where the first display places $\omega_{i+1}$ in $\operatorname{Hom}(K^{n_i},K^{n_{i+1}})$, while the next places $\operatorname{Res}(\omega_i)$ in that same Hom-space. Consequently, the stated types of $\eta_1\cdots\eta_n$ do not consistently compose from $K^{n_0}$ to $K^{n_n}$.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote><p>To a overconvergent isocrystal $\mathcal{E}$ of index of unipotency $n$, by considering the residues of the connections induced on $\mathcal{E}^{i} / \mathcal{E}^{i+2}$, one attaches matrices of tropical 1-forms</p>
+<div class="display-math">$$
+\eta_{i} \in \Omega^{1}(\Gamma) \otimes \operatorname{Hom}\left(K^{n_{i}}, K^{n_{i+1}}\right) .
+$$</div>
+<p>Proposition 1.4.1. (Proposition 13.2.3) Let $F_{a}, F_{b}$ be fiber functors on $\left(X, M_{X}\right)$ attached to log points and anchored at components $\bar{a}, \bar{b} \in V(\Gamma)$. Let $p$ be the Frobeniusinvariant lift of $\bar{p} \in \Pi(\Gamma ; \bar{a}, \bar{b})$. Let $\mathcal{E}$ be a unipotent overconvergent isocrystal of index of unipotency $n$. The morphism $N^{n} p: K^{n_{0}}=F_{a}\left(\mathcal{E} / \mathcal{E}^{1}\right) \rightarrow F_{b}\left(\mathcal{E}^{n}\right)=K^{n_{n}}$ is multiplication by</p></blockquote>
+<h5>6. Section 2 path module needs connectivity</h5>
+<ul><li>ID: <code>9b4383fd-9478-4ce0-81be-57ad9b194699</code></li><li>Refine score: <code>0.29</code></li><li>Original types: general</li><li>Refine status: open</li></ul>
+<p><strong>Comment</strong></p>
+<p>The rank-one module claim is false as stated: Definition 2.0.1 permits disconnected graphs, and if $a$ and $b$ lie in different connected components, then $\pi_1(\Gamma;a,b)=\varnothing$ and its span and completion are zero, not free of rank one. The path-torsor interpretation therefore applies only when the endpoints lie in the same connected component. The dual graphs used later are connected, so this is a local missing hypothesis rather than a flaw in the main results.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote><p>Given two vertices $a, b$ on a graph $\Gamma$, we let $\pi_{1}(\Gamma ; a, b)$ be the set of homotopy classes of paths from $a$ to $b$. For a field $K$, we let $K\left[\pi_{1}(\Gamma ; a, b)\right]$ be the $K$-vector space generated by $\pi_{1}(\Gamma ; a, b)$. For $a, b, c$ on $\Gamma$, the usual concatenation</p>
+<div class="display-math">$$
+\pi_{1}(\Gamma ; a, b) \times \pi_{1}(\Gamma ; b, c) \rightarrow \pi_{1}(\Gamma ; a, c)
+$$</div>
+<p>induces a map</p>
+<div class="display-math">$$
+K\left[\pi_{1}(\Gamma ; a, b)\right] \otimes K\left[\pi_{1}(\Gamma ; b, c)\right] \rightarrow K\left[\pi_{1}(\Gamma ; a, c)\right] .
+$$</div>
+<p>The group algebra $K\left[\pi_{1}(\Gamma, a)\right]:=K\left[\pi_{1}(\Gamma ; a, a)\right]$ has an augmentation map</p>
+<div class="display-math">$$
+\epsilon: K\left[\pi_{1}(\Gamma, a)\right] \rightarrow K
+$$</div>
+<p>sending every path to 1 whose kernel is called the augmentation ideal $\mathscr{I}_{a}$. The ring $K\left[\pi_{1}(\Gamma, a)\right]$ acts naturally on the left on $K\left[\pi_{1}(\Gamma ; a, b)\right]$ for any $b$ via concatenation, making $K\left[\pi_{1}(\Gamma ; a, b)\right]$ into a free left $K\left[\pi_{1}(\Gamma, a)\right]$-module of rank 1. Let $\Pi(\Gamma ; a, b)$ be the completion of $K\left[\pi_{1}(\Gamma ; a, b)\right]$ with respect to the $\mathscr{I}_{a}$-adic filtration.</p></blockquote>
+<h5>7. Convergence condition missing in Theorem 4.0.3</h5>
+<ul><li>ID: <code>88131e75-0e3a-4cf8-9289-1ecf18be5dcc</code></li><li>Refine score: <code>0.49</code></li><li>Original types: general</li><li>Refine status: open</li></ul>
+<p><strong>Comment</strong></p>
+<p>Theorem 4.0.3 appears to overstate the equivalence. Properness and $X=Y$ eliminate the boundary overconvergence represented by $j^\dagger$, but they do not generally make every coherent module with an integrable log connection into a convergent isocrystal; reconstructing the crystal requires convergence of the associated Taylor stratification. The unipotent connections used later may satisfy this condition automatically, so the main constructions may be unaffected, but the unrestricted categorical statement requires qualification or additional justification.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote><p>Theorem 4.0.3. [54, Section 2.2] Let $\left(\left(X, M_{X}\right),\left(X, M_{X}\right),(\mathcal{P}, L)\right)$ be a proper log smooth frame. Then $\operatorname{Isoc}^{\dagger}((X, M) /(\operatorname{Spf} V, N))$ is equivalent to the category of coherent $\mathcal{O}_{]_{X[\mathcal{P}}}-$ modules $E$ equipped with an integrable log connection</p>
+<div class="display-math">$$
+\nabla: E \rightarrow E \otimes \Omega_{(] X[\mathcal{P}, L) /\left((\operatorname{Spf} V)^{\mathrm{an}}, N\right)}^{1}
+$$</div>
+<p>where $\Omega_{(] X[\mathcal{P}, L) /\left(S^{\text {an }}, N\right)}^{1}$ denotes the sheaf of relative log 1-forms. This equivalence is canonical for morphisms of proper log smooth frames.</p></blockquote>
+<h5>8. Morphisms need not induce graph submersions</h5>
+<ul><li>ID: <code>ec39d176-ee88-4d48-b57b-11eb3afc46b9</code></li><li>Refine score: <code>0.54</code></li><li>Original types: general</li><li>Refine status: open</li></ul>
+<p><strong>Comment</strong></p>
+<p>The claimed submersion property of $\Gamma_X\to\Gamma_Y$ does not follow from the stated notion of morphism. For example, a strict constant map from a smooth proper curve to a smooth $k$-point on a component of a nodal log curve is permitted, but the source vertex has an empty star while its image vertex has a nonempty star. Thus the induced graph map is not a submersion; branch-surjectivity requires an additional hypothesis.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote><p>A morphism of weak log curves $f:\left(X, M_{X}\right) \rightarrow\left(Y, M_{Y}\right)$ is defined to be the composition of a strict morphism of log curves $\left(X, M_{X}\right) \rightarrow\left(Y, M_{Y}^{\prime}\right)$ (i.e. $f^{*} M_{Y}^{\prime} \rightarrow M_{X}$ is an isomorphism) and a morphism $\left(Y, M_{Y}^{\prime}\right) \rightarrow\left(Y, M_{Y}\right)$ obtained by a composition of modifications as in Remark 5.1.4 at punctures and annular points. A weak embedding of weak log curves $f:\left(X, M_{X}\right) \rightarrow\left(Y, M_{Y}\right)$ is the composition of a strict closed immersion $\left(X, M_{X}\right) \rightarrow\left(Y, M_{Y}^{\prime}\right)$ and modifications $\left(Y, M_{Y}^{\prime}\right) \rightarrow\left(Y, M_{Y}\right)$. A morphism of weak log curves induces a submersion $\Gamma_{X} \rightarrow \Gamma_{Y}$ of log dual graphs while a weak embedding induces a weak embedding of log dual graphs.</p></blockquote>
+<h5>9. Tube condition in Subsection 5.3 uses the wrong monoid</h5>
+<ul><li>ID: <code>e1d61265-fb60-45bf-8c0d-ebf2b1f45fc6</code></li><li>Refine score: <code>0.29</code></li><li>Original types: general</li><li>Refine status: open</li></ul>
+<p><strong>Comment</strong></p>
+<p>The displayed tube condition is not literally correct as written. The symbol $M$ is not defined in this local construction, and quantifying over all elements of either the chart monoid or the full log structure includes the identity, whose associated function has norm $1$. The condition applies instead to the nonzero, nonunit monomial directions represented by the characteristic monoid.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote><p>Then, $] x\left[{ }_{\mathcal{P}}\right.$, the tube around $x$ in $\mathcal{P}$, is</p>
+<div class="display-math">$$
+] x\left[{ }_{\mathcal{P}}=\left\{x \in \mathcal{P}_{K}:\|m\|&lt;1 \text { for } m \in M\right\}\right.
+$$</div>
+<p>where we interpret $m$ as a function on $\mathcal{P}_{K}$. We have the following examples (where unless otherwise noted, $f^{*}$ is given by $e_{\pi} \mapsto e_{\pi}$ ):</p></blockquote>
+<h5>10. Missing nodal relation in the \(\pi-t\) model</h5>
+<ul><li>ID: <code>661b884a-d93f-4e5e-9010-46fc8f6e2460</code></li><li>Refine score: <code>0.36</code></li><li>Original types: general</li><li>Refine status: open</li></ul>
+<p><strong>Comment</strong></p>
+<p>The displayed model for $\mathcal P_{2,t}$ is missing the nodal relation $x_1x_2=t$. Without that relation, its fiber at $t=\pi$ is not $\mathcal P_2$, contrary to Remark 5.3.1 and the earlier definition of $\pi-t$ base-change. The unrestricted three-variable model is also inconsistent with the subsequent identification of the tube as a product of two log discs.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote><p>(5) $\overline{\mathbb{M}}_{2}$ induced by $\bar{M}_{2}:=\mathbb{Z}_{\geq 0}^{2}=\left\langle f_{1}, f_{2}\right\rangle$ where $f^{*}\left(e_{\pi}\right)=f_{1}+f_{2}, \mathcal{P}_{2}=\operatorname{Spf} V \llbracket x_{1}, x_{2} \rrbracket /\left(x_{1} x_{2}-\right.$ $\pi$ ); and (6) $\overline{\mathbb{M}}_{2, t}$ induced by $\bar{M}_{2, t}:=\mathbb{Z}_{\geq 0}^{3}=\left\langle e_{\pi}, f_{1}, f_{2}\right\rangle$ where $f^{*}\left(e_{\pi}\right)=e_{\pi}, \mathcal{P}_{2, t}=\operatorname{Spf} V \llbracket x_{1}, x_{2}, t \rrbracket$.</p>
+<p>Remark 5.3.1. Observe that $\left(x, \overline{\mathbb{M}}_{i, t}\right)$ is obtained from $\left(x, \overline{\mathbb{M}}_{i}\right)$ by $\pi-t$ base-change and thus possesses a morphism to $\left(S, \mathbb{N}_{t}\right)$. For $\overline{\mathbb{M}}_{i}$ and $\overline{\mathbb{M}}_{i, t}$, let $(\mathcal{P}, L)$ and $\left(\mathcal{P}_{t}, L_{t}\right)$ be the formal log schemes obtained as above. Then $(\mathcal{P}, L)$ is the closed subscheme cut out by $t=\pi \operatorname{from}\left(\mathcal{P}_{t}, L_{t}\right)$</p></blockquote>
+<h5>11. Exact unipotency index is not guaranteed in 6.2</h5>
+<ul><li>ID: <code>549fbae1-d528-4de8-8f4e-fb47496f8d21</code></li><li>Refine score: <code>0.29</code></li><li>Original types: general</li><li>Refine status: open</li></ul>
+<p><strong>Comment</strong></p>
+<p>The requirement that $E_n$ have unipotency index exactly $n$ is not guaranteed by the stated hypotheses. If $\operatorname{Ext}^1(\mathbf{1},\mathbf{1})=0$, the universal mapping property is represented by $E_n=\mathbf{1}$ at every level, so its actual index remains zero. The truncation level should not be identified with the representing object’s minimum unipotency index.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote><p>Definition 6.2.2. A projective system of $F$-pointed objects $\left\{\left(E_{n}, e_{n}\right)\right\}$ such that $E_{n}$ has index of unipotency $n$ is universal if for every pointed object $(V, v)$ with index of unipotency at most $n$, there is a unique morphism $f:\left(E_{n}, e_{n}\right) \rightarrow(V, v)$.</p>
+<p>The universal projective system is constructed by iterated extension [2, Proposition 3.4]. There are objects $\left\{E_{n}\right\}_{n}$ with $E_{0}=\mathbf{1}$, and an exact sequence of objects</p></blockquote>
+<h5>12. Indexing conflict in the universal-object construction</h5>
+<ul><li>ID: <code>3eb2a462-21a3-4529-9fd0-f07db5fdf3bf</code></li><li>Refine score: <code>0.34</code></li><li>Original types: general</li><li>Refine status: open</li></ul>
+<p><strong>Comment</strong></p>
+<p>The formula $T_n=(R^{(n)})^\vee\otimes\mathbf{1}$ is internally inconsistent with the preceding extension construction: since $E_0=\mathbf{1}$, that construction gives $T_0=H^1(\mathbf{1})^\vee\otimes\mathbf{1}$, whereas $R^{(0)}=K$ would give $T_0\cong\mathbf{1}$. The later description of $R^{(n)}$ also indicates that the intended relation is shifted by one index.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote><p>There is an alternative description of $T_{n}$ from [2, Section 3.6]: $T_{n}=\left(R^{(n)}\right)^{\vee} \otimes \mathbf{1}$ for a vector space $R^{(n)}$ described inductively by $R^{(0)}=K, R^{(1)}=H^{1}(\mathbf{1})$, and $R^{(n+1)}$ is the kernel of a homomorphism induced by the Yoneda product</p>
+<div class="display-math">$$
+R^{(n)} \otimes H^{1}(\mathbf{1}) \rightarrow R^{(n-1)} \otimes H^{2}(\mathbf{1}) .
+$$</div></blockquote>
+<h5>13. Log boundary data is missing in the Deligne–Goncharov model</h5>
+<ul><li>ID: <code>99ad5ce0-88d3-48eb-aea9-497d329d6f4a</code></li><li>Refine score: <code>0.37</code></li><li>Original types: general</li><li>Refine status: open</li></ul>
+<p><strong>Comment</strong></p>
+<p>The de Rham formulation of Theorem 6.4.1 suppresses the divisor $D$ from $\mathscr{C}^{\mathrm{dR}}(X,D)$. Unless the objects in the cosimplicial diagram carry the induced product log structures and $\mathbb H_\bullet$ denotes logarithmic de Rham hypercohomology, the stated left-hand side computes the ordinary de Rham fundamental group of $X$, not the logarithmic fundamental group of $(X,D)$. The intended boundary structures and cohomology theory therefore need to be specified.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote><p>6.4. The Deligne-Goncharov construction. The following alternative construction of $\Pi\left(\mathscr{C} ; F_{1}, F_{2}\right)$ for certain fiber functors works in the log rigid and de Rham settings as well as the topological and étale ones not discussed here. Here, a space will be a proper fine log scheme over $(S, \mathbb{N})$ or a smooth proper scheme over Spec $K$. Let $f: X \rightarrow T$ be the appropriate structure morphism where $T=(S, \mathbb{N})$ or $T=\operatorname{Spec} K$. Let $\mathscr{C}$ be the appropriate category of unipotent objects (unipotent isocrystals or unipotent integrable vector bundles).</p></blockquote>
+<h5>14. Coefficient-ring mismatch in Definition 7.1.6</h5>
+<ul><li>ID: <code>f484184c-9b50-40dd-8721-2bf3d132b543</code></li><li>Refine score: <code>0.34</code></li><li>Original types: general</li><li>Refine status: open</li></ul>
+<p><strong>Comment</strong></p>
+<p>As written, Definition 7.1.6 sets $F_{B,\pi}=i_*F_{B,\ell}$, so $F_{B,\pi}$ is already $K[\ell]$-valued, whereas the subsequent specialization path and base-changed Tannakian torsor use $F_{B,\pi}\otimes_K K[\ell]$ as if $F_{B,\pi}$ were $K$-valued. These coefficient conventions are formally inconsistent and should be made uniform.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote><p>Definition 7.1.6. Let $(x, \overline{\mathbb{M}})$ be a log point. let $B$ be a coordinate system on $\bar{M}$. Let $\left(x, \overline{\mathbb{M}}_{t}\right)$ be obtained by $\pi$ - $t$ base-change. The pushforward $i_{*} F_{B, \ell}$ by the natural map $i:(x, \overline{\mathbb{M}}) \rightarrow\left(x, \overline{\mathbb{M}}_{t}\right)$, considered as a fiber functor on $\mathscr{C}^{\text {rig, un }}\left(x, \overline{\mathbb{M}}_{t}\right)$ will be denoted by $F_{B, \pi}$.</p>
+<p>The fiber functor $F_{B, \pi}$ can be understood explicitly in terms of frames. Let</p>
+<div class="display-math">$$
+\left(\left(x, \overline{\mathbb{M}}_{t}\right),\left(x, \overline{\mathbb{M}}_{t}\right),\left(\mathcal{P}_{t}, L_{t}\right)\right)
+$$</div></blockquote>
+<h5>15. Domain mismatch in the specialization path</h5>
+<ul><li>ID: <code>e9e596ad-f919-4fc6-b458-ef222c80b5b4</code></li><li>Refine score: <code>0.29</code></li><li>Original types: general</li><li>Refine status: open</li></ul>
+<p><strong>Comment</strong></p>
+<p>Definition 7.1.7 has a domain mismatch: the displayed torsor concerns fiber functors on $\mathscr{C}^{\mathrm{rig,un}}(x,\overline{\mathbb{M}}_t)$, whereas the following clause describes them as functors on $\mathscr{C}^{\mathrm{rig,un}}(X_t,M_t)$. No morphism to $(X_t,M_t)$ or corresponding pushforward is specified in this definition, so the two descriptions are not formally compatible.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote><p>Definition 7.1.7. Let $B$ be a coordinate system on $\bar{M}$. Then $B \cup\left\{e_{t}\right\} \subset \bar{M}_{t}$ is a coordinate system on $\bar{M}_{t}$. The specialization path is the $R$-point of $\pi_{1}^{\text {rig, un }}\left(\left(x, \overline{\mathbb{M}}_{t}\right) ; F_{B \cup\left\{e_{t}\right\}}, F_{B, \pi}\right)_{\ell}$ considered as the isomorphism of functors on $\mathscr{C}^{\text {rig, un }}\left(X_{t}, M_{t}\right), F_{B \cup\left\{e_{t}\right\}} \otimes R \rightarrow F_{B, \pi} \otimes R$ given by the specializations</p>
+<div class="display-math">$$
+t \mapsto \pi, \log (t) \mapsto \ell .
+$$</div></blockquote>
+<h5>16. Scope of the log-point computation in Lemma 7.2.1</h5>
+<ul><li>ID: <code>efd31d1c-b2e3-4225-b941-a66bc109a0ab</code></li><li>Refine score: <code>0.39</code></li><li>Original types: general</li><li>Refine status: open</li></ul>
+<p><strong>Comment</strong></p>
+<p>Lemma 7.2.1 is quantified over arbitrary log points, whereas Proposition 5.3.2 establishes the required cohomology computation only for the six listed standard models. Because that computation underpins the universal-object argument, the lemma’s stated generality and functoriality are not established without additional hypotheses or a corresponding general cohomology calculation.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote><p>Lemma 7.2.1. Let ( $x, \overline{\mathbb{M}}$ ) be a log point over ( $S, \mathbb{N}$ ). Let $B$ be a coordinate system on $\bar{M}$. Then</p>
+<div class="display-math">$$
+\pi_{1}^{\mathrm{rig}, \text { un }}\left((x, \overline{\mathbb{M}}), F_{B}\right) \cong \operatorname{Hom}\left(\left(\bar{M} / f^{*} \mathbb{Z}_{\geq 0}\right)^{\mathrm{gp}}, \mathbf{G}_{a}\right) .
+$$</div>
+<p>This isomorphism is functorial for log points over $(S, \mathbb{N})$.</p></blockquote>
+<h5>17. Dual and fiber are omitted in Remark 7.5.2</h5>
+<ul><li>ID: <code>e5815a0c-9f31-4731-95de-81eb79cf149a</code></li><li>Refine score: <code>0.33</code></li><li>Original types: general</li><li>Refine status: open</li></ul>
+<p><strong>Comment</strong></p>
+<p>Remark 7.5.2 suppresses two operations needed for the stated compatibility. Theorem 6.4.1 realizes the diagram’s hypercohomology as $(\Pi/\mathscr I^n)^\vee$, not $\Pi/\mathscr I^n$, and the universal-object description identifies $\Pi((X,M);F_a,F_b)/\mathscr I^n$ with the fiber $F_b(\mathcal E_{n-1}^{(a)})$, not with the isocrystal $\mathcal E_{n-1}$ itself. Because the surrounding argument tracks weight indices under duality, these literal identifications are inaccurate even if intended as shorthand; the filtration must be transported through the dual and fiber identifications.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote><p>Remark 7.5.2. The Deligne-Goncharov construction in Section 6.4 yields $\Pi((X, M) ; a, b) / \mathscr{I}^{n}$ as the cohomology of a diagram of schemes; hence it admits a weight filtration. It can be shown [11, Remark 3.10] that this definition agrees with the above definition when $F_{a}$ and $F_{b}$ are attached to smooth points of $(X, M)$ by interpreting $\Pi\left((X, M) ; F_{a}, F_{b}\right) / \mathscr{I}^{n}$ as $\mathcal{E}_{n-1}$ as in Remark 10.1.6. This definition can be extended to arbitrary log basepoints by the argument in Theorem 10.4.1.</p></blockquote>
+<h5>18. Basepoints are not identified across the two fibers</h5>
+<ul><li>ID: <code>4f4a9c75-08f3-478e-bca8-0d61524b6a91</code></li><li>Refine score: <code>0.35</code></li><li>Original types: general</li><li>Refine status: open</li></ul>
+<p><strong>Comment</strong></p>
+<p>Definition 9.1.2 is not formally well-typed as written: it declares $F_1,F_2$ to be fiber functors on $(X_t,M_t)$ but then uses them as endpoints of a torsor on $(X,M)$. The displayed identifications require the initial functors on $(X,M)$ and their induced fiber-at-$t=\pi$ functors on $(X_t,M_t)$ to be distinguished before transport to $\widetilde F_1,\widetilde F_2$.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote><p>Definition 9.1.2. Let $F_{1}, F_{2}$ be fiber functor attached to $\log$ points on $\left(X_{t}, M_{t}\right)$. Use the homotopy exact sequence and the specialization and tangential paths to produce isomorphisms</p>
+<div class="display-math">$$
+\begin{aligned}
+\pi_{1}^{\text {rig,un }}\left((X, M) ; F_{1}, F_{2}\right)_{\ell} &amp; \left.\cong \operatorname{ker}\left(\pi_{1}^{\text {rig, }, \text { un( } f_{t}, \text { nr) }}\left(\left(X_{t}, M_{t}\right) ; F_{1}, F_{2}\right)_{\ell} \rightarrow \pi_{1}^{\text {rig, }, \text { nr }}\left(S_{t}, \mathbb{N}_{t}\right) ; F_{1}, F_{2}\right)_{\ell}\right) \\
+&amp; \left.\cong \operatorname{ker}\left(\pi_{1}^{\text {rig, }, \text { un( } f_{t}, \text { nr) }}\left(\left(X_{t}, M_{t}\right) ; \tilde{F}_{1}, \tilde{F}_{2}\right)_{\ell} \rightarrow \pi_{1}^{\text {rig, }, \text { nr }}\left(S_{t}, \mathbb{N}_{t}\right) ; \tilde{F}_{1}, \tilde{F}_{2}\right)_{\ell}\right)
+\end{aligned}
+$$</div></blockquote>
+<h5>19. Section 9.2 needs Frobenius weights, not degeneration alone</h5>
+<ul><li>ID: <code>7d8dd5f2-75b6-4468-b174-5926ff620558</code></li><li>Refine score: <code>0.43</code></li><li>Original types: general</li><li>Refine status: open</li></ul>
+<p><strong>Comment</strong></p>
+<p>The identification $H^1_{\mathrm{rig}}((X,M))_{\ell}^{\varphi}=M_0H^1_{\mathrm{rig}}((X,M))\cong H^1(\Gamma)$ does not follow from $E_2$-degeneration alone. It also uses Frobenius compatibility and the weight/eigenvalue calculation: Frobenius is trivial on the graph term, while the other graded pieces have positive Weil weights and therefore no eigenvalue $q^{-m}$ for $m\geq 0$. The latter point is needed to ensure that adjoining $\ell$ with $\varphi(\ell)=q\ell$ creates no additional fixed vectors. Since Lemma 9.2.3 and Proposition 9.2.1 depend on this identification, this weight input should be stated explicitly.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote><p>By the discussion in Subsection 5.2, this corresponds to Cech cocycles representing an element of $H^{1}(\Gamma) \cong M_{0} H_{\text {rig }}^{1}((X, M))$. The latter group is isomorphic to $H_{\text {rig }}^{1}((X, M))^{\varphi}$ as a consequence of the degeneration of the Steenbrink-Zucker spectral sequence from subsection 5.2 at $E_{2}$. See [50, Section 5] for a relevant discussion.</p></blockquote>
+<h5>20. Remark 10.1.6 confuses linear and group-like paths</h5>
+<ul><li>ID: <code>a209c8a2-8d6d-4ab2-a4ea-0db3835ab001</code></li><li>Refine score: <code>0.31</code></li><li>Original types: general</li><li>Refine status: open</li></ul>
+<p><strong>Comment</strong></p>
+<p>Remark 10.1.6 assigns the monodromy translate of an arbitrary $\delta\in\Pi((X,M);F_1,F_2)/\mathscr I^{n+1}$ to the fundamental torsor. Only group-like elements of $\Pi$ represent torsor points. For general $\delta$, the conjugation action remains in the corresponding truncated groupoid module; the displayed torsor membership is therefore valid only if $\delta$ is assumed group-like.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote><p>Because $\mathcal{W}_{n}$ pulls back to the universal object $\mathcal{E}_{n}$ by the map $i:(X, M) \rightarrow\left(X_{t}, M_{t}\right)$, an element $\delta \in \Pi\left((X, M) ; F_{1}, F_{2}\right) / \mathscr{I}^{n+1}$ can be interpreted as $\delta\left(e_{n}\right) \in F_{2}\left(\mathcal{E}_{n}\right)$ (and thus an element of the fiber of $W_{n}$ over $\tilde{x}_{2}(\pi)$ ). Now, let $\tilde{F}_{j}$ be the tangential basepoint (see Remark 7.1.5) attached to $\tilde{x}_{j}$. By conjugating by the specialization and tangential paths at $\tilde{x}_{1}$ and $\tilde{x}_{2}$, we view $\delta$ as a map $\tilde{F}_{1}\left(\mathcal{W}_{n}\right) \rightarrow \tilde{F}_{2}\left(\mathcal{W}_{n}\right)$. By identifying $e_{n}$ with its image in $\tilde{F}_{1}\left(\mathcal{W}_{n}\right)$, we can interpret $\delta$ as $\delta\left(e_{n}\right) \in \tilde{F}_{2}\left(\mathcal{W}_{n}\right)$.</p>
+<p>Now, the image of $\gamma_{u}$ under the monodromy action on $\delta$,</p>
+<div class="display-math">$$
+T\left(s_{1}, s_{2}\right)\left(\gamma_{u}\right)(\delta) \in \pi_{1}^{\text {rig,un }}\left(\left(X_{t}, M_{t}\right) ; \tilde{F}_{1}, \tilde{F}_{2}\right)
+$$</div></blockquote>
+<h5>21. Incorrect filtration condition in Subsection 10.4</h5>
+<ul><li>ID: <code>f910477b-45b2-4bbd-a256-ac0fba53ebd3</code></li><li>Refine score: <code>0.3</code></li><li>Original types: general</li><li>Refine status: open</li></ul>
+<p><strong>Comment</strong></p>
+<p>The filtration condition $N M_i \subset N M_{i-2}$ is incorrect as written. For monodromy to have degree $-2$ and induce the displayed maps on associated graded pieces, the required compatibility is $N(M_i)\subset M_{i-2}$; the extra $N$ on the right changes the condition.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote><p>10.4. Frobenius and monodromy-weight filtrations. We now define the monodromy filtration following [28]. Namely, we set $M_{\bullet}$ to be the unique filtration on $\Pi\left((X, M) ; F_{1}, F_{2}\right)$ such that $N M_{i} \subset N M_{i-2}$ and, for all $j, k, N^{k}$ induces an isomorphism</p>
+<div class="display-math">$$
+N^{k}: \operatorname{gr}_{j+k}^{M} \operatorname{gr}_{j}^{W} \Pi\left((X, M) ; F_{1}, F_{2}\right) \stackrel{\cong}{\rightarrow} \operatorname{gr}_{j-k}^{M} \operatorname{gr}_{j}^{W} \Pi\left((X, M) ; F_{1}, F_{2}\right) .
+$$</div></blockquote>
+<h5>22. Inconsistent connection indices in Definition 11.1.1</h5>
+<ul><li>ID: <code>aa0cac77-beb5-4c97-a1f5-d73db94d7cf8</code></li><li>Refine score: <code>0.34</code></li><li>Original types: general</li><li>Refine status: open</li></ul>
+<p><strong>Comment</strong></p>
+<p>Definition 11.1.1 has inconsistent indices: the tuple is $\omega_1,\ldots,\omega_r$ and the basis is $e_0,\ldots,e_r$, but the displayed connection uses the undefined form $\omega_0$ and bounds its cases by $n$. As written, it neither defines the successive connection maps nor accounts correctly for all $r$ forms.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote><p>Let $F_{a}$ and $F_{b}$ be fiber functors on $\left(X, M_{X}\right)$ attached to $\log$ points. For $p \in \Pi\left(\left(X, M_{X}\right) ; F_{a}, F_{b}\right)$ and $\omega_{1} \ldots \omega_{n} \in \Omega^{1}$, we will define $\int_{p, a}^{b} \omega_{1} \ldots \omega_{r}$.</p>
+<p>Definition 11.1.1. For $\omega_{1}, \ldots, \omega_{r} \in \Omega^{1}$, we define a unipotent isocrystal $\mathcal{E}_{\omega_{1} \ldots \omega_{r}}$ on $\left(X, M_{X}\right)$ by specifying a unipotent vector bundle $E_{\omega_{1} \ldots \omega_{r}}$ (i.e., a locally free $\mathcal{O}_{] X\left[\mathcal{P}^{-}\right.}$module) with integrable connection. The underlying vector bundle is a trivial bundle of rank $r+1$ such that for basis sections $e_{0}, \ldots, e_{r}$, the connection obeys</p>
+<div class="display-math">$$
+\nabla e_{i}= \begin{cases}-\omega_{i} \otimes e_{i+1} &amp; \text { if } 0 \leq i \leq n-1 \\ 0 &amp; \text { if } i=n\end{cases}
+$$</div></blockquote>
+<h5>23. Projection formula conflicts with lifted-basis naturality</h5>
+<ul><li>ID: <code>e6bffd4b-f042-4e2b-84b5-a4c55383c329</code></li><li>Refine score: <code>0.32</code></li><li>Original types: general</li><li>Refine status: open</li></ul>
+<p><strong>Comment</strong></p>
+<p>The displayed rule $p_k(e_i)=e_k$ conflicts with the asserted naturality $p_{k*}(h_i)=h_i$ for $0\leq i\leq k$. At a smooth point, where $h_i=e_i$, these statements are directly contradictory; moreover, collapsing every basis vector to $e_k$ does not generally define a horizontal projection.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote><p>These bases are natural under the following maps: the horizontal inclusion for $1 \leq k \leq r$,</p>
+<div class="display-math">$$
+\iota_{k}: \mathcal{E}_{\omega_{k} \ldots \omega_{r}} \rightarrow \mathcal{E}_{\omega_{1} \ldots \omega_{r}}, \quad e_{i} \mapsto e_{i+k-1}
+$$</div>
+<p>and the horizontal projection</p>
+<div class="display-math">$$
+p_{k}: \mathcal{E}_{\omega_{1} \ldots \omega_{r}} \rightarrow \mathcal{E}_{\omega_{1} \ldots \omega_{k}}, \quad e_{i} \mapsto e_{k},
+$$</div>
+<p>in the sense that</p>
+<p>(1) $h_{0} \in F\left(\mathcal{E}_{\varnothing}\right)$ is 1 , (2) for all $k, \iota_{k *}\left(h_{i}\right)=h_{i+k-1}$ for $0 \leq i \leq r-k+1$, and (3) for all $k, p_{k *}\left(h_{i}\right)=h_{i}$ for $0 \leq i \leq k$.</p></blockquote>
+<h5>24. Concatenation formula needs augmentation factors</h5>
+<ul><li>ID: <code>c0dd93a7-4b70-4250-ba06-1fbcc66dac64</code></li><li>Refine score: <code>0.34</code></li><li>Original types: general</li><li>Refine status: open</li></ul>
+<p><strong>Comment</strong></p>
+<p>Proposition 11.1.8 permits arbitrary $p,q\in\Pi$, but the preceding matrix has diagonal entries $1$. For a general element $p$, the action on each trivial graded quotient is multiplication by $\epsilon(p)$, so the diagonal should record $\epsilon(p)$ unless $p$ is restricted to augmentation one. Correspondingly, the concatenation identity for arbitrary elements requires the empty-word integral along $p$ to mean $\epsilon(p)$.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote><p>In the bases defined above, $p$ on $\mathcal{E}_{\omega_{1} \ldots \omega_{r}}$ can be expressed as a matrix</p>
+<div class="display-math">$$
+\left[\begin{array}{ccccc}
+1 &amp; 0 &amp; 0 &amp; \ldots &amp; 0 \\
+\int_{p, a}^{b} \omega_{1} &amp; 1 &amp; 0 &amp; \ldots &amp; 0 \\
+\int_{p, a}^{b} \omega_{1} \omega_{2} &amp; \int_{p, a}^{b} \omega_{2} &amp; 1 &amp; \ldots &amp; 0 \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+\int_{p, a}^{b} \omega_{1} \ldots \omega_{r} &amp; \int_{p, a}^{b} \omega_{2} \ldots \omega_{r} &amp; \int_{p, a}^{b} \omega_{3} \ldots \omega_{r} &amp; \ldots &amp; 1
+\end{array}\right]
+$$</div>
+<p>By multiplying such matrices (and noting the convention that $p q$ means $p$ followed by $q$ ), we arrive at the following concatenation formula:</p>
+<p>Proposition 11.1.8. Let $F_{a}, F_{b}, F_{c}$ be fiber functors attached to log points equipped with lifts on $(X, M)$. Let $p \in \Pi\left((X, M) ; F_{a}, F_{b}\right)$ and $q \in \Pi\left((X, M) ; F_{b}, F_{c}\right)$. Then,</p>
+<div class="display-math">$$
+\int_{p q, a}^{c} \omega_{1} \ldots \omega_{r}=\sum_{k=0}^{r} \int_{p, a}^{b} \omega_{1} \ldots \omega_{k} \int_{q, b}^{c} \omega_{k+1} \ldots \omega_{r} .
+$$</div></blockquote>
+<h5>25. Endpoint evaluation is missing in integration by parts</h5>
+<ul><li>ID: <code>3f965d55-5cd3-4db6-902b-7f5203c52a33</code></li><li>Refine score: <code>0.29</code></li><li>Original types: general</li><li>Refine status: open</li></ul>
+<p><strong>Comment</strong></p>
+<p>The final identity in Lemma 11.1.11 is not well-typed as written: the iterated integrals are scalars, while $g$ is a global analytic function. The boundary factor must be the scalar terminal value of $g$ determined by the lifted basepoint $b$—for a log basepoint, the corresponding constant term after pullback along the lift—rather than the unevaluated function $g$.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote><p>Lemma 11.1.11. Let $F_{a}$ and $F_{b}$ be fiber functors attached to log points equipped with lifts a and b, respectively, and let $p \in \Pi\left(\left(X, M_{X}\right) ; F_{a}, F_{b}\right)$. Let $g \in \Gamma(] X\left[{ }_{\mathcal{P}}, \mathcal{O}_{]_{X[\mathcal{P}}}\right)$ be a function vanishing at $a$. Let $\omega_{1} \ldots \omega_{r} \in \Omega^{1}$. For $1 \leq i \leq r-1$,</p>
+<div class="display-math">$$
+\begin{aligned}
+\int_{p, a}^{b}(d g) \omega_{1} \ldots \omega_{r} &amp; =\int_{p, a}^{b}\left(g \omega_{1}\right) \omega_{2} \ldots \omega_{r} \\
+\int_{p, a}^{b} \omega_{1} \ldots \omega_{i}(d g) \omega_{i+1} \ldots \omega_{r} &amp; =\int_{p, a}^{b} \omega_{1} \ldots \omega_{i}\left(g \omega_{i+1}\right) \omega_{i+2} \ldots \omega_{r}-\int_{p, a}^{b} \omega_{1} \ldots \omega_{i-1}\left(g \omega_{i}\right) \omega_{i+1} \ldots \omega_{r}, \\
+\int_{p, a}^{b} \omega_{1} \ldots \omega_{r}(d g) &amp; =g \int_{p, a}^{b} \omega_{1} \ldots \omega_{r}-\int_{p, a}^{b} \omega_{1} \ldots \omega_{r-1}\left(g \omega_{r}\right)
+\end{aligned}
+$$</div></blockquote>
+<h5>26. The definition of \(j\) is not an algebra morphism</h5>
+<ul><li>ID: <code>dcaca4bd-28ae-40c0-8295-849ed6791454</code></li><li>Refine score: <code>0.36</code></li><li>Original types: general</li><li>Refine status: open</li></ul>
+<p><strong>Comment</strong></p>
+<p>As written, defining $j=\sum_i j_i$ after extending each slot inclusion algebraically cannot yield the map used in the proof: it sends the unit to $r$ times the unit and omits the mixed-slot terms. The intended construction appears to be the single algebra extension of the sum of the slot inclusions.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote><p>There is also a horizontal morphism $j: E_{r}^{\Omega} \rightarrow\left(E_{1}^{\Omega}\right)^{\otimes r}$ given by $j=\sum_{i=1}^{r} j_{i}$ where $j_{i}$ is the algebra extension of</p>
+<div class="display-math">$$
+\Omega^{\vee} \rightarrow\left(T^{\leq 1} \Omega^{\vee}\right)^{\otimes r}, v \mapsto 1 \otimes \cdots \otimes 1 \otimes v \otimes 1 \otimes \cdots \otimes 1
+$$</div>
+<p>where $v$ occurs in the $i$ th factor.</p></blockquote>
+<h5>27. The projection \(q\) is applied outside its domain</h5>
+<ul><li>ID: <code>cf16c94b-df36-45e8-8b30-2fac62a688ce</code></li><li>Refine score: <code>0.32</code></li><li>Original types: general</li><li>Refine status: open</li></ul>
+<p><strong>Comment</strong></p>
+<p>The displayed identity is not well-typed: $F_b(q_{\omega_1\ldots\omega_r})$ has domain $F_b(\mathcal{E}_r^\Omega)$, whereas $s$ is declared to lie in $F_b((\mathcal{E}_1^\Omega)^{\otimes r})$. The product functional on the latter space must instead be related to the iterated-integral functional on the former by pullback along $F_b(j)$.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote><p>Note that $e_{0} \in F_{a}\left(\mathcal{E}_{r}^{\Omega}\right)=T^{\leq r} \Omega^{\vee}$ maps to $e_{0} \otimes \cdots \otimes e_{0}$ under $F_{a}(j)$. By treating $\omega_{1} \otimes \cdots \otimes \omega_{r} \in \Omega^{\otimes r}$ as an element in $\left(F_{b}\left(\mathcal{E}_{1}^{\Omega}\right)^{\otimes r}\right)^{\vee}$, we see for $s \in F_{b}\left(\left(\mathcal{E}_{1}^{\Omega}\right)^{\otimes r}\right)$,</p>
+<div class="display-math">$$
+\left(\omega_{1} \otimes \cdots \otimes \omega_{r}\right)(s)=\left[e_{r}\right]\left(F_{b}\left(q_{\omega_{1} \ldots \omega_{r}}\right) s\right)
+$$</div>
+<p>where $\left[e_{r}\right]$ denotes taking the $e_{r}$ component. We obtain</p></blockquote>
+<h5>28. Sign conflict in the Tate nodal contribution</h5>
+<ul><li>ID: <code>51f5da61-022e-4b77-b7f6-c5394ec90748</code></li><li>Refine score: <code>0.38</code></li><li>Original types: general</li><li>Refine status: open</li></ul>
+<p><strong>Comment</strong></p>
+<p>In Example 12.1.6, the branch labeling and stated sign are inconsistent. Under Definition 7.1.11, assigning $f_1$ to the branch at $\infty$ makes $x_1$ a local parameter there; since $w=z^{-1}$, one has $g^*\nu=-dw/w=-dx_1/x_1$. Example 11.1.5 and multilinearity therefore give $\int_{\delta_0,\infty}^{0}(g^*\nu)^r=(-1)^r\ell^r/r!$. The displayed positive value requires the opposite branch or path orientation.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote><p>Let $g:\left(x, \overline{\mathbb{M}}_{2}\right) \rightarrow\left(X^{\prime}, M^{\prime}\right)$ be the inclusion of the nodal log point such that $f_{1} \in \bar{M}_{2}$ corresponds to the branch of $\left(X^{\prime}, M^{\prime}\right)$ at $\infty$ and $f_{2} \in \bar{M}_{2}$ corresponds to the branch of $\left(X^{\prime}, M^{\prime}\right)$ at 0. Then $\int_{\delta_{0}, \infty}^{0} g^{*} \nu^{r}=\ell^{r} / r!$ by Property (6) of Theorem 12.1.1 and Example 11.1.5. Because $p$ is the composition of $p^{\prime \prime}$ and $g_{*} \delta_{0}$, by the concatenation formula,</p>
+<div class="display-math">$$
+\int_{p}^{\mathrm{BC}} \nu^{r}=\frac{\ell^{r}}{r!} .
+$$</div></blockquote>
+<h5>29. Missing factorial in the node case of Proposition 13.2.3</h5>
+<ul><li>ID: <code>e90f8ced-0d80-4c0c-a219-064f02fcb907</code></li><li>Refine score: <code>0.3</code></li><li>Original types: general</li><li>Refine status: open</li></ul>
+<p><strong>Comment</strong></p>
+<p>The single-edge equality in the base case omits a factor of $n!$. Definition 3.1.2 gives $\int_e^{\mathrm c}\eta_1\cdots\eta_n=\frac{1}{n!}\prod_j\eta_j(e)$, so the residue product equals $n!\int_e^{\mathrm c}\eta_1\cdots\eta_n$. This is also the normalization used in the proposition and the subsequent induction.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote><p>Suppose $n=k$. By Lemma 10.3.4, on $F_{\left\{f_{1}\right\}}(\mathcal{E})$, $N^{n} \delta_{0}$ is given by multiplication by</p>
+<div class="display-math">$$
+\operatorname{Res}_{\left(x, \overline{\mathbb{M}}_{2}\right)}\left(\omega_{1}\right) \ldots \operatorname{Res}_{\left(x, \overline{\mathbb{M}}_{2}\right)}\left(\omega_{n}\right)=\int_{e} \eta_{1} \ldots \eta_{n}
+$$</div>
+<p>In the general case, it suffices to prove the result for $\bar{p} \in \pi_{1}(\Gamma ; a, b)$.</p></blockquote>
+<h5>30. Corollary 13.3.2 changes the graph-form space</h5>
+<ul><li>ID: <code>79d3c83d-71f0-4066-ab25-66aaa5f7359b</code></li><li>Refine score: <code>0.38</code></li><li>Original types: general</li><li>Refine status: open</li></ul>
+<p><strong>Comment</strong></p>
+<p>Corollary 13.3.2 asserts dual bases in $H_1(\Gamma;K)$ and $\Omega^1(\Gamma)$, but this pairing need not be perfect when $\Gamma$ has half-open edges: $\Omega^1(\Gamma)$ identifies with $H_1^\diamond(\Gamma)$, while ordinary $H_1(\Gamma;K)$ detects only closed cycles. The preceding theorem instead uses $\Omega^1(\bar\Gamma)$, so the asserted dual bases may not exist under the corollary’s stated hypotheses.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote><p>Corollary 13.3.2. Let $F_{a}, F_{b}$ be fiber functors on $\left(X, M_{X}\right)$ attached to log points anchored at components $\bar{a}, \bar{b} \in V(\Gamma)$ and equipped with lifts $a, b$. Let $\bar{C}_{1}, \ldots, \bar{C}_{h} \in$ $H_{1}(\Gamma ; K)$ and $\eta_{1}, \ldots, \eta_{h} \in \Omega^{1}(\Gamma)$ be dual bases with respect to single combinatorial integration. Let $\bar{\gamma}_{1}, \ldots, \bar{\gamma}_{h} \in \pi_{1}^{\mathrm{un}}(\Gamma, a)$ be loops whose homology classes are $\bar{C}_{1}, \ldots, \bar{C}_{h}$, respectively. Pick a path $\bar{p}$ in $\Gamma$ from $\bar{a}$ to $\bar{b}$. Then,</p></blockquote>
+<h5>31. Tate example misses the dual-basis normalization</h5>
+<ul><li>ID: <code>2f650379-f471-4b50-8982-2d27dcf5c6a2</code></li><li>Refine score: <code>0.3</code></li><li>Original types: general</li><li>Refine status: open</li></ul>
+<p><strong>Comment</strong></p>
+<p>The application of Corollary 13.3.2 omits the dual-basis normalization. On $\Gamma=\mathbb{R}/m\mathbb{Z}$, the full cycle $\bar\gamma$ pairs with $dt$ as $m$, not $1$; inserting the displayed period and path integral directly would therefore produce an extra factor of $m$. The final formula is consistent only after a normalization by $1/m$, which is not stated.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote><p>For the tropical 1-form $\eta=d t$ on $\Gamma,{ }^{\mathrm{c}} \int_{\bar{p}} \eta=\tilde{\bar{b}}-\tilde{\bar{a}}$. For the closed loop $\bar{\gamma}$ from $\bar{a}$ to $\bar{a}+m$ in $\Gamma,{ }^{\mathrm{BC}} \int_{\bar{\gamma}, a}^{a} \nu=m \ell$. Therefore, by Corollary 13.3.2</p>
+<div class="display-math">$$
+\int_{a}^{b} \nu=\log (\tilde{b})-\log (\tilde{a})-\ell(\tilde{\bar{b}}-\tilde{\bar{a}})
+$$</div></blockquote>

@@ -1,0 +1,257 @@
+<p>These errata refer to the version published in <em>Current Developments in Mathematics 2023--2024</em> (2024), no.&nbsp;1, pp.&nbsp;165--239.  Page references are to the printed pages of that version.  The numbering below follows the order of the paper.</p>
+<ol class="errata-list">
+  <li>
+    <p><strong>Page 166, Introduction.</strong> The sentence beginning “given (say) a smooth proper morphism” does not include the connectedness hypotheses needed for the displayed homotopy exact sequence.  Replace it by:</p>
+    <blockquote>
+      <p>Given a smooth proper morphism</p>
+      <div class="display-math">\[
+      f:\mathcal X\longrightarrow S
+      \]</div>
+      <p>of connected complex algebraic varieties with geometrically connected fibers, and points $x\in\mathcal X$ and $s=f(x)\in S$, how is the geometry of $f$ reflected in the exact sequence</p>
+      <div class="display-math">\[
+      \pi_1(X_s,x)\longrightarrow \pi_1(\mathcal X,x)
+      \longrightarrow \pi_1(S,s)\longrightarrow 1,
+      \]</div>
+      <p>in the induced outer action of $\pi_1(S,s)$ on $\pi_1(X_s)$, and in the induced action on conjugacy classes of representations of $\pi_1(X_s)$?</p>
+    </blockquote>
+    <p>The families used later in the paper have connected fibers, so no subsequent statement is changed.</p>
+  </li>
+  <li>
+    <p><strong>Page 169, question (2) in the Introduction to §2.</strong> The sentence “the question of classifying tuples $\underline C$ such that $Y(\underline C)$ is a singleton” inadvertently enlarges the locus from the irreducible locus used in the question and in the subsequent definition. Replace that phrase by</p>
+    <blockquote>
+      <p>the question of classifying tuples $\underline C$ such that $Y(\underline C)^{\mathrm{irr}}$ is a singleton.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><strong>Pages 170 and 181, middle convolution.</strong> The assertions that middle convolution preserves rigid irreducible objects and that $\MC_\lambda$ and $\MC_{\lambda^{-1}}$ are quasi-inverse are not statements about the whole category $\operatorname{Rep}(\pi_1(X))$: exceptional rank-one objects can be killed by middle convolution.  Replace the first two bullets on p.&nbsp;170 by:</p>
+    <blockquote>
+      <p>Interpret middle convolution in Katz's middle-convolution category, namely the Serre quotient of middle-extension perverse sheaves by the exceptional rank-one constant/Kummer objects.  In this category, convolution by the nontrivial Kummer character of monodromy $\lambda$ is an equivalence with inverse convolution by the character of monodromy $\lambda^{-1}$.  For the nonexceptional irreducible local systems occurring in the rank-reduction argument, $\MC_\lambda$ preserves irreducibility and rigidity, and $\MC_{\lambda^{-1}}\MC_\lambda$ is naturally isomorphic to the identity.</p>
+    </blockquote>
+    <p>After Definition 2.3.9 on p.&nbsp;181, insert:</p>
+    <blockquote>
+      <p>The formula above can vanish on exceptional rank-one local systems.  All preservation and inverse statements about middle convolution in §2.1 are understood in the quotient category, or equivalently on the nonexceptional irreducible objects used in Katz's rank-reduction procedure.</p>
+    </blockquote>
+    <p>The rank-reduction argument only applies these statements to those nonexceptional objects; see [Kat96, §2.8 and Chapter&nbsp;6] for the middle-convolution formalism used here.</p>
+  </li>
+  <li>
+    <p><strong>Page 171, final paragraph of §2.1.</strong> The output of middle convolution need not have determinant one at each puncture.  In the sentence beginning “Thus given a tuple of conjugacy classes,” replace</p>
+    <div class="display-math">\[
+    C'_1,\ldots,C'_n\subset \SL_{r'}(\mathbb C)
+    \]</div>
+    <p>by</p>
+    <div class="display-math">\[
+    C'_1,\ldots,C'_n\subset \GL_{r'}(\mathbb C).
+    \]</div>
+    <p>Thus the last display in the paragraph remains</p>
+    <div class="display-math">\[
+    Y(\underline C)\longrightarrow Y(\underline C'),
+    \]</div>
+    <p>with $\underline C'$ regarded as a tuple of $\GL_{r'}$-conjugacy classes. No later use requires the individual output classes to lie in $\SL_{r'}$.</p>
+  </li>
+  <li>
+    <p><strong>Pages 171--172, beginning of §2.2.</strong> The displayed Artin presentation is the braid group $B_n$, but $B_n/Z(B_n)$ is not the full mapping class group $\Mod_{0,n}$: it is the subgroup of $\Mod_{0,n+1}$ fixing one distinguished puncture.  Replace the sentence identifying the Artin presentation with $\Mod_{0,n}$ by:</p>
+    <blockquote>
+      <p>The displayed presentation is the usual Artin presentation of $B_n$.  Its quotient by the center is the mapping class group of an $(n+1)$-punctured sphere fixing one puncture.  A presentation of $\Mod_{0,n}$ using the same half-twists also imposes the sphere relations</p>
+      <div class="display-math">\[
+      (\sigma_1\cdots\sigma_{n-1})^n=1,
+      \qquad
+      \sigma_1\cdots\sigma_{n-2}\sigma_{n-1}^2
+      \sigma_{n-2}\cdots\sigma_1=1.
+      \]</div>
+      <p>The Hurwitz action on simultaneous-conjugacy classes of product-one tuples satisfies these relations and therefore induces the asserted action of $\Mod_{0,n}$ (and of $\PMod_{0,n}$) on $Y(0,n,r)$.</p>
+    </blockquote>
+    <p>With this replacement, the later mapping-class-group actions are unchanged.</p>
+  </li>
+  <li>
+    <p><strong>Page 172, §2.2.1.</strong> The sentence saying that all irreducible two-dimensional representations on the three-punctured sphere are “precisely” hypergeometric omits the standard rank-one normalization.  Replace it by:</p>
+    <blockquote>
+      <p>After tensoring by a rank-one local system and, if necessary, permuting the three punctures and normalizing the local exponents, every irreducible two-dimensional local system on $\mathbb{CP}^1\setminus\{x_1,x_2,x_3\}$ is the monodromy local system of a Gauss hypergeometric equation ${}_2F_1(a,b;c\mid z)$.</p>
+    </blockquote>
+    <p>The rigidity assertion preceding this sentence is unaffected.</p>
+  </li>
+  <li>
+    <p><strong>Page 173, Markoff equation discussion.</strong> The sentence “the integral solutions to (2.2) form a single orbit” is false without a positivity restriction; for example, $(0,0,0)$ is a fixed integral solution.  Replace it by:</p>
+    <blockquote>
+      <p>Markoff showed that the positive integral solutions to (2.2) form a single orbit under the Vieta involutions (equivalently, under the Vieta involutions and permutations), with representative $(1,1,1)$.</p>
+    </blockquote>
+    <p>No subsequent result uses the unrestricted statement.</p>
+  </li>
+  <li>
+    <p><strong>Page 174, Example 2.2.4.</strong> The displayed matrix $A_1$ contains $1/x_1$, but the stated parameter range allows $x_1=0$ (for example, $\alpha=\beta=\tfrac12$).  Replace the opening sentence of the example by:</p>
+    <blockquote>
+      <p>A countably infinite subfamily of the orbits mentioned above has representatives given by the following matrices, for $\alpha,\beta\in\mathbb Q$ satisfying</p>
+      <div class="display-math">\[
+      x_1=2\cos\!\left(\frac{\pi(\alpha+\beta)}2\right)\ne0.
+      \]</div>
+    </blockquote>
+    <p>The displayed matrices then define a representative on the stated parameter chart; the example is not used later.</p>
+  </li>
+  <li>
+    <p><strong>Page 177, paragraph after Theorem 2.2.8.</strong> The sentence “So we have classified finite $\Mod_{0,n}$-orbits” drops both the “interesting” hypothesis and the infinite-local-order hypothesis of Theorem 2.2.8.  Replace it by:</p>
+    <blockquote>
+      <p>Thus Theorem 2.2.8 classifies the interesting finite $\Mod_{0,n}$-orbits on $Y(0,n,2)$ for which at least one local monodromy matrix $A_i$ has infinite order, in terms of certain finite subgroups of $\GL_{n-2}(\mathbb C)$.</p>
+    </blockquote>
+    <p>The caveat on p.&nbsp;178 and Corollary 2.2.12 already use this restricted range.</p>
+  </li>
+  <li>
+    <p><strong>Page 177, Theorem 2.2.10.</strong> The natural three-dimensional image of $\PSL_2(\mathbb F_7)$ lies in $\SL_3(\mathbb C)$ and is not itself generated by pseudoreflections.  In the list of exceptional complex reflection groups, replace</p>
+    <blockquote>
+      <p>the group $\PSL_2(\mathbb F_7)$ with its natural 3-dimensional representation</p>
+    </blockquote>
+    <p>by</p>
+    <blockquote>
+      <p>the Shephard--Todd group $G_{24}$, the scalar extension of the natural three-dimensional representation of $\PSL_2(\mathbb F_7)$; its projective quotient is $\PSL_2(\mathbb F_7)$.</p>
+    </blockquote>
+    <p>Only this example in the list is changed.</p>
+  </li>
+  <li>
+    <p><strong>Pages 178--180, §2.3.</strong> The sentence preceding Proposition 2.3.3 says immediately that Question 2.3.2 is the same as classifying finite mapping-class-group orbits.  Proposition 2.3.3 only produces an extension over a dominant family; the Corlette--Simpson dichotomy then has a separate pullback branch.  Replace the paragraph ending “as we now explain” by:</p>
+    <blockquote>
+      <p>Finite $\Mod_{0,n}$-orbits first give local systems on dominant families, as in Proposition 2.3.3.  For a Zariski-dense rank-two local system on the total space, the Corlette--Simpson and Loray--Pereira--Touzet dichotomy gives either a rigid local system of geometric origin or a projective local system pulled back from a Deligne--Mumford curve.  Section 2.3.4 treats the pullback branch. After that branch and the degenerate cases have been separated, classifying the remaining finite orbits is equivalent to Question 2.3.2.</p>
+    </blockquote>
+    <p>The organization and the conclusions of §§2.3.4--2.3.6 are unchanged.</p>
+  </li>
+  <li>
+    <p><strong>Page 182, Question 2.4.1.</strong> The word “finite” is missing before the orbit condition.  Replace the question by:</p>
+    <blockquote>
+      <p>Can one classify conjugacy classes of tuples of matrices $(A_1,\ldots,A_n)\in Y(0,n,2)$ with finite $\Mod_{0,n}$-orbit, without the condition that some $A_i$ have infinite order?</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><strong>Page 183, first paragraph of §3.1.</strong> The parenthetical assertion that $\Mod_{g,0}$ is the subgroup of $\operatorname{Out}(\pi_1(\Sigma_g))$ acting on $H_1(\Sigma_g,\mathbb Z)$ with determinant one is false when $g$ is even: an anti-symplectic map then also has determinant one.  Replace the parenthesis by:</p>
+    <blockquote>
+      <p>in particular, it is the subgroup whose action on $H_1(\Sigma_g,\mathbb Z)$ preserves the algebraic intersection form; the other coset acts anti-symplectically.</p>
+    </blockquote>
+    <p>The stated index-two identification remains correct.</p>
+  </li>
+  <li>
+    <p><strong>Page 186, Definition 3.2.2 and the residue paragraph.</strong> For $\dim X&gt;1$, the fiber of $\Omega_X^1(\log D)$ at a point of $D$ also contains tangential cotangent directions and is not canonically one-dimensional.  Replace the sentence beginning “The fiber of the sheaf” by:</p>
+    <blockquote>
+      <p>The residue exact sequence identifies</p>
+      <div class="display-math">\[
+      \Omega_X^1(\log D)/\Omega_X^1\simeq\mathcal O_D.
+      \]</div>
+      <p>If $z$ is a local equation for $D$, the residue class of $dz/z$ maps to $1\in\mathcal O_D$; this description is independent of the choice of $z$.</p>
+    </blockquote>
+    <p>The composite defining $\operatorname{Res}_x(\nabla)$ in the following sentence already uses this quotient and is unchanged.</p>
+  </li>
+  <li>
+    <p><strong>Pages 190--192, proof sketch of Theorem 3.1.5.</strong> At the boundary value $g=r^2$, Theorem 3.3.1 cannot be applied to the full endomorphism local system, whose rank is $r^2$; scalar determinant deformations also remain in that tangent space.  Replace the sentence “Now by Theorem 3.3.1, applied to $\operatorname{ad}(\mathbb V')$, $\mathbb V'$ is cohomologically rigid” and the ensuing rigidity step by the following fixed-determinant argument:</p>
+    <blockquote>
+      <p>Use the extension supplied in the proof of [LL24b, Corollary&nbsp;2.3.5], whose determinant on the total space has finite order, and perform Mochizuki's deformation with this determinant fixed.  After the dominant \'{e}tale base change used in [LL24b, Lemma&nbsp;2.4.2], write</p>
+      <div class="display-math">\[
+      \mathbb V'=\mathbb U\otimes\pi^*\mathbb L,
+      \]</div>
+      <p>where $\mathbb U$ is unitary on the total space.  Then</p>
+      <div class="display-math">\[
+      \End^0(\mathbb V')=\End^0(\mathbb U)
+      \]</div>
+      <p>is unitary on the total space and has rank $r^2-1&lt;g$.  Fiberwise irreducibility gives</p>
+      <div class="display-math">\[
+      \pi_*\End^0(\mathbb V')=0,
+      \]</div>
+      <p>while Theorem 3.3.1 gives</p>
+      <div class="display-math">\[
+      H^0\!\left(M,R^1\pi_*\End^0(\mathbb V')\right)=0.
+      \]</div>
+      <p>The low-degree Leray sequence therefore yields</p>
+      <div class="display-math">\[
+      H^1\!\left(\mathcal X,\End^0(\mathbb V')\right)=0.
+      \]</div>
+      <p>This is the tangent space to fixed-determinant deformations of $\mathbb V'$.  Hence $\mathbb V'$ is isolated in the fixed-determinant moduli space.  Scalar infinitesimal deformations have been removed, and the remaining scalar twists preserving the determinant are $r$-torsion and therefore discrete.  The deformation from $\mathbb V$ to $\mathbb V'$ and the subsequent integrality argument may thus be carried out with determinant fixed.</p>
+    </blockquote>
+    <p>This supplies the strict rank inequality needed in the equality case and leaves Theorem 3.1.5 and its later uses unchanged.</p>
+  </li>
+  <li>
+    <p><strong>Pages 194--195, Definition 4.1.2 and the Atiyah sequence.</strong> An $\mathcal O_X$-linear splitting of the Atiyah sequence is a connection, but it is flat only when its curvature vanishes.  Replace the sentence “The data of a flat connection $\nabla$ on $E$ is the same as the data of an $\mathcal O$-linear splitting” by:</p>
+    <blockquote>
+      <p>The data of a connection $\nabla$ on $E$ is the same as the data of an $\mathcal O_X$-linear splitting $q_\nabla$ of the Atiyah sequence.  The connection is flat precisely when the splitting preserves Lie brackets:</p>
+      <div class="display-math">\[
+      [q_\nabla(v),q_\nabla(w)]=q_\nabla([v,w])
+      \]</div>
+      <p>for local vector fields $v,w$; equivalently, the curvature of $\nabla$ vanishes.</p>
+    </blockquote>
+    <p>With this condition, the splitting on p.&nbsp;195 is a map of complexes exactly as claimed.</p>
+  </li>
+  <li>
+    <p><strong>Page 200, proof sketch of Proposition 4.3.5.</strong> The proof invokes Conjecture 4.3.4, whose statement explicitly omits the finite-order $p$-integrality condition needed in the argument, and it places the original connection rather than its pullback on the covering curve in the genus-$g$ moduli space.  Replace the three sentences beginning “By a direct computation with Taylor series” by:</p>
+    <blockquote>
+      <p>By a direct computation with Taylor series, the isomonodromy leaf through</p>
+      <div class="display-math">\[
+      [(Y,(E,\nabla)|_Y)]
+      \in M_{\mathrm{dR}}(\mathcal C_g/\mathcal M_g,r)
+      \]</div>
+      <p>is $p$-integral to order $\omega(p)$ for almost all $p$.  Conjecture 4.3.1, including its finite-order $p$-integrality assertion, then implies that this leaf is algebraic.  Equivalently, the monodromy of $(E,\nabla)|_Y$ has finite orbit under $\Mod_g=\pi_1(\mathcal M_g)$.  Since $g\ge r^2$, Theorem 3.1.5 shows that $(E,\nabla)|_Y$ has finite monodromy.  The subgroup $\pi_1(Y)\subset\pi_1(X)$ has finite index, so $(E,\nabla)$ itself has finite monodromy.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><strong>Pages 200--201, paragraph preceding Theorem 4.3.9.</strong> The sentence suggesting that the Picard--Fuchs hypothesis of Theorem 4.3.7 is mild conflates a Picard--Fuchs equation with a direct summand of one. Definition 2.3.1 only gives the latter notion of geometric origin, while Remark 4.2.9 records that the relevant result is not known for arbitrary direct summands.  Replace the paragraph by:</p>
+    <blockquote>
+      <p>Examples naturally produce local systems of geometric origin, hence direct summands of Picard--Fuchs local systems.  Theorem 4.3.7 applies when the flat bundle is the full Picard--Fuchs equation of Definition 4.2.7.  Theorem 4.3.9 below supplies geometric origin, and therefore a direct-summand realization, but does not by itself verify the stronger hypothesis of Theorem 4.3.7.</p>
+    </blockquote>
+    <p>Theorem 4.3.9 itself is unchanged.</p>
+  </li>
+  <li>
+    <p><strong>Pages 201--202, proof of Corollary 4.4.3.</strong> The inclusion of a fiber $X$ into $\mathcal X_{\widetilde S}:=\mathcal X\times_S\widetilde S$ need not induce an isomorphism on fundamental groups: the homotopy sequence contains a boundary map</p>
+    <div class="display-math">\[
+    \pi_2(\widetilde S)\longrightarrow\pi_1(X).
+    \]</div>
+    <p>Replace the proof by the following argument, which works on relative character varieties and does not require a local system on $\mathcal X_{\widetilde S}$:</p>
+    <blockquote>
+      <p>Over the universal cover $\widetilde S$, the local system of relative Betti character varieties is trivial.  The monodromy class of $(E,\nabla)$ therefore defines a horizontal holomorphic section</p>
+      <div class="display-math">\[
+      \sigma:\widetilde S\longrightarrow
+      M_B(\mathcal X/S,r)^{\mathrm{an}}\times_{S^{\mathrm{an}}}\widetilde S.
+      \]</div>
+      <p>The possible $\pi_2(\widetilde S)$-ambiguity in based transport acts by inner automorphisms and is invisible on character-variety points.</p>
+      <p>Let $\mathcal H$ be Simpson's closed relative nonabelian Hodge locus of points underlying polarizable $\mathbb Z$-variations of Hodge structure, and set</p>
+      <div class="display-math">\[
+      N=\sigma^{-1}(\mathcal H)\subset\widetilde S.
+      \]</div>
+      <p>By [Sim97, §12], $N$ is closed analytic.  The assumed formal Griffiths-transverse extension of the Hodge filtration says that the formal germ of $\sigma$ at the chosen lift $\widetilde s$ lies in $\mathcal H$. Consequently, the pullback of the defining ideal of $\mathcal H$ vanishes in the completed analytic local ring at $\widetilde s$.  The analytic local ring injects into its completion, so this ideal already vanishes on a neighborhood of $\widetilde s$.  Thus $N$ contains a nonempty open subset; because $N$ is a closed analytic subset of the connected manifold $\widetilde S$, analytic continuation gives $N=\widetilde S$.</p>
+      <p>For a deck transformation $\delta\in\pi_1(S,s)$, the value $\sigma(\delta\widetilde s)$ is the character-variety point obtained from $\sigma(\widetilde s)$ by the corresponding outer monodromy action.  Hence every point in the $\pi_1(S,s)$-orbit of $(E,\nabla)$ underlies a polarizable $\mathbb Z$-variation of Hodge structure.  Deligne's finiteness theorem (Theorem 4.4.1) now shows that this orbit is finite.</p>
+    </blockquote>
+    <p>Thus Corollary 4.4.3 retains its stated conclusion; only the total-space fundamental-group argument is replaced.</p>
+  </li>
+  <li>
+    <p><strong>Page 204, Example 5.1.1.</strong> The description of $M_{\mathrm{Dol}}(X,r)$ as the coarse moduli space of semistable Higgs bundles of degree zero omits the conditions required by the nonabelian Hodge correspondence in higher dimension.  Replace that sentence by:</p>
+    <blockquote>
+      <p>After fixing a polarization on $X$, we let $M_{\mathrm{Dol}}(X,r)$ be the coarse moduli space of polystable rank-$r$ Higgs bundles $(E,\theta)$ on $X$ with vanishing rational Chern classes</p>
+      <div class="display-math">\[
+      c_i(E)=0\in H^{2i}(X,\mathbb Q)\qquad(i&gt;0).
+      \]</div>
+    </blockquote>
+    <p>With this definition, the real-analytic homeomorphism with $M_B(X,r)$ on p.&nbsp;205 has the stated meaning.</p>
+  </li>
+  <li>
+    <p><strong>Page 208, first paragraph of §5.2.</strong> The normalization says $x_3=\infty$ and $x_4=\lambda$, whereas the next sentence assigns $C_3$ to $\lambda$ and $C_4$ to $\infty$.  Replace the normalization by</p>
+    <div class="display-math">\[
+    x_1=0,\qquad x_2=1,\qquad x_3=\lambda,\qquad x_4=\infty.
+    \]</div>
+    <p>The subsequent assignment of $C_i$ to the four punctures and all later formulas in §5.2 are then consistent.</p>
+  </li>
+  <li>
+    <p><strong>Page 218, first paragraph of §6.2.</strong> Under the convention used in the paper, the full group $\Mod_{g,n+1}$ may move the distinguished point $x_0$ and therefore does not act canonically on the based group $\pi_1(\Sigma_{g,n},x_0)$.  Replace the first paragraph after “Fixing a base-point $x_0$” by:</p>
+    <blockquote>
+      <p>Let $\PMod_{g,n+1}$ be the pure mapping class group of the surface with the $n$ punctures and the additional marked point $x_0$.  Since it fixes $x_0$, it acts naturally on $\pi_1(\Sigma_{g,n},x_0)$.  If $\Sigma_{g'}\to\Sigma_g$ is a cover branched at the $n$ punctures, let $\Gamma\subset\PMod_{g,n+1}$ be the stabilizer of $\pi_1(\Sigma_{g',n'})\subset\pi_1(\Sigma_{g,n},x_0)$.  Then $\Gamma$ has finite index and acts on $H_1(\Sigma_{g'},\mathbb Z)$ as described below.</p>
+    </blockquote>
+    <p>Replacing the acting group by this finite-index pure subgroup does not change the subsequent finite-orbit or finite-index formulations.</p>
+  </li>
+  <li>
+    <p><strong>Page 230, sentence following Conjecture 6.4.6.</strong> Conjecture 6.4.6 asserts only that an integral formal isomonodromic deformation implies invariance under a finite-index subgroup.  When $Z$ is a point, this is only one implication in Conjecture 4.3.4.  Replace “it specializes to that statement if $Z$ is a point” by:</p>
+    <blockquote>
+      <p>When $Z$ is a point, Conjecture 6.4.6 gives the implication from an integral formal isomonodromic deformation to a finite monodromy orbit in Conjecture 4.3.4; it does not assert the converse implication.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><strong>Page 230, §6.4.7.</strong> The claim that nontrivial geometric subgroups cannot lie in the Torelli group must exclude families whose underlying unpointed curves are isotrivial.  For example, marked points may move on a fixed curve while the homological monodromy remains trivial.  Replace the paragraph beginning “There are some evident restrictions” through the Torelli assertion by:</p>
+    <blockquote>
+      <p>There are some evident restrictions on geometric subgroups arising from non-isotrivial families of underlying curves.  Such a subgroup cannot be contained in the Torelli group.  Indeed, after passing to a finite cover, finite homological monodromy becomes trivial.  The theorem of the fixed part then makes the weight-one variation $R^1q_*\mathbb Q$ constant, so the period map to $\mathcal A_g$ is constant; Torelli's theorem implies that the underlying family of curves is isotrivial.  This argument does not apply to families obtained by moving marked points on a fixed curve, and such families must be treated separately.</p>
+    </blockquote>
+    <p>This qualification concerns the concluding expectation only and is not used in any proof.</p>
+  </li>
+</ol>
+<h4>References</h4>
+<p>N.&nbsp;M. Katz, <em>Rigid Local Systems</em>, Annals of Mathematics Studies, vol.&nbsp;139, Princeton University Press, Princeton, NJ, 1996.</p>
+<p>A.&nbsp;Landesman and D.&nbsp;Litt, <em>Canonical representations of surface groups</em>, Ann. of Math. (2) <strong>199</strong> (2024), no.&nbsp;2, 823--897.</p>
+<p>C.&nbsp;T. Simpson, <em>The Hodge filtration on nonabelian cohomology</em>, in <em>Algebraic Geometry---Santa Cruz 1995</em>, Proc. Sympos. Pure Math., vol.&nbsp;62, part&nbsp;2, Amer. Math. Soc., Providence, RI, 1997, pp.&nbsp;217--281.</p>
