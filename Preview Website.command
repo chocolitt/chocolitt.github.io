@@ -19,8 +19,8 @@ cd "$REPOSITORY_DIR"
 
 show_error() {
   /usr/bin/osascript - "$1" <<'APPLESCRIPT' >/dev/null
-on run arguments
-  display dialog (item 1 of arguments) with title "Website Preview" buttons {"OK"} default button "OK" with icon stop
+on run argv
+  display dialog (item 1 of argv) with title "Website Preview" buttons {"OK"} default button "OK" with icon stop
 end run
 APPLESCRIPT
 }
@@ -106,29 +106,50 @@ NODE_BIN_DIR="${NODE_BIN:h}"
 export PATH="$NODE_BIN_DIR:$PATH"
 NPM_BIN="$NODE_BIN_DIR/npm"
 
-run_pnpm() {
+install_dependencies() {
   if [[ -n "${SITE_PREVIEW_PNPM:-}" ]]; then
-    "$SITE_PREVIEW_PNPM" "$@"
+    "$SITE_PREVIEW_PNPM" install --frozen-lockfile
   else
-    "$NPM_BIN" exec --yes pnpm@11.19.0 -- "$@"
+    "$NPM_BIN" exec --yes pnpm@11.19.0 -- install --frozen-lockfile
   fi
 }
 
-if [[ -z "${SITE_PREVIEW_PNPM:-}" ]] && [[ ! -x "$NPM_BIN" ]]; then
+if [[ ! -x "$NPM_BIN" ]]; then
   show_error "The preview runtime is missing npm."
   exit 1
 fi
 
 if [[ ! -x "$REPOSITORY_DIR/node_modules/.bin/astro" ]]; then
   print "Installing the website dependencies (first preview only)..."
-  run_pnpm install --frozen-lockfile
+  install_dependencies
 fi
 
 print "Checking and building the website..."
 export ASTRO_TELEMETRY_DISABLED=1
-run_pnpm run build
+
+# Astro loads these files itself. Use the documented public demo identifier
+# only when the user has not configured one, so a fresh double-click preview
+# still produces the complete site and passes the production-style checks.
+fastcomments_is_configured=0
+if [[ -n "${PUBLIC_FASTCOMMENTS_TENANT_ID:-}" ]]; then
+  fastcomments_is_configured=1
+else
+  for env_file in .env .env.local .env.production .env.production.local; do
+    if [[ -f "$env_file" ]] && /usr/bin/grep -Eq '^[[:space:]]*PUBLIC_FASTCOMMENTS_TENANT_ID[[:space:]]*=[[:space:]]*[^[:space:]#]+' "$env_file"; then
+      fastcomments_is_configured=1
+      break
+    fi
+  done
+fi
+if (( ! fastcomments_is_configured )); then
+  export PUBLIC_FASTCOMMENTS_TENANT_ID=demo
+fi
+
+# npm is already bundled with the private Node runtime. `npm run` executes the
+# installed local tools without resolving pnpm over the network on every run.
+"$NPM_BIN" run build
 if (( $+commands[python3] )); then
-  run_pnpm run validate
+  "$NPM_BIN" run validate
 else
   print "The optional extended link checks need Python; GitHub will run them before publishing."
 fi
