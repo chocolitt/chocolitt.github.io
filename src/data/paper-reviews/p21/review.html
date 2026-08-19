@@ -1,0 +1,54 @@
+<h4>Report metadata</h4>
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Field</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Category</td>
+        <td>Published</td>
+      </tr>
+      <tr>
+        <td>Processing status</td>
+        <td>completed</td>
+      </tr>
+      <tr>
+        <td>Detailed comments</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>Domain</td>
+        <td>stem/mathematics</td>
+      </tr>
+      <tr>
+        <td>Completed</td>
+        <td>2026-07-29T18:03:09.091860+00:00</td>
+      </tr>
+      <tr>
+        <td>Refine document ID</td>
+        <td><code>37bfb38e-d556-4970-8876-923cfdb76050</code></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<h4>Refine summary</h4>
+<p>This paper investigates Sommese's conjecture on the classification of smooth projective varieties containing a projective bundle as an ample divisor. The author proves the conjecture when the base variety has Picard rank 1 or is not uniruled, and otherwise reduces it to a conjectural characterization of projective spaces involving ample vector bundles.</p>
+<h4>Overall feedback</h4>
+<p><strong>Formal extension induction in Lemma 4</strong></p>
+<p>Lemma 4 successfully identifies the obstruction group for extending the morphism from one infinitesimal neighborhood to the next. However, the induction linking the obstruction class sequence to the global extension is currently left implicit.</p>
+<p>The argument must explicitly run this induction. It is necessary to state that the vanishing of each obstruction class is sufficient to choose the next extension, that failure at some stage produces the asserted nonzero morphism, and that an infinite compatible sequence precisely defines a morphism from the formal completion. Invoking the smoothness of the target and the square-zero nature of each thickening will fully justify these implications.</p>
+<p><strong>Direct image properties and Conjecture 2</strong></p>
+<p>A pivotal POSITIVITY step in Lemma 4 asserts from [9, Theorem 1.2] that $p_{*}(\omega_{Y/Z} \otimes \mathscr{O}_Y(nY))$ is either zero or ample. Because Conjecture 2 strictly requires an ample vector bundle, the local freeness and the precise hypotheses of [9] need to be verified. It is essential to confirm that [9] applies to this smooth projective $\mathbb{P}^1$-bundle and yields pure ampleness rather than a weaker positivity property.</p>
+<p>Fiberwise, this direct image yields $H^0(\mathbb{P}^1, \mathscr{O}(na-2))$, where $a$ is the positive fiber degree of $\mathscr{O}_Y(Y)$. Applying cohomology and base change here will establish whether the direct image is zero or locally free of constant positive rank.</p>
+<p><strong>The subsheaf formulation in Corollary 6</strong></p>
+<p>Corollary 6 relies on the statement that $T_Z$ "contains an ample subsheaf," based on the existence of the morphism $\mathscr{E} \to T_Z$. A nonzero bundle morphism can have variable rank, meaning its image may be a non-locally-free torsion-free sheaf. The statement regarding an ample subsheaf therefore requires further structural justification.</p>
+<p>For the non-uniruled branch, this can be addressed by restricting the argument to a sufficiently general complete-intersection curve, taking the saturated image, and utilizing the fact that it is a positive-degree quotient of the ample bundle $\mathscr{E}|_C$. Dualizing then supplies the required contradiction with Miyaoka's generic nefness of $\Omega_Z$. For the Picard-rank-one branch, the subsheaf formulation can simply be bypassed by directly invoking [2, Corollary 4.3] in the nonzero-Hom form described in Remark 3.</p>
+<p><strong>Hypothesis matching in Lemma 5 and Corollary 6</strong></p>
+<p>Lemma 5 acts as the singular step converting the formal extension from Lemma 4 into the global morphism necessary for Sommese's classification. The proof currently summarizes two non-abelian Lefschetz citations, but the mechanism requires exact hypothesis and conclusion matching. The text must explicitly demonstrate that the first result algebraizes the formal morphism to a morphism on a Zariski neighborhood of $Y$, and the second result makes the resulting rational map $X \dashrightarrow Z$ regular under the condition $\dim Z &lt; \dim Y$. Additionally, the phrase "this rational map to $Y$" specifies the wrong target and should be corrected to $Z$.</p>
+<p>The proof must also account for uniqueness. In Corollary 6, it is necessary to explicitly check that for a $\mathbb{P}^1$-bundle, $\dim Y = \dim Z + 1$ and $\dim X = \dim Z + 2$, establishing that all underlying hypotheses of Lemma 5 rigorously apply.</p>
+<h4>Detailed comments</h4>
+<p><em>Refine returned no detailed comments for this paper.</em></p>

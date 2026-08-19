@@ -1,0 +1,92 @@
+<h4>Scope</h4>
+<ul><li>Paper: <code>03 Published and Submitted Work/Published/P15_Lawrence_Litt_Universally_Finite_MCG_Orbit.pdf</code></li><li>Refine report: <code>.refine/results/Published/P15_Lawrence_Litt_Universally_Finite_MCG_Orbit.review.json</code></li><li>Rubric: <code>rubric/comment_triage_rubric.md</code></li><li>Version assessed: the local published PDF, <em>Mathematical Research Letters</em> 29 (2022), 1791–1812</li><li>Detailed Refine comments assessed: 8</li><li>Assessment date: 2026-07-30</li></ul>
+<p>The local PDF is the authority for the text. All notation-sensitive passages were checked against rendered pages. No comment remains at <code>I3</code> or higher after reconstruction.</p>
+<h4>Summary</h4>
+<div class="table-wrap"><table><thead><tr><th>#</th><th>Refine comment</th><th>Validity</th><th>Primary category</th><th>Standardness</th><th>Impact</th><th>Challenge</th><th>Repair</th><th>Disposition</th><th>Priority</th><th>Confidence</th></tr></thead><tbody><tr><td>1</td><td>The arithmetic-group orbit is not a singleton</td><td><code>V4</code> Correct</td><td><code>C9</code> Claim calibration</td><td><code>E-NA</code></td><td><code>I2</code> Minor</td><td><code>Q0</code></td><td><code>R2</code> Local</td><td><code>D3</code> Public errata</td><td><code>P2</code></td><td><code>HIGH</code></td></tr><tr><td>2</td><td>The rank-one discussion assumes away peripheral homology</td><td><code>V3</code> Partially correct</td><td><code>C5</code> Scope</td><td><code>E-NA</code></td><td><code>I2</code> Minor</td><td><code>Q0</code></td><td><code>R2</code> Local</td><td><code>D3</code> Public errata</td><td><code>P2</code></td><td><code>HIGH</code></td></tr><tr><td>3</td><td>The base point must lie in \(C\setminus D\)</td><td><code>V4</code> Correct</td><td><code>C5</code> Domain</td><td><code>E-NA</code></td><td><code>I2</code> Minor</td><td><code>Q0</code></td><td><code>R2</code> Local</td><td><code>D3</code> Public errata</td><td><code>P2</code></td><td><code>HIGH</code></td></tr><tr><td>4</td><td>Theorem 1.2.2 does not repeat regular singularity</td><td><code>V3</code> Partially correct</td><td><code>C3</code> Clarity</td><td><code>E2</code> Standard; sentence helpful</td><td><code>I1</code> Expository</td><td><code>Q1</code></td><td><code>R1</code> Editorial</td><td><code>D1</code> Optional edit</td><td><code>P3</code></td><td><code>HIGH</code></td></tr><tr><td>5</td><td>Isomorphic extensions do not give equal cocycles</td><td><code>V4</code> Correct</td><td><code>C6</code> Logical correctness</td><td><code>E-NA</code></td><td><code>I2</code> Minor</td><td><code>Q0</code></td><td><code>R2</code> Local</td><td><code>D3</code> Public errata</td><td><code>P2</code></td><td><code>HIGH</code></td></tr><tr><td>6</td><td>The trace-dual basis convention is inconsistent</td><td><code>V4</code> Correct</td><td><code>C4</code> Notation/definition</td><td><code>E-NA</code></td><td><code>I2</code> Minor</td><td><code>Q0</code></td><td><code>R2</code> Local</td><td><code>D3</code> Public errata</td><td><code>P2</code></td><td><code>HIGH</code></td></tr><tr><td>7</td><td>The Parshin subspace needs invariance under the cut monodromy</td><td><code>V4</code> Correct</td><td><code>C6</code> Logical correctness</td><td><code>E3</code> Known but nontrivial</td><td><code>I2</code> Minor</td><td><code>Q2</code></td><td><code>R2</code> Local</td><td><code>D3</code> Public errata</td><td><code>P2</code></td><td><code>HIGH</code></td></tr><tr><td>8</td><td>The augmentation-quotient representation is trivial for \(n=2\)</td><td><code>V4</code> Correct</td><td><code>C5</code> Quantifier</td><td><code>E-NA</code></td><td><code>I2</code> Minor</td><td><code>Q0</code></td><td><code>R2</code> Local</td><td><code>D3</code> Public errata</td><td><code>P2</code></td><td><code>HIGH</code></td></tr></tbody></table></div>
+<h4>1. The arithmetic-group orbit is finite, not a singleton</h4>
+<p><strong>Comment ID.</strong> <code>d04aab64-0eb7-4314-a931-4068afca6f4f</code></p>
+<p><strong>Location.</strong> Printed page 1792, Remark 1.1.4.</p>
+<p><strong>Assessment.</strong> <code>V4</code>. For \(G=\operatorname{SL}_n(\mathbb Z)\), the outer automorphism</p>
+<div class="display-math">\[
+g\longmapsto (g^{-1})^{\mathsf T}
+\]</div>
+<p>takes the standard representation to its dual. For \(n&gt;2\), the standard and dual representations are not isomorphic. Thus the asserted orbit is not a singleton even in the basic example named in the remark. Super-rigidity gives the weaker fact actually needed: only the standard and contragredient types can occur, so the orbit is finite.</p>
+<ul><li>Primary category: <code>C9</code> claim calibration or interpretation</li><li>Secondary tags: <code>outer_automorphism</code>, <code>contragredient</code></li><li>Impact: <code>I2</code>; the local assertion is false, but the counterexample to the analogue of Corollary 1.1.3 needs only a finite orbit with infinite image</li><li>Repairability: <code>R2</code></li><li>Disposition: <code>D3</code></li><li>Priority: <code>P2</code></li><li>Confidence: <code>HIGH</code></li></ul>
+<p><strong>Suggested correction.</strong> Replace “is a singleton” by “is finite (indeed, it is contained in the standard and contragredient isomorphism classes).”</p>
+<h4>2. The rank-one discussion omits peripheral homology</h4>
+<p><strong>Comment ID.</strong> <code>e3dcf02a-dfae-4995-a453-b6aa7bb70651</code></p>
+<p><strong>Location.</strong> Printed page 1793, Remark 1.1.5.</p>
+<p><strong>Assessment.</strong> <code>V3</code>. For a genus-\(g\) surface with \(n\) punctures and \(b\) boundary components,</p>
+<div class="display-math">\[
+\operatorname{rk}H_1(\Sigma,\mathbb Z)=2g+n+b-1,
+\]</div>
+<p>not \(2g\). Hence the displayed parameter space and the claim that the entire mapping-class action is the standard \(\operatorname{Sp}_{2g}(\mathbb Z)\) action are valid as written only when the peripheral part vanishes.</p>
+<p>The comment is too broad in claiming that arbitrary peripheral values always give finite mapping-class-group orbit when \(g&gt;0\). Dehn twists about curves whose homology has both handle and peripheral components can shear the handle part by the peripheral radical, producing an infinite orbit for a non-torsion peripheral value. The proposed counterexample is valid in genus zero, where the homological action on peripheral classes is finite, but not uniformly for all surfaces with \(n+b&gt;1\).</p>
+<ul><li>Primary category: <code>C5</code> hypothesis, quantifier, or scope</li><li>Secondary tags: <code>peripheral_homology</code>, <code>rank_mismatch</code></li><li>Impact: <code>I2</code>; Remark 1.1.5 is false in its stated generality, but it is illustrative and is not used in the proof of Theorem 1.1.1</li><li>Dependency trace: the main proof separately passes to covers of genus at least two and uses the quotient by boundary homology introduced in Definition 2.2.4</li><li>Repairability: <code>R2</code></li><li>Disposition: <code>D3</code></li><li>Priority: <code>P2</code></li><li>Confidence: <code>HIGH</code></li></ul>
+<p><strong>Suggested correction.</strong> Begin the remark with “Suppose \(\Sigma\) is closed.” If a general rank-one discussion is desired, retain the peripheral factor and analyze the full mapping-class action rather than only its symplectic quotient.</p>
+<h4>3. The Riemann–Hilbert base point must avoid \(D\)</h4>
+<p><strong>Comment ID.</strong> <code>277f23b8-71e5-4e67-a743-7168d42142cc</code></p>
+<p><strong>Location.</strong> Printed page 1794, first paragraph.</p>
+<p><strong>Assessment.</strong> <code>V4</code>. The expression \(\pi_1(C\setminus D,x)\) and the fiber of a local system at \(x\) require \(x\in C\setminus D\). The printed condition \(x\in C\) permits an undefined choice \(x\in D\).</p>
+<ul><li>Primary category: <code>C5</code> hypothesis, quantifier, or scope</li><li>Secondary tags: <code>basepoint</code>, <code>domain</code></li><li>Impact: <code>I2</code>; this is an exact-domain error with an immediate unique repair</li><li>Dependency trace: every subsequent use is plainly based on a point of the open curve</li><li>Repairability: <code>R2</code></li><li>Disposition: <code>D3</code></li><li>Priority: <code>P2</code></li><li>Confidence: <code>HIGH</code></li></ul>
+<p><strong>Suggested correction.</strong> Replace \(x\in C\) by \(x\in C\setminus D\).</p>
+<h4>4. Regular singularity is contextually fixed but should be repeated</h4>
+<p><strong>Comment ID.</strong> <code>f5be6f4a-9867-4da8-81ef-cb63e3ab1b92</code></p>
+<p><strong>Location.</strong> Printed pages 1793–1795, Riemann–Hilbert discussion and Theorem 1.2.2.</p>
+<p><strong>Assessment.</strong> <code>V3</code>, not a correctness gap. The paragraph introducing the algebro-geometric setting explicitly restricts to algebraic flat bundles regular singular at infinity and identifies that category with local systems. Theorem 1.2.2 is introduced by “Thus” as the translation of that discussion. Consequently the intended category is recoverable and irregular connections are not silently proved to satisfy the theorem.</p>
+<p>The theorem statement would nevertheless be clearer and safer when quoted independently if it repeated the standing condition.</p>
+<h5>Omission check</h5>
+<ul><li>Status: <code>Q1</code> standard contextual omission verified</li><li>Standardness: <code>E2</code></li><li>Impact: <code>I1</code></li><li>Dependency trace: with the contextual regular-singular convention, the Riemann–Hilbert translation to Theorem 1.1.1 is valid; nothing downstream treats Stokes data or irregular isomonodromy</li><li>Repairability: <code>R1</code></li><li>Disposition: <code>D1</code></li><li>Priority: <code>P3</code></li><li>Confidence: <code>HIGH</code></li></ul>
+<p><strong>Optional edit.</strong> In Theorem 1.2.2 write “let \((\mathscr E,\nabla)\) be an algebraic flat vector bundle regular singular at infinity.”</p>
+<h4>5. Isomorphic extension representations need not have equal cocycles</h4>
+<p><strong>Comment ID.</strong> <code>65cf6429-3f05-4a43-96e5-6ec6f6988126</code></p>
+<p><strong>Location.</strong> Printed pages 1803–1804, proof of Lemma 2.2.6.</p>
+<p><strong>Assessment.</strong> <code>V4</code>. Conjugate block-unipotent representations can have different maps \(\sigma:H_1(\Sigma')\to\operatorname{Hom}(V_2,V_1)\), so</p>
+<div class="display-math">\[
+(T_{\gamma_1}^m)^*\rho\simeq\rho
+\quad\not\Rightarrow\quad
+(T_{\gamma_1}^m)^*\sigma_{\Sigma'}=\sigma_{\Sigma'}
+\]</div>
+<p>as literal homomorphisms.</p>
+<p>The contradiction is recovered without choosing a cocycle normalization. For every \(h\),</p>
+<div class="display-math">\[
+\sigma_{\Sigma'}(h)=0\quad\Longleftrightarrow\quad\rho(h)=\operatorname{Id}.
+\]</div>
+<p>Conjugate representations have the same kernel. But the twist sends \(\gamma_2\), which lies in \(\ker\rho\), to \(\gamma_2\gamma_1^{im}\), whose \(\sigma\)-value is \(im\,\sigma(\gamma_1)\ne0\). Thus the two representations cannot be isomorphic.</p>
+<ul><li>Primary category: <code>C6</code> mathematical or logical correctness</li><li>Secondary tags: <code>conjugacy</code>, <code>extension_cocycle</code>, <code>kernel_invariance</code></li><li>Impact: <code>I2</code></li><li>Dependency trace: the repaired contradiction proves Lemma 2.2.6, which is used in the final induction proving Theorem 1.1.1</li><li>Repairability: <code>R2</code></li><li>Disposition: <code>D3</code></li><li>Priority: <code>P2</code></li><li>Confidence: <code>HIGH</code></li></ul>
+<p><strong>Suggested correction.</strong> Delete the asserted equality of the two \(\sigma\)-maps and replace it with the kernel-invariance argument above.</p>
+<h4>6. The trace-dual basis convention must use the inverse basis</h4>
+<p><strong>Comment ID.</strong> <code>9842fcfa-eb2b-4df3-8796-0570f4f10c16</code></p>
+<p><strong>Location.</strong> Printed pages 1805–1806, proofs of Lemmas 3.1.1 and 3.1.3.</p>
+<p><strong>Assessment.</strong> <code>V4</code>. If \(e_i\) is trace-dual to \(\rho(g_i)\), the coefficient of \(e_i\) is \(\operatorname{Tr}(\rho(g_i)\rho(g))\), not \(\operatorname{Tr}(\rho(g_i)^{-1}\rho(g))\).</p>
+<p>The inverses are useful and should be retained because their coefficient equals \(\operatorname{Tr}(\rho(g_i^{-1}g))\), to which the finite-trace argument applies. Since \(\{\rho(g)^{-1}:g\in G\}=\rho(G)\) spans \(\operatorname{End}(V)\), choose \(g_1,\ldots,g_{n^2}\) so that \(\{\rho(g_i)^{-1}\}\) is a basis and declare \(e_i\) trace-dual to that inverse basis. This also matches the definition of \(\Gamma\) in Lemma 3.1.3.</p>
+<ul><li>Primary category: <code>C4</code> notation or definition</li><li>Secondary tags: <code>dual_basis</code>, <code>inverse_convention</code></li><li>Impact: <code>I2</code>; both proofs are invalid under the printed convention but correct after the bounded basis change</li><li>Dependency trace: Lemmas 3.1.1–3.1.3 and Corollary 3.1.4 retain their statements and later uses</li><li>Repairability: <code>R2</code></li><li>Disposition: <code>D3</code></li><li>Priority: <code>P2</code></li><li>Confidence: <code>HIGH</code></li></ul>
+<p><strong>Suggested correction.</strong> In both lemmas, say that \(\{\rho(g_i)^{-1}\}\) is the chosen basis and that \(e_i\) is its trace-dual basis.</p>
+<h4>7. The Parshin subspace is invariant because it is \(\operatorname{im}(g-I)\)</h4>
+<p><strong>Comment ID.</strong> <code>37afc010-9cf0-4fe4-8180-38b1c7931d3a</code></p>
+<p><strong>Location.</strong> Printed page 1810, final paragraph of Example 3.3.1.</p>
+<p><strong>Assessment.</strong> <code>V4</code>. Merely saying that \(U=\bigoplus_iV_i\) is \(g\)-stable does not imply that the cut-surface monodromy, which centralizes \(g\), preserves \(U\). The missing canonical description is available from the Picard–Lefschetz formula.</p>
+<p>Let \(\delta_j\) be the components of the lift of \(\gamma^m\). The commuting Dehn twists give</p>
+<div class="display-math">\[
+g-I=\sum_j N_{\delta_j},\qquad
+N_{\delta_j}(\alpha)=\langle\alpha,[\delta_j]\rangle
+\operatorname{PD}([\delta_j]).
+\]</div>
+<p>The image is the span of the Poincaré duals of the lifted components, namely \(U\). At least one lifted class is nonzero because the transfer of the nonzero class \([\gamma]\) is their sum. Hence \(U\ne0\). Since \(g-I\) is nonzero nilpotent, its image is proper. Every operator commuting with \(g\) preserves \(\operatorname{im}(g-I)\), so the cut-surface monodromy preserves \(U\) and the restriction is reducible.</p>
+<h5>Severity-challenge result</h5>
+<ul><li>Status: <code>Q2</code> local repair verified</li><li>Failure tests: possible linear dependencies among lifts do not change the image statement; transfer rules out all lift classes vanishing; nilpotence rules out surjectivity</li><li>Impact: <code>I2</code>; Example 3.3.1 needs this argument, but no main theorem depends on the example</li><li>Standardness: <code>E3</code></li><li>Repairability: <code>R2</code></li><li>Disposition: <code>D3</code></li><li>Priority: <code>P2</code></li><li>Confidence: <code>HIGH</code></li></ul>
+<p><strong>Suggested correction.</strong> Replace “\(g\)-stable” by the displayed \(U=\operatorname{im}(g-I)\) calculation and invoke centralizer invariance.</p>
+<h4>8. Example 3.5.1 is trivial at \(n=2\)</h4>
+<p><strong>Comment ID.</strong> <code>db80c593-7b88-478d-8bca-45348ad6485a</code></p>
+<p><strong>Location.</strong> Printed page 1811, Example 3.5.1.</p>
+<p><strong>Assessment.</strong> <code>V4</code>. Modulo \(\mathscr I^2\),</p>
+<div class="display-math">\[
+ghg^{-1}-1\equiv
+(g-1)+(h-1)+(g^{-1}-1)\equiv h-1.
+\]</div>
+<p>Thus conjugation acts identically on \(\mathbb Q[\pi_1(\Sigma,p)]/\mathscr I^2\). The assertion “for any \(n&gt;1\)” is false at its first value.</p>
+<p>For \(n\ge3\), the conjugation action detects commutators in \(\mathscr I^2/\mathscr I^3\); since the surface group in the example is nonabelian, the intended nontrivial examples remain available.</p>
+<ul><li>Primary category: <code>C5</code> hypothesis, quantifier, or scope</li><li>Secondary tags: <code>boundary_value</code>, <code>augmentation_filtration</code></li><li>Impact: <code>I2</code>; only the quantified range of a final example changes</li><li>Dependency trace: the example is not used elsewhere</li><li>Repairability: <code>R2</code></li><li>Disposition: <code>D3</code></li><li>Priority: <code>P2</code></li><li>Confidence: <code>HIGH</code></li></ul>
+<p><strong>Suggested correction.</strong> Replace \(n&gt;1\) by \(n\ge3\).</p>
+<h4>Author decisions to record</h4>
+<ol><li>Whether to restrict Remark 1.1.5 to closed surfaces or expand it to describe the peripheral homology action.</li><li>Whether to add the regular-singular phrase to Theorem 1.2.2 for standalone clarity.</li><li>Add the inverse-basis convention consistently in both Lemmas 3.1.1 and 3.1.3.</li><li>Include the kernel argument and the \(U=\operatorname{im}(g-I)\) identification in any maintained version.</li></ol>

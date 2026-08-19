@@ -1,0 +1,396 @@
+[
+  {
+    "id": "p01",
+    "code": "P01",
+    "title": "Motives, mapping class groups, and monodromy",
+    "summary": "32 detailed comments · 24 numbered corrections",
+    "confidence": "32 high, 0 medium",
+    "serious": false,
+    "badges": [
+      {
+        "count": 8,
+        "impact": "I1",
+        "serious": false
+      },
+      {
+        "count": 24,
+        "impact": "I2",
+        "serious": false
+      }
+    ]
+  },
+  {
+    "id": "p02",
+    "code": "P02",
+    "title": "Big monodromy for higher Prym representations",
+    "summary": "14 detailed comments · 11 numbered corrections",
+    "confidence": "13 high, 1 medium",
+    "serious": false,
+    "badges": [
+      {
+        "count": 3,
+        "impact": "I1",
+        "serious": false
+      },
+      {
+        "count": 11,
+        "impact": "I2",
+        "serious": false
+      }
+    ],
+    "disclosure": "The Refine review and ChatGPT audit below are AI-generated and reproduced verbatim. Daniel spot-checked the audit and reviewed or edited the erratum; the authors do not necessarily endorse the AI’s wording or proposed edits. In particular, the adjustments the authors themselves would make are not necessarily the adjustments suggested by the AI."
+  },
+  {
+    "id": "p04",
+    "code": "P04",
+    "title": "Canonical representations of surface groups",
+    "summary": "19 detailed comments · 13 numbered corrections",
+    "confidence": "19 high, 0 medium",
+    "serious": false,
+    "badges": [
+      {
+        "count": 2,
+        "impact": "I0",
+        "serious": false
+      },
+      {
+        "count": 4,
+        "impact": "I1",
+        "serious": false
+      },
+      {
+        "count": 13,
+        "impact": "I2",
+        "serious": false
+      }
+    ],
+    "disclosure": "The Refine review and ChatGPT audit below are AI-generated and reproduced verbatim. Daniel spot-checked the audit and reviewed or edited the erratum; the authors do not necessarily endorse the AI’s wording or proposed edits."
+  },
+  {
+    "id": "p05",
+    "code": "P05",
+    "title": "GEOMETRIC LOCAL SYSTEMS ON VERY GENERAL CURVES AND ISOMONODROMY",
+    "summary": "12 detailed comments · 7 numbered corrections",
+    "confidence": "12 high, 0 medium",
+    "serious": false,
+    "badges": [
+      {
+        "count": 1,
+        "impact": "I0",
+        "serious": false
+      },
+      {
+        "count": 4,
+        "impact": "I1",
+        "serious": false
+      },
+      {
+        "count": 7,
+        "impact": "I2",
+        "serious": false
+      }
+    ],
+    "disclosure": "The Refine review and ChatGPT audit below are AI-generated and reproduced verbatim. Daniel spot-checked the audit and reviewed or edited the erratum; the authors do not necessarily endorse the AI’s wording or proposed edits."
+  },
+  {
+    "id": "p06",
+    "code": "P06",
+    "title": "Prill's problem",
+    "summary": "3 detailed comments · 1 numbered correction",
+    "confidence": "3 high, 0 medium",
+    "serious": false,
+    "badges": [
+      {
+        "count": 2,
+        "impact": "I1",
+        "serious": false
+      },
+      {
+        "count": 1,
+        "impact": "I2",
+        "serious": false
+      }
+    ],
+    "disclosure": "The Refine review and ChatGPT audit below are AI-generated and reproduced verbatim. Daniel spot-checked the audit and reviewed or edited the erratum; the authors do not necessarily endorse the AI’s wording or proposed edits."
+  },
+  {
+    "id": "p07",
+    "code": "P07",
+    "title": "Applications of the algebraic geometry of the Putman-Wieland conjecture",
+    "summary": "10 detailed comments · 8 numbered corrections",
+    "confidence": "10 high, 0 medium",
+    "serious": false,
+    "badges": [
+      {
+        "count": 1,
+        "impact": "I0",
+        "serious": false
+      },
+      {
+        "count": 1,
+        "impact": "I1",
+        "serious": false
+      },
+      {
+        "count": 8,
+        "impact": "I2",
+        "serious": false
+      }
+    ],
+    "disclosure": "The Refine review and ChatGPT audit below are AI-generated and reproduced verbatim. Daniel spot-checked the audit and reviewed or edited the erratum; the authors do not necessarily endorse the AI’s wording or proposed edits."
+  },
+  {
+    "id": "p08",
+    "code": "P08",
+    "title": "An introduction to the algebraic geometry of the Putman-Wieland conjecture",
+    "summary": "13 detailed comments · 9 numbered corrections",
+    "confidence": "13 high, 0 medium",
+    "serious": false,
+    "badges": [
+      {
+        "count": 4,
+        "impact": "I1",
+        "serious": false
+      },
+      {
+        "count": 9,
+        "impact": "I2",
+        "serious": false
+      }
+    ],
+    "disclosure": "The Refine review and ChatGPT audit below are AI-generated and reproduced verbatim. Daniel spot-checked the audit and reviewed or edited the erratum; the authors do not necessarily endorse the AI’s wording or proposed edits."
+  },
+  {
+    "id": "p13",
+    "code": "P13",
+    "title": "Tamely Ramified Morphisms of Curves and Belyi's Theorem in Positive Characteristic",
+    "summary": "19 detailed comments · 16 numbered corrections",
+    "confidence": "18 high, 1 medium",
+    "serious": true,
+    "badges": [
+      {
+        "count": 3,
+        "impact": "I0",
+        "serious": false
+      },
+      {
+        "count": 14,
+        "impact": "I2",
+        "serious": false
+      },
+      {
+        "count": 1,
+        "impact": "I3",
+        "serious": true
+      },
+      {
+        "count": 1,
+        "impact": "I4",
+        "serious": true
+      }
+    ],
+    "disclosure": "The Refine review and ChatGPT audit below are AI-generated and reproduced verbatim. Daniel spot-checked the audit and reviewed or edited the erratum; the authors do not necessarily endorse the AI’s wording or proposed edits."
+  },
+  {
+    "id": "p15",
+    "code": "P15",
+    "title": "Representations of surface groups with universally finite mapping class group orbit",
+    "summary": "8 detailed comments · 7 numbered corrections",
+    "confidence": "8 high, 0 medium",
+    "serious": false,
+    "badges": [
+      {
+        "count": 1,
+        "impact": "I1",
+        "serious": false
+      },
+      {
+        "count": 7,
+        "impact": "I2",
+        "serious": false
+      }
+    ],
+    "disclosure": "The Refine review and ChatGPT audit below are AI-generated and reproduced verbatim. Daniel spot-checked the audit and reviewed or edited the erratum; the authors do not necessarily endorse the AI’s wording or proposed edits."
+  },
+  {
+    "id": "p16",
+    "code": "P16",
+    "title": "ARITHMETIC REPRESENTATIONS OF FUNDAMENTAL GROUPS, II: FINITENESS",
+    "summary": "14 detailed comments · 10 numbered corrections",
+    "confidence": "12 high, 2 medium",
+    "serious": false,
+    "badges": [
+      {
+        "count": 2,
+        "impact": "I0",
+        "serious": false
+      },
+      {
+        "count": 2,
+        "impact": "I1",
+        "serious": false
+      },
+      {
+        "count": 10,
+        "impact": "I2",
+        "serious": false
+      }
+    ]
+  },
+  {
+    "id": "p17",
+    "code": "P17",
+    "title": "Dynamical Mordell-Lang and automorphisms of blow-ups",
+    "summary": "18 detailed comments · 18 numbered corrections",
+    "confidence": "17 high, 1 medium",
+    "serious": false,
+    "badges": [
+      {
+        "count": 18,
+        "impact": "I2",
+        "serious": false
+      }
+    ],
+    "disclosure": "The Refine review and ChatGPT audit below are AI-generated and reproduced verbatim. Daniel spot-checked the audit and reviewed or edited the erratum; the authors do not necessarily endorse the AI’s wording or proposed edits."
+  },
+  {
+    "id": "p18",
+    "code": "P18",
+    "title": "VANISHING FOR FROBENIUS TWISTS OF AMPLE VECTOR BUNDLES",
+    "summary": "1 detailed comment · 1 numbered correction",
+    "confidence": "1 high, 0 medium",
+    "serious": false,
+    "badges": [
+      {
+        "count": 1,
+        "impact": "I2",
+        "serious": false
+      }
+    ]
+  },
+  {
+    "id": "p19",
+    "code": "P19",
+    "title": "Arithmetic representations of fundamental groups I",
+    "summary": "10 detailed comments · 7 numbered corrections",
+    "confidence": "10 high, 0 medium",
+    "serious": true,
+    "badges": [
+      {
+        "count": 3,
+        "impact": "I1",
+        "serious": false
+      },
+      {
+        "count": 6,
+        "impact": "I2",
+        "serious": false
+      },
+      {
+        "count": 1,
+        "impact": "I3",
+        "serious": true
+      }
+    ]
+  },
+  {
+    "id": "p20",
+    "code": "P20",
+    "title": "NON-ABELIAN LEFSCHETZ HYPERPLANE THEOREMS",
+    "summary": "32 detailed comments · 30 numbered corrections",
+    "confidence": "30 high, 2 medium",
+    "serious": true,
+    "badges": [
+      {
+        "count": 1,
+        "impact": "I0",
+        "serious": false
+      },
+      {
+        "count": 1,
+        "impact": "I1",
+        "serious": false
+      },
+      {
+        "count": 26,
+        "impact": "I2",
+        "serious": false
+      },
+      {
+        "count": 4,
+        "impact": "I4",
+        "serious": true
+      }
+    ]
+  },
+  {
+    "id": "p21",
+    "code": "P21",
+    "title": "Manifolds containing an ample $\\mathbb{P}^{\\mathbf{1}}$-bundle",
+    "summary": "0 detailed comments · no adopted correction",
+    "confidence": "0 high, 0 medium",
+    "serious": false,
+    "badges": []
+  },
+  {
+    "id": "p22",
+    "code": "P22",
+    "title": "Zeta Functions of Curves with No Rational Points",
+    "summary": "7 detailed comments · 5 numbered corrections",
+    "confidence": "7 high, 0 medium",
+    "serious": false,
+    "badges": [
+      {
+        "count": 2,
+        "impact": "I1",
+        "serious": false
+      },
+      {
+        "count": 5,
+        "impact": "I2",
+        "serious": false
+      }
+    ]
+  },
+  {
+    "id": "p23",
+    "code": "P23",
+    "title": "SYMMETRIC POWERS DO NOT STABILIZE",
+    "summary": "9 detailed comments · 7 numbered corrections",
+    "confidence": "8 high, 1 medium",
+    "serious": false,
+    "badges": [
+      {
+        "count": 2,
+        "impact": "I1",
+        "serious": false
+      },
+      {
+        "count": 7,
+        "impact": "I2",
+        "serious": false
+      }
+    ]
+  },
+  {
+    "id": "a01",
+    "code": "A01",
+    "title": "$p$-ADIC ITERATED INTEGRATION AND THE FROBENIUS AND MONODROMY OPERATORS ON SEMISTABLE CURVES",
+    "summary": "31 detailed comments · 30 numbered corrections",
+    "confidence": "31 high, 0 medium",
+    "serious": false,
+    "badges": [
+      {
+        "count": 1,
+        "impact": "I1",
+        "serious": false
+      },
+      {
+        "count": 30,
+        "impact": "I2",
+        "serious": false
+      }
+    ],
+    "disclosure": "The Refine review and ChatGPT audit below are AI-generated and reproduced verbatim. Daniel spot-checked the audit and reviewed or edited the erratum; the authors do not necessarily endorse the AI’s wording or proposed edits."
+  }
+]

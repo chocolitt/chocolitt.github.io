@@ -1,0 +1,220 @@
+<p>These errata refer to Daniel Litt, “Arithmetic representations of fundamental groups, II: finiteness,” <em>Duke Mathematical Journal</em> <strong>170</strong>, no.&nbsp;8 (2021), pp.&nbsp;1851--1897, <a href="https://doi.org/10.1215/00127094-2020-0086">doi:10.1215/00127094-2020-0086</a>. Page references below are to that published version.</p>
+<ol class="errata-list">
+  <li>
+    <p><strong>Page 1859, Section 1.3.</strong> The finiteness theorem cited as [16, Theorem 2.1] concerns irreducible lisse sheaves, not arbitrary semisimple representations. In the sentence beginning “Work of Deligne, Drinfel'd, and Lafforgue,” replace “semisimple” by “irreducible.” Thus the sentence should read:</p>
+    <blockquote>
+      <p>Work of Deligne, Drinfel'd, and Lafforgue implies (via automorphic methods) that if $X$ is a variety over a finite field $\mathbb F_q$, then the set of irreducible $\overline{\mathbb Q}_\ell$-representations of its Weil group $W(X)$, with fixed rank and bounded wild ramification at infinity, is finite up to twist by characters of $W(\mathbb F_q)$ (see [16, Theorem 2.1]).</p>
+    </blockquote>
+    <p>This occurs only in the comparison with previous work; the paper's proof of Theorem 1.1.3 is unchanged.</p>
+  </li>
+  <li>
+    <p><strong>Page 1865, Remark 3.1.2.</strong> The citation [15, Proposition 4.6] is not a valid pinpoint: item 4.6 of [15] is a definition and does not contain the asserted argument. Replace the remark by:</p>
+    <blockquote>
+      <p>A similar argument appears in [14, Proposition 3.1].</p>
+    </blockquote>
+    <p>Proposition 3.1.1 has its own proof, so this bibliographic correction has no effect on Corollary 3.1.3 or any later result.</p>
+  </li>
+  <li>
+    <p><strong>Page 1875, proof of Lemma 4.1.3.</strong> The proof asserts a uniform finite order for the full reduction of an arbitrary formal automorphism and later substitutes a scalar function into an $N$-tuple-valued interpolation map. Replace the proof by the following scaled coordinate argument:</p>
+    <blockquote>
+      <p>Choose a rational number $0&lt;c'&lt;\min\{c,\tfrac12\}$, and choose a totally ramified finite extension $\Lambda'/\Lambda$ containing an element $\varpi$ with $|\varpi|_\ell=\ell^{-c'}$. Let $F$ be the coordinate map on points induced by $\varphi$; explicitly,</p>
+      <div class="display-math">\[
+      F(\mathbf a)=
+      \bigl(\varphi(x_1)(\mathbf a),\ldots,
+      \varphi(x_N)(\mathbf a)\bigr).
+      \]</div>
+      <p>On the closed unit ball define</p>
+      <div class="display-math">\[
+      \widetilde F(\mathbf y)=\varpi^{-1}F(\varpi\mathbf y).
+      \]</div>
+      <p>The constant and nonlinear terms of $\widetilde F$ vanish modulo $\varpi$, while its linear term is invertible. Hence the reduction of $\widetilde F$ is an element of $\operatorname{GL}_N(\mathbb F_{\ell^r})$. Choose a uniform exponent $M_1$ for this finite group. A further integer $M_2$, depending only on $c'$, $\ell^r$, and $N$, makes</p>
+      <div class="display-math">\[
+      H:=\widetilde F^{M_1M_2}
+      \]</div>
+      <p>satisfy the hypotheses of Lemma 4.1.1. Put $M=M_1M_2$, and let</p>
+      <div class="display-math">\[
+      \vartheta(\mathbf y,m)\in
+      \Lambda'\langle y_1,\ldots,y_N,m\rangle^N
+      \]</div>
+      <p>be the resulting analytic interpolation, so that $\vartheta(\mathbf y,m)=H^m(\mathbf y)$ for every $m\in\mathbb Z_{\geq0}$.</p>
+      <p>Let $\mathbf a=(z(x_1),\ldots,z(x_N))$. For $f\in\mathcal I$ and $0\leq j&lt;M$, define the scalar analytic function</p>
+      <div class="display-math">\[
+      h_{f,j}(m)=
+      f\!\left(
+      \varpi\,\vartheta\!\left(
+      \varpi^{-1}F^j(\mathbf a),m
+      \right)
+      \right).
+      \]</div>
+      <p>Since $\varphi$ preserves $U_c(R)$ and $c'&lt;c$, every argument in this formula lies in the closed unit ball. Moreover,</p>
+      <div class="display-math">\[
+      h_{f,j}(m)=0
+      \quad\Longleftrightarrow\quad
+      \varphi^{j+Mm}(z)\in V(f).
+      \]</div>
+      <p>Each $h_{f,j}$ either has finitely many zeros in $\mathbb Z_{\geq0}$ or vanishes identically. It follows that the return-time set to $V(f)$ is semilinear with period $M$. Finally,</p>
+      <div class="display-math">\[
+      \{m\geq0:\varphi^m(z)\in V(\mathcal I)\}
+      =\bigcap_{f\in\mathcal I}
+      \{m\geq0:\varphi^m(z)\in V(f)\},
+      \]</div>
+      <p>and an arbitrary intersection of semilinear sets with the same period $M$ is again semilinear with period $M$. This proves the lemma.</p>
+    </blockquote>
+    <p>The integer $M$ still depends only on $c$, $\ell^r$, and $N$. Thus Corollaries 4.1.5 and 4.1.6, Theorem 1.1.3, and Corollary 1.1.5 retain their stated conclusions.</p>
+  </li>
+  <li>
+    <p><strong>Page 1876, first paragraph of the proof of Corollary 4.1.5.</strong> The printed presentation uses the absolute cotangent dimension, which also counts the class of $\ell$, and unnecessarily asserts that its kernel lies in $\mathfrak m_S^2$. Replace the paragraph through the construction of the lift of $\varphi$ by:</p>
+    <blockquote>
+      <p>Let $\mathfrak m_R$ be the maximal ideal of $R$, and put</p>
+      <div class="display-math">\[
+      N=\dim_{\mathbb F_{\ell^r}}
+      \frac{\mathfrak m_R}{\mathfrak m_R^2+\ell R}.
+      \]</div>
+      <p>Choose a relative Cohen presentation</p>
+      <div class="display-math">\[
+      S=\Lambda[[x_1,\ldots,x_N]]\twoheadrightarrow R
+      \]</div>
+      <p>with kernel $\mathcal J$. No condition $\mathcal J\subseteq\mathfrak m_S^2$ is needed: the ideal $\mathcal J$ still cuts out the rigid generic fibre of $R$ as a closed analytic subspace of the open unit ball. Lift $\varphi$ to an endomorphism $\widetilde\varphi$ of $S$. Its linear part on the relative cotangent space is invertible, so the formal inverse function theorem shows that $\widetilde\varphi$ is an automorphism.</p>
+    </blockquote>
+    <p>The remainder of the proof, with the geometric point ideal specified in the next correction, gives the same uniform-period conclusion.</p>
+  </li>
+  <li>
+    <p><strong>Page 1876, final paragraph of the proof of Corollary 4.1.5.</strong> The contracted kernel of $S\to R\xrightarrow{z}L$ need not isolate the chosen geometric point. Replace the paragraph beginning “Now let $z:R\to L$” by:</p>
+    <blockquote>
+      <p>Let $z:R\to L\subset\mathbb C_\ell$ be a $\varphi$-periodic point of $U$, and regard it as a $\widetilde\varphi$-periodic point of the open unit ball. Apply Lemma 4.1.3 to the ideal</p>
+      <div class="display-math">\[
+      \mathcal I_z=
+      \bigl(x_1-z(x_1),\ldots,x_N-z(x_N)\bigr)
+      \subset\mathcal O_{\mathbb C_\ell}[[x_1,\ldots,x_N]].
+      \]</div>
+      <p>Its zero locus is exactly $\{z\}$. If $z$ has exact period $q$, its return-time set is $q\mathbb Z_{\geq0}$. Since this set is semilinear with the uniform period $M$ furnished by Lemma 4.1.3, one has $q\mid M$, and therefore $\varphi^M(z)=z$.</p>
+    </blockquote>
+    <p>This completes Corollary 4.1.5 and leaves Corollary 4.1.6 and the finiteness argument unchanged.</p>
+  </li>
+  <li>
+    <p><strong>Pages 1880--1881, Definition 5.1.3.</strong> The recursive sum includes the terms $(i,j)=(0,m)$ and $(m,0)$ and is therefore circular. Replace its last display by</p>
+    <div class="display-math">\[
+    W^{-m}S_\rho=
+    \sum_{\substack{i+j=m\\ i,j\geq1}}
+    (W^{-i}S_\rho)(W^{-j}S_\rho)
+    \qquad\text{for }m&gt;2.
+    \]</div>
+    <p>This is the multiplicative recursion used in Remark 5.1.4 and throughout the rest of Section 5, so no later statement changes.</p>
+  </li>
+  <li>
+    <p><strong>Page 1883, Step 2 in the proof of Lemma 5.1.5.</strong> The displayed surjection and the monomial relations that follow are statements about character lattices, not cocharacter lattices. Replace the sentence beginning “The inclusion $T\hookrightarrow D$” by:</p>
+    <blockquote>
+      <p>The inclusion $T\hookrightarrow D$ induces a surjection on character lattices</p>
+      <div class="display-math">\[
+      X^*(D)\twoheadrightarrow X^*(T)
+      \]</div>
+      <p>with kernel $K$; the torus $T$ is precisely the subtorus of $D$ cut out by the characters in $K$.</p>
+    </blockquote>
+    <p>The subsequent monomial calculation is already the corresponding character-lattice calculation, and the conclusion of Lemma 5.1.5 is unchanged.</p>
+  </li>
+  <li>
+    <p><strong>Page 1884, Theorem 5.1.8.</strong> The theorem uses the positive index $i$, although the nonzero graded pieces of $S_\rho$ are indexed by $-i$. Replace its concluding sentence by:</p>
+    <blockquote>
+      <p>Then, for $\alpha\in\mathbb Z_\ell^\times$ sufficiently close to $1$, there exists $\sigma_\alpha\in G_k$ such that, for every $i\geq0$, $\sigma_\alpha$ acts on $\operatorname{gr}_W^{-i}S_\rho$ via $\alpha^i\operatorname{Id}$.</p>
+    </blockquote>
+    <p>The proof on pages 1887--1890 and Lemma 5.2.2 already use this indexing. The construction used in Theorem 1.1.11 is unchanged.</p>
+  </li>
+  <li>
+    <p><strong>Page 1887, Step 1 in the proof of Theorem 5.1.8.</strong> The ordinary symmetric algebra in the displayed isomorphism is not complete, whereas $S_\rho$ is a complete local algebra. Replace the display and the sentence introducing it by:</p>
+    <blockquote>
+      <p>Such a splitting extends continuously to a $\sigma_\alpha^{-1}$-equivariant isomorphism of complete local algebras</p>
+      <div class="display-math">\[
+      \widehat{\operatorname{Sym}}_{\mathbb Q_\ell}
+      \!\left(\mathfrak m_\rho/\mathfrak m_\rho^2\right)
+      \xrightarrow{\sim}S_\rho,
+      \qquad
+      \widehat{\operatorname{Sym}}(V)
+      :=\prod_{j\geq0}\operatorname{Sym}^j(V).
+      \]</div>
+    </blockquote>
+    <p>The isomorphism respects the weight filtrations. All subsequent eigenvalue and filtration calculations are degreewise and therefore remain unchanged.</p>
+  </li>
+  <li>
+    <p><strong>Pages 1892--1893, proof of Theorem 1.1.11 and Remark 5.3.2.</strong> The $\alpha$- and $\alpha^2$-eigenspaces need not split the integral cotangent lattice, so an integral eigenbasis and an integral linear change of coordinates cannot be assumed. Moreover, controlling a coefficient of ordinary degree $q$ requires a remainder in $\mathfrak m_\rho^{q+1}$, rather than merely in $\mathfrak m_\rho^q$. Replace the argument beginning “Choose a basis of integral $\sigma_\alpha$-eigenvectors” through the common-zero estimate by:</p>
+    <blockquote>
+      <p>With the chosen coordinates $S_\rho^{\mathrm{int}}\simeq\mathcal O_L[[x_1,\ldots,x_m]]$, put</p>
+      <div class="display-math">\[
+      \mathfrak n=(x_1,\ldots,x_m),
+      \qquad
+      \Lambda=\mathfrak n/\mathfrak n^2.
+      \]</div>
+      <p>Let $T$ be the action of $\sigma_\alpha$ on $\Lambda$, and let $V_1$ and $V_2$ be the $\alpha$- and $\alpha^2$-eigenspaces in $\Lambda\otimes_{\mathcal O_L}L$. Set</p>
+      <div class="display-math">\[
+      \Lambda_i=\Lambda\cap V_i,
+      \qquad
+      \Lambda'=\Lambda_1\oplus\Lambda_2,
+      \qquad
+      d=\alpha-\alpha^2.
+      \]</div>
+      <p>The spectral projectors are</p>
+      <div class="display-math">\[
+      P_1=\frac{T-\alpha^2}{d},
+      \qquad
+      P_2=\frac{T-\alpha}{\alpha^2-\alpha}.
+      \]</div>
+      <p>For $v\in\Lambda$, one has $dP_i(v)\in\Lambda_i$ and $dv=dP_1(v)+dP_2(v)$. Consequently,</p>
+      <div class="display-math">\[
+      d\Lambda\subseteq\Lambda'\subseteq\Lambda.
+      \]</div>
+      <p>Choose integral bases of $\Lambda_1$ and $\Lambda_2$. For a chosen vector of weight $w\in\{1,2\}$, first choose an integral representative $g\in S_\rho^{\mathrm{int}}\cap W^{-w}S_\rho$. The equivariant splitting in the proof of Theorem 5.1.8 lifts its class in $\operatorname{gr}_W^{-w}S_\rho$ to a $\sigma_\alpha$-eigenfunction $e$ with</p>
+      <div class="display-math">\[
+      e\equiv g\pmod{W^{-w-1}S_\rho}.
+      \]</div>
+      <p>In this way obtain eigenfunctions $e_1,\ldots,e_m\in S_\rho'$, to which Lemma 5.2.2 applies. Write</p>
+      <div class="display-math">\[
+      \mathbf e=B\mathbf x+\text{terms of degree at least two},
+      \qquad B\in M_m(\mathcal O_L).
+      \]</div>
+      <p>The lattice inclusions above imply that $B$ is invertible over $L$ and that $dB^{-1}\in M_m(\mathcal O_L)$. Define</p>
+      <div class="display-math">\[
+      \mathbf f=B^{-1}\mathbf e;
+      \]</div>
+      <p>then $f_i\equiv x_i\pmod{\mathfrak n^2}$. The normalization from $\mathbf e$ to $\mathbf f$ costs at most</p>
+      <div class="display-math">\[
+      \delta=v_\ell(d)=v_\ell(1-\alpha)\leq C(\alpha).
+      \]</div>
+      <p>Put $\mathfrak m_\rho=\mathfrak nS_\rho$. The corrected weight filtration satisfies</p>
+      <div class="display-math">\[
+      W^{-n}S_\rho\subseteq\mathfrak m_\rho^{\lceil n/2\rceil}
+      \qquad(n\geq1).
+      \]</div>
+      <p>Indeed, this follows by induction from Definition 5.1.3: it holds for $n=1,2$, and every summand $W^{-a}S_\rho\,W^{-b}S_\rho$ with $a+b=n$ lies in $\mathfrak m_\rho^{\lceil a/2\rceil+\lceil b/2\rceil}$. Consequently, in order that the remainder make no contribution in ordinary degree $q$, Lemma 5.2.2 must be applied through $r=2q$, since $W^{-2q-1}S_\rho\subseteq\mathfrak m_\rho^{q+1}$.</p>
+      <p>If $e_j$ has weight $w\in\{1,2\}$, the resulting denominator is</p>
+      <div class="display-math">\[
+      D_{w,q}=\prod_{a=w+1}^{2q}(\alpha^w-\alpha^a).
+      \]</div>
+      <p>Its valuation is at most</p>
+      <div class="display-math">\[
+      \sum_{k=1}^{2q-w}v_\ell(1-\alpha^k)
+      \leq(2q-w)C(\alpha)
+      \leq(2q-1)C(\alpha).
+      \]</div>
+      <p>After applying $B^{-1}$, every coefficient $b_{I,i}$ of degree $q=|I|$ in</p>
+      <div class="display-math">\[
+      f_i=x_i+\sum_{|I|\geq2}b_{I,i}x^I
+      \]</div>
+      <p>therefore satisfies</p>
+      <div class="display-math">\[
+      v_\ell(b_{I,i})
+      \geq-(2q-1)C(\alpha)-\delta
+      \geq-2qC(\alpha).
+      \]</div>
+      <p>This is the replacement for estimate (5.3.1) in the chosen integral coordinates. It also shows that each $f_i$ belongs to $\mathcal O_{U_{\ell^{-s}}}$ whenever $s&gt;4C(\alpha)$.</p>
+      <p>The common zero loci of the $e_j$ and the $f_i$ agree. If an arithmetic point $\widetilde\rho\in U_{\ell^{-s}}$ is fixed by a power of $\sigma_\alpha$, then $z_{\widetilde\rho}(e_j)=0$ for all $j$, hence $z_{\widetilde\rho}(f_i)=0$ for all $i$. Put</p>
+      <div class="display-math">\[
+      t=\min_i v_\ell\!\left(z_{\widetilde\rho}(x_i)\right)\geq s.
+      \]</div>
+      <p>For every $q\geq2$ and $s&gt;4C(\alpha)$,</p>
+      <div class="display-math">\[
+      qt-2qC(\alpha)&gt;t,
+      \]</div>
+      <p>because $(q-1)t&gt;2qC(\alpha)$, with the strongest condition occurring at $q=2$. Thus every nonlinear term in the equation $z_{\widetilde\rho}(f_i)=0$ has valuation strictly greater than the least valuation of the linear terms. The ultrametric inequality forces $z_{\widetilde\rho}(x_i)=0$ for every $i$, and hence $\widetilde\rho\simeq\rho$.</p>
+    </blockquote>
+    <p>This restores the integral coordinate estimate. The qualitative statement of Theorem 1.1.11 is unchanged: one may choose its constant $N=N(c(\rho),\ell)$ so that $s&gt;4C(\alpha)$. In the proof on page 1893 and in Remark 5.3.2, replace the stated sufficient bound $3C(\alpha)$ by $4C(\alpha)$.</p>
+  </li>
+</ol>

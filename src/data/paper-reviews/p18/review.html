@@ -1,0 +1,70 @@
+<h4>Report metadata</h4>
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Field</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Category</td>
+        <td>Published</td>
+      </tr>
+      <tr>
+        <td>Processing status</td>
+        <td>completed</td>
+      </tr>
+      <tr>
+        <td>Detailed comments</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>Domain</td>
+        <td>stem/mathematics</td>
+      </tr>
+      <tr>
+        <td>Completed</td>
+        <td>2026-07-29T16:47:28.018648+00:00</td>
+      </tr>
+      <tr>
+        <td>Refine document ID</td>
+        <td><code>c97eeff6-ebfc-4b70-a5cd-410a55cce6f9</code></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<h4>Refine summary</h4>
+<p>This paper proves asymptotic vanishing theorems for Frobenius twists of ample vector bundles in positive characteristic under the assumption that the vector bundles and the scheme lift to characteristics modulo $p^2$. A main contribution is the application of these techniques to generalize the Bott-Danilov-Steenbrink vanishing theorem for ample vector bundles on toric varieties.</p>
+<h4>Overall feedback</h4>
+<p><strong>Deligne-Illusie splitting in the main induction</strong></p>
+<p>In the induction step of Theorem 2.2.1, the complex builds from $\mathscr{E}^{(p^{N+s})}$. Applying the results of Section 2.1 directly requires $\mathscr{E}^{(p^{N+s+1})}$ to lift.</p>
+<p>The theorem explicitly assumes only that $\mathscr{E}^{(p^N)}$ lifts, which leaves open the question of whether the second spectral sequence degenerates for every $s$ based on the stated hypothesis. The mathematical logic resolves by either strengthening the lifting assumption or detailing how a valid decomposition at the initial Frobenius level cleanly transports through successive Frobenius pullbacks while preserving the required grading and tensor factors.</p>
+<p><strong>Coefficient rings in Corollary 2.2.3</strong></p>
+<p>Theorem 2.2.1 requires a lift over $W_2(k)$. By contrast, Corollary 2.2.3 assumes only a lift over $\mathbb{Z}/p^2\mathbb{Z}$ before invoking the theorem directly.</p>
+<p>For general perfect $k$, these data are not interchangeable without an additional construction. Identifying the reduction of $F_2^*\mathscr{E}_2$ with the intended Frobenius twist relies heavily on a precise semilinearity convention. The corollary functions fully if it imposes compatible $W_2(k)$-data or rigorously establishes that the version of Deligne-Illusie used in Section 2 applies under the weaker assumptions.</p>
+<p><strong>Uniform arithmetic models in Theorem 3.0.2</strong></p>
+<p>The proof of Theorem 3.0.2 invokes the definition of $\phi$ to select an arithmetic model where $\phi(\operatorname{Sym}^{n-i}\mathscr{E}\otimes\bigwedge^i\mathscr{E})=0$ for all $n&gt;N_0$, all relevant $i$, and all closed fibers.</p>
+<p>Because the definition supplies an arithmetic model bundle-by-bundle, rather than a universal model for this infinite family, uniform behavior cannot be assumed outright. A uniform relative-regularity argument following the spreading out and shrinking of the base addresses this. Furthermore, the fiberwise proof must handle arbitrary coherent sheaves on each closed fiber, rather than restricting scope to reductions of coherent sheaves selected on the characteristic-zero variety.</p>
+<p><strong>Spreading out in Theorem 4.0.2</strong></p>
+<p>The positive-characteristic branch of Theorem 4.0.2 requires that each reduced vector bundle lifts to the canonical toric $W_2$-lift. This specific behavior is not supplied merely by choosing an arbitrary finite-type $\mathbb{Z}$-model.</p>
+<p>The characteristic-zero proof currently pivots on a one-line spreading out argument. Section 4 provides a cohesive picture when it spells out how the fan, the variety, and the bundles are spread out to guarantee that suitable closed fibers admit the required compatible $W_2$-lifts. Attention must also be given to how the sheaves $j_*\Omega_U^q$ on normal singular fibers behave under this process. Supplying the relevant base-change or semicontinuity argument connects the characteristic-zero case rigorously to the positive-characteristic branch.</p>
+<h4>Detailed comments</h4>
+<h5>1. Section 3 uses one model for infinitely many bundles</h5>
+<ul>
+  <li>ID: <code>de22d381-3259-4d2d-8c9e-e000ee536db5</code></li>
+  <li>Refine score: <code>0.61</code></li>
+  <li>Original types: general</li>
+  <li>Refine status: open</li>
+</ul>
+<p><strong>Comment</strong></p>
+<p>The appeal to the definition of $\phi$ does not by itself justify a single model on which the displayed amplitude-zero statement holds simultaneously for every $n&gt;N_0$ and every $i$. Because the later argument takes $n=p$ while the residue characteristic varies, a uniform relative regularity or spreading-out argument is needed for this unbounded family.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote>
+  <p>Now let $R$ be a finite-type $\mathbb{Z}$-algebra, with a map $R \rightarrow k$ and $(\mathcal{X}, \widetilde{\mathscr{E}})$ a finite-type $R$-scheme with a vector bundle so that $\mathcal{X}_{k} \simeq X, \widetilde{\mathscr{E}}_{k} \simeq \mathscr{E}$, and such that</p>
+  <div class="display-math">$$
+  \phi\left(\operatorname{Sym}^{n-i}\left(\widetilde{\mathscr{E}}_{\mathfrak{q}}\right) \otimes \bigwedge^{i} \widetilde{\mathscr{E}}_{\mathfrak{q}}\right)=0
+  $$</div>
+  <p>for all closed points $\mathfrak{q} \in \operatorname{Spec}(R)$ (such a model $(R, \mathcal{X}, \widetilde{\mathscr{E}})$ exists by the definition of $\phi$ ).</p>
+</blockquote>

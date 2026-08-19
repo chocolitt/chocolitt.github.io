@@ -1,0 +1,321 @@
+<p>These errata refer to the version published in <em>Journal of Algebraic Geometry</em> <strong>27</strong> (2018), 593--646, <a href="https://doi.org/10.1090/jag/704">doi:10.1090/jag/704</a>. Page numbers below refer to that version.</p>
+<ol class="errata-list">
+  <li>
+    <p><strong>Page 595, final bullet in the list of applications.</strong> The K3-type alternative is too broad: Theorem 6.22 does not cover general noncompact orthogonal quotients. Delete the sub-bullet “$\mathscr H$ is of K3 type.” After the remaining sub-bullets, insert:</p>
+    <blockquote>
+      <p>For variations arising from the polarized hyperk\"ahler moduli situation, the analogous extension statement follows from Theorem 6.16. In particular, the K3-type case asserted here is covered when the relevant quotient is compact, or when it arises from that hyperk\"ahler moduli construction.</p>
+    </blockquote>
+    <p>No assertion is made here for a general noncompact K3-type orthogonal quotient.</p>
+  </li>
+  <li>
+    <p><strong>Pages 598--599, Theorem 1.10.</strong> The positive-characteristic alternative omits the dimension bound used in Theorems 4.11, 4.29, and 5.7. Replace</p>
+    <blockquote>
+      <p>“$k$ is perfect of characteristic $p&gt;0$, and $X$ lifts to $W_2(k)$”</p>
+    </blockquote>
+    <p>by</p>
+    <blockquote>
+      <p>“$k$ is perfect of characteristic $p&gt;\dim(X)$, and $X$ lifts to $W_2(k)$.”</p>
+    </blockquote>
+    <p>The same inequality is to be included whenever the positive-characteristic branch of Theorem 1.10 is summarized. With this change, the cited vanishing and uniqueness results apply.</p>
+  </li>
+  <li>
+    <p><strong>Pages 602--603 and 625, Theorems 1.20 and 4.29.</strong> These statements omit the projectivity of $X$, which is required by the vanishing, algebraization, and extension results used in their proofs. In the opening sentence of each theorem, replace “a smooth $L$-variety” by “a smooth projective $L$-variety.” The remaining occurrences of $X$ in these two statements and proofs are to be understood with this hypothesis.</p>
+  </li>
+  <li>
+    <p><strong>Pages 602--603, 617, and 625, Theorems 1.19, 1.20, 4.12, and 4.29.</strong> The positive-characteristic statements mix the base fields $k$ and $L$. Make the following replacements:</p>
+    <blockquote>
+      <p>In Theorems 1.19 and 4.12, replace “$Y$ a smooth $k$-variety” and “$f\colon D\to Y$ a morphism” by “$Y$ a smooth $L$-variety” and “$f\colon D\to Y$ an $L$-morphism.”</p>
+      <p>In Theorems 1.20 and 4.29, make the same replacements, retaining the projectivity correction to $X$ above.</p>
+    </blockquote>
+    <p>Thus all relative Frobenius maps $F_{Y/L}$ and twists $Y^{(p^k)}$ in these statements and proofs are formed over $L$.</p>
+  </li>
+  <li>
+    <p><strong>Pages 603 and 625, Theorem 1.20(2) and Theorem 4.29(3).</strong> The no-rational-curves alternative also requires the target to be proper, as is needed in Proposition 3.5. Replace it in both statements by:</p>
+    <blockquote>
+      <p>$Y$ is proper and $\overline Y_L$ contains no rational curves.</p>
+    </blockquote>
+    <p>Here $Y$ has the $L$-structure specified in the base-field correction above. With properness added, Proposition 3.5 supplies the final extension step.</p>
+  </li>
+  <li>
+    <p><strong>Page 604, paragraph preceding Theorem 1.22; compare pages 637--638 and 642.</strong> Theorem 1.22 is not literally Theorem 6.32: its finite-cover hypothesis and its bound on $\dim(Y)$ differ from the hypotheses of Theorem 6.32. Replace “In Theorem 6.32, we improve this result to” by the following argument:</p>
+    <blockquote>
+      <p>The following finite-cover variant is obtained as follows. Given a finite surjective <em>\'etale</em> morphism $Y'\to Y$ with $Y'$ a scheme, form $D'=D\times_Y Y'$. By the Lefschetz theorem for finite <em>\'etale</em> covers, $D'\to D$ extends uniquely to a finite <em>\'etale</em> cover $X'\to X$. The map $D'\to Y'$ satisfies</p>
+      <div class="display-math">\[
+      \dim(\operatorname{im}(D'\to Y'))
+      \leq \dim(Y)&lt;\dim(D')-1.
+      \]</div>
+      <p>Lemma 6.31 gives</p>
+      <div class="display-math">\[
+      \phi\bigl(\NN_{D'/X'}\otimes f'^*\Omega^1_{Y'}\bigr)
+      &lt;\dim(D')-1,
+      \]</div>
+      <p>so Theorem 5.1(1) extends $f'\colon D'\to Y'$ uniquely to $X'$. On $X'\times_X X'$, the two pullbacks agree along the inverse image of $D$ and hence agree everywhere by the uniqueness part of Theorem 5.1. The cocycle condition follows in the same way, and finite <em>\'etale</em> descent gives a unique map $X\to Y$ extending $f$.</p>
+    </blockquote>
+    <p>This proves Theorem 1.22, subject to the reducedness qualification for existence statements recorded below, without identifying it with Theorem 6.32.</p>
+  </li>
+  <li>
+    <p><strong>Pages 604--605, Remark 1.24.</strong> The torsion condition on the displayed cokernel implies that global one-forms generically span the cotangent bundle; it does not imply that the Albanese map is finite. Replace “finite-to-one map to an Abelian variety” by “generically finite map onto its image in an Abelian variety” in the first sentence. Make the corresponding replacement in the last paragraph of the remark: such targets need not admit finite maps to Abelian varieties.</p>
+  </li>
+  <li>
+    <p><strong>Pages 605--606, Lemma 2.1.</strong> The last biduality step uses the perfectness of $Rf_*(\mathscr F\otimes(\mathscr L^\vee)^{\otimes n})$, which does not follow from the printed hypotheses. Replace the opening sentence by:</p>
+    <blockquote>
+      <p>Let $S$ be a Noetherian scheme. Let $f\colon X\to S$ be a projective perfect morphism with dualizing complex $\omega_{X/S}=f^!\OO_S$ having coherent cohomology concentrated in degrees $[-n,-m]$.</p>
+    </blockquote>
+    <p>Here “perfect” may equivalently be replaced by “of finite Tor-dimension.” Proper perfect pushforward preserves perfect complexes, so the existing biduality argument applies. The later applications over a field satisfy this hypothesis.</p>
+  </li>
+  <li>
+    <p><strong>Page 608, Corollary 2.6.</strong> Corollary 2.5 identifies relative cohomology sheaves, rather than global Ext groups over an arbitrary base $S$. Replace the final displayed map and the sentence following it by:</p>
+    <blockquote>
+      <p>Writing $h=f\circ g\colon Y\to S$ and $\widehat h\colon\widehat Y_D\to S$ for the induced morphism, the natural map of relative Ext sheaves</p>
+      <div class="display-math">\[
+      \mathcal H^i\!\left(
+      Rh_*R\mathcal Hom_Y(\mathscr F,\mathscr G)\right)
+      \longrightarrow
+      \mathcal H^i\!\left(
+      R\widehat h_*R\mathcal Hom_{\widehat Y_D}
+      (\widehat{\mathscr F},\widehat{\mathscr G})\right)
+      \]</div>
+      <p>is an isomorphism for $0\leq i\leq m-a-2$.</p>
+    </blockquote>
+    <p>When $S=\Spec(k)$, this is the global Ext statement used later.</p>
+  </li>
+  <li>
+    <p><strong>Page 609, proof of Corollary 2.7.</strong> The positivity sign in the choice of presentation is reversed. Replace “with $m_1-m_2\gg0$” by “with $m_2-m_1\gg0$.” This agrees with the preceding construction and makes the relevant Hom bundle sufficiently positive for Serre vanishing.</p>
+  </li>
+  <li>
+    <p><strong>Pages 611--612, Corollary 3.4.</strong> The proof invokes Corollary 3.2, whose source is locally $\mathbb Q$-factorial. Replace the opening words by:</p>
+    <blockquote>
+      <p>Let $X$ be a normal, locally $\mathbb Q$-factorial projective $k$-variety, and let $Y$ be a quasi-projective $k$-variety.</p>
+    </blockquote>
+    <p>The later applications have $X$ smooth and therefore satisfy the added hypothesis.</p>
+  </li>
+  <li>
+    <p><strong>Page 612, proof of Proposition 3.5.</strong> The printed proof neither justifies the quasi-finiteness of $b\colon X'\to X$ nor names the correct base of the ensuing finite morphism. Replace the paragraph beginning “Let $X'\to Y$ be the map given by $b'\circ\widetilde s$” through the end of the proof by:</p>
+    <blockquote>
+      <p>Let $j\colon X'\to Y$ be the morphism induced by the normalized closure. This morphism is finite. If $b$ had an exceptional divisor, a rational curve $C$ through its general point would be contracted by $b$. Since $f\circ j=b$, the curve $j(C)$ would lie in a geometric fiber of $f$. That fiber contains no rational curves, so $j(C)$ would be a point, contradicting the finiteness of $j$. Thus $b$ has no exceptional divisor. Purity then implies that $b$ is quasi-finite. Since $b$ is proper, it is finite over $X$; since it is also birational and $X$ is normal, it is an isomorphism. The morphism $j$ therefore gives the desired section. \qed</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><strong>Page 613, Corollary 4.2.</strong> The statement omits the embedding and thickening hypotheses needed to define the normal bundle and obstruction class. Replace its opening sentence by:</p>
+    <blockquote>
+      <p>Let $D\hookrightarrow X$ be a closed lci subscheme of schemes over a field $k$, with ideal sheaf $\II_D$, and let $D_2=V(\II_D^2)$. Let $Y$ be an arbitrary smooth $k$-scheme.</p>
+    </blockquote>
+    <p>The remainder of the statement then applies to a morphism $s\colon D\to Y$ and its extensions to this specified first infinitesimal thickening $D_2$.</p>
+  </li>
+  <li>
+    <p><strong>Page 615, Theorem 4.4.</strong> The range in the second Le Potier vanishing is misstated. Replace</p>
+    <div class="display-math">\[
+    H^i(X,\Omega_X^p\otimes E)=0\qquad\text{for }i+p\geq n-e
+    \]</div>
+    <p>by</p>
+    <div class="display-math">\[
+    H^i(X,\Omega_X^p\otimes E)=0\qquad\text{for }i+p\geq n+e.
+    \]</div>
+    <p>The argument following the theorem uses the other displayed Le Potier vanishing and is unchanged.</p>
+  </li>
+  <li>
+    <p><strong>Pages 615--616, Theorem 4.6.</strong> The opening bound $\dim(D)\geq2$ makes the first bullet's dimension-one case vacuous, and the analytic positivity input requires the complex setting. Replace the statement by:</p>
+    <blockquote>
+      <p><strong>Theorem 4.6.</strong> Let $X$ be a projective complex variety, and let $D\subset X$ be a smooth lci subscheme with ample normal bundle. Let $\widehat D$ be the formal scheme obtained by completing $X$ at $D$. Let $Y$ be a smooth complex variety with Nakano semipositive cotangent bundle. Given a morphism $f\colon D\to Y$,</p>
+      <ul>
+        <li>
+          <p>there is at most one extension of $f$ to a morphism $\widehat D\to Y$ if $\dim(D)\geq1$; and</p>
+        </li>
+        <li>
+          <p>such an extension exists if $\dim(D)\geq2$.</p>
+        </li>
+      </ul>
+    </blockquote>
+    <p>The printed proof applies separately in these two ranges.</p>
+  </li>
+  <li>
+    <p><strong>Page 619, final paragraph of the proof of Theorem 4.12.</strong> The displayed duality has the wrong dual and cohomological degree for the normalization of $K_D$. Let</p>
+    <div class="display-math">\[
+    A=\operatorname{Frob}_p^{k*}
+    \bigl(f^*T_Y\otimes\OO_D(-D)\bigr)\otimes\OO_D(-sD).
+    \]</div>
+    <p>Replace the paragraph beginning “Recall also that $\OO_D(-D)=\NN_{D/X}^{\vee}$” by:</p>
+    <blockquote>
+      <p>Recall that $\OO_D(-D)=\NN_{D/X}^{\vee}$. Grothendieck duality gives</p>
+      <div class="display-math">\[
+      H^i(D,A)^\vee
+      \simeq
+      \mathbb H^{-i}\bigl(D,K_D\otimes A^\vee\bigr),
+      \]</div>
+      <p>where</p>
+      <div class="display-math">\[
+      A^\vee=
+      \OO_D(sD)\otimes\operatorname{Frob}_p^{k*}
+      \bigl(f^*\Omega_Y^1\otimes\NN_{D/X}\bigr).
+      \]</div>
+      <p>In the hypercohomology spectral sequence</p>
+      <div class="display-math">\[
+      H^a\bigl(D,\mathcal H^b(K_D)\otimes A^\vee\bigr)
+      \Longrightarrow
+      \mathbb H^{a+b}\bigl(D,K_D\otimes A^\vee\bigr),
+      \]</div>
+      <p>a term contributing to total degree $-i$ has $a=-i-b\geq r-i$, because $K_D$ is supported in degrees $[-d,-r]$. For $i=0,1$, the hypothesis</p>
+      <div class="display-math">\[
+      \phi\bigl(f^*\Omega_Y^1\otimes\NN_{D/X}\bigr)&lt;r-1
+      \]</div>
+      <p>therefore kills every such term for $k\gg0$ (and every $s\geq0$). Hence $H^i(D,A)=0$ for $i=0,1$, as required. \qed</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><strong>Page 623, Lemma 4.26.</strong> Absolute Frobenius is not a $k$-morphism over a general perfect field. Replace the statement by:</p>
+    <blockquote>
+      <p><strong>Lemma 4.26.</strong> Let $k$ be a perfect field of characteristic $p&gt;0$, let $X$ be a normal $k$-variety, and let $Y$ be a $k$-variety. A $k$-morphism $f\colon X\to Y^{(p)}$ factors uniquely as</p>
+      <div class="display-math">\[
+      X\xrightarrow{\bar f}Y\xrightarrow{F_{Y/k}}Y^{(p)}
+      \]</div>
+      <p>if and only if the induced map $f^*\Omega^1_{Y^{(p)}/k}\to\Omega_X^1$ is zero.</p>
+    </blockquote>
+    <p>In the affine proof, write $Y=\Spec(B)$ and choose $p$th roots of the images of a set of $k$-algebra generators of $B$. The resulting homomorphism $B\to A$ is a $k$-algebra homomorphism and gives $\bar f$; reducedness of $A$ shows that the defining ideal is killed. Equivalently, if perfectness is used to identify the twist with the underlying scheme $Y$, the corresponding semilinear factor sends a scalar $c$ to $c^{1/p}$. This is the scalar rule missing from the printed affine calculation. All subsequent factorizations are to be read using the relative Frobenius $F_{Y/k}$ and its twists.</p>
+  </li>
+  <li>
+    <p><strong>Pages 624--630, Lemma 4.28 and the existence theorems using Frobenius descent.</strong> Lemma 4.28 is false for a nonreduced ample Cartier divisor. Add the hypothesis that $D$ is reduced, and replace its proof by:</p>
+    <blockquote>
+      <p>Since $D$ is reduced, Frobenius $F_D\colon D\to D$ is a universal homeomorphism and the map on structure sheaves is injective. It is therefore an epimorphism of schemes. Consequently, if $g_1\circ F_D=g_2\circ F_D$, then $g_1=g_2$. \qed</p>
+    </blockquote>
+    <p>In the existence part of the proof of Theorem 4.29, after obtaining $\bar f=F_{Y/L}\circ h$, replace the appeal to Lemma 4.28 by:</p>
+    <blockquote>
+      <p>Restriction to $D$ and universal commutativity of Frobenius give</p>
+      <div class="display-math">\[
+      (h|_D)\circ F_D
+      =\bigl(F_{Y/L}^{,k-1}\circ f\bigr)\circ F_D.
+      \]</div>
+      <p>Because $D$ is reduced, $F_D$ is an epimorphism; hence</p>
+      <div class="display-math">\[
+      h|_D=F_{Y/L}^{,k-1}\circ f.
+      \]</div>
+      <p>This completes the induction on $k$.</p>
+    </blockquote>
+    <p>Add “$D$ reduced” to the existence statements in Theorems 1.20, 4.22, 4.29, 4.31, and 5.1, and to the corresponding existence clauses or applications in Theorems 1.8, 1.10, 1.11, 1.22, 6.1, 6.2, and 6.32. The uniqueness-only statements in Theorems 4.21 and 5.7, and the “at most one” clauses elsewhere, do not require this addition. Theorem 6.35 is also unaffected because it uses a separate deformation argument.</p>
+    <p>For the characteristic-zero spreading argument in Theorem 4.22, take a flat model of the reduced divisor and shrink the base so that its closed fibers are geometrically reduced. The corrected positive-characteristic theorem then applies to those fibers.</p>
+  </li>
+  <li>
+    <p><strong>Pages 626--627, final paragraph of the proof of Theorem 4.22.</strong> The obstruction module has the wrong denominator, and fiberwise vanishing does not by itself identify a relative obstruction class. Replace the paragraph beginning “In particular, letting $D_n$ be” by:</p>
+    <blockquote>
+      <p>Let $D_n$ be the $n$th infinitesimal neighborhood of $D$. The obstruction to extending a map from $D_{n-1}$ to $D_n$ lies in</p>
+      <div class="display-math">\[
+      H^1\!\left(D,
+      f^*T_Y\otimes
+      \II_D^{,n-1}/\II_D^{,n}\right).
+      \]</div>
+      <p>After shrinking $S$, cohomology and base change identifies the fibers of the corresponding relative coherent cohomology sheaf with these obstruction groups. The relative obstruction is a section of that sheaf, and its value at every closed point of $S$ is zero because the corresponding fiber map extends by Theorem 4.29. A section of a coherent sheaf that vanishes at every closed point is zero. Thus the obstruction vanishes. Induction on $n$ gives the required morphism $\widehat D\to Y$.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><strong>Pages 627--630, Theorem 5.1.</strong> The proof uses extension and algebraization results whose source is projective. In the opening sentence, replace “$X$ a smooth $k$-variety” by “$X$ a smooth projective $k$-variety.” The headline Theorem 1.10 already assumes projectivity, so its applications are unchanged.</p>
+  </li>
+  <li>
+    <p><strong>Pages 628--630, Theorem 5.1(2); compare page 642.</strong> The proof of case (2) invokes Corollary 3.4, which only requires a quasi-projective target, and the later statements use that weaker condition. Replace “the coarse space of $\mathscr Y$ is projective” by “the coarse space of $\mathscr Y$ is quasi-projective.” This makes Theorems 5.1, 1.10, and 6.32 consistent.</p>
+  </li>
+  <li>
+    <p><strong>Pages 629--630, Lemma 5.4.</strong> In case (2), the proof extends only an object whose restriction has small image; it does not prove the unrestricted equivalence stated in the lemma. Replace the statement by:</p>
+    <blockquote>
+      <p><strong>Lemma 5.4.</strong> Let $X,D,\mathscr Y$ be as in Theorem 5.1, and let $U\subset X$ be a Zariski-open subset containing $D$. In cases (1) and (3) of that theorem, the restriction functor</p>
+      <div class="display-math">\[
+      \mathscr Y(X)\longrightarrow\mathscr Y(U)
+      \]</div>
+      <p>is an equivalence. In case (2), it is fully faithful, and an object $\xi\in\mathscr Y(U)$ is in its essential image provided that the image of $\xi|_D$ in the coarse space has dimension at most $\dim(D)-2$.</p>
+    </blockquote>
+    <p>For essential surjectivity in case (2), apply Corollary 3.4 to the particular coarse-space map satisfying this image bound, then use the printed normalization and descent construction. For full faithfulness, extend an isomorphism formally by Corollary 2.10 and then across the complement by the same diagonal and purity argument used in the proof. This is the form needed in Theorem 5.1.</p>
+  </li>
+  <li>
+    <p><strong>Pages 633--634, Theorem 6.5.</strong> The theorem is false for a nonproper smooth morphism: relative global generation alone does not make the pushforward a finite-rank nef Hodge bundle. Replace its statement by:</p>
+    <blockquote>
+      <p><strong>Theorem 6.5.</strong> Let $k$ be a field of characteristic zero, and let $f\colon Y\to X$ be a smooth proper morphism of smooth $k$-varieties. Assume that $f_*\Omega^1_{Y/X}$ is locally free and nef and that its formation commutes with base change. If the evaluation map</p>
+      <div class="display-math">\[
+      f^*f_*\Omega^1_{Y/X}\longrightarrow\Omega^1_{Y/X}
+      \]</div>
+      <p>is surjective, then $\Omega^1_{Y/X}$ is nef.</p>
+    </blockquote>
+    <p>Indeed, the source of the evaluation map is the pullback of a nef vector bundle, and a quotient of a nef vector bundle is nef. Corollary 6.6 and the subsequent intended applications are in this smooth proper Hodge-theoretic setting.</p>
+  </li>
+  <li>
+    <p><strong>Page 634, proof of Lemma 6.9.</strong> Relative duality uses $R^{n-1}$, rather than $R^1$, on the right. Replace the proof through its final displayed calculation by:</p>
+    <blockquote>
+      <p>Relative duality gives</p>
+      <div class="display-math">\[
+      (R^1f_*T_{Y/X})^\vee
+      \simeq
+      R^{n-1}f_*(\Omega^1_{Y/X}\otimes\omega_{Y/X}).
+      \]</div>
+      <p>Since the geometric fibers have trivial cotangent bundle, the evaluation map identifies $\Omega^1_{Y/X}$ with $f^*f_*\Omega^1_{Y/X}$. The projection formula and relative duality therefore give</p>
+      <div class="display-math">\[\begin{aligned}(R^1f_*T_{Y/X})^\vee
+      &amp;\simeq
+      f_*\Omega^1_{Y/X}\otimes R^{n-1}f_*\omega_{Y/X}\\
+      &amp;\simeq
+      f_*\Omega^1_{Y/X}\otimes(R^1f_*\OO_Y)^\vee.\end{aligned}\]</div>
+      <p>Both factors are nef Hodge bundles, so their tensor product is nef. \qed</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><strong>Page 635, proof of Lemma 6.12.</strong> The proof reverses the relevant duals and writes $f^*\Omega^1_M$ where the classifying pullback is meant. Let $g\colon X\to M$ be the classifying map and put</p>
+    <div class="display-math">\[
+    W=(f_*\Omega^1_{Y/X})^\vee\otimes R^1f_*\OO_Y.
+    \]</div>
+    <p>Replace the final three sentences of the proof by:</p>
+    <blockquote>
+      <p>The corrected Lemma 6.9 shows that $W^\vee$ is nef. By assumption, there are injections</p>
+      <div class="display-math">\[
+      R^1f_*T_{Y/X}\hookrightarrow W,
+      \qquad
+      g^*T_M\hookrightarrow R^1f_*T_{Y/X}.
+      \]</div>
+      <p>Dualizing produces surjections</p>
+      <div class="display-math">\[
+      W^\vee\twoheadrightarrow(R^1f_*T_{Y/X})^\vee
+      \twoheadrightarrow g^*\Omega_M^1.
+      \]</div>
+      <p>Thus $g^*\Omega_M^1$ is a quotient of a nef vector bundle and is nef. \qed</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><strong>Pages 635--636, proof of Theorem 6.16.</strong> The displayed chain contains an incorrect pullback and undefined relative tangent and pushforward terms. Let $f\colon Y\to X$ be the hyperk\"ahler family, $g\colon X\to\MM$ its classifying map, and $a\colon A\to X$ its Kuga--Satake Abelian scheme. Replace the two displayed chains in the proof by:</p>
+    <div class="display-math">\[
+    g^*T_{\MM}
+    \longrightarrow R^1f_*T_{Y/X}
+    \longrightarrow R^1a_*T_{A/X}
+    \longrightarrow
+    (a_*\Omega^1_{A/X})^\vee\otimes R^1a_*\OO_A.
+    \]</div>
+    <p>The Kuga--Satake map on Hodge structures, followed by local Torelli, makes this composite injective. The target has nef dual by the corrected Lemma 6.9. Dualizing the injection therefore makes $g^*\Omega^1_{\MM}$ a quotient of a nef bundle, so $g^*\Omega^1_{\MM}$ is nef, as required.</p>
+  </li>
+  <li>
+    <p><strong>Pages 637--638, proof of Theorem 6.21.</strong> Theorem 5.1 only applies when $\dim(X)\geq3$ and therefore does not prove the surjectivity assertion for surfaces. Replace the proof by:</p>
+    <blockquote>
+      <p>The two assertions are the Lefschetz theorem cited in the statement, [19, Th\'eor\`eme X.3.10]. For $\dim(X)\geq3$, they may also be recovered from Theorem 5.1 by taking $\mathscr Y=BG$ for a finite <em>\'etale</em> group scheme $G$. When $\dim(X)=2$, surjectivity is supplied by the cited theorem; equivalently, one may apply the dimension-two full-faithfulness result of Theorem 5.7 to finite <em>\'etale</em> torsors. \qed</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><strong>Page 639, proof of Proposition 6.25.</strong> The normalization of a rational curve need not be unramified. Replace the second and third sentences of the proof by:</p>
+    <blockquote>
+      <p>Let $C$ be the image of a nonconstant morphism $\mathbb P^1\to X$, and let $\iota\colon\mathbb P^1\to C\hookrightarrow X$ be its normalization map. The differential</p>
+      <div class="display-math">\[
+      \iota^*\Omega_X^1\longrightarrow\Omega_{\mathbb P^1}^1
+      \]</div>
+      <p>is generically nonzero. Its image is therefore $\Omega_{\mathbb P^1}^1(-R)$ for an effective ramification divisor $R$. This line bundle has degree $-2-\deg(R)&lt;0$, but it is a quotient of $\iota^*\Omega_X^1$, contradicting the nefness of $\Omega_X^1$. \qed</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><strong>Page 643, proof of Theorem 6.35.</strong> For $D\in|\mathscr L^{\otimes n}|$, the kernel of restriction has twist $-(n'+n)$, not $-(n'+1)$. Put $E=(s^*\Omega^1_{A/X})^\vee$ and write $E(-r)=E\otimes\mathscr L^{-r}$. Replace the short exact sequence by</p>
+    <div class="display-math">\[
+    0\longrightarrow E(-(n'+n))
+    \longrightarrow E(-n')
+    \longrightarrow E(-n')|_D
+    \longrightarrow0.
+    \]</div>
+    <p>The chosen Serre vanishing still applies, since $n'\geq n$ implies $n'+n\geq n$. Thus equation (6.1) and the remainder of the proof are unchanged.</p>
+  </li>
+  <li>
+    <p><strong>Page 643, Remark 6.36.</strong> Corollary 6.6 proves the asserted improvement only in characteristic zero. Replace the remark by:</p>
+    <blockquote>
+      <p><strong>Remark 6.36.</strong> If $\operatorname{char}(k)=0$, then by Corollary 6.6 we may take $n=1$ above if</p>
+      <div class="display-math">\[
+      \operatorname{rel.dim.}(f)&lt;\dim(X)-1.
+      \]</div>
+    </blockquote>
+  </li>
+</ol>

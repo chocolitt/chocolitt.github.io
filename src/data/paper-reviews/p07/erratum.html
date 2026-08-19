@@ -1,0 +1,87 @@
+<p>These errata refer to the version published in <em>Proceedings of the London Mathematical Society</em> (3) <strong>127</strong> (2023), 116--133, <a href="https://doi.org/10.1112/plms.12539">doi:10.1112/plms.12539</a>. Page and statement references below refer to that version.</p><ol class="errata-list"><li><p><strong>Pages 117 and 132, Theorem 1.6 and its proof.</strong> The normalization of the metric and Laplacian defining \(\lambda_1(X)\) is needed for the numerical constant in the theorem. On page 117, replace the sentence beginning <em>We let \(\lambda_1(X)\) denote</em> by:</p>
+<blockquote><p>Equip \(X\) with its hyperbolic metric of constant curvature \(-1/4\), and let \(\lambda_1(X)\) denote the smallest nonzero eigenvalue of the associated nonnegative Laplace--Beltrami operator on \(L^2(X)\).</p></blockquote>
+<p>On page 132, immediately before the sentence beginning <em>It follows from the Li--Yau inequality</em>, insert:</p>
+<blockquote><p>For this normalization, Gauss--Bonnet gives \(\operatorname{area}(X)=16\pi(g'-1)\).</p></blockquote>
+<p>The Li--Yau inequality \(\lambda_1(X)\operatorname{area}(X) \leq 8\pi\operatorname{gon}(X)\) then gives the displayed bound \(\operatorname{gon}(X)\geq2\lambda_1(X)(g'-1)\). Thus the statement of Theorem&nbsp;1.6, Remark&nbsp;1.7, and the remainder of the proof retain their printed constants.</p></li><li><p><strong>Page 121, Remark 2.4.</strong> Proposition&nbsp;2.3 assumes parabolic semistability, but Remark&nbsp;2.4 twice replaces that hypothesis by stability. Replace the first two sentences of Remark&nbsp;2.4 by:</p>
+<blockquote><p>The statement of Proposition&nbsp;2.3 is equivalent to \textup{[9, Proposition&nbsp;6.3.6]}, but differs slightly in that we write “\(E_\star\) is parabolically semistable” in place of “\(\widehat E_\star\) is coparabolically semistable” and \(\mu_\star(E_\star)\) in place of \(\mu_\star(\widehat E_\star)\). However, by definition \(E_\star\) is parabolically semistable if and only if \(\widehat E_\star\) is coparabolically semistable, and \(\mu_\star(E_\star)=\mu_\star(\widehat E_\star)\) \textup{[9, Definitions&nbsp;2.2.9 and 2.4.2]}.</p></blockquote>
+<p>This agrees with the hypothesis of Proposition&nbsp;2.3 and of \textup{[9, Proposition&nbsp;6.3.6]}; no later application changes.</p></li><li><p><strong>Page 121, Notation 2.5.</strong> The Mehta--Seshadri correspondence used here is a correspondence for unitary representations, not for arbitrary irreducible complex representations. Replace the first two sentences of Notation&nbsp;2.5 by:</p>
+<blockquote><p>Let \(Y\) be a curve and \(D\subset Y\) a divisor. Recall that under the Mehta--Seshadri correspondence \textup{[13]}, there is a bijection between irreducible unitary representations of \(\pi_1(Y-D)\) and parabolic degree zero stable parabolic vector bundles on \(Y\), with parabolic structure along \(D\). Given an irreducible \(H\)-representation \(\rho\), choose an \(H\)-invariant positive-definite Hermitian form, obtained by averaging over the finite group \(H\), and use \(E^\rho_\star\) to denote the parabolic bundle corresponding to the representation</p>
+<div class="display-math">\[
+\pi_1(Y-D)\simeq\pi_1(\Sigma_{g,n})
+\longrightarrow H\longrightarrow\operatorname{GL}_{\dim\rho}(\mathbb C).
+\]</div></blockquote>
+<p>Thus every representation used in the paper is unitary after this choice, and all subsequent occurrences of \(E^\rho_\star\) are unchanged.</p></li><li><p><strong>Pages 123--124, proof of Lemma 3.2.</strong> The printed proof identifies the elementary transform with the kernel of the connection residue. Unitarity only makes the zero generalized eigenspace semisimple; it does not make that eigenspace zero. Replace the proof of Lemma&nbsp;3.2 by:</p>
+<blockquote><p><em>Proof.</em> By degeneration of the Hodge--de Rham spectral sequence for unitary local systems \textup{[18, Theorem&nbsp;7.1(a)]} and the definitions of the weight and Hodge filtrations in \textup{[18]}, the subspace \((W^1\cap F^1)H^1(C^\circ,\mathbb V)\) is the kernel of the boundary-residue map</p>
+<div class="display-math">\[
+H^0(C,E\otimes\omega_C(D))
+\longrightarrow \bigoplus_{j\in J}E_{x_j}/E_j^2.
+\]</div>
+<p>This map takes the residue at \(x_j\) of an \(E\)-valued logarithmic form and then applies the projection \(E_{x_j}\to E_{x_j}/E_j^2\).</p>
+<p>For \(j\in J\), unitarity makes the residue endomorphism semisimple, so its zero generalized eigenspace is its zero eigenspace, while \(E_j^2\) is the sum of the nonzero eigenspaces. By definition&nbsp;(2.1),</p>
+<div class="display-math">\[
+\widehat E_0=\ker\left(E\longrightarrow
+\bigoplus_{j\in J}E_{x_j}/E_j^2\right).
+\]</div>
+<p>The residue trivialization \(\omega_C(D)|_{x_j}\simeq\mathbb C\) therefore identifies the kernel sheaf of the displayed boundary-residue map with \(\widehat E_0\otimes\omega_C(D)\). Taking global sections gives</p>
+<div class="display-math">\[
+(W^1\cap F^1)H^1(C^\circ,\mathbb V)
+\simeq H^0(C,\widehat E_0\otimes\omega_C(D)),
+\]</div>
+<p>as claimed.</p></blockquote>
+<p>Consequently equation&nbsp;(3.2), Proposition&nbsp;3.4, and the later Hodge-filtration calculations are unchanged.</p></li><li><p><strong>Pages 124--125 and 130, Lemma 3.3, Proposition 3.4, and Lemma 5.5.</strong> Lemma&nbsp;3.3 is formulated using a versal family of Galois \(H\)-covers, whereas Proposition&nbsp;3.4 and Lemma&nbsp;5.5 are stated for arbitrary finite covers. The printed proofs do not reduce a non-Galois cover to this setting.</p>
+<p>In Lemma&nbsp;3.3, replace its opening sentence by:</p>
+<blockquote><p>Suppose \(f:X\to Y\) is a Galois \(H\)-cover furnishing a counterexample to Putman--Wieland.</p></blockquote>
+<p>The remainder of its statement and proof then apply as written.</p>
+<p>Replace Proposition&nbsp;3.4 and its proof by:</p>
+<blockquote><p><strong>Proposition 3.4.</strong> Suppose \(f:X\to Y\) furnishes a counterexample to Putman--Wieland. Let</p>
+<div class="display-math">\[
+X'\xrightarrow{h}X\xrightarrow{f}Y
+\]</div>
+<p>be a Galois closure, let \(H=\operatorname{Gal}(X'/Y)\), and write \(X=X'/K\). Then there is a nontrivial irreducible \(H\)-representation \(\rho\) such that \(E^\rho\) is a summand of \(f_*\mathcal O_X\) and \((E^\rho)^\vee\otimes\omega_Y\) is not generically globally generated.</p>
+<p><em>Proof.</em> Choose a nonzero finite-orbit class \(v\in H^1(X,\mathbb C)\). After passing to a finite-index mapping-class subgroup preserving the cover, its Galois closure, and \(v\), the class \(h^*v\) is fixed. It is nonzero, since the trace identity</p>
+<div class="display-math">\[
+h_*h^*=(\deg h)\operatorname{id}
+\]</div>
+<p>makes \(h^*:H^1(X,\mathbb C)\to H^1(X',\mathbb C)\) injective, and it lies in \(H^1(X',\mathbb C)^K\).</p>
+<p>Apply the fixed-part construction in the proof of Lemma&nbsp;3.3 to a versal family of the Galois \(H\)-covers \(X'\to Y\). The central \(H\)-isotypic projectors commute with \(K\), so some nonzero isotypic component of the fixed part is \(K\)-invariant. Choose an irreducible representation \(\rho\) for such a component. The trivial component is pulled back from \(H^1(Y,\mathbb C)\); it has no nonzero vector fixed by a finite-index mapping-class subgroup when \(g(Y)&gt;0\), and it is zero when \(g(Y)=0\). Thus \(\rho\) may be chosen nontrivial. The Hodge fixed-part argument of Lemma&nbsp;3.3 now gives a nonzero element</p>
+<div class="display-math">\[
+u\in\ker\left(\nabla_m^\rho:F^1G_m^\rho
+\longrightarrow(G_m^\rho/F^1G_m^\rho)\otimes T^\vee_{M,m}\right).
+\]</div>
+<p>The nonzero \(K\)-fixed part of the \(\rho\)-isotypic component implies \((\rho^\vee)^K\ne0\). Frobenius reciprocity gives</p>
+<div class="display-math">\[
+\operatorname{Hom}_H(\rho,\mathbb C[H/K])
+\simeq(\rho^\vee)^K\ne0,
+\]</div>
+<p>so \(E^\rho\) is a summand of \(f_*\mathcal O_X\).</p>
+<p>Using&nbsp;(3.2), regard \(u\) as a nonzero section of \((\widehat E^\rho)_0\otimes\omega_Y(D)\), and hence as a nonzero map</p>
+<div class="display-math">\[
+\mu_u:(E^\rho)^\vee\otimes\omega_Y
+\longrightarrow\omega_Y^{\otimes2}(D).
+\]</div>
+<p>By \textup{[8, Theorem&nbsp;5.1.6]}, the equality \(\nabla_m^\rho(u)=0\) says that \(\mu_u\) induces the zero map on global sections. Hence all global sections of \((E^\rho)^\vee\otimes\omega_Y\) factor through the proper subsheaf \(\ker\mu_u\), so this bundle is not generically globally generated.</p></blockquote>
+<p>Replace the proof of Lemma&nbsp;5.5 by:</p>
+<blockquote><p><em>Proof.</em> If \(g(Y)=0\), the two independent sections of \(\mathcal O_Y(p)\) pull back to independent sections of \(\mathcal O_X(f^{-1}(p))\), so \(f\) is Prill exceptional. Suppose now that \(g(Y)&gt;0\). By Proposition&nbsp;3.4, for the Galois group \(H\) of a Galois closure there is a nontrivial irreducible \(H\)-representation \(\rho\) such that \(E^\rho\) is a summand of \(f_*\mathcal O_X\) and \((E^\rho)^\vee\otimes\omega_Y\) is not generically globally generated. Lemma&nbsp;5.4 then implies that \(f\) is Prill exceptional.</p></blockquote>
+<p>This proves the non-Galois cases of Proposition&nbsp;3.4 and Lemma&nbsp;5.5. Hence Proposition&nbsp;1.8 and Theorem&nbsp;1.6 retain their stated conclusions.</p></li><li><p><strong>Pages 126--127, Theorem 4.1 and the final paragraph of its proof.</strong> The genus-two equality argument identifies bundles of different ranks, and semistability alone does not exclude a proper subbundle of the same slope. In the statement of Theorem&nbsp;4.1, replace <em>semistable parabolic bundle</em> by <em>stable parabolic bundle</em>. Replace the final paragraph of its proof, beginning <em>To conclude, we also rule out the case \(g=2\)</em>, by:</p>
+<blockquote><p>To conclude, we rule out the case \(g=2\). Equality throughout&nbsp;(4.2) forces \(\operatorname{rk}E=2c_U\) and equality in Proposition&nbsp;2.3(II) for \(U\subset\widehat E_0\otimes\omega_C(D)\). The equality calculation in the proof of \textup{[9, Proposition&nbsp;6.3.6]}, including \textup{[9, Lemma&nbsp;6.2.3]}, then gives</p>
+<div class="display-math">\[
+\mu(\widehat E_0\otimes\omega_C(D))=2g-2=2
+\qquad\text{and}\qquad
+\mu(U)=2.
+\]</div>
+<p>It also forces the parabolic structure of \(E_\star\) to be trivial, so \(\widehat E_0\otimes\omega_C(D)=E\otimes\omega_C\). Therefore</p>
+<div class="display-math">\[
+U\otimes\omega_C^{-1}\subset E
+\]</div>
+<p>is a subbundle of slope zero. It is proper, because \(\operatorname{rk}E=2c_U\) implies \(\operatorname{rk}U=\operatorname{rk}E/2\). Since the stable parabolic bundle \(E_\star\) now has trivial parabolic structure, \(E\) is a stable degree-zero vector bundle. This contradicts the existence of the proper same-slope subbundle \(U\otimes\omega_C^{-1}\), and completes the proof.</p></blockquote>
+<p>Every use in Subsection&nbsp;4.2 takes \(E_\star=E^\rho_\star\) from an irreducible unitary representation, so it is parabolically stable by the Mehta--Seshadri correspondence. Thus Theorems&nbsp;1.11 and&nbsp;1.12 are unchanged.</p></li><li><p><strong>Pages 127--128, Subsection 4.2 and proof of Theorems 1.11 and 1.12.</strong> Theorem&nbsp;4.1 rules out the vanishing of the pairing whenever \(g\geq2\), so its vanishing implies \(g\leq1\), not merely \(g\leq2\). On page 127, in the paragraph immediately preceding the proof, replace</p>
+<blockquote><p>then \(g\leq2\).</p></blockquote>
+<p>by</p>
+<blockquote><p>then \(g\leq1\).</p></blockquote>
+<p>On page 128, in the proof, replace</p>
+<blockquote><p>Using Theorem&nbsp;4.1, this implies \(g\leq2\).</p></blockquote>
+<p>by</p>
+<blockquote><p>Using Theorem&nbsp;4.1, this implies \(g\leq1\).</p></blockquote>
+<p>This is the bound stated in Theorem&nbsp;1.11, so the conclusions of Theorems&nbsp;1.11 and&nbsp;1.12 follow as intended.</p></li><li><p><strong>Pages 129--130, Lemma 5.4.</strong> The equivalence in Lemma&nbsp;5.4 fails when \(Y\) has genus zero: the trivial summand of \(f_*\mathcal O_X\) already contributes two sections after twisting by a point. Replace the opening sentence of Lemma&nbsp;5.4 by:</p>
+<blockquote><p>Let \(f:X\to Y\) be a finite cover of smooth proper connected curves with \(g(Y)&gt;0\), whose Galois closure has Galois group \(H\). The following are equivalent.</p></blockquote>
+<p>With this hypothesis, the proof applies as written. The corrected proof of Lemma&nbsp;5.5 above handles genus zero directly, while every use in Theorem&nbsp;1.6 has \(g(Y)\geq2\). Proposition&nbsp;1.8 and Theorem&nbsp;1.6 are therefore unchanged.</p></li></ol>

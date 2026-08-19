@@ -1,0 +1,154 @@
+<p>These errata refer to the version published in <em>International Mathematics Research Notices</em> <strong>2023</strong> (2023), no.&nbsp;4, 2803--2833, <a href="https://doi.org/10.1093/imrn/rnab309">doi:10.1093/imrn/rnab309</a>. Page numbers below refer to that version.</p><ol class="errata-list"><li><p><strong>Page 2804, paragraph preceding Theorem 1.1.</strong> Simple ramification of index two is wild in characteristic two, so the attribution to Fulton is too broad. Replace the sentence beginning “The following result is classical” by:</p>
+<blockquote><p>The following result is classical for $p=0$, and the positive-characteristic case $p&gt;2$ is due to Fulton&nbsp;[8].</p></blockquote>
+<p>Theorem 1.1 already assumes $p&gt;2$ in positive characteristic and is unchanged.</p></li><li><p><strong>Page 2804, Theorem 1.3; pages 2823--2824, Theorem 7.7(b).</strong> The proof bounds the separable degree of the extension, but its final descent from a perfect closure does not bound the purely inseparable degree. Replace Theorem 1.3 by:</p>
+<blockquote><p><strong>Theorem 1.3.</strong> There always exists a finite extension $k'/k$, of separable degree depending only on the genus of $X$ (except possibly if this genus is $1$), for which $X_{k'}$ admits a finite separable tame morphism to $\PP^1_{k'}$.</p></blockquote>
+<p>Replace Theorem 7.7(b) by:</p>
+<blockquote><p>\textup{(b)} After an extension $k'/k$ as in part&nbsp;\textup{(a)}, there exists a finite purely inseparable extension $k''/k'$ such that $X_{k''}$ admits a finite separable tame morphism to $\PP^1_{k''}$. Equivalently,</p>
+<div class="display-math">\[
+  [k'':k]_{\sep}\leq N(g_X).
+\]</div></blockquote>
+<p>In the proof of Theorem 7.7, replace the final paragraph beginning “This yields (a)” by:</p>
+<blockquote><p>This yields (a). Choose the resulting extension $k'/k$, whose degree is at most $N(g_X)$, and pass to the perfect closure $k'^{\perf}$. Lemmas 5.4 and 6.6 give a finite separable tame morphism $X_{k'^{\perf}}\to\PP^1_{k'^{\perf}}$. The morphism and its defining data are of finite presentation, so they descend to some finite intermediate extension</p>
+<div class="display-math">\[
+  k'\subset k''\subset k'^{\perf}.
+\]</div>
+<p>The extension $k''/k'$ is purely inseparable, and hence</p>
+<div class="display-math">\[
+  [k'':k]_{\sep}=[k':k]_{\sep}\leq [k':k]\leq N(g_X).
+\]</div>
+<p>This proves (b).</p></blockquote>
+<p>Part (a), the perfect-field case, and the finite-field applications are unchanged.</p></li><li><p><strong>Page 2804, paragraph following Theorem 1.3.</strong> The overview places the conic bundles over $X$, whereas Definitions 6.4 and 6.5 construct them over the second Frobenius twist. Replace the sentence beginning “We establish Theorem 1.2 and Theorem 1.3” by:</p>
+<blockquote><p>We establish Theorem 1.2 and Theorem 1.3 by analyzing the Sugiyama--Yasuda construction in geometric terms: it gives rise to a canonical collection of smooth conic bundles over $X^{(2)}$ with the property that the existence of a tame morphism from $X$ to $\PP^1_k$ is equivalent to the triviality of some conic bundle in the collection. (When $X$ is ordinary, this collection is reduced to a single bundle. In the general case, we do not know whether different bundles in the collection represent the same Brauer class.)</p></blockquote>
+<p>The detailed construction already uses $X^{(2)}$.</p></li><li><p><strong>Page 2806, proof of Theorem 2.1.</strong> The displayed quotient-rule identity for the second derivative omits the term involving the first derivative. Replace the two derivative formulas by:</p>
+<div class="display-math">\[
+ \left(\frac{s_0}{s_1}\right)'
+ =\frac{s_0's_1-s_0s_1'}{s_1^2},
+ \qquad
+ \left(\frac{s_0}{s_1}\right)''
+ =\frac{s_0''s_1-s_0s_1''}{s_1^2}
+  -\frac{2s_1'(s_0's_1-s_0s_1')}{s_1^3}.
+\]</div>
+<p>At a ramification point the numerator $s_0's_1-s_0s_1'$ vanishes, so the additional term vanishes. The two jet equations and the probability count are therefore unchanged.</p></li><li><p><strong>Page 2807, final paragraph of the proof of Theorem 2.1.</strong> The printed tail estimate treats ramification itself as the bad event, although simple ramification is allowed. The bad event is instead a base point or a zero of multiplicity at least two of the Wronskian. Replace the passage from “For points of medium degree” through the end of the proof by:</p>
+<blockquote><p>Put $W=s_0\,ds_1-s_1\,ds_0$. At a closed point $x$, the bad event is that $s_0(x)=s_1(x)=0$, or that $W$ vanishes to order at least two at $x$. When the $3$-jet evaluation map is surjective, the calculation above shows that this event has probability</p>
+<div class="display-math">\[
+  2\#\kappa(x)^{-2}-\#\kappa(x)^{-4}.
+\]</div>
+<p>The number of degree-$d$ closed points is $O(q^d)$, so the union bound for points of medium degree gives</p>
+<div class="display-math">\[
+ \sum_{d=e+1}^{\lfloor n/2\rfloor}
+ O(q^d)\bigl(2q^{-2d}-q^{-4d}\bigr)=O(q^{-e}),
+\]</div>
+<p>uniformly in $n$.</p>
+<p>For points of high degree, base points are controlled by [6, Lemma 2.6], applied to the two sections $s_0,s_1$ (the case $k=2$, $m=1$ there). It remains to control zeros of $W$ of multiplicity at least two. Work on one of finitely many affine charts, choose a local parameter $t$, trivialize the line bundle, and write the two sections as $a,b$. With primes denoting derivatives with respect to $t$, put</p>
+<div class="display-math">\[
+ W=ab'-ba',\qquad W'=ab''-ba'',\qquad
+ J=a'W'-a''W=a(a'b''-a''b').
+\]</div>
+<p>Use the $p$-power decoupling of [6, Lemma 2.6], now with two derivative variables, by sampling</p>
+<div class="display-math">\[
+  b=b_0+u^pt+v^pt^2+h^p.
+\]</div>
+<p>Then $J$ is independent of $h$, while $u$ and $v$ control $(b',b'')$ through the matrix</p>
+<div class="display-math">\[
+  \begin{pmatrix}1&amp;2t\\0&amp;2\end{pmatrix},
+\]</div>
+<p>which is invertible because $p&gt;2$. Outside a set of probability $O(q^{-cn})$ for some $c&gt;0$, the divisor of $J$ has only $O(1)$ points of degree greater than $n/2$. At each such point where $(a',a'')\ne(0,0)$, the conditions $W=W'=0$ prescribe one value of $h^p$ and have probability $q^{-n/p+O(1)}$. The loci $a=0$ and $a'=a''=0$, together with triple zeros of $a$, are controlled by the same two-derivative decoupling and contribute $O(q^{-cn})$. Summing over the finitely many charts shows that the high-degree bad probability tends to zero with $n$. Together with the low- and medium-degree estimates, this proves the claim.</p></blockquote></li><li><p><strong>Page 2809, paragraph following Definition 3.4.</strong> The square-ratio description of the canonical theta characteristic is not valid over an imperfect field, and $df$ must in any case be nonzero. Replace the paragraph by the intrinsic construction:</p>
+<blockquote><p>For $p=2$, let $\pi^{(1)}\colon X\to X^{(1)}$ be the relative Frobenius and set</p>
+<div class="display-math">\[
+ B=\operatorname{im}\!\left(
+   \pi^{(1)}_*d\colon \pi^{(1)}_*\OO_X
+   \longrightarrow \pi^{(1)}_*\omega_{X/k}\right).
+\]</div>
+<p>The sheaf $B$ is invertible, and the Cartier pairing induces a canonical isomorphism</p>
+<div class="display-math">\[
+  B^{\otimes 2}\simeq\omega_{X^{(1)}/k}.
+\]</div>
+<p>Thus $B$ is the canonical theta characteristic on $X^{(1)}$.</p></blockquote>
+<p>This is the construction used in Definition 6.1 and requires no perfectness hypothesis.</p></li><li><p><strong>Page 2812, Remark 4.8.</strong> The Sugiyama--Yasuda symbol takes values in exact differentials, not in all of $\Omega_{k(X)/k}$. Replace Remark 4.8 by:</p>
+<blockquote><p><strong>Remark 4.8.</strong> Suppose that $k$ is algebraically closed. As observed in [27, Lemma 3.3], for fixed $g$ and $a$, the equation $\operatorname{SY}(f,g)=da$ is quadratic in $f_1,f_2,f_3$, and so by Tsen's theorem has a nonzero solution. Consequently, the morphism</p>
+<div class="display-math">\[
+  \operatorname{SY}(-,g)\colon R_X/\Gamma\longrightarrow d k(X)
+\]</div>
+<p>is surjective. It is also injective by Corollary 4.5, and hence we may upgrade Theorem 4.7 to assert that $\operatorname{SY}$ equips $R_X/\Gamma$ with the structure of a torsor under the additive group $d k(X)$. We will return to this point in Section 6.</p></blockquote>
+<p>The uses in Section 6 involve exact differentials and are unchanged.</p></li><li><p><strong>Pages 2815--2816, proof of Lemma 5.4.</strong> The degree calculation treats the closed point $\infty$ as rational. Put $\delta=[\kappa(\infty):k]$. In the notation of the proof, replace the display defining the total zero degree of $df_3$ by:</p>
+<div class="display-math">\[
+  \sum_{y\in Y}m_y\deg_k(y)
+  =\deg\bigl(\operatorname{div}_0(df_3)\bigr)
+  =\bigl(\deg(f_3)+1\bigr)\delta+2g-2,
+\]</div>
+<p>where $\deg(f_3)$ continues to denote the pole order at $\infty$. Replace the Riemann--Roch estimate on page 2816 and the ensuing inequality by:</p>
+<div class="display-math">\[
+ \deg\bigl((h_4)_\infty\bigr)
+ \leq 2g+\sum_{y\in Y}
+       \bigl(\lfloor m_y/4\rfloor+1\bigr)\deg_k(y)
+ \leq 2g+\frac12\deg\bigl(\operatorname{div}_0(df_3)\bigr).
+\]</div>
+<p>Since</p>
+<div class="display-math">\[
+ \deg\bigl(\operatorname{div}_0(df_3)\bigr)
+ =\deg\bigl((f_3)_\infty\bigr)+2g-2,
+\]</div>
+<p>taking the initial odd pole order sufficiently large gives</p>
+<div class="display-math">\[
+ 4\deg\bigl((h_4)_\infty\bigr)
+ &lt;3\deg\bigl((f_3)_\infty\bigr).
+\]</div>
+<p>The remainder of the proof, including tameness at $\infty$, is unchanged.</p></li><li><p><strong>Page 2816, Remark 5.5.</strong> The parenthetical reference following Fried--Klassen--Kopeliovich points to the wrong paper by Schr\"oer. Replace “[23, Proposition 6.4]” by “[24, Proposition 6.4].” Reference [24] is <em>Curves with only triple ramification</em>.</p></li><li><p><strong>Page 2818, proof of Lemma 6.3.</strong> The decomposition $h=h_0^2+h_1^2g$ used in the printed proof need not exist over an imperfect field. Replace the proof by:</p>
+<blockquote><p><em>Proof.</em> Let $k^{\perf}$ be a perfect closure of $k$. After base change to $k^{\perf}$, the decomposition used in the printed calculation is valid, and that calculation shows that the pullback of the class of Definition 6.2 vanishes. Proper coherent base change gives</p>
+<div class="display-math">\[
+ H^1(X^{(1)},B)\otimes_k k^{\perf}
+ \simeq H^1(X^{(1)}_{k^{\perf}},B_{k^{\perf}}).
+\]</div>
+<p>Since extension of scalars from $k$ to $k^{\perf}$ is injective, the original class in $H^1(X^{(1)},B)$ already vanishes. \qed</p></blockquote>
+<p>All subsequent uses of Lemma 6.3 are unchanged.</p></li><li><p><strong>Page 2818, Definition 6.4.</strong> The notation $B^{(1)}$ and the expression $b^2g$ do not distinguish direct image from relative-Frobenius pullback. Replace the paragraph beginning “Let $B^{(1)}$ be the pushforward” through the sentence containing $a=b^2g$ by:</p>
+<blockquote><p>Let</p>
+<div class="display-math">\[
+  B^{(1)}:=\pi^{(1,2)}_*B;
+\]</div>
+<p>this is a rank-two $\OO_{X^{(2)}}$-module. If $b$ is a local section of $\pi^{(1,2)}_*\OO_{X^{(1)}}$, write $b^{[2]}$ for its relative-Frobenius pullback, rather than for the square of a scalar in $\OO_{X^{(2)}}$. On an open set with the splitting used above, $\pi^{(2)}_*\OO_X$ has basis $1,g,g^2,g^3$. The module $\pi^{(1,2)}_*\OO_{X^{(1)}}$ has basis $1,g^{(1)}$, while $B^{(1)}$ has basis $g,g^3$; the Frobenius-semilinear map</p>
+<div class="display-math">\[
+  b\longmapsto b^{[2]}g
+\]</div>
+<p>sends these two basis elements to $g,g^3$. Thus every local section $a\in\Gamma(U^{(2)},B^{(1)})$ has a unique expression $a=b^{[2]}g$. With this convention, use this $b$ in the displayed equation defining $C_{g,da}$.</p></blockquote>
+<p>Use the same bracketed-square convention for $(b')^{[2]}$ in the coordinate change on page 2819. The conic bundle and its transition formula are unchanged.</p></li><li><p><strong>Pages 2819--2820, Lemma 6.6.</strong> A projective point of the conic determines the $\Gamma$-orbit of a pseudotame function, not an individual function. Replace the first sentence of Lemma 6.6 by:</p>
+<blockquote><p>Set notation as in Definition 6.2 and suppose that $k$ is perfect. Then there is a canonical bijection between the set of $\Gamma$-orbits in $R_X$ consisting of pseudotame morphisms and pairs of dashed arrows that complete the commutative diagram in such a way that the horizontal compositions are identity morphisms.</p></blockquote>
+<p>In the proof, replace “a solution $f\in k(X)$” by “the $\Gamma$-orbit of a solution $f\in k(X)$,” and make the same replacement in the converse paragraph. Lemma 5.3 shows that every representative is pseudotame. The existence assertion and Theorem 7.1(b), which already uses $R_X/\Gamma$, are unchanged.</p></li><li><p><strong>Page 2821, proof of Lemma 6.8.</strong> The printed proof uses an absolute-Frobenius degree count that is not valid over an arbitrary field. Replace the proof by:</p>
+<blockquote><p><em>Proof.</em> Since $f$ is purely inseparable of degree $p$, the absolute Frobenius of $X$ factors through $f$. The universal property of relative Frobenius therefore gives a finite morphism</p>
+<div class="display-math">\[
+  Y\longrightarrow X':=X\times_{S,F_S}S
+\]</div>
+<p>whose composite with $f$ is $F_{X/S}$. Both $f$ and $F_{X/S}$ have degree $p$, because $X$ is a smooth relative curve. Hence $Y\to X'$ has degree one. It is finite and birational, and $X'$ is normal, so it is an isomorphism. Under this isomorphism, $f$ is the relative Frobenius. \qed</p></blockquote></li><li><p><strong>Page 2824, proof of Theorem 7.7(a).</strong> A class in $H^1(k,J[2]^{\mathrm{et}})$ is killed by a rational point of its representing torsor, not by a point of the group scheme. Replace the paragraph beginning “To kill the image of the specified class” by:</p>
+<blockquote><p>Let $T$ be the finite <em>\'etale</em> torsor under $J[2]^{\mathrm{et}}$ representing the image of the specified class. To kill this class, it is enough to find an extension $k'/k$ for which $T(k')$ is nonempty. Choose a closed point $x\in T$ and take $k'=\kappa(x)$. Since</p>
+<div class="display-math">\[
+  [k':k]\leq\operatorname{length}(T)
+  =\operatorname{length}(J[2]^{\mathrm{et}}),
+\]</div>
+<p>this degree is bounded solely in terms of the genus of $X$.</p></blockquote>
+<p>The rest of part (a) applies unchanged.</p></li><li><p><strong>Page 2828, final paragraph of the proof of Theorem 8.1(b).</strong> In the displayed exact sequence, the composite from the first term to the last is zero, so it does not produce the asserted section. Replace the passage from “Thus we get a sequence” through the end of the proof by:</p>
+<blockquote><p>Let $e_0\in H^1(X,\OO_X(-\infty))$ be the class of the nonsplit extension before Frobenius pullback and let $e=F^*e_0\in H^1(X,\OO_X(-2\infty))$. Under the decomposition</p>
+<div class="display-math">\[
+  F^*E\simeq\OO_X(P_1)\oplus\OO_X(P_2),
+\]</div>
+<p>write the two components of the injection as nonzero sections $s_i\in H^0(X,\OO_X(P_i))$. Their product</p>
+<div class="display-math">\[
+  t=s_1s_2\in H^0(X,\OO_X(2\infty))
+\]</div>
+<p>lies in the kernel of the connecting map determined by $e$.</p>
+<p>Put $\omega=dx/x$. Frobenius compatibility of Serre duality identifies this kernel, after multiplication by $\omega$, with the kernel of the Cartier operator</p>
+<div class="display-math">\[
+ C\colon H^0(X,\omega_X(2\infty))
+ \longrightarrow H^0(X,\omega_X(\infty)).
+\]</div>
+<p>Here</p>
+<div class="display-math">\[
+ H^0(X,\omega_X(2\infty))=\langle\omega,x\omega\rangle,
+ \qquad C(\omega)=\omega,\qquad C(x\omega)=C(dx)=0,
+\]</div>
+<p>so $\ker(C)=k\cdot x\omega$. On the other hand, both $P_1$ and $P_2$ have $x$-coordinate $B^2$, so $t$ is proportional to $x+B^2$. But</p>
+<div class="display-math">\[
+  C\bigl((x+B^2)\omega\bigr)=B\omega\ne0
+\]</div>
+<p>because $b\ne0$. This is the required contradiction. \qed</p></blockquote>
+<p>The conclusion of Theorem 8.1(b) is unchanged.</p></li><li><p><strong>Page 2828, construction preceding Theorem 8.2.</strong> The Selmer bounds and finite generation imply rank zero but do not exclude odd-order torsion. Replace the sentence beginning “Since the Mordell--Weil theorem holds” by:</p>
+<blockquote><p>Since the Mordell--Weil theorem holds in this case (see [9, Theorem 1.1] or [21, Corollary 1.3]), $X_0(k)$ is finitely generated. The stated Selmer bounds give $\#(X_0(k)/2X_0(k))\leq2$, while the rational $2$-torsion point gives a nonzero class in this quotient. Hence $X_0(k)$ has rank zero and is torsion. Meanwhile, $\pi$ induces a surjection $X_0(k)\to X'_0(k)$, so $X'_0(k)$ also has rank zero. It follows that $X(k)$ is torsion, and hence $X$ is an example to which Theorem 8.1 applies; consequently, $X$ admits no tame morphism to $\PP^1_k$.</p></blockquote>
+<p>Delete the parenthetical claim that $X(k)$ is isomorphic to $\mathbb Z/2\mathbb Z$. The torsion conclusion used in Theorem 8.2 is unchanged.</p></li></ol>

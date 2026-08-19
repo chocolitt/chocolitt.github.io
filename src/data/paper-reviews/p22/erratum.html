@@ -1,0 +1,78 @@
+<p>These errata refer to Daniel Litt, “Zeta Functions of Curves with No Rational Points,” <em>Michigan Mathematical Journal</em> <strong>64</strong>, no.&nbsp;2 (2015), pp.&nbsp;383--395, <a href="https://doi.org/10.1307/mmj/1434731929">doi:10.1307/mmj/1434731929</a>. Page references below are to that published version.</p>
+<ol class="errata-list">
+  <li>
+    <p><strong>Page 386, Remark 12.</strong> The comparison with Kapranov's remark says “is rational,” although the claim under discussion is that the indicated expression is a polynomial. Replace the sentence beginning “The remark states” by:</p>
+    <blockquote>
+      <p>The remark states that</p>
+      <div class="display-math">\[
+      (1-\mathbb L^nt^n)(1-t^n)Z_X(t)
+      \]</div>
+      <p>is a polynomial, where $n&gt;0$ is minimal such that $\operatorname{Pic}^n(X)(k)\neq\varnothing$; in the example, $\operatorname{Pic}^1(X)=\operatorname{Spec}(\mathbb R)$, so the remark suggests that $(1-\mathbb Lt)(1-t)Z_X(t)$ is a polynomial.</p>
+    </blockquote>
+    <p>This correction concerns only the comparison with Remark 1.3.5(a) of [6]; Theorem 8 and its proof are unchanged.</p>
+  </li>
+  <li>
+    <p><strong>Page 386, paragraph following Remark 12.</strong> The assertion that the Abel--Jacobi morphism is a Severi--Brauer scheme requires the stable-range hypothesis $n&gt;2g-2$. Replace the second sentence of the paragraph, beginning “Of course,” by:</p>
+    <blockquote>
+      <p>For $n&gt;2g-2$ (and assuming that $C$ is geometrically connected), after a finite extension of the base field the Abel--Jacobi morphism is a projective-space bundle over $\operatorname{Pic}^n(C)$; hence, in this range,</p>
+      <div class="display-math">\[
+      \operatorname{Sym}^n(C)\longrightarrow\operatorname{Pic}^n(C)
+      \]</div>
+      <p>is a Severi--Brauer scheme over $\operatorname{Pic}^n(C)$.</p>
+    </blockquote>
+    <p>Section 5 already imposes $n&gt;2g-2$ before using this description, so the proof of Theorem 8 is unchanged.</p>
+  </li>
+  <li>
+    <p><strong>Page 389, paragraph following Corollary 22.</strong> The projectivization and endomorphism-algebra constructions require a twisted vector bundle, rather than an arbitrary twisted quasi-coherent sheaf. Replace the three sentences beginning “Similarly, given an $\alpha$-twisted sheaf” through “consider $\operatorname{End}(\mathcal E)$” by:</p>
+    <blockquote>
+      <p>Similarly, given an $\alpha$-twisted vector bundle $\mathcal E$ of positive locally constant rank over a scheme $X$, we may obtain a Severi--Brauer scheme with Brauer class $\alpha$ by considering $\mathbb P(\mathcal E)$, which gives \'{e}tale descent data for a scheme over $X$. Since $\mathbb P(\mathcal E)$ is anticanonically polarized over $X$, these descent data are effective, and we obtain a Severi--Brauer scheme over $X$. To obtain an Azumaya algebra with Brauer class $\alpha$, consider $\operatorname{End}(\mathcal E)$.</p>
+    </blockquote>
+    <p>The constructions used in Corollary 23, Theorem 24, Proposition 28, and Section 5 already involve twisted vector bundles, so those results are unchanged.</p>
+  </li>
+  <li>
+    <p><strong>Pages 389--390, final paragraph of Section 3, and pages 392--393, Section 5.</strong> A $\operatorname{PGL}$-valued \v{C}ech $1$-cocycle generally lifts locally to a $\operatorname{GL}$-valued $1$-cochain, not to a $\operatorname{GL}$-valued $1$-cocycle. Its scalar coboundary records the Brauer class.</p>
+    <p>On pages 389--390, replace the final sentence of the paragraph by:</p>
+    <blockquote>
+      <p>It is not hard to see that every Severi--Brauer variety or Azumaya algebra is obtained in this fashion; indeed, after refining the cover if necessary, choose local $\operatorname{GL}_n$-lifts of the $\operatorname{PGL}_n$-valued \v{C}ech $1$-cocycle defining the Severi--Brauer variety or Azumaya algebra. These lifts form a \v{C}ech $1$-cochain, and their scalar coboundary is a $\mathbb G_m$-valued \v{C}ech $2$-cocycle representing $\alpha$.</p>
+    </blockquote>
+    <p>On pages 392--393, replace the sentence beginning “Choosing an arbitrary lift” by:</p>
+    <blockquote>
+      <p>After refining the cover $\operatorname{Pic}^n(C)_K\to\operatorname{Pic}^n(C)$ if necessary, choose local lifts of this $\operatorname{PGL}(p_{K*}\mathcal L_n)$-valued $1$-cocycle to $\operatorname{GL}(p_{K*}\mathcal L_n)$. These lifts form a \v{C}ech $1$-cochain whose scalar coboundary is a $\mathbb G_m$-valued \v{C}ech $2$-cocycle representing a class</p>
+      <div class="display-math">\[
+      \alpha\in H^2\!\left(\operatorname{Pic}^n(C),\mathbb G_m\right).
+      \]</div>
+      <p>Accordingly, $p_{K*}\mathcal L_n$ with this twisted descent datum is an $\alpha$-twisted vector bundle $\mathcal F_n$ on $\operatorname{Pic}^n(C)$, and</p>
+      <div class="display-math">\[
+      \operatorname{Sym}^n(C)\simeq
+      \mathbb P_{\operatorname{Pic}^n(C)}(\mathcal F_n).
+      \]</div>
+    </blockquote>
+    <p>This supplies the twisted descent datum used in Section 5. Theorem 24 and the recurrence in the proof of Theorem 8 are unchanged.</p>
+  </li>
+  <li>
+    <p><strong>Page 394, Corollary 30 and its proof.</strong> Over an imperfect field, the normalization of a reduced curve can be regular without being geometrically regular, so its projective model need not satisfy the smoothness hypothesis of Theorem 8. Replace the statement of Corollary 30 by:</p>
+    <blockquote>
+      <p><strong>Corollary 30.</strong> Let $C$ be a curve over $k$, let $C^\nu$ be the normalization of $C_{\mathrm{red}}$, and suppose that every irreducible component of $C^\nu$ is geometrically regular and geometrically irreducible over $k$. Then there exists a polynomial</p>
+      <div class="display-math">\[
+      p(t)\in1+tK_0(\operatorname{Var}_k)[t]
+      \]</div>
+      <p>such that $p(t)Z_C(t)$ is a polynomial with constant term $1$.</p>
+    </blockquote>
+    <p>In the proof, replace the opening through the displayed scissor relation by:</p>
+    <blockquote>
+      <p>We reduce to the case of a smooth projective curve. Since $[C]=[C_{\mathrm{red}}]$, we may first assume that $C$ is reduced. Let $\widetilde C$ be the disjoint union of the smooth projective models of the irreducible components of $C^\nu$. Normalization and compactification change the curve only along zero-dimensional subschemes, so there exist zero-dimensional $k$-schemes $X$ and $Y$ such that</p>
+      <div class="display-math">\[
+      [C]=[\widetilde C]+[X]-[Y].
+      \]</div>
+    </blockquote>
+    <p>Finally, replace the sentence beginning “But $\widetilde C$ is a disjoint union” by:</p>
+    <blockquote>
+      <p>By the hypotheses, $\widetilde C$ is a disjoint union of smooth, projective, geometrically connected curves $C_i$. Each $C_i$ satisfies the conditions of Theorem 8, and</p>
+      <div class="display-math">\[
+      Z_{\widetilde C}(t)=\prod_i Z_{C_i}(t),
+      \]</div>
+      <p>so we are done.</p>
+    </blockquote>
+    <p>This changes only the scope of Corollary 30. Theorem 8 is unchanged, and no later theorem depends on the corollary.</p>
+  </li>
+</ol>

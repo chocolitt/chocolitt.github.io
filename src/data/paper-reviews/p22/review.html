@@ -1,0 +1,162 @@
+<h4>Report metadata</h4>
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Field</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Category</td>
+        <td>Published</td>
+      </tr>
+      <tr>
+        <td>Processing status</td>
+        <td>completed</td>
+      </tr>
+      <tr>
+        <td>Detailed comments</td>
+        <td>7</td>
+      </tr>
+      <tr>
+        <td>Domain</td>
+        <td>stem/mathematics</td>
+      </tr>
+      <tr>
+        <td>Completed</td>
+        <td>2026-07-29T18:04:20.906528+00:00</td>
+      </tr>
+      <tr>
+        <td>Refine document ID</td>
+        <td><code>b4a09c04-d093-4cec-b635-89c76e1f91a5</code></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<h4>Refine summary</h4>
+<p>This paper shows that the motivic zeta functions of smooth, geometrically connected curves without rational points are rational functions. It achieves this by studying the class of a Severi-Brauer scheme over a general base in the Grothendieck ring of varieties.</p>
+<h4>Overall feedback</h4>
+<p>Here are some observations regarding the geometric and structural arguments in the paper.</p>
+<p><strong>Projectivization conventions</strong></p>
+<p>The text utilizes different projectivization conventions at various stages of the argument, which complicates the global coherence of the proofs. In Section 3, $P(E)$ is defined as the scheme of hyperplanes, utilizing the rank-one quotient convention. Conversely, Theorem 24 operates on the line convention, where an injection $E_1 \to E_2$ is treated as inducing a closed immersion $P(E_1) \to P(E_2)$. This variance appears again in Section 5, where multiplication by the section defining $D$ is used to obtain $P(F_m) \to P(F_{m+n})$, implicitly relying on effective divisors corresponding to lines of sections.</p>
+<p>Adopting a single, uniform convention throughout the paper is necessary. Once chosen, the consequences must be explicitly tracked by rechecking Theorem 24, Lemma 25, and Corollary 23, alongside the Abel–Jacobi identification, normal-bundle ranks, Brauer-class signs, and Lefschetz powers.</p>
+<p><strong>Twisted descent and local freeness</strong></p>
+<p>Sections 3 and 5 state that a PGL-valued 1-cocycle can be lifted to a GL-valued 1-cocycle. In general, lifting such a cocycle yields a GL-valued cochain whose scalar coboundary represents the Brauer obstruction, whereas an actual GL cocycle would trivialize that obstruction. Because the twisted bundles $F_m$ and $F_{m+n}$ are chosen independently, multiplication by the section of $O_C(D)$ does not automatically descend to the asserted morphism $b_D^m$, nor does it guarantee translation-compatible twisting classes. Constructing this requires compatible descent data or passage through the Picard gerbe.</p>
+<p>Additionally, the deduction that $R_m = \operatorname{coker}(b_D^m)$ is locally free of rank $n$ requires explicit justification. Showing this demands an application of cohomology-and-base-change and the uniform vanishing of $R^1p_*L_m$ for $m&gt;2g-2$. Without establishing these properties for $R_m$, Theorem 24 and Proposition 27 cannot be safely applied to obtain the required recurrence.</p>
+<p><strong>Stratified reduction over arbitrary bases</strong></p>
+<p>The proof of Theorem 24 specifies that "without loss of generality, $S$ is integral and affine." However, the theorem itself is stated for every finite-type scheme and asserts an equality in the unlocalized Grothendieck ring. Establishing the formula over an arbitrary base requires supplying a finite affine stratification, splitting the restricted exact sequence on each individual stratum, explicitly accounting for the reductions of nonreduced strata, and finally assembling the formula using scissor relations.</p>
+<p>Similarly, the argument for Proposition 28 requires explicit justification for several steps. The generic simple twisted bundle, its spreading out, the resulting direct-sum decomposition after shrinking, and the independence of $P$ under common refinements all need to be formalized with the appropriate stratifications, as this relative theorem forms the principal independent technical contribution of the work.</p>
+<p><strong>Genus zero generating series</strong></p>
+<p>In Theorem 8, the correction term is summed over the index $m=2g-1$ to $2g+n-2$. For $g=0$, the index begins at $m=-1$, which introduces undefined objects $P_{-1}$ and $t^{-1}$ into a formal power series expression. This directly affects the point-free genus-zero case highlighted in Example 11 and Remark 12. The argument must instead select a complete set of nonnegative representatives modulo $n$, which will require recomputing the finite initial polynomial and the associated index shifts.</p>
+<p><strong>Smooth projective models in Corollary 30</strong></p>
+<p>The argument in Corollary 30 invokes a smooth projective model beyond the stated hypotheses. Over an imperfect field $k$, the normalization of a curve is not guaranteed to be smooth over $k$. Furthermore, geometric irreducibility is insufficient to rule out geometric nonreducedness or inseparable phenomena. Consequently, asserting that the normalization possesses a smooth projective model whose components satisfy Theorem 8 does not hold under the current assumptions. The corollary requires either additional hypotheses guaranteeing smooth normalized components, or a distinct argument extended to regular, non-smooth curves.</p>
+<h4>Detailed comments</h4>
+<h5>1. Remark 12 switches polynomial to rational</h5>
+<ul>
+  <li>ID: <code>4d42f684-efc7-48ea-a13e-4932ba2ad9ae</code></li>
+  <li>Refine score: <code>0.29</code></li>
+  <li>Original types: general</li>
+  <li>Refine status: open</li>
+</ul>
+<p><strong>Comment</strong></p>
+<p>Remark 12 changes the asserted conclusion from polynomiality to rationality. With $n=1$, the stated claim would make $(1-\mathbb{L}t)(1-t)Z_X(t)$ a polynomial; mere rationality already follows from Theorem 8, so the subsequent skepticism can coherently concern only polynomiality.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote>
+  <p>The remark states that $\left(1-\mathbb{L}^{n} t^{n}\right)\left(1-t^{n}\right) Z_{X}(t)$ is a polynomial, where $n&gt;0$ is minimal such that $\operatorname{Pic}^{n}(X)(k) \neq \emptyset$; in the example, $\operatorname{Pic}^{1}(X)=\operatorname{Spec}(\mathbb{R})$, so the remark suggests that $(1-\mathbb{L} t)(1-t) Z_{X}(t)$ is rational. We do not know a proof of this fact and do not believe it to be true (though we have no proof that it is false).</p>
+</blockquote>
+<h5>2. Stable-range condition missing in Severi–Brauer claim</h5>
+<ul>
+  <li>ID: <code>88acb30c-41c9-490a-bd91-2ab5c5595dff</code></li>
+  <li>Refine score: <code>0.3</code></li>
+  <li>Original types: general</li>
+  <li>Refine status: open</li>
+</ul>
+<p><strong>Comment</strong></p>
+<p>The conclusion that the Abel–Jacobi map is a Severi–Brauer scheme is valid only in the stable range $n&gt;2g-2$. Outside that range, the dimensions of the fibers may vary and the map need not be surjective, defects that no finite extension of the base field can remove.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote>
+  <p>The issue identified in Example 11 is that $\operatorname{Sym}^{n}(C) \rightarrow \operatorname{Pic}^{n}(C)$ may not be a Zariski fiber bundle. Of course (if $C$ is geometrically connected), after a finite extension of the base field, we recover the usual situation of a projective space bundle over the $\operatorname{Pic}^{n}(C)$, so in general $\operatorname{Sym}^{n}(C) \rightarrow \operatorname{Pic}^{n}(C)$ is a Severi-Brauer scheme over $\operatorname{Pic}^{n}(C)$. Thus, we will proceed by studying the class $[V]$ of a Severi-Brauer $S$-scheme $V / S$ in $K_{0}\left(\operatorname{Var}_{k}\right)$.</p>
+</blockquote>
+<h5>3. Cocycle/cochain conflict in Remark 14</h5>
+<ul>
+  <li>ID: <code>bfa7fa1c-3ff4-4098-909d-a1f88f8bf748</code></li>
+  <li>Refine score: <code>0.23</code></li>
+  <li>Original types: general</li>
+  <li>Refine status: open</li>
+</ul>
+<p><strong>Comment</strong></p>
+<p>In Remark 14, $\beta$ must be a Čech $1$-cochain, not a $1$-cocycle: a $1$-cocycle satisfies $d\beta=1$, whereas equality of the cohomology classes of $\lambda$ and $\lambda'$ implies that $\lambda^{-1}\lambda'$ is a coboundary. The displayed equivalence is otherwise correct.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote>
+  <p>Remark 14. A priori, the definition of $\mathrm{QCoh}(X, \alpha)$ depends on the choice of cocycle $\lambda$ representing $\alpha \in H^{2}\left(X, \mathbb{G}_{m}\right)$. However, if $\lambda$ and $\lambda^{\prime}$ are two cocycles representing $\alpha$, then the categories of twisted sheaves they define are (noncanonically) equivalent [2, Lemma 1.2.8]. Namely, refine the covers on which $\lambda$ and $\lambda^{\prime}$ are defined and choose a 1 -cocycle $\beta$ with $d \beta=\lambda^{-1} \lambda^{\prime}$. Then the functor</p>
+  <div class="display-math">$$
+  (\mathcal{E}, \phi) \mapsto(\mathcal{E}, \beta \phi)
+  $$</div>
+</blockquote>
+<h5>4. Projectivization requires a twisted vector bundle</h5>
+<ul>
+  <li>ID: <code>e619e3cf-f88e-49b7-beb6-dbd0825ec224</code></li>
+  <li>Refine score: <code>0.3</code></li>
+  <li>Original types: general</li>
+  <li>Refine status: open</li>
+</ul>
+<p><strong>Comment</strong></p>
+<p>The assertion about $\mathbb{P}(\mathcal{E})$ is valid only when $\mathcal{E}$ is an $\alpha$-twisted vector bundle of positive locally constant rank. For a general object of $\operatorname{QCoh}(X,\alpha)$, the projectivization need not be étale-locally a projective-space bundle and therefore need not be a Severi–Brauer scheme.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote>
+  <p>Similarly, given an $\alpha$-twisted sheaf $\mathcal{E}$ over a scheme $X$, we may obtain a Severi-Brauer variety with Brauer class $\alpha$ by considering $\mathbb{P}(\mathcal{E})$, which is étale descent data for a scheme over $X$. Since $\mathbb{P}(\mathcal{E})$ is anticanonically polarized over $X$, these descent data are effective, and we obtain a Severi-Brauer variety over $X$.</p>
+</blockquote>
+<h5>5. The PGL cocycle does not lift to a GL cocycle in Sections 3 and 5</h5>
+<ul>
+  <li>ID: <code>1ba37ac3-97f8-4cb5-8309-1080a3494729</code></li>
+  <li>Refine score: <code>0.34</code></li>
+  <li>Original types: general</li>
+  <li>Refine status: open</li>
+</ul>
+<p><strong>Comment</strong></p>
+<p>A $\mathrm{PGL}_n$-cocycle generally lifts only to a $\mathrm{GL}_n$-valued Čech 1-cochain, not to a $\mathrm{GL}_n$-cocycle. The scalar failure of the lifted matrices to satisfy the cocycle condition is the Čech 2-cocycle representing the Brauer class; an actual $\mathrm{GL}_n$-cocycle lift would instead give an ordinary vector bundle and a split Brauer class. This same issue appears in Section 5, where the lift of the $\operatorname{PGL}$-valued cocycle for the descent data of $\operatorname{Sym}^{n}(C)$ is similarly misidentified as a $\operatorname{GL}$-valued cocycle.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote>
+  <p>It is not hard to see that every Severi-Brauer variety or Azumaya algebra is obtained in this fashion; indeed, take the $\mathrm{PGL}_{n}$-cocycle defining the</p>
+  <p>Severi-Brauer variety or Azumaya algebra and lift it to an arbitrary cocycle for $\mathrm{GL}_{n}$. (To do so, we may have to refine the cover on which the cocycle is defined.)</p>
+</blockquote>
+<h5>6. Map direction in the proof of Theorem 24</h5>
+<ul>
+  <li>ID: <code>9df8f779-ce61-413a-ab5b-fe48eed5fccb</code></li>
+  <li>Refine score: <code>0.28</code></li>
+  <li>Original types: general</li>
+  <li>Refine status: open</li>
+</ul>
+<p><strong>Comment</strong></p>
+<p>Under the paper’s convention that $\mathbb{P}(\mathcal{E})$ parametrizes rank-one quotients, the inclusion $\mathcal{E}_1\hookrightarrow\mathcal{E}_2$ does not induce the displayed closed embedding. After the exact sequence has been split, the required embedding is instead induced by the resulting projection $\mathcal{E}_2\twoheadrightarrow\mathcal{E}_1$. The subsequent complement calculation remains valid with this correction.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote>
+  <p>The morphism $\mathcal{E}_{1} \rightarrow \mathcal{E}_{2}$ induces a closed embedding $\mathbb{P}\left(\mathcal{E}_{1}\right) \hookrightarrow \mathbb{P}\left(\mathcal{E}_{2}\right)$, so</p>
+  <div class="display-math">$$
+  \left[\mathbb{P}\left(\mathcal{E}_{2}\right)\right]=\left[\mathbb{P}\left(\mathcal{E}_{1}\right)\right]+[U],
+  $$</div>
+  <p>where $U:=\mathbb{P}\left(\mathcal{E}_{2}\right) \backslash \mathbb{P}\left(\mathcal{E}_{1}\right)$. We wish to identify $U$ with the total space of a vector bundle over $\mathbb{P}\left(\mathcal{E}_{3}\right)$.</p>
+</blockquote>
+<h5>7. Corollary 30 needs geometric reducedness</h5>
+<ul>
+  <li>ID: <code>a4a64a0e-6345-40fc-a8b6-64154ee393b6</code></li>
+  <li>Refine score: <code>0.48</code></li>
+  <li>Original types: general</li>
+  <li>Refine status: open</li>
+</ul>
+<p><strong>Comment</strong></p>
+<p>The final application of Theorem 8 is not justified over an arbitrary imperfect field: a normal, hence regular, geometrically irreducible curve need not be smooth over $k$, because geometric irreducibility does not ensure geometric regularity or even geometric reducedness. The normalized components therefore require a hypothesis ensuring smoothness, such as geometric regularity or perfectness of $k$, or a separate treatment of the inseparable case.</p>
+<p><strong>Quoted passage</strong></p>
+<blockquote>
+  <p>Proof. We reduce to the case where $C$ is smooth and projective. Indeed, we may assume that $C$ is reduced as $[C]=\left[C_{\text {red }}\right]$; let $\tilde{C}$ be the smooth projective model of $C$. Then $[C]=[\tilde{C}]+[X]-[Y]$, where $X$ and $Y$ are zero-dimensional schemes. In particular,</p>
+  <div class="display-math">$$
+  Z_{C}(t) Z_{Y}(t)=Z_{\tilde{C}}(t) Z_{X}(t)
+  $$</div>
+  <p>by Remark 3. We leave to the reader to show that there exist polynomials $p_{X}(t), p_{Y}(t) \in 1+t K_{0}\left(\operatorname{Var}_{k}\right)[t]$ such that</p>
+  <div class="display-math">$$
+  p_{X}(t) Z_{X}(t), p_{Y}(t) Z_{Y}(t)
+  $$</div>
+  <p>are polynomials with constant term one; thus, to prove the theorem for $C$, it suffices to prove it for $\tilde{C}$. But $\tilde{C}$ is a disjoint union of components $C_{i}$ satisfying the conditions of Theorem 8, and</p>
+</blockquote>

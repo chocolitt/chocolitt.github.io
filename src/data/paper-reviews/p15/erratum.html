@@ -1,0 +1,72 @@
+<p>These errata refer to the version published in <em>Mathematical Research Letters</em> <strong>29</strong> (2022), no.&nbsp;6, 1791--1812. Page and statement references below refer to that version.</p><ol class="errata-list"><li><p><strong>Page 1792, Remark 1.1.4.</strong> The orbit of the restricted standard representation need not be a singleton: the inverse-transpose outer automorphism carries the standard representation to its contragredient, which is not isomorphic to it when \(n&gt;2\). Replace the paragraph beginning <em>For example, let \(n&gt;2\)</em> by:</p>
+<blockquote><p>For example, let \(n&gt;2\) and let</p>
+<div class="display-math">\[
+  \rho_{\mathrm{std}}:\operatorname{SL}_n(\mathbb Z)
+  \longrightarrow\operatorname{GL}_n(\mathbb C)
+\]</div>
+<p>be the standard representation. For any finite-index subgroup \(G\subset\operatorname{SL}_n(\mathbb Z)\), the orbit of \(\rho_{\mathrm{std}}|_G\) under \(\operatorname{Out}(G)\) is finite; indeed, by Margulis super-rigidity it is contained in the standard and contragredient isomorphism classes. Of course, \(\rho_{\mathrm{std}}\) has infinite image.</p></blockquote>
+<p>The example still disproves the analogue of Corollary&nbsp;1.1.3 for general groups, since that argument requires a finite orbit, not a singleton orbit.</p></li><li><p><strong>Page 1793, Remark 1.1.5.</strong> For a surface with punctures or boundary, \(H_1(\Sigma,\mathbb Z)\) also has peripheral homology, so its rank need not be \(2g\) and the mapping class group action need not be only the displayed symplectic action. Replace the opening sentence of the remark by:</p>
+<blockquote><p>Suppose that \(\Sigma\) is closed. To clarify ideas, we explain the special case where the representation \(\rho\) has rank \(m=1\), i.e., is given by a map</p>
+<div class="display-math">\[
+  \rho:\pi_1(\Sigma)\longrightarrow\mathbb C^*.
+\]</div></blockquote>
+<p>Under this hypothesis the identifications with \((\mathbb C^*)^{2g}\) and \((\mathbb C/\mathbb Z)^{2g}\), and the \(\operatorname{Sp}_{2g}(\mathbb Z)\)-orbit argument, apply as printed. The remark is not used in the proof of Theorem&nbsp;1.1.1; the proof for general surfaces instead uses the quotient by peripheral homology from Definition&nbsp;2.2.4.</p></li><li><p><strong>Page 1794, first paragraph.</strong> The base point for the local system and the pointed fundamental group must lie on the open curve. In the sentence beginning <em>If we choose a base-point</em>, replace</p>
+<div class="display-math">\[
+  x\in C
+  \qquad\text{by}\qquad
+  x\in C\setminus D.
+\]</div>
+<p>Every subsequent use is already based at a point of \(C\setminus D\), so no later statement changes.</p></li><li><p><strong>Pages 1803--1804, final two paragraphs of the proof of Lemma 2.2.6.</strong> An isomorphism between the representations \((T_{\gamma_1}^m)^*\rho\) and \(\rho\) does not imply literal equality of their \(\operatorname{Hom}(V_2,V_1)\)-valued homomorphisms. Replace the two paragraphs beginning <em>Now apply Lemma 2.2.3</em> by:</p>
+<blockquote><p>Now apply Lemma&nbsp;2.2.3 to the Dehn twist \(T_{\gamma_1}\). We find some \(m&gt;0\) such that</p>
+<div class="display-math">\[
+  (T_{\gamma_1}^m)^*\rho\simeq\rho.
+\]</div>
+<p>For every \(h\in H_1(\Sigma')\), the description of \(\operatorname{Aut}_{V_1,V_2}(V)\) above gives</p>
+<div class="display-math">\[
+  \rho(h)=\overline{\sigma_{\Sigma'}(h)}+\operatorname{Id}_V;
+\]</div>
+<p>hence \(\sigma_{\Sigma'}(h)=0\) if and only if \(\rho(h)=\operatorname{Id}_V\). Isomorphic representations have the same kernel. On the other hand, \(\sigma_{\Sigma'}(\gamma_2)=0\), whereas</p>
+<div class="display-math">\[
+ \sigma_{\Sigma'}\bigl(T_{\gamma_1}^m(\gamma_2)\bigr)
+ =\sigma_{\Sigma'}(\gamma_2\gamma_1^{im})
+ =im\,\sigma_{\Sigma'}(\gamma_1)\neq0.
+\]</div>
+<p>Thus \(\gamma_2\) lies in the kernel of \(\rho\) but not in the kernel of \((T_{\gamma_1}^m)^*\rho\), contradicting \((T_{\gamma_1}^m)^*\rho\simeq\rho\). \(\square\)</p></blockquote>
+<p>This proves Lemma&nbsp;2.2.6, and its use in the induction concluding the proof of Theorem&nbsp;1.1.1 is unchanged.</p></li><li><p><strong>Pages 1805--1806, proofs of Lemmas 3.1.1 and 3.1.3.</strong> The coefficient formula uses \(\rho(g_i)^{-1}\), but the printed text declares \(e_i\) trace-dual to \(\rho(g_i)\). In the proof of Lemma&nbsp;3.1.1, replace the paragraph beginning <em>First, suppose \(\rho\) is simple</em> through its first display by:</p>
+<blockquote><p>First, suppose \(\rho\) is simple, so \(\rho(G)\) spans \(\operatorname{End}(V)\) as a \(\mathbb C\)-vector space by Burnside's Theorem. Write \(d=\dim V\). Since \(\{\rho(g)^{-1}:g\in G\}=\rho(G)\), choose \(g_1,\ldots,g_{d^2}\in G\) so that \(\{\rho(g_i)^{-1}\}\) is a basis of \(\operatorname{End}(V)\), and let \(e_1,\ldots,e_{d^2}\) be its dual basis under the trace pairing. For \(g\in G\), we have</p>
+<div class="display-math">\[
+  \rho(g)=\sum_i
+  \operatorname{Tr}\bigl(\rho(g_i)^{-1}\rho(g)\bigr)e_i.
+\]</div></blockquote>
+<p>In the proof of Lemma&nbsp;3.1.3, replace the two sentences beginning <em>Since \(\rho\) is simple</em> and the following display by:</p>
+<blockquote><p>Since \(\rho\) is simple, \(\rho(G)\) spans \(\operatorname{End}(V)\) as a \(\mathbb C\)-vector space. Write \(d=\dim V\), choose \(g_1,\ldots,g_{d^2}\in G\) so that \(\{\rho(g_i)^{-1}\}\) is a basis of \(\operatorname{End}(V)\), and let \(e_1,\ldots,e_{d^2}\) be its dual basis under the trace pairing. For \(g\in G\), we have</p>
+<div class="display-math">\[
+  \rho(g)=\sum_i
+  \operatorname{Tr}\bigl(\rho(g_i)^{-1}\rho(g)\bigr)e_i.
+\]</div></blockquote>
+<p>Now the coefficient is \(\operatorname{Tr}(\rho(g_i^{-1}g))\), exactly the trace to which the finite-value argument applies. The definition of \(\Gamma\) in Lemma&nbsp;3.1.3 already uses \(g_i^{-1}\gamma\). Thus Lemmas&nbsp;3.1.1--3.1.3 and Corollary&nbsp;3.1.4 retain their statements and later uses.</p></li><li><p><strong>Page 1810, final two paragraphs of Example 3.3.1.</strong> Stability of a subspace under \(g\) alone does not show that it is preserved by the monodromy of the cut surface, whose elements centralize \(g\). Replace the two paragraphs beginning <em>Let \(V_i\) be the subspace</em> by:</p>
+<blockquote><p>For each \(i\), let \(\delta_{ij}\) be the components of the lift of \(\gamma^m\) to \(Y_{p_i}\), let \(V_i\subset H^1(Y_{p_i},\mathbb C)\) be the span of their Poincar\'e-dual classes, and set</p>
+<div class="display-math">\[
+  U=\bigoplus_i V_i.
+\]</div>
+<p>The Picard--Lefschetz formula for the commuting Dehn twists gives</p>
+<div class="display-math">\[
+ g-\operatorname{Id}
+ =\sum_{i,j}N_{\delta_{ij}},
+ \qquad
+ N_{\delta_{ij}}(\alpha)
+ =\langle\alpha,[\delta_{ij}]\rangle
+   \operatorname{PD}([\delta_{ij}]).
+\]</div>
+<p>Consequently</p>
+<div class="display-math">\[
+  U=\operatorname{im}(g-\operatorname{Id}).
+\]</div>
+<p>This subspace is nonzero: the transfer of the nonzero class \([\gamma]\) is the sum of the classes of its lifted components, so at least one such class is nonzero. It is proper because \(g-\operatorname{Id}\) is a nonzero nilpotent endomorphism. Every element of the monodromy of \(\Sigma_{\mathrm{cut}}\) commutes with \(g\), and therefore preserves \(\operatorname{im}(g-\operatorname{Id})=U\). Hence \(\rho|_{\pi_1(\Sigma_{\mathrm{cut}})}\) is reducible, as expected.</p></blockquote>
+<p>This supplies the invariant subspace required for the conclusion of the example. No later result depends on Example&nbsp;3.3.1.</p></li><li><p><strong>Page 1811, Example 3.5.1.</strong> Conjugation acts trivially on the augmentation quotient when \(n=2\). Replace <em>for any \(n&gt;1\)</em> in the first paragraph by <em>for any \(n\geq3\)</em>. Indeed, modulo \(\mathscr I^2\),</p>
+<div class="display-math">\[
+ ghg^{-1}-1
+ \equiv(g-1)+(h-1)+(g^{-1}-1)
+ \equiv h-1,
+\]</div>
+<p>so the representation on \(\mathbb Q[\pi_1(\Sigma,p)]/\mathscr I^2\) is trivial. For \(n\geq3\), the conjugation action detects commutators in \(\mathscr I^2/\mathscr I^3\), and the nontrivial, unipotent, mapping-class-group-fixed examples remain as stated. The example is not used elsewhere.</p></li></ol>

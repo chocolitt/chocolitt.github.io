@@ -1,0 +1,118 @@
+<h4>Scope</h4>
+<ul>
+  <li>Paper: <code>03 Published and Submitted Work/Published/P18_Litt_Vanishing_Frobenius_Twists.pdf</code></li>
+  <li>Refine report: <code>.refine/results/Published/P18_Litt_Vanishing_Frobenius_Twists.review.json</code></li>
+  <li>Rubric: <code>rubric/comment_triage_rubric.md</code></li>
+  <li>Version assessed: local published PDF, <em>Tohoku Mathematical Journal</em> 71 (2019), 549-557</li>
+  <li>Detailed Refine comments assessed: 1</li>
+  <li>Assessment date: 2026-07-30</li>
+</ul>
+<p>The local published PDF is authoritative. PDF page 7 (printed p. 555) was rendered and visually inspected; the disputed quantifiers and parenthetical justification are present in the published typesetting.</p>
+<h4>Summary</h4>
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Short title</th>
+        <th>Validity</th>
+        <th>Category</th>
+        <th>Standardness</th>
+        <th>Impact</th>
+        <th>Challenge</th>
+        <th>Repair</th>
+        <th>Disposition</th>
+        <th>Priority</th>
+        <th>Confidence</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>One model for an unbounded family</td>
+        <td><code>V4</code></td>
+        <td><code>C6</code></td>
+        <td><code>E3</code></td>
+        <td><code>I2</code></td>
+        <td><code>Q2</code></td>
+        <td><code>R2</code></td>
+        <td><code>D3</code></td>
+        <td><code>P2</code></td>
+        <td><code>HIGH</code></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<p>The comment initially merits serious scrutiny because the disputed uniformity is used in the proof of Theorem 3.0.2. The reconstruction below verifies a complete uniform relative-regularity repair, so no main statement changes. The printed appeal to the definition nevertheless makes a false quantifier inference, and the missing replacement is nontrivial; the final impact is therefore <code>I2</code>, not merely editorial and not <code>I3</code>.</p>
+<h4>1. The definition of \(\phi\) does not itself provide the asserted uniform model</h4>
+<p><strong>Comment ID:</strong> <code>de22d381-3259-4d2d-8c9e-e000ee536db5</code> <strong>Location:</strong> PDF p. 7 (printed p. 555), first two paragraphs of the proof of Theorem 3.0.2.</p>
+<p>For each fixed \(n\) and \(i\), the characteristic-zero definition of \(\phi\) supplies a model on which</p>
+<div class="display-math">\[
+\phi\!\left(
+\operatorname{Sym}^{n-i}(\widetilde{\mathscr E}_{\mathfrak q})
+\otimes\bigwedge^i\widetilde{\mathscr E}_{\mathfrak q}
+\right)=0
+\]</div>
+<p>on every closed fiber after localization. It does not directly give one model for all \(n&gt;N_0\). A finite common refinement is insufficient because the proof later takes \(n=p=\operatorname{char}\kappa(\mathfrak q)\), which is unbounded as \(\mathfrak q\) varies.</p>
+<p>The Refine comment is therefore correct about the parenthetical “such a model exists by the definition of \(\phi\).” The theorem nevertheless has a uniform repair coming from the regularity proof of Lemma 3.0.1.</p>
+<h5>Severity reconstruction</h5>
+<p>After enlarging and localizing \(R\), spread out the following data:</p>
+<ol>
+  <li>a flat projective morphism \(\mathcal X\to\operatorname{Spec}R\), a relatively very ample line bundle \(L\), and the vector bundle \(\widetilde{\mathscr E}\);</li>
+  <li>relative ampleness of \(\mathcal O_{\mathbf P(\widetilde{\mathscr E})}(1)\) over \(\operatorname{Spec}R\);</li>
+  <li>a common fiber dimension bound \(d\) and a uniform bound \[ \operatorname{Reg}_{L_{\mathfrak q}}(\mathcal X_{\mathfrak q})\le C \] for all closed \(\mathfrak q\).</li>
+</ol>
+<p>Only \(0\le i\le r=\operatorname{rk}(\mathscr E)\) matter, since the higher exterior powers vanish. Choose \(M&gt;C(d-1)\). On \(\mathbf P(\widetilde{\mathscr E})\), relative Serre vanishing, applied to the finite collection</p>
+<div class="display-math">\[
+\pi^\ast\!\left(
+\bigwedge^i\widetilde{\mathscr E}\otimes L^{-M-a}
+\right),
+\qquad 0\le i\le r,\quad 1\le a\le d,
+\]</div>
+<p>gives a single \(N_1\) such that, for every closed \(\mathfrak q\), every \(N\ge N_1\), and every \(a&gt;0\),</p>
+<div class="display-math">\[
+H^a\!\left(
+\mathcal X_{\mathfrak q},
+\operatorname{Sym}^{N}(\widetilde{\mathscr E}_{\mathfrak q})
+\otimes\bigwedge^i\widetilde{\mathscr E}_{\mathfrak q}
+\otimes L_{\mathfrak q}^{-M-a}
+\right)=0.
+\]</div>
+<p>After generic flatness for this finite collection, relative Serre vanishing kills all positive higher direct images over \(\operatorname{Spec}R\). Cohomology and base change, together with the projective-bundle identities, then gives the displayed vanishing on every closed fiber. This is uniform in both \(N\) and \(\mathfrak q\), not merely pointwise on the base. Consequently,</p>
+<div class="display-math">\[
+\operatorname{reg}_{L_{\mathfrak q}}\!\left(
+\operatorname{Sym}^{N}(\widetilde{\mathscr E}_{\mathfrak q})
+\otimes\bigwedge^i\widetilde{\mathscr E}_{\mathfrak q}
+\right)\le -M
+\]</div>
+<p>uniformly in \(\mathfrak q,N,i\).</p>
+<p><a href="https://arxiv.org/abs/math/0202129">Arapura, Lemma 3.3</a> says that a coherent sheaf \(\mathscr G\) is Frobenius-ample when</p>
+<div class="display-math">\[
+\operatorname{reg}(\mathscr G)
+&lt;-\operatorname{Reg}(X)(\dim X-1).
+\]</div>
+<p>The choices above therefore imply the desired amplitude-zero statement for all fibers and all \(N\ge N_1\). Replacing \(N_0\) by \(\max(N_0,N_1+r)\) makes \(n-i\ge N_1\) whenever \(n&gt;N_0\), simultaneously for every relevant \(i\).</p>
+<p>This is precisely the uniform statement needed when the proof specializes \(n\) to the varying residue characteristic \(p\).</p>
+<h5>Failure tests and dependencies</h5>
+<ul>
+  <li><strong>Unbounded \(i\):</strong> absent, because \(\bigwedge^i\mathscr E=0\) for \(i&gt;r\).</li>
+  <li><strong>Negative symmetric powers:</strong> avoided by taking \(N_0\ge N_1+r\).</li>
+  <li><strong>Varying fiber dimension or regularity:</strong> controlled by flat projective spreading and the uniform constant \(C\).</li>
+  <li><strong>Fiberwise base change:</strong> controlled by generic flatness and simultaneous vanishing of all positive relative higher direct images.</li>
+  <li><strong>Small residue characteristics:</strong> the proof already restricts to \(p&gt;N_0\).</li>
+  <li><strong>Singular fibers:</strong> Arapura's regularity criterion and the argument above are stated for projective varieties and do not require smoothness.</li>
+  <li><strong>Downstream use:</strong> the spectral-sequence argument needs only this uniform amplitude-zero assertion; it is unchanged after the replacement justification.</li>
+</ul>
+<ul>
+  <li>Classification: <code>V4</code> / <code>C6</code> with <code>uniform_spreading_out;relative_regularity;incorrect_justification;quantifier_exchange</code> / <code>E3</code></li>
+  <li>Severity challenge: <code>Q2</code>; the missing uniform spreading argument has been reconstructed completely from relative Serre vanishing, cohomology and base change, and the regularity criterion already underlying Lemma 3.0.1</li>
+  <li>Impact: <code>I2</code></li>
+  <li>Repair: replace the incorrect parenthetical appeal to the definition of \(\phi\) by the relative-regularity paragraph above, or cite a uniform relative version of Lemma 3.0.1</li>
+  <li>Dependency trace: Theorem 3.0.2, its later citation in the paper, and all advertised results remain unchanged</li>
+  <li>Disposition: <code>R2</code> / <code>D3</code>; <code>P2</code> / <code>HIGH</code></li>
+</ul>
+<h4>Action queue</h4>
+<ol>
+  <li>Add a public errata entry replacing the incorrect parenthetical with the uniform relative-regularity argument.</li>
+  <li>Use the same replacement paragraph in any maintained manuscript version.</li>
+</ol>

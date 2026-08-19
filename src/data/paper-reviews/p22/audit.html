@@ -1,0 +1,209 @@
+<h4>Scope</h4>
+<ul>
+  <li>Paper: <code>03 Published and Submitted Work/Published/P22_Litt_Zeta_Functions_Curves.pdf</code></li>
+  <li>Refine report: <code>.refine/results/Published/P22_Litt_Zeta_Functions_Curves.review.json</code></li>
+  <li>Rubric: <code>rubric/comment_triage_rubric.md</code></li>
+  <li>Version assessed: local published PDF, <em>Michigan Mathematical Journal</em> 64 (2015), 383-395</li>
+  <li>Detailed Refine comments assessed: 7</li>
+  <li>Assessment date: 2026-07-30</li>
+</ul>
+<p>The local published PDF is authoritative. PDF pages 4-5, 7-10, and 12 were rendered and visually inspected to verify the projectivization notation, Čech-descent terminology, displayed formulas, and the hypotheses of Corollary</p>
+<ol>
+  <li>The unanchored <code>feedback.overall</code> prose was used as context but was not converted into additional assessment rows.</li>
+</ol>
+<h4>Summary</h4>
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Short title</th>
+        <th>Validity</th>
+        <th>Category</th>
+        <th>Standardness</th>
+        <th>Impact</th>
+        <th>Challenge</th>
+        <th>Repair</th>
+        <th>Disposition</th>
+        <th>Priority</th>
+        <th>Confidence</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>“Rational” should be “polynomial”</td>
+        <td><code>V4</code></td>
+        <td><code>C1</code></td>
+        <td><code>E-NA</code></td>
+        <td><code>I2</code></td>
+        <td><code>Q0</code></td>
+        <td><code>R2</code></td>
+        <td><code>D3</code></td>
+        <td><code>P2</code></td>
+        <td><code>HIGH</code></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Missing stable-range qualifier</td>
+        <td><code>V4</code></td>
+        <td><code>C5</code></td>
+        <td><code>E-NA</code></td>
+        <td><code>I2</code></td>
+        <td><code>Q0</code></td>
+        <td><code>R2</code></td>
+        <td><code>D3</code></td>
+        <td><code>P2</code></td>
+        <td><code>HIGH</code></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Čech cochain called a cocycle</td>
+        <td><code>V4</code></td>
+        <td><code>C1</code></td>
+        <td><code>E-NA</code></td>
+        <td><code>I1</code></td>
+        <td><code>Q0</code></td>
+        <td><code>R1</code></td>
+        <td><code>D1</code></td>
+        <td><code>P3</code></td>
+        <td><code>HIGH</code></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Projectivization needs local freeness</td>
+        <td><code>V4</code></td>
+        <td><code>C5</code></td>
+        <td><code>E-NA</code></td>
+        <td><code>I2</code></td>
+        <td><code>Q0</code></td>
+        <td><code>R2</code></td>
+        <td><code>D3</code></td>
+        <td><code>P2</code></td>
+        <td><code>HIGH</code></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>GL lifts are cochains, not cocycles</td>
+        <td><code>V4</code></td>
+        <td><code>C1</code></td>
+        <td><code>E-NA</code></td>
+        <td><code>I2</code></td>
+        <td><code>Q0</code></td>
+        <td><code>R2</code></td>
+        <td><code>D3</code></td>
+        <td><code>P2</code></td>
+        <td><code>HIGH</code></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Theorem 24 cites the wrong bundle map</td>
+        <td><code>V4</code></td>
+        <td><code>C1</code></td>
+        <td><code>E-NA</code></td>
+        <td><code>I1</code></td>
+        <td><code>Q1</code></td>
+        <td><code>R1</code></td>
+        <td><code>D1</code></td>
+        <td><code>P3</code></td>
+        <td><code>HIGH</code></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Corollary 30 lacks a smoothness hypothesis</td>
+        <td><code>V4</code></td>
+        <td><code>C5</code></td>
+        <td><code>E-NA</code></td>
+        <td><code>I2</code></td>
+        <td><code>Q2</code></td>
+        <td><code>R2</code></td>
+        <td><code>D3</code></td>
+        <td><code>P2</code></td>
+        <td><code>HIGH</code></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<p>There are five local errata candidates and two optional precision edits. No issue remains at <code>I3</code> or higher. In particular, Comment 7 changes the stated scope of Corollary 30 over imperfect fields but does not affect Theorem 8 or the paper's main result.</p>
+<h4>1. Remark 12 says “rational” where its logic requires “polynomial”</h4>
+<p><strong>Comment ID:</strong> <code>4d42f684-efc7-48ea-a13e-4932ba2ad9ae</code> <strong>Location:</strong> PDF p. 4, Remark 12.</p>
+<p>The preceding sentence reports a claim that</p>
+<div class="display-math">\[
+(1-\mathbb L^n t^n)(1-t^n)Z_X(t)
+\]</div>
+<p>is a polynomial. For the real conic in Example 11, the asserted minimum is \(n=1\). The next sentence therefore has to say that \((1-\mathbb Lt)(1-t)Z_X(t)\) is <em>polynomial</em>, not merely rational. Theorem 8 already proves rationality, so the following sentence's skepticism can only concern polynomiality.</p>
+<ul>
+  <li>Classification: <code>V4</code> / <code>C1</code> / <code>I2</code></li>
+  <li>Repair: replace “is rational” by “is a polynomial”</li>
+  <li>Dependency trace: the sentence discusses the strength of Kapranov's remark; neither Theorem 8 nor any later proof uses it</li>
+  <li>Disposition: <code>R2</code> / <code>D3</code>; <code>P2</code> / <code>HIGH</code></li>
+</ul>
+<h4>2. The Severi-Brauer description needs the stable range</h4>
+<p><strong>Comment ID:</strong> <code>88acb30c-41c9-490a-bd91-2ab5c5595dff</code> <strong>Location:</strong> PDF p. 4, paragraph following Remark 12; compare Section 5 on PDF p. 10.</p>
+<p>The Abel-Jacobi morphism \(\operatorname{Sym}^n(C)\to\operatorname{Pic}^n(C)\) is a projective-space bundle after a splitting field only when \(n&gt;2g-2\). Outside that range it can fail to be surjective and its fibers need not have constant dimension, so it is not generally a Severi-Brauer scheme.</p>
+<p>The proof of Theorem 8 is safe: Section 5 explicitly imposes \(n&gt;2g-2\) before using this Severi-Brauer description.</p>
+<ul>
+  <li>Classification: <code>V4</code> / <code>C5</code> / <code>I2</code></li>
+  <li>Repair: begin the sentence “For \(n&gt;2g-2\), after a finite extension ...” and restrict the resulting Severi-Brauer assertion to that range</li>
+  <li>Dependency trace: all later uses already satisfy the missing range</li>
+  <li>Disposition: <code>R2</code> / <code>D3</code>; <code>P2</code> / <code>HIGH</code></li>
+</ul>
+<h4>3. Remark 14 needs a Čech 1-cochain</h4>
+<p><strong>Comment ID:</strong> <code>bfa7fa1c-3ff4-4098-909d-a1f88f8bf748</code> <strong>Location:</strong> PDF p. 5, Remark 14.</p>
+<p>If \(\lambda\) and \(\lambda'\) represent the same class, then \(\lambda^{-1}\lambda'\) is a coboundary. Thus one chooses a Čech 1-<em>cochain</em> \(\beta\) satisfying</p>
+<div class="display-math">\[
+d\beta=\lambda^{-1}\lambda'.
+\]</div>
+<p>A 1-cocycle has trivial coboundary, so the printed noun is wrong. The equation itself and the functor \((\mathcal E,\phi)\mapsto(\mathcal E,\beta\phi)\) unambiguously give the correct construction.</p>
+<ul>
+  <li>Classification: <code>V4</code> / <code>C1</code> / <code>I1</code></li>
+  <li>Repair: replace “1-cocycle \(\beta\)” by “1-cochain \(\beta\)”</li>
+  <li>Dependency trace: no mathematical construction changes</li>
+  <li>Disposition: <code>R1</code> / <code>D1</code>; <code>P3</code> / <code>HIGH</code></li>
+</ul>
+<h4>4. A general twisted quasi-coherent sheaf need not give a Severi-Brauer scheme</h4>
+<p><strong>Comment ID:</strong> <code>e619e3cf-f88e-49b7-beb6-dbd0825ec224</code> <strong>Location:</strong> PDF p. 7, paragraph following Corollary 22.</p>
+<p>The paper defined an \(\alpha\)-twisted sheaf as a twisted quasi-coherent sheaf, reserving “twisted vector bundle” for a locally free object. For a general twisted quasi-coherent sheaf, \(\mathbb P(\mathcal E)\) need not be étale-locally a projective-space bundle; likewise \(\operatorname{End}(\mathcal E)\) need not be Azumaya. The construction is valid for an \(\alpha\)-twisted vector bundle of positive locally constant rank.</p>
+<p>Every subsequent application in Corollary 23, Theorem 24, Proposition 28, and Section 5 uses twisted vector bundles, so this is a local scope error.</p>
+<ul>
+  <li>Classification: <code>V4</code> / <code>C5</code> / <code>I2</code></li>
+  <li>Repair: replace both occurrences of “\(\alpha\)-twisted sheaf” in this construction by “\(\alpha\)-twisted vector bundle of positive locally constant rank”</li>
+  <li>Dependency trace: later hypotheses already supply local freeness</li>
+  <li>Disposition: <code>R2</code> / <code>D3</code>; <code>P2</code> / <code>HIGH</code></li>
+</ul>
+<h4>5. The PGL cocycle lifts to a GL cochain</h4>
+<p><strong>Comment ID:</strong> <code>1ba37ac3-97f8-4cb5-8309-1080a3494729</code> <strong>Location:</strong> PDF pp. 7-8, end of Section 3, and PDF p. 10, Section 5.</p>
+<p>A \(\operatorname{PGL}_n\)-valued Čech 1-cocycle can be lifted locally to a \(\operatorname{GL}_n\)-valued 1-cochain. The scalar failure of that cochain to satisfy the cocycle condition is exactly the Čech 2-cocycle defining the Brauer twist. If it lifted to an actual GL cocycle, it would descend to an ordinary vector bundle and the corresponding Brauer class would split.</p>
+<p>Both passages immediately use the lifted data as twisted descent data, so the intended construction is recoverable; the repeated word “cocycle” is nevertheless mathematically meaning-bearing.</p>
+<ul>
+  <li>Classification: <code>V4</code> / <code>C1</code> / <code>I2</code></li>
+  <li>Repair: in both passages, replace “lift ... to a 1-cocycle valued in \(\operatorname{GL}\)” by “choose local GL lifts, forming a 1-cochain whose scalar coboundary represents \(\alpha\)”</li>
+  <li>Dependency trace: this wording supplies exactly the twisted vector bundle used later; it does not change Theorem 24 or the recurrence in Theorem 8</li>
+  <li>Disposition: <code>R2</code> / <code>D3</code>; <code>P2</code> / <code>HIGH</code></li>
+</ul>
+<h4>6. Theorem 24's embedding comes from the split projection</h4>
+<p><strong>Comment ID:</strong> <code>9df8f779-ce61-413a-ab5b-fe48eed5fccb</code> <strong>Location:</strong> PDF p. 9, proof of Theorem 24.</p>
+<p>Under the paper's quotient/hyperplane convention for \(\mathbb P(\mathcal E)\), the injection \(\mathcal E_1\hookrightarrow\mathcal E_2\) does not itself induce the displayed closed embedding. The proof has just split the short exact sequence. The resulting projection \(\mathcal E_2\twoheadrightarrow\mathcal E_1\) does induce \(\mathbb P(\mathcal E_1)\hookrightarrow\mathbb P(\mathcal E_2)\), after which the stated complement calculation is unchanged.</p>
+<ul>
+  <li>Classification: <code>V4</code> / <code>C1</code> / <code>I1</code></li>
+  <li>Standard-step check: <code>Q1</code>; the chosen splitting explicitly supplies the contravariant bundle map and all ranks in Lemma 25 remain the same</li>
+  <li>Repair: replace “the morphism \(\mathcal E_1\to\mathcal E_2\) induces” by “the projection \(\mathcal E_2\twoheadrightarrow\mathcal E_1\) supplied by the chosen splitting induces”</li>
+  <li>Dependency trace: the theorem's equality and all later applications are unchanged</li>
+  <li>Disposition: <code>R1</code> / <code>D1</code>; <code>P3</code> / <code>HIGH</code></li>
+</ul>
+<h4>7. Corollary 30 does not obtain smoothness over every imperfect field</h4>
+<p><strong>Comment ID:</strong> <code>a4a64a0e-6345-40fc-a8b6-64154ee393b6</code> <strong>Location:</strong> PDF p. 12, Corollary 30 and its proof.</p>
+<p>The normalization of a reduced curve is regular, but over an imperfect field a regular finite-type curve need not be smooth over the base. Moreover, geometric irreducibility alone is a topological condition and does not exclude nilpotents or inseparable singular behavior after base change. Therefore the normalized components need not satisfy Theorem 8's smoothness hypothesis.</p>
+<h5>Severity challenge and local repair</h5>
+<p>The exact missing implication is:</p>
+<blockquote>
+  <p>normalized component regular and geometrically irreducible \(\Longrightarrow\) smooth and geometrically connected over \(k\).</p>
+</blockquote>
+<p>It fails because smoothness requires geometric regularity, not only regularity over \(k\) and geometric irreducibility. A complete bounded repair is to assume that each normalized component is geometrically regular (and geometrically irreducible), or more simply to assume that \(k\) is perfect in addition to the printed geometric-irreducibility hypothesis. Then each normalized component is smooth and geometrically connected, so Theorem 8 applies componentwise and the zero-dimensional scissor argument proceeds unchanged.</p>
+<p>This repair does not alter Theorem 8, which already starts with a smooth projective geometrically connected curve. Corollary 30 is the only stated result whose scope changes, and no later theorem depends on it.</p>
+<ul>
+  <li>Severity status: <code>Q2</code></li>
+  <li>Classification: <code>V4</code> / <code>C5</code> / <code>I2</code></li>
+  <li>Repair/disposition: <code>R2</code> / <code>D3</code></li>
+  <li>Priority/confidence: <code>P2</code> / <code>HIGH</code></li>
+</ul>

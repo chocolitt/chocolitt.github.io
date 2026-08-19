@@ -1,0 +1,89 @@
+<p>These errata refer to the version published in <em>Tohoku Mathematical Journal (2)</em> <strong>71</strong> (2019), no.&nbsp;4, 549--557, <a href="https://doi.org/10.2748/tmj/1576724793">doi:10.2748/tmj/1576724793</a>.  Page references below are to that version.</p>
+<ol class="errata-list">
+  <li>
+    <p><strong>Page 555, first paragraph of the proof of Theorem 3.0.2.</strong></p>
+    <p>The assertion that one model works simultaneously for every $n&gt;N_0$ and every $i$ does not follow directly from the definition of $\phi$: that definition supplies a model for each fixed vector bundle, whereas $n$ is later specialized to the unbounded residue characteristic.  Replace the first paragraph of the proof, ending with “exists by the definition of $\phi$),” by the following.</p>
+    <blockquote>
+      <p>Put $r=\operatorname{rk}(\mathscr E)$, and choose a very ample line bundle $L$ on $X$.  Choose a finite-type $\mathbb Z$-algebra $R$, with a map $R\to k$, together with models $\mathcal X\to S:=\operatorname{Spec}(R)$, $\widetilde{\mathscr E}$, and $\widetilde L$ of $X$, $\mathscr E$, and $L$. After enlarging and localizing $R$, we may assume that $\mathcal X\to S$ is flat and projective, that $\widetilde L$ is relatively very ample, and that $\widetilde{\mathscr E}$ is a vector bundle.  We may also assume that</p>
+      <div class="display-math">\[
+      \mathcal O_{\mathbf P_{\mathcal X}(\widetilde{\mathscr E})}(1)
+      \]</div>
+      <p>is ample relative to $S$.  Here we use the quotient convention, so that, for $N\geq 0$ and the projection $\pi\colon\mathbf P_{\mathcal X}(\widetilde{\mathscr E})\to\mathcal X$,</p>
+      <div class="display-math">\[
+      \pi_*\mathcal O(N)=\operatorname{Sym}^N(\widetilde{\mathscr E})
+      \quad\text{and}\quad
+      R^b\pi_*\mathcal O(N)=0\quad(b&gt;0).
+      \]</div>
+      <p>There are integers $d$ and $C\geq 1$ such that, for every closed point $\mathfrak q\in S$,</p>
+      <div class="display-math">\[
+      \dim(\mathcal X_{\mathfrak q})\leq d,
+      \qquad
+      \operatorname{Reg}_{\widetilde L_{\mathfrak q}}
+      (\mathcal X_{\mathfrak q})\leq C,
+      \]</div>
+      <p>where</p>
+      <div class="display-math">\[
+      \operatorname{Reg}_{\widetilde L_{\mathfrak q}}
+      (\mathcal X_{\mathfrak q})
+      :=\max\!\left\{1,
+      \operatorname{reg}_{\widetilde L_{\mathfrak q}}
+      (\mathcal O_{\mathcal X_{\mathfrak q}})\right\}.
+      \]</div>
+      <p>Indeed, the dimensions are bounded in this projective family, and the regularity bound follows by applying relative Serre vanishing and cohomology and base change to the finitely many twists $\widetilde L^{-a}$, $1\leq a\leq d$.</p>
+      <p>Choose a positive integer</p>
+      <div class="display-math">\[
+      M&gt;C\max\{d-1,0\}.
+      \]</div>
+      <p>Let $P=\mathbf P_{\mathcal X}(\widetilde{\mathscr E})$ and let $h\colon P\to S$ be the structure morphism.  Apply generic flatness, relative Serre vanishing, and cohomology and base change to the finite collection</p>
+      <div class="display-math">\[
+      \pi^*\!\left(
+      \bigwedge^i\widetilde{\mathscr E}
+      \otimes\widetilde L^{-M-a}
+      \right),
+      \qquad 0\leq i\leq r,\quad 1\leq a\leq d.
+      \]</div>
+      <p>After one further localization of $R$, there is a single integer $N_1$ such that all positive higher direct images under $h$ of these sheaves tensored with $\mathcal O_P(N)$ vanish, and their formation commutes with base change, for every $N\geq N_1$.  The projective-bundle identities above then give, for every closed $\mathfrak q\in S$, every $N\geq N_1$, every $0\leq i\leq r$, and every $a&gt;0$,</p>
+      <div class="display-math">\[
+      H^a\!\left(
+      \mathcal X_{\mathfrak q},
+      \operatorname{Sym}^N(\widetilde{\mathscr E}_{\mathfrak q})
+      \otimes\bigwedge^i\widetilde{\mathscr E}_{\mathfrak q}
+      \otimes\widetilde L_{\mathfrak q}^{-M-a}
+      \right)=0;
+      \]</div>
+      <p>for $a&gt;d$ this also follows from the dimension bound.  Consequently</p>
+      <div class="display-math">\[
+      \operatorname{reg}_{\widetilde L_{\mathfrak q}}\!\left(
+      \operatorname{Sym}^N(\widetilde{\mathscr E}_{\mathfrak q})
+      \otimes\bigwedge^i\widetilde{\mathscr E}_{\mathfrak q}
+      \right)\leq -M.
+      \]</div>
+      <p>By [Ara04, Lemma 3.3], this strict inequality implies</p>
+      <div class="display-math">\[
+      \phi\!\left(
+      \operatorname{Sym}^N(\widetilde{\mathscr E}_{\mathfrak q})
+      \otimes\bigwedge^i\widetilde{\mathscr E}_{\mathfrak q}
+      \right)=0,
+      \]</div>
+      <p>because</p>
+      <div class="display-math">\[
+      -M&lt;-
+      \operatorname{Reg}_{\widetilde L_{\mathfrak q}}
+      (\mathcal X_{\mathfrak q})
+      \bigl(\dim(\mathcal X_{\mathfrak q})-1\bigr).
+      \]</div>
+      <p>Choose $N_0\geq N_1+r$.  Then $n-i\geq N_1$ whenever $n&gt;N_0$ and $0\leq i\leq r$, so, simultaneously for every closed $\mathfrak q\in S$,</p>
+      <div class="display-math">\[
+      \phi\!\left(
+      \operatorname{Sym}^{n-i}(\widetilde{\mathscr E}_{\mathfrak q})
+      \otimes\bigwedge^i\widetilde{\mathscr E}_{\mathfrak q}
+      \right)=0
+      \qquad(n&gt;N_0,\ 0\leq i\leq r).
+      \]</div>
+      <p>For $i&gt;r$ the corresponding exterior power is zero.  This is the uniform statement needed below when $n$ is taken to be $\operatorname{char}(\kappa(\mathfrak q))$.</p>
+    </blockquote>
+    <p>With this replacement, the spectral-sequence argument proving Theorem&nbsp;3.0.2 is unchanged, as are Remark&nbsp;3.0.3 and the later applications of the theorem.</p>
+  </li>
+</ol>
+<h4>References</h4>
+<p>Donu Arapura, <em>Frobenius amplitude and strong vanishing theorems for vector bundles</em>, with an appendix by Dennis S.&nbsp;Keeler, Duke Math. J. <strong>121</strong> (2004), no.&nbsp;2, 231--267, <a href="https://doi.org/10.1215/S0012-7094-04-12122-0">doi:10.1215/S0012-7094-04-12122-0</a>.</p>
