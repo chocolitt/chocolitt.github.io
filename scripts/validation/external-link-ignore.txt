@@ -1,0 +1,2 @@
+# One fnmatch-style URL pattern per line. Use this only for links that are
+# intentionally unreachable to automated checks, not to hide broken links.

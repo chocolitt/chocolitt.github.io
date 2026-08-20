@@ -1,0 +1,58 @@
+name: Check external links
+
+on:
+  schedule:
+    - cron: "17 10 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: external-links
+  cancel-in-progress: true
+
+jobs:
+  check-links:
+    name: Check external links
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: Build site
+        uses: withastro/action@e84f40bd8d2caa9e768ec82ad30dd81f0b280853 # v6
+        with:
+          node-version: 24.19.0
+          package-manager: pnpm@11.19.0
+          build-cmd: pnpm run build
+        env:
+          PUBLIC_FASTCOMMENTS_TENANT_ID: demo
+          PUBLIC_SITE_ENV: preview
+
+      - name: Check external links
+        id: external_links
+        continue-on-error: true
+        run: >-
+          python3 scripts/validation/check_external_links.py dist
+          --baseline-file scripts/validation/external-link-baseline.txt
+          --ignore-file scripts/validation/external-link-ignore.txt
+          --json-report external-links.json
+          --markdown-report external-links.md
+          --retries 1
+          --timeout 15
+          --workers 8
+
+      - name: Publish link report
+        if: always()
+        run: |
+          if [[ -f external-links.md ]]; then
+            cat external-links.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "External-link check did not produce a report." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Fail on confirmed broken links
+        if: steps.external_links.outcome == 'failure'
+        run: exit 1
