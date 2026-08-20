@@ -11,4 +11,4 @@ legacyPath: "/blog/2017/5/11/villani-for-parliament"
 imported: true
 ---
 
-<p>The (relatively new) French party <em>En Marche!</em> (from which the winning presidential candidate, Macron, hails) has nominated spider-brooch wearing mathematician <a href="http://cedricvillani.org/for-mathematicians/">Cedric Villani</a> as a parliamentary candidate!  For the full list of candidates, see <a href="https://storage.googleapis.com/en-marche-fr/COMMUNICATION/DP-Legislatives-VF.pdf">this list</a>.</p>
+<p>The (relatively new) French party <em>En Marche!</em> (from which the winning presidential candidate, Macron, hails) has nominated spider-brooch wearing mathematician <a href="https://www2.assemblee-nationale.fr/deputes/fiche/OMC_PA722260?force=">Cedric Villani</a> as a parliamentary candidate!  For the full list of candidates, see <a href="https://storage.googleapis.com/en-marche-fr/COMMUNICATION/DP-Legislatives-VF.pdf">this list</a>.</p>

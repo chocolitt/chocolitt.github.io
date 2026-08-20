@@ -19,4 +19,4 @@ imported: true
 
 <figure class="imported-figure" style="--media-width: 570px"><img src="/assets/squarespace/1db04a554077-image-asset.webp" alt="Stewart&#x27;s concert hall, in which he could, for a brief moment, forget the cries of the millions of calculus students whose textbook purchases paid for his mansion habit" loading="lazy" class="imported-media" /><figcaption>Stewart's concert hall, in which he could, for a brief moment, forget the cries of the millions of calculus students whose textbook purchases paid for his mansion habit</figcaption></figure>
 
-<p>More pictures at <a href="http://sothebysrealty.ca/en/property/ontario/greater-toronto-area-real-estate/toronto/73147/">Sotheby's</a> and <a href="http://www.huffingtonpost.ca/2015/04/23/integral-house-for-sale-toronto_n_7129724.html">HuffPost</a>.</p>
+<p>More pictures at <a href="https://www.shim-sutcliffe.com/projects/the-integral-house/">Sotheby's</a> and <a href="http://www.huffingtonpost.ca/2015/04/23/integral-house-for-sale-toronto_n_7129724.html">HuffPost</a>.</p>

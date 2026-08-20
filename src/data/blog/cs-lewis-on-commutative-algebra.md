@@ -11,4 +11,4 @@ legacyPath: "/blog/2017/1/30/cs-lewis-on-commutative-algebra"
 imported: true
 ---
 
-<p>Read the whole essay <a href="http://www.lewissociety.org/innerring.php">here</a>.  Sorry for the pause in blogging -- I should start up again soon.</p>
+<p>Read the whole essay <a href="https://www.lewissociety.org/innerring/">here</a>.  Sorry for the pause in blogging -- I should start up again soon.</p>

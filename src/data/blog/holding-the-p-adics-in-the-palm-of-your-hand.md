@@ -15,7 +15,7 @@ imported: true
 
 <figure class="imported-figure" style="--media-width: 1920px"><img src="/assets/squarespace/877544f0a0d3-3-adics.webp" alt="Really this is \(\mathbb{Z}/243\mathbb{Z}\)" loading="lazy" class="imported-media" /><figcaption>Really this is \(\mathbb{Z}/243\mathbb{Z}\)</figcaption></figure>
 
-<p>After I posted the picture above on Twitter, <a href="http://math.umd.edu/~mkukla1/">Matt Kukla</a>, a budding mathematician and student at the University  of Maryland, asked for the source file, and today, he’s posted a beautiful 3D print of the 3-adic numbers!</p>
+<p>After I posted the picture above on Twitter, Matt Kukla, a budding mathematician and student at the University  of Maryland, asked for the source file, and today, he’s posted a beautiful 3D print of the 3-adic numbers!</p>
 
 <blockquote><p>I've managed to 3D print <a href="https://twitter.com/littmath?ref_src=twsrc%5Etfw">@littmath</a>'s model of the 3-adic integers.  The final product came out very nicely —  a bit of fuzz on the upper prongs, but that should sand off easily.    <br /><br />Technically this is ℤ/243ℤ, but we've got a finite-filament printer... <a href="https://t.co/uRatmHNV6U">pic.twitter.com/uRatmHNV6U</a></p>— Matt Kukla (@n_category) <a href="https://twitter.com/n_category/status/1095416464943792128?ref_src=twsrc%5Etfw">February 12, 2019</a></blockquote>
 

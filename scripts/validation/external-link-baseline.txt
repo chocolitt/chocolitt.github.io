@@ -1,29 +1,3 @@
 # Confirmed HTTP 404/410 responses present when the scheduled checker was added.
 # Keep these visible in the weekly report; remove an entry after repairing or
 # deliberately removing its source link.
-http://cedricvillani.org/for-mathematicians/
-http://math.mit.edu/~padma_sk/
-http://math.mit.edu/~padma_sk/Conductors_and_discriminants.pdf
-http://math.umd.edu/~mkukla1/
-http://math.unice.fr/laboratoire/fiche&id=692
-http://people.math.sc.edu/kassj/
-http://sothebysrealty.ca/en/property/ontario/greater-toronto-area-real-estate/toronto/73147/
-http://www.fields.utoronto.ca/~ntarasca/
-http://www.lewissociety.org/innerring.php
-http://www.math.umn.edu/~ytzeng/
-http://www2.nau.edu/lrm22/lessons/bottle_biology/
-https://people.math.ethz.ch/~yinqi/math/home.html
-https://t.co/6T5oeokQmR
-https://twitter.com/MKlyachman/status/1251583241728991233?ref_src=twsrc%5Etfw
-https://twitter.com/SC_Griffith/status/1255600654413893638?ref_src=twsrc%5Etfw
-https://twitter.com/WanderingPoint/status/1252583234271096833?ref_src=twsrc%5Etfw
-https://twitter.com/WanderingPoint/status/1252583242911420416?ref_src=twsrc%5Etfw
-https://twitter.com/blviray/status/1252607063626182656?ref_src=twsrc%5Etfw
-https://twitter.com/chocolitt88/status/1044392538659069952?ref_src=twsrc%5Etfw
-https://twitter.com/dzackgarza/status/1251581567090274305?ref_src=twsrc%5Etfw
-https://twitter.com/mathbabedotorg/status/1252245708993789953?ref_src=twsrc%5Etfw
-https://twitter.com/yougetaquote/status/1256432367792619520?ref_src=twsrc%5Etfw
-https://www.amazon.com/Dreaming-Biosphere-Theater-All-Possibilities-ebook/dp/B00944C7KO/ref=sr_1_1?ie=UTF8&qid=1489867129&sr=8-1&keywords=dreaming+the+biosphere
-https://www.amazon.com/Me-Biospheres-Memoir-Inventor-Biosphere-ebook/dp/B00CS6OLIQ/ref=sr_1_2?ie=UTF8&qid=1489867731&sr=8-2&keywords=john+allen+biosphere
-https://www.amazon.com/dp/B00944C7KO/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1
-https://www.math.cornell.edu/m/People/bynetid/dsh233
