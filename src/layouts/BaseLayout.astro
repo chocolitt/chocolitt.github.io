@@ -2,6 +2,7 @@
 import SiteFooter from "../components/SiteFooter.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import { normalizeDescription } from "../utils/description";
+import { canonicalPath as normalizeCanonicalPath } from "../utils/url";
 import "../styles/global.css";
 
 interface Props {
@@ -25,7 +26,7 @@ const {
 } = Astro.props;
 const fullTitle = title === "Daniel Litt" ? title : `${title} · Daniel Litt`;
 const metaDescription = normalizeDescription(description, title);
-const canonical = canonicalPath === false ? undefined : new URL(canonicalPath, Astro.site);
+const canonical = canonicalPath === false ? undefined : new URL(normalizeCanonicalPath(canonicalPath), Astro.site);
 const socialImage = new URL("/images/daniel-litt-social-card.png", Astro.site);
 const isPreview = import.meta.env.PUBLIC_SITE_ENV === "preview";
 const robots = isPreview ? "noindex,nofollow" : noindex ? "noindex,follow" : undefined;

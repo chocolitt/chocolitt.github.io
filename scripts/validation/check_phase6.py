@@ -184,6 +184,14 @@ def page_path(dist: Path, page: Path) -> str:
     return "/" + relative
 
 
+def canonical_path(path: str) -> str:
+    if path in {"/", "/work"}:
+        return "/"
+    if path.endswith("/") or "." in path.rsplit("/", 1)[-1]:
+        return path
+    return path + "/"
+
+
 def local_target(dist: Path, value: str) -> Path | None:
     parsed = urlsplit(value)
     if parsed.scheme or parsed.netloc or not parsed.path.startswith("/"):
@@ -285,6 +293,9 @@ def main() -> int:
             failures.append(f"sitemap URL is not canonical HTTPS: {value}")
         if not output_for_path(dist, urlsplit(value).path).is_file():
             failures.append(f"sitemap URL has no output: {value}")
+        sitemap_path = urlsplit(value).path
+        if sitemap_path != canonical_path(sitemap_path):
+            failures.append(f"sitemap directory URL does not end in a slash: {value}")
 
     rss_root = ET.parse(dist / "rss.xml").getroot()
     rss_items = rss_root.findall("./channel/item")
@@ -296,8 +307,11 @@ def main() -> int:
         is_draft = bool(re.search(r"^draft:\s*true\s*$", source_text, flags=re.MULTILINE))
         if match and not is_draft:
             blog_paths.add(match.group(1))
-    if {urlsplit(value).path for value in rss_links} != blog_paths:
+    if {urlsplit(value).path.rstrip("/") for value in rss_links} != blog_paths:
         failures.append("RSS post paths do not exactly match the published Markdown posts")
+    for value in rss_links:
+        if urlsplit(value).path != canonical_path(urlsplit(value).path):
+            failures.append(f"RSS post URL does not end in a slash: {value}")
     if len(rss_links) != len(set(rss_links)):
         failures.append("RSS contains duplicate post links")
     rss_dates = []
@@ -419,7 +433,7 @@ def main() -> int:
             else:
                 if len(parser.canonicals) != 1:
                     failures.append(f"{path}: expected one canonical URL, found {len(parser.canonicals)}")
-                expected_canonical_path = "/" if path == "/work" else path
+                expected_canonical_path = canonical_path(path)
                 if parser.canonicals and parser.canonicals[0] != SITE + expected_canonical_path:
                     failures.append(f"{path}: incorrect canonical URL {parser.canonicals[0]}")
             descriptions = meta_value(parser, name="description")

@@ -7,7 +7,10 @@ const isProduction = process.env.PUBLIC_SITE_ENV === "production";
 export default defineConfig({
   site: "https://www.daniellitt.com",
   output: "static",
-  trailingSlash: "never",
+  // GitHub Pages serves directory-style routes at their trailing-slash URLs.
+  // Match that behavior so Astro's route metadata never advertises a URL that
+  // the production host immediately redirects.
+  trailingSlash: "always",
   integrations: [
     preserveLegacyHtml(),
     googleAnalytics({ measurementId: "G-SQPKVD92TL", enabled: isProduction }),

@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import hashlib
 import os
+import re
 import sys
 from html.parser import HTMLParser
 from pathlib import Path
@@ -124,6 +125,7 @@ class LinkParser(HTMLParser):
     def __init__(self) -> None:
         super().__init__()
         self.links: list[str] = []
+        self.navigation_urls: list[str] = []
         self.headings: list[int] = []
         self.ids: set[str] = set()
 
@@ -135,6 +137,8 @@ class LinkParser(HTMLParser):
                 self.ids.add(value)
             if value and key in {"href", "src"}:
                 self.links.append(value)
+            if value and key in {"href", "action"}:
+                self.navigation_urls.append(value)
 
 
 def target_exists(dist: Path, url: str) -> bool:
@@ -158,6 +162,23 @@ def output_for_path(dist: Path, path: str) -> Path:
     if direct.is_file():
         return direct
     return direct / "index.html"
+
+
+def canonical_path(path: str) -> str:
+    if path in {"/", "/work"}:
+        return "/"
+    pathname = urlsplit(path).path
+    if pathname.endswith("/") or "." in pathname.rsplit("/", 1)[-1]:
+        return pathname
+    return pathname + "/"
+
+
+def is_redirecting_directory_url(dist: Path, url: str) -> bool:
+    path = unquote(urlsplit(url).path)
+    if not path.startswith("/") or path == "/" or path.endswith("/"):
+        return False
+    direct = dist / path.lstrip("/")
+    return direct.is_dir() and (direct / "index.html").is_file()
 
 
 def read_expected(path: Path) -> set[str]:
@@ -205,6 +226,9 @@ def main() -> int:
                 known_dead_seen.add(path)
             elif not target_exists(dist, link):
                 failures.append((page.relative_to(dist), link))
+        for url in parser.navigation_urls:
+            if is_redirecting_directory_url(dist, url):
+                failures.append((page.relative_to(dist), f"navigation URL redirects instead of ending in /: {url}"))
 
     validation_root = Path(__file__).resolve().parent
     expected_paths = read_expected(validation_root / "expected-squarespace-paths.txt")
@@ -223,10 +247,10 @@ def main() -> int:
         for previous, current in zip(parser.headings, parser.headings[1:]):
             if current > previous + 1:
                 failures.append((output.relative_to(dist), f"heading level skips from h{previous} to h{current}"))
-        canonical_path = "/" if path == "/work" else path
-        canonical = f'<link rel="canonical" href="https://www.daniellitt.com{canonical_path if canonical_path != "/" else "/"}">'
+        expected_canonical_path = canonical_path(path)
+        canonical = f'<link rel="canonical" href="https://www.daniellitt.com{expected_canonical_path}">'
         if canonical not in text:
-            failures.append((output.relative_to(dist), f"canonical URL does not match {canonical_path}"))
+            failures.append((output.relative_to(dist), f"canonical URL does not match {expected_canonical_path}"))
         if path in expected_comments and f'const urlId = "{path}";' not in text:
             failures.append((output.relative_to(dist), "FastComments urlId does not match the immutable post path"))
         if path in expected_comments and 'id="comments"' not in text:
@@ -289,7 +313,7 @@ def main() -> int:
     for path in sorted(expected_comments):
         if f'data-fast-comments-url-id="{path}"' not in blog_index:
             failures.append((Path("blog/index.html"), f"missing comment count for {path}"))
-        if f'href="{path}#comments"' not in blog_index:
+        if f'href="{canonical_path(path)}#comments"' not in blog_index:
             failures.append((Path("blog/index.html"), f"comment count does not link to {path}#comments"))
 
     for relative in VALIDATED_PAGES:
@@ -345,6 +369,9 @@ def main() -> int:
         url = f"https://www.daniellitt.com/{relative}"
         if f"<loc>{url}</loc>" not in sitemap:
             failures.append((Path("sitemap.xml"), f"missing legacy course URL: {url}"))
+    for match in re.findall(r"<loc>([^<]+)</loc>", sitemap):
+        if is_redirecting_directory_url(dist, match):
+            failures.append((Path("sitemap.xml"), f"sitemap URL redirects instead of ending in /: {match}"))
 
     for relative, expected in PRESERVED_SHA256.items():
         path = dist / relative

@@ -1,4 +1,6 @@
 ---
+import { canonicalPath } from "../utils/url";
+
 interface Props {
   urlId: string;
   canonicalUrl?: string;
@@ -10,7 +12,7 @@ if (!urlId.startsWith("/") || urlId.includes("?") || urlId.includes("#")) {
 }
 
 const tenantId = import.meta.env.PUBLIC_FASTCOMMENTS_TENANT_ID;
-const canonicalUrl = Astro.props.canonicalUrl ?? new URL(urlId, Astro.site).href;
+const canonicalUrl = Astro.props.canonicalUrl ?? new URL(canonicalPath(urlId), Astro.site).href;
 ---
 
 <section id="comments" class="comments" aria-labelledby="comments-heading">

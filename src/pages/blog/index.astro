@@ -94,7 +94,7 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
     const postPath = article.dataset.postPath;
     if (!postPath) continue;
     for (const link of article.querySelectorAll<HTMLAnchorElement>('a[href^="#"]')) {
-      link.href = `${postPath}${link.getAttribute("href")}`;
+      link.href = `${postPath.replace(/\/?$/, "/")}${link.getAttribute("href")}`;
     }
   }
 </script>

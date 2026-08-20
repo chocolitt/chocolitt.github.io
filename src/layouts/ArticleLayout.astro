@@ -3,6 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import BlogFrame from "../components/BlogFrame.astro";
 import FastComments from "../components/FastComments.astro";
 import { normalizeDescription } from "../utils/description";
+import { canonicalPath } from "../utils/url";
 import BaseLayout from "./BaseLayout.astro";
 
 interface Props {
@@ -17,7 +18,7 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
   year: "numeric",
   timeZone: "UTC",
 });
-const articleUrl = new URL(legacyPath, Astro.site).toString();
+const articleUrl = new URL(canonicalPath(legacyPath), Astro.site).toString();
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
