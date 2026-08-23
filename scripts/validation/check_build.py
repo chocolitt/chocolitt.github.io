@@ -22,6 +22,7 @@ VALIDATED_PAGES = [
     "blog/2026/2/20/mathematics-in-the-library-of-babel/index.html",
     "blog/2020/4/20/wagon-lessons-learned/index.html",
     "teaching/index.html",
+    "virtual-office-hours/index.html",
     "mat1101.html",
     "mat1190hs.html",
     "mat445.html",

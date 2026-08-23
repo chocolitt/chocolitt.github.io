@@ -2,6 +2,7 @@
 import { getCollection, getEntry } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { normalizeDescription, normalizeSearchText } from "../utils/description";
+import { canonicalPath } from "../utils/url";
 
 const posts = await getCollection("blog", ({ data }) => !data.draft || import.meta.env.DEV);
 const pages = await getCollection("pages");
@@ -23,25 +24,25 @@ const results = [
   ...pages.filter((entry) => entry.data.legacyPath !== "/publications-and-preprints").map((entry) => ({
     title: entry.data.title,
     description: normalizeDescription(entry.data.description, entry.data.title),
-    href: entry.data.legacyPath,
+    href: canonicalPath(entry.data.legacyPath),
     searchText: normalizeSearchText(entry.data.title, entry.data.description, entry.body),
   })),
   ...posts.map((entry) => ({
     title: entry.data.title,
     description: normalizeDescription(entry.data.description, entry.data.title),
-    href: entry.data.legacyPath,
+    href: canonicalPath(entry.data.legacyPath),
     searchText: normalizeSearchText(entry.data.title, entry.data.description, entry.body),
   })),
   ...courses.map((entry) => ({
     title: entry.data.title,
     description: normalizeDescription(entry.data.summary, entry.data.title),
-    href: entry.data.legacyPath,
+    href: canonicalPath(entry.data.legacyPath),
     searchText: normalizeSearchText(entry.data.title, entry.data.summary, entry.body),
   })),
   {
     title: "Publications and Preprints",
     description: "Papers and preprints by Daniel Litt, with citations and abstracts.",
-    href: "/publications-and-preprints",
+    href: "/publications-and-preprints/",
     searchText: normalizeSearchText("Publications and Preprints", publicationText),
   },
   {
@@ -67,7 +68,7 @@ const results = [
     <header class="section-intro">
       <h1>Search</h1>
     </header>
-    <form class="search-form" action="/search" method="get" role="search">
+    <form class="search-form" action="/search/" method="get" role="search">
       <label for="site-search">Search this site</label>
       <input id="site-search" name="q" type="search" autocomplete="off" />
     </form>

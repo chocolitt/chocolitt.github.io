@@ -1,4 +1,6 @@
 ---
+import { canonicalPath } from "../utils/url";
+
 const pathname = Astro.url.pathname;
 const normalizedPathname = pathname !== "/" && pathname.endsWith("/") ? pathname.slice(0, -1) : pathname;
 
@@ -52,7 +54,7 @@ const groupIsActive = (links: typeof workLinks) => links.some((link) => isActive
             <summary aria-current={groupIsActive(workLinks) ? "page" : undefined}>Work <span aria-hidden="true">▾</span></summary>
             <ul class="submenu">
               {workLinks.map((link) => (
-                <li><a href={link.href} aria-current={isActive(link.href) ? "page" : undefined}>{link.label}</a></li>
+                <li><a href={canonicalPath(link.href)} aria-current={isActive(link.href) ? "page" : undefined}>{link.label}</a></li>
               ))}
             </ul>
           </details>
@@ -62,13 +64,13 @@ const groupIsActive = (links: typeof workLinks) => links.some((link) => isActive
             <summary aria-current={groupIsActive(personalLinks) ? "page" : undefined}>Personal <span aria-hidden="true">▾</span></summary>
             <ul class="submenu">
               {personalLinks.map((link) => (
-                <li><a href={link.href} aria-current={isActive(link.href) ? "page" : undefined}>{link.label}</a></li>
+                <li><a href={canonicalPath(link.href)} aria-current={isActive(link.href) ? "page" : undefined}>{link.label}</a></li>
               ))}
             </ul>
           </details>
         </li>
-        <li><a href="/about" aria-current={isActive("/about") ? "page" : undefined}>About</a></li>
-        <li><a href="/contact" aria-current={isActive("/contact") ? "page" : undefined}>Contact</a></li>
+        <li><a href="/about/" aria-current={isActive("/about") ? "page" : undefined}>About</a></li>
+        <li><a href="/contact/" aria-current={isActive("/contact") ? "page" : undefined}>Contact</a></li>
       </ul>
     </nav>
 
@@ -81,7 +83,7 @@ const groupIsActive = (links: typeof workLinks) => links.some((link) => isActive
             <span>Work</span>
             <ul>
               {workLinks.map((link) => (
-                <li><a href={link.href} aria-current={isActive(link.href) ? "page" : undefined}>{link.label}</a></li>
+                <li><a href={canonicalPath(link.href)} aria-current={isActive(link.href) ? "page" : undefined}>{link.label}</a></li>
               ))}
             </ul>
           </li>
@@ -89,12 +91,12 @@ const groupIsActive = (links: typeof workLinks) => links.some((link) => isActive
             <span>Personal</span>
             <ul>
               {personalLinks.map((link) => (
-                <li><a href={link.href} aria-current={isActive(link.href) ? "page" : undefined}>{link.label}</a></li>
+                <li><a href={canonicalPath(link.href)} aria-current={isActive(link.href) ? "page" : undefined}>{link.label}</a></li>
               ))}
             </ul>
           </li>
-          <li><a href="/about" aria-current={isActive("/about") ? "page" : undefined}>About</a></li>
-          <li><a href="/contact" aria-current={isActive("/contact") ? "page" : undefined}>Contact</a></li>
+          <li><a href="/about/" aria-current={isActive("/about") ? "page" : undefined}>About</a></li>
+          <li><a href="/contact/" aria-current={isActive("/contact") ? "page" : undefined}>Contact</a></li>
         </ul>
       </nav>
     </details>

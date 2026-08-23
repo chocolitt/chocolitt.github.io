@@ -2,6 +2,7 @@
 import { getCollection, render } from "astro:content";
 import BlogFrame from "../../components/BlogFrame.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { canonicalPath } from "../../utils/url";
 
 const posts = (await getCollection("blog", ({ data }) => !data.draft || import.meta.env.DEV)).sort(
   (a, b) => b.data.published.valueOf() - a.data.published.valueOf(),
@@ -30,7 +31,7 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
         <article class="feed-item" data-post-path={post.data.legacyPath}>
           <header class="post-header">
             <h2>
-              <a href={post.data.legacyPath}>{post.data.title}</a>
+              <a href={canonicalPath(post.data.legacyPath)}>{post.data.title}</a>
               {post.data.draft && <span class="draft-label">Draft</span>}
             </h2>
             <p class="post-meta">
@@ -38,7 +39,7 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
               {post.data.comments && (
                 <>
                   <span aria-hidden="true"> · </span>
-                  <a class="comment-count-link" href={`${post.data.legacyPath}#comments`}>
+                  <a class="comment-count-link" href={`${canonicalPath(post.data.legacyPath)}#comments`}>
                     <span
                       class="fast-comments-count"
                       data-fast-comments-url-id={post.data.legacyPath}
@@ -54,7 +55,7 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
             <div class="prose blog-post-body"><Content /></div>
           )}
           {post.data.indexExcerpt && (
-            <p class="read-more"><a href={post.data.legacyPath}>Read More →</a></p>
+            <p class="read-more"><a href={canonicalPath(post.data.legacyPath)}>Read More →</a></p>
           )}
         </article>
       ))}
@@ -66,13 +67,13 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
         <ol>
           {olderPosts.map((post) => (
             <li>
-              <a href={post.data.legacyPath}>{post.data.title}</a>
+              <a href={canonicalPath(post.data.legacyPath)}>{post.data.title}</a>
               <span class="older-post-meta">
                 <time datetime={post.data.published.toISOString()}>{dateFormatter.format(post.data.published)}</time>
                 {post.data.comments && (
                   <>
                     <span aria-hidden="true"> · </span>
-                    <a class="comment-count-link" href={`${post.data.legacyPath}#comments`}>
+                    <a class="comment-count-link" href={`${canonicalPath(post.data.legacyPath)}#comments`}>
                       <span
                         class="fast-comments-count"
                         data-fast-comments-url-id={post.data.legacyPath}

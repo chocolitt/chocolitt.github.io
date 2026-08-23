@@ -12,9 +12,9 @@ const posts = await getCollection("blog", ({ data }) => !data.draft);
 
 <section class="blog-shell shell page-content">
   {isIndex ? (
-    <h1 class="blog-collection-title"><a href="/blog">Betalog</a></h1>
+    <h1 class="blog-collection-title"><a href="/blog/">Betalog</a></h1>
   ) : (
-    <p class="blog-collection-title"><a href="/blog">Betalog</a></p>
+    <p class="blog-collection-title"><a href="/blog/">Betalog</a></p>
   )}
   <div class="blog-layout">
     <div class="blog-main">
