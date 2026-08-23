@@ -1,0 +1,112 @@
+<p>These errata refer to the version published in the <em>Journal f\"ur die reine und angewandte Mathematik</em> <strong>788</strong> (2022), 219--238, doi:10.1515/crelle-2022-0028. Page references are to the printed pages of that version. The corrections below follow the order of the paper.</p><ol class="errata-list"><li><p><strong>Page 219, first paragraph of Section 1.</strong> The opening summary incorrectly asserts an absolute upper bound on the level of an arbitrary abelian scheme; constant families show that an isotrivial exception is necessary. Replace the sentence beginning “Our main result” by:</p>
+<blockquote><p>Our main result (Theorem 1.1.2) implies that there is a constant $N=N(X,\ell)$ such that, if an abelian scheme over a fixed curve over a field of characteristic prime to $\ell$ has full level $\ell^M$-structure for $M&gt;N$, then its generic fiber is isogenous to an isotrivial abelian variety (Corollary 1.1.3).</p></blockquote>
+<p>Corollary 1.1.3 on p.&nbsp;220 already states this qualified conclusion, so its statement and proof are unchanged.</p></li><li><p><strong>Page 226, Lemma 3.1.2.</strong> The displayed estimate is not always strict; equality occurs, for example, when $\vec f(\vec x)=\vec x$ and $A=0$. Replace the displayed estimate by</p>
+<div class="display-math">\[
+ \bigl\|\vec f(A\vec x+\vec\varepsilon)-\vec f(A\vec x)\bigr\|_r
+ \leq \frac{1}{r}\,\|\vec f\|_r\,\|\vec\varepsilon\|_r.
+\]</div>
+<p>The strict contraction used later comes from the separate hypothesis that the relevant nonlinear term has norm strictly smaller than $r$; all later uses of the lemma remain valid.</p></li><li><p><strong>Page 226, proof of Lemma 3.1.3.</strong> The alternating series in iterates of $\widehat\psi$ does not telescope under nonlinear composition. Replace the proof by the following contraction argument:</p>
+<blockquote><p>Set $s=\|\widehat\psi\|_r&lt;r$, and let $\mathcal B$ be the closed ball of maps $\vec g=\vec x+\widehat g$ with $\|\widehat g\|_r\leq s$. Define</p>
+<div class="display-math">\[
+ T(\vec g)=\vec x-\widehat\psi\circ\vec g.
+\]</div>
+<p>Lemma 3.1.1(iii) gives, for $\vec g_1,\vec g_2\in\mathcal B$,</p>
+<div class="display-math">\[
+ \|T(\vec g_1)-T(\vec g_2)\|_r
+ \leq \frac{s}{r}\,\|\vec g_1-\vec g_2\|_r.
+\]</div>
+<p>Moreover $\|\widehat\psi\circ\vec g\|_r\leq s$, so $T$ maps $\mathcal B$ to itself. It therefore has a unique fixed point $\vec g$. The fixed-point equation gives</p>
+<div class="display-math">\[
+ \vec\psi\circ\vec g=\vec x,
+ \qquad
+ \|\vec g-\vec x\|_r\leq s&lt;\varepsilon.
+\]</div>
+<p>It remains to check the other composition. If $\vec\psi\circ\vec u=\vec\psi\circ\vec v$ for $\vec u,\vec v\in\mathcal B$, then</p>
+<div class="display-math">\[
+ \|\vec u-\vec v\|_r
+ \leq \frac{s}{r}\,\|\vec u-\vec v\|_r,
+\]</div>
+<p>and hence $\vec u=\vec v$. Both $\vec g\circ\vec\psi$ and $\vec x$ lie in $\mathcal B$, and applying $\vec\psi$ to them gives the same map. Thus $\vec g\circ\vec\psi=\vec x$, so $\vec g$ is a two-sided compositional inverse of $\vec\psi$.</p></blockquote>
+<p>This proves the stated norm bound and supplies the invertibility result used in Lemma 3.1.11 and Theorem 3.2.1.</p></li><li><p><strong>Pages 226, 228--229, 232--233, and 236, Lemma 3.1.6, Lemma 3.1.11, Theorem 3.2.1, Corollary 3.2.4, and their applications.</strong> Lemma 3.1.6 is false for a resonant term that is not in the first nonlinear degree. For example, if $A(x)=-x$, $\psi(x)=x+ax^2$ with $a\neq0$, and $f=\psi^{-1}\circ A\circ\psi$, then substitution by $f$ is semisimple, while</p>
+<div class="display-math">\[
+ f(x)=-x-2ax^2-4a^2x^3+O(x^4)
+\]</div>
+<p>has a nonzero resonant cubic coefficient. Replace Lemma 3.1.6 and its proof by:</p>
+<blockquote><p><strong>Lemma 3.1.6.</strong> Suppose $\vec f\in\operatorname{End}^{\mathrm{op}}K^{\leq r} \langle\!\langle\vec x\rangle\!\rangle$ is semisimple and</p>
+<div class="display-math">\[
+ \vec f=A\vec x+\vec f_m+O(x^{m+1}),
+\]</div>
+<p>where $m\geq2$, $\vec f_m$ is homogeneous of degree $m$, and $A=\operatorname{diag}(\lambda_1,\ldots,\lambda_n)$. If $I$ is a word of length $m$ and $\lambda^I=\lambda_j$, then the coefficient of $x^I$ in $(\vec f_m)_j$ is zero.</p>
+<p><em>Proof.</em> Let $S$ be substitution by $\vec f$ on $K\langle\!\langle\vec x\rangle\!\rangle/\mathfrak I^{m+1}$. Modulo $\mathfrak I^{m+1}$,</p>
+<div class="display-math">\[
+ S(x_j)=\lambda_jx_j+(\vec f_m)_j,
+ \qquad
+ S(x^I)=\lambda^I x^I \quad (2\leq |I|\leq m).
+\]</div>
+<p>Thus a nonzero coefficient of $x^I$ in $(\vec f_m)_j$ with $\lambda^I=\lambda_j$ gives a nonzero nilpotent arrow inside the $\lambda_j$-generalized eigenspace of $S$. This contradicts the semisimplicity of $S$.</p></blockquote>
+<p>In Lemma 3.1.11, Theorem 3.2.1, and Corollary 3.2.4, add the hypothesis:</p>
+<blockquote><p>Every nonlinear resonance $\lambda^I=\lambda_j$, with $|I|\geq2$, has $|I|=2$.</p></blockquote>
+<p>With this hypothesis, the homological equation in the proof of Lemma 3.1.11 is solvable: a resonant quadratic coefficient vanishes by the corrected Lemma 3.1.6, while a resonance of higher degree does not occur.</p>
+<p>On p.&nbsp;233, after the sentence stating that the $\lambda_i$ are $q$-Weil numbers of weights $-1$ and $-2$, insert:</p>
+<blockquote><p>If $I=(i_1,\ldots,i_d)$, $d\geq2$, and $\lambda^I=\lambda_j$, equality of Weil weights gives</p>
+<div class="display-math">\[
+ \sum_{t=1}^{d} w(\lambda_{i_t})=w(\lambda_j).
+\]</div>
+<p>Since each weight is $-1$ or $-2$, this forces $d=2$, both source weights to be $-1$, and the target weight to be $-2$. Thus every nonlinear resonance among the $\lambda_i$ has degree two.</p></blockquote>
+<p>On p.&nbsp;236, after the final sentence in the proof of Theorem 5.2.1, insert: “The eigenvalues on $\mathfrak m/\mathfrak m^2$ have weights $-1$ and $-2$, so the same weight calculation verifies the added quadratic-resonance hypothesis.” Consequently the homological equation, the small-divisor estimates, the Newton iteration, and the arithmetic conclusions are unchanged.</p></li><li><p><strong>Page 227, Proposition 3.1.9.</strong> The statement permits zero among the $\lambda_i$, although it uses arbitrary integer powers and the proof adjoins the inverses $\lambda_i^{-1}$. Replace the opening sentence by:</p>
+<blockquote><p>Suppose $\lambda_1,\ldots,\lambda_n\in \overline{\mathbb Q}_{\ell}^{\times}$ are algebraic numbers.</p></blockquote>
+<p>The Frobenius eigenvalues used later are nonzero, so the proof and every application satisfy this corrected hypothesis.</p></li><li><p><strong>Page 228, proof of Lemma 3.1.11.</strong> In the third line of the four-line displayed computation, replace</p>
+<div class="display-math">\[
+ \widehat f\bigl(\vec x+\vec\psi(\vec x)\bigr)
+ \quad\text{by}\quad
+ \widehat f\bigl(\vec x+\widehat\psi(\vec x)\bigr).
+\]</div>
+<p>This is the expression used in the preceding and following lines, and it is the one to which the subsequent norm estimate applies.</p></li><li><p><strong>Page 229, proof of Lemma 3.1.11.</strong> The last estimate invokes the norm of the full map $\vec f$, although the hypothesis bounds only its nonlinear term. Replace the line preceding the final estimate for $G$ by</p>
+<div class="display-math">\[
+ \|\widehat\psi\|_{r(1-\eta)}
+ \leq c^{-1}(7\mu)^\mu\delta(1-\eta)\eta^{-\mu}
+ \quad\text{and}\quad
+ \|\widehat f\|_{r(1-\eta)}\leq\|\widehat f\|_r&lt;\delta.
+\]</div>
+<p>Radius monotonicity justifies the second inequality, and the displayed bound for $G$ is unchanged.</p></li><li><p><strong>Page 231, equation (3.2.3).</strong> The exponents and the endpoint in the radius product do not agree with the definition of $\eta_i$. Since</p>
+<div class="display-math">\[
+ \eta_i&lt;\frac{1}{3}\,2^{-(i-1)/(\mu+1)},
+\]</div>
+<p>replace equation (3.2.3) by</p>
+<div class="display-math">\[\begin{aligned}r_n
+ &amp;=r_1\prod_{i=1}^{n-1}(1-\eta_i)\\
+ &amp;&gt;r_1\prod_{i=1}^{n-1}
+   \left(1-\frac{1}{3}\,2^{-(i-1)/(\mu+1)}\right)\\
+ &amp;=r_1\prod_{i=0}^{n-2}
+   \left(1-\frac{1}{3}\,2^{-i/(\mu+1)}\right)\\
+ &amp;&gt;r_1\prod_{i=0}^{\infty}
+   \left(1-\frac{1}{3}\,2^{-i/(\mu+1)}\right)\\
+ &amp;&gt;r_1\exp\!\left(
+   -\frac{2^{1/(\mu+1)}}{2^{1/(\mu+1)}-1}\right),\end{aligned}\]</div>
+<p>where the last inequality is Lemma 3.1.12. This is the positive lower bound used in the remainder of the Newton iteration.</p></li><li><p><strong>Page 232, final paragraph of the proof of Theorem 3.2.1.</strong> With $\vec\Psi_n=\vec\psi_1\circ\cdots\circ\vec\psi_n$ and $\vec f_{n+1}=\vec\psi_n^{-1}\circ\vec f_n\circ\vec\psi_n$, the finite conjugacy identity is</p>
+<div class="display-math">\[
+ \vec\Psi_n^{-1}\circ\vec f\circ\vec\Psi_n=\vec f_{n+1},
+\]</div>
+<p>not $\vec f_n$. Replace $\vec f_n$ by $\vec f_{n+1}$ in both occurrences of this identity in the final paragraph. Both sequences converge to $A\vec x$, so the limiting conclusion is unchanged.</p></li><li><p><strong>Pages 233--234, final two paragraphs of the proof of Theorem 1.1.2.</strong> The final cutoff argument assigns Weil weights to arbitrary eigenvalues of $\operatorname{Ad}(A)$ and uses $u$ where $F^m$-equivariance gives $u^m$. Replace the paragraph beginning “Let $w'$ denote” and its conclusion by:</p>
+<blockquote><p>Let $S$ be the set of eigenvalues of $\operatorname{Ad}(A)$ on $\operatorname{Mat}_{n\times n}(\overline{\mathbb Q}_\ell)$ which are $q$-Weil numbers. If $S$ is nonempty, let $w_0$ be the least of their weights, and otherwise set $w_0=0$. Choose an integer $d\geq1$ such that $-md&lt;w_0$.</p>
+<p>If $Y\in\mathfrak I_r^d$ is a monomial in the $y_i$ with $F$-eigenvalue $u$, then $u$ is a $q$-Weil number of weight at most $-d$, and</p>
+<div class="display-math">\[
+ A\widehat\rho(Y)A^{-1}
+ =\widehat\rho\bigl(F^m(Y)\bigr)
+ =u^m\widehat\rho(Y).
+\]</div>
+<p>The number $u^m$ has weight at most $-md&lt;w_0$, so it is not an eigenvalue of $\operatorname{Ad}(A)$ and $\widehat\rho(Y)=0$. These monomials topologically span $\mathfrak I_r^d$, hence $\widehat\rho(\mathfrak I_r^d)=0$. Since</p>
+<div class="display-math">\[
+ \mathfrak I_r^d\cap
+ \mathbb Z_\ell\langle\!\langle
+ \pi_1^\ell(X_{\overline k},\bar x)\rangle\!\rangle=\mathfrak I^d,
+\]</div>
+<p>$\rho$ is unipotent. Its semisimplicity therefore implies that it is trivial.</p></blockquote>
+<p>This supplies the corrected finite-spectrum cutoff without changing Theorem 1.1.2.</p></li><li><p><strong>Page 235, final paragraph of Section 5.1.</strong> The interpretation omits semisimplicity: nilpotence gives only a unipotent representation. Replace the sentence beginning “We can interpret” by:</p>
+<blockquote><p>We can interpret Theorem 1.1.2 as the full faithfulness of this functor, combined with the fact that the image under $H$ of a semisimple object of $\operatorname{Sh}_{\ell,N}(X_{\overline k})$, if fixed up to isomorphism by Frobenius, is nilpotent, in the sense that for $n\gg0$ the composition</p>
+<div class="display-math">\[
+ \theta^n:V\longrightarrow
+ V\otimes H^1(X_{\overline k},\overline{\mathbb Q}_\ell)^{\otimes n}
+\]</div>
+<p>is zero. The corresponding representation is then both unipotent and semisimple, and hence trivial.</p></blockquote>
+<p>The theorem and its proof already impose and use semisimplicity.</p></li><li><p><strong>Page 236, sketch proof of Theorem 5.2.1.</strong> The finite base field $k$ has characteristic different from $\ell$, so $W(k)$ is not the coefficient ring of this $\ell$-adic deformation problem. In the sentence beginning “We now choose”, replace $W(k)$ by $W(\mathbb F_{\ell^r})$. This identifies $R_{\bar\rho}$ as a power series ring over the Witt vectors of the residual coefficient field; the remainder of the rigid-analytic argument is unchanged.</p></li></ol>

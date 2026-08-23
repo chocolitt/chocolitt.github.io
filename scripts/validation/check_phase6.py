@@ -479,16 +479,16 @@ def main() -> int:
                     )
 
         if path == "/published-paper-reviews.html":
-            for marker in ("18 papers", "nine coauthored published papers", "one accepted coauthored manuscript"):
+            for marker in ("19 papers", "ten coauthored published papers", "one accepted coauthored manuscript"):
                 if marker not in text:
                     failures.append(f"{path}: missing public archive marker {marker!r}")
-            if text.count('class="paper card"') != 18:
-                failures.append(f"{path}: expected 18 reviewed-work cards")
-            if text.count('class="paper-disclosure"') != 10:
-                failures.append(f"{path}: expected 10 per-work coauthor disclosures")
+            if text.count('class="paper card"') != 19:
+                failures.append(f"{path}: expected 19 reviewed-work cards")
+            if text.count('class="paper-disclosure"') != 11:
+                failures.append(f"{path}: expected 11 per-work coauthor disclosures")
             if "adjustments the authors themselves would make are not necessarily the adjustments suggested by the AI" not in text:
                 failures.append(f"{path}: missing P02 author-adjustment disclaimer")
-            expected_review_codes = {"P01", "P02", "P04", "P05", "P06", "P07", "P08", "P13", "P15", "P16", "P17", "P18", "P19", "P20", "P21", "P22", "P23", "A01"}
+            expected_review_codes = {"P01", "P02", "P04", "P05", "P06", "P07", "P08", "P11", "P13", "P15", "P16", "P17", "P18", "P19", "P20", "P21", "P22", "P23", "A01"}
             actual_review_codes = set(re.findall(r'data-code="([PA]\d{2})"', text))
             if actual_review_codes != expected_review_codes:
                 failures.append(

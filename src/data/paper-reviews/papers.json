@@ -161,6 +161,32 @@
     "disclosure": "The Refine review and ChatGPT audit below are AI-generated and reproduced verbatim. Daniel spot-checked the audit and reviewed or edited the erratum; the authors do not necessarily endorse the AI’s wording or proposed edits."
   },
   {
+    "id": "p11",
+    "code": "P11",
+    "title": "Level structure, arithmetic representations, and noncommutative Siegel linearization",
+    "summary": "14 detailed comments · 12 numbered corrections",
+    "confidence": "14 high, 0 medium",
+    "serious": false,
+    "badges": [
+      {
+        "count": 1,
+        "impact": "I0",
+        "serious": false
+      },
+      {
+        "count": 1,
+        "impact": "I1",
+        "serious": false
+      },
+      {
+        "count": 12,
+        "impact": "I2",
+        "serious": false
+      }
+    ],
+    "disclosure": "The Refine review and ChatGPT audit below are AI-generated and reproduced verbatim. Daniel spot-checked the audit and reviewed or edited the erratum; the authors do not necessarily endorse the AI’s wording or proposed edits."
+  },
+  {
     "id": "p13",
     "code": "P13",
     "title": "Tamely Ramified Morphisms of Curves and Belyi's Theorem in Positive Characteristic",
