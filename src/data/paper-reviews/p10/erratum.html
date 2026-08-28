@@ -1,0 +1,64 @@
+<p>These errata refer to the version published in <em>manuscripta mathematica</em> <strong>173</strong> (2024), 23--44, <a href="https://doi.org/10.1007/s00229-023-01463-w">doi:10.1007/s00229-023-01463-w</a>. Page and statement references below refer to that version.</p><ol class="errata-list"><li><p><strong>Pages 26 and 37, Theorems 1.7 and 5.4.</strong> The paper uses <em>variety</em> for an arbitrary finite-type separated scheme, so the pointed finiteness assertion is false for a disconnected source whose unmarked component maps freely. In Theorem&nbsp;1.7, replace</p>
+<blockquote><p>for every variety \(Y\) over \(k\),</p></blockquote>
+<p>by</p>
+<blockquote><p>for every integral variety \(Y\) over \(k\),</p></blockquote>
+<p>and make the same replacement in the statement of Theorem&nbsp;5.4. In the proof of Theorem&nbsp;5.4, replace <em>for every variety \(Y\) over \(L\)</em> by <em>for every integral variety \(Y\) over \(L\)</em>. Lemma&nbsp;2.5 then applies exactly as stated. All sources used in the applications are integral, so Theorems&nbsp;1.1, 1.3, and&nbsp;1.6 are unchanged.</p></li><li><p><strong>Page 29, proof of Lemma 2.5.</strong> For a stack target, nonisomorphic global maps can have isomorphic fibers at every geometric point; maps to a classifying stack arising from different torsors give such examples. Replace the proof of Lemma&nbsp;2.5 by:</p>
+<blockquote><p><em>Proof.</em> Suppose that there are infinitely many pairwise nonisomorphic morphisms \(f_i:Y\to X\) which map \(y\) to \(x\).</p>
+<p>We first account for maps that are pointwise isomorphic. Fix a morphism \(f:Y\to X\). Since \(X\) is a separated finite-type Deligne--Mumford stack, the automorphism sheaf</p>
+<div class="display-math">\[
+\mathcal A_f=\underline{\operatorname{Aut}}_Y(f)
+\]</div>
+<p>is a finite constructible sheaf of groups on \(Y_{\mathrm{\acute et}}\). If a morphism \(g:Y\to X\) is isomorphic to \(f\) at every geometric point of \(Y\), then \(\underline{\operatorname{Isom}}_Y(f,g)\) is an \(\mathcal A_f\)-torsor on \(Y_{\mathrm{\acute et}}\). Effective descent for the stack \(X\) shows that the isomorphism class of \(g\) is determined by the corresponding class in \(H^1_{\mathrm{\acute et}}(Y,\mathcal A_f)\).</p>
+<p>For a finite-type scheme over an algebraically closed field of characteristic zero, this pointed set is finite for every finite constructible group sheaf. Indeed, after a finite stratification the sheaf is finite locally constant; the étale fundamental group of each stratum is topologically finitely generated, and noetherian induction gives the assertion. Consequently each pointwise-isomorphism class of maps \(Y\to X\) contains only finitely many global isomorphism classes.</p>
+<p>We may therefore pass to an infinite subfamily, still denoted \(f_1,f_2,\ldots\), such that for every \(i\ne j\) the maps \(f_i\) and \(f_j\) are not isomorphic at some geometric point. For each pair \(i\ne j\), let \(Y^{i,j}\) be the image of</p>
+<div class="display-math">\[
+\underline{\operatorname{Isom}}_Y(f_i,f_j)\longrightarrow Y.
+\]</div>
+<p>The diagonal of \(X\) is finite, so this image is closed; it is proper by the choice of the subfamily. Since \(k\) is uncountable and \(Y\) is integral, there is a point</p>
+<div class="display-math">\[
+w\in Y(k)\setminus\bigcup_{i\ne j}Y^{i,j}.
+\]</div>
+<p>Choose a smooth connected curve \(C\), points \(c,d\in C(k)\), and a morphism \(C\to Y\) carrying \(c\) to \(y\) and \(d\) to \(w\). The restrictions \(f_i|_C\) are pairwise nonisomorphic, because their fibers at \(d\) are pairwise nonisomorphic, and they all carry \(c\) to \(x\). This contradicts the geometric hyperbolicity of \(X\).</p></blockquote>
+<p>This proves Lemma&nbsp;2.5 for stack targets and leaves its use in Theorem&nbsp;7.1 unchanged.</p></li><li><p><strong>Pages 29--30, statement of Lemma 2.6.</strong> A finite étale morphism need not meet every connected component of its target, so the printed equivalence requires surjectivity. Replace the opening sentence of Lemma&nbsp;2.6 by:</p>
+<blockquote><p>Let \(X\to Y\) be a finite étale surjective morphism of finite-type separated Deligne--Mumford algebraic stacks over \(k\).</p></blockquote>
+<p>The uniformizing cover used in Theorem&nbsp;7.1 is finite étale and surjective, so that theorem and every later application satisfy the corrected hypothesis.</p></li><li><p><strong>Page 30, proof of Lemma 2.6.</strong> Reference&nbsp;[5] does not concern invariance of geometric hyperbolicity under finite étale covers. Replace the proof of Lemma&nbsp;2.6 by:</p>
+<blockquote><p><em>Proof.</em> Let \(p:X\to Y\) be finite étale and surjective. Suppose first that \(Y\) is geometrically hyperbolic. For a fixed pointed map \((C,c)\to(Y,p(x))\), its lifts to \(X\) carrying \(c\) to \(x\) are sections of the finite étale map \(C\times_YX\to C\) with a prescribed value at \(c\). There are only finitely many such sections. Since there are only finitely many pointed maps to \(Y\), there are only finitely many pointed maps to \(X\).</p>
+<p>Conversely, suppose that \(X\) is geometrically hyperbolic, and fix a smooth integral pointed curve \((C,c)\) and a point \(y\in Y(k)\). Choose \(x\in X(k)\) over \(y\). For each pointed map \(g:(C,c)\to(Y,y)\), let \((C'_g,c'_g)\) be the connected component of \(C\times_{Y,g}X\) containing \((c,x)\). It is a connected finite étale surjective pointed cover of \(C\) of bounded degree. There are only finitely many isomorphism classes of such covers, because \(\pi_1^{\mathrm{\acute et}}(C,c)\) is topologically finitely generated.</p>
+<p>Thus, from any infinite family of pointed maps \(g\), one can pass to an infinite subfamily for which the pointed pullbacks are all identified with one fixed pointed cover \((C',c')\to(C,c)\). The tautological maps \((C',c')\to(X,x)\) have only finitely many isomorphism classes by the geometric hyperbolicity of \(X\). After passing to a further subfamily, these maps are isomorphic. A map \(C\to Y\) is then recovered from the resulting map on \(C'\) and its descent datum. The finite-inertia twisting argument in the proof of Lemma&nbsp;2.5 shows that there are only finitely many such descent data. Hence the original family of pointed maps to \(Y\) is finite.</p></blockquote>
+<p>This direct argument proves the corrected lemma for separated Deligne--Mumford stacks. Reference&nbsp;[5] remains in the bibliography because it is separately cited in the discussion preceding Theorem&nbsp;1.8.</p></li><li><p><strong>Page 30, paragraph preceding Proposition 3.2.</strong> Reference&nbsp;[2] concerns quasi-projectivity of images of period maps, not the representability of the Hom functor. In the sentence</p>
+<blockquote><p>For \(Y\) and \(X\) projective schemes over \(k\), we let \(\operatorname{Hom}_k(Y,X)\) be the moduli scheme parametrizing morphisms \(Y\to X\); recall that \(\operatorname{Hom}_k(Y,X)\) is a disjoint union of quasi-projective schemes over \(k\) (see [8, 2]).</p></blockquote>
+<p>replace (see [8, 2]) by (see [8]). Reference&nbsp;[2] and its other uses in the paper are unchanged.</p></li><li><p><strong>Page 31, Remark 3.4.</strong> The printed proof chooses \(\mathcal L^{\otimes n}\otimes\mathcal L^\vee\), whereas the degree comparison uses \(\mathcal L'\); moreover, effectivity alone does not give a nonnegative degree on a curve contained in the effective divisor. Replace the proof of Remark&nbsp;3.4 by:</p>
+<blockquote><p>To prove this, choose \(n\) sufficiently large that</p>
+<div class="display-math">\[
+\mathcal L^{\otimes n}\otimes(\mathcal L')^\vee
+\]</div>
+<p>is globally generated. Let \(C\subset\overline C\) and \(f:C\to X\) be as in Definition&nbsp;3.1. The pullback of this line bundle to \(\overline C\) is globally generated and therefore has nonnegative degree. It follows that</p>
+<div class="display-math">\[
+\deg_{\overline C}\overline f^*\mathcal L'
+\leq n\deg_{\overline C}\overline f^*\mathcal L.
+\]</div>
+<p>Thus the left-hand side is bounded by a constant depending only on \(g,d,\mathcal L\), and \(\mathcal L'\). This proves that \(X\) is weakly bounded over \(k\) in \(\overline X\) with respect to \(\mathcal L'\).</p></blockquote>
+<p>Here global generation for \(n\gg0\) follows from the ampleness of \(\mathcal L\). Proposition&nbsp;3.5 and all later weak-boundedness comparisons are unchanged.</p></li><li><p><strong>Page 33, final paragraph of the proof of Theorem 3.7.</strong> The original coefficient ring \(A\) has algebraic closure \(k\), not \(K_0\), so Lemma&nbsp;3.6 cannot be applied over \(K_0\) without changing the coefficient ring and the model. Replace the paragraph beginning <em>Now, assume \(d&gt;0\)</em> through the end of the proof by:</p>
+<blockquote><p>Now assume \(d&gt;0\), and choose an algebraically closed subfield \(K_0\subset K\) of transcendence degree \(d-1\) over \(k\). Let \(t_1,\ldots,t_{d-1}\) be a transcendence basis of \(K_0/k\). After localizing once to spread out the data, set</p>
+<div class="display-math">\[
+A_0=A[t_1,\ldots,t_{d-1},1/s]\subset K_0
+\]</div>
+<p>for a suitable nonzero \(s\in A[t_1,\ldots,t_{d-1}]\), and let \(\mathcal X_0=\mathcal X\times_A A_0\). The field \(K_0\) is an algebraic closure of \(\operatorname{Frac}(A_0)\). Let</p>
+<div class="display-math">\[
+B_0=BA_0\subset K
+\]</div>
+<p>be the subring generated by \(B\) and \(A_0\); it is a finitely generated \(A_0\)-algebra.</p>
+<p>By the induction hypothesis, for every finitely generated subring \(A'\subset K_0\) containing \(A_0\), the set</p>
+<div class="display-math">\[
+\mathcal X_0(A')=\mathcal X(A')
+\]</div>
+<p>is not dense in \(X_{K_0}\). Moreover, \(X_K\) is weakly bounded and geometrically hyperbolic, since these properties hold after base change to \(L\). As \(K\) has transcendence degree one over \(K_0\), Lemma&nbsp;3.6, applied with coefficient ring \(A_0\), model \(\mathcal X_0\), and target ring \(B_0\), shows that \(\mathcal X_0(B_0)\) is not dense in \(X_K\). Finally,</p>
+<div class="display-math">\[
+\mathcal X(B)\subseteq\mathcal X_0(B_0),
+\]</div>
+<p>so \(\mathcal X(B)\) is not dense in \(X_K\), and hence is not dense in \(X_L\). This completes the induction.</p></blockquote>
+<p>Thus Lemma&nbsp;3.6 applies with all of its field and coefficient-ring hypotheses satisfied. Theorem&nbsp;3.7 and its applications in Theorems&nbsp;1.9 and&nbsp;6.1 are unchanged.</p></li><li><p><strong>Page 38, opening paragraph of Section 6.</strong> Reference&nbsp;[6] does not contain the cited definition of an arithmetic locally symmetric variety. Replace</p>
+<blockquote><p>[6, Definition 4.3]</p></blockquote>
+<p>by</p>
+<blockquote><p>[40, Section 4].</p></blockquote>
+<p>Reference&nbsp;[40] is Milne's <em>Shimura varieties and moduli</em>; its Section&nbsp;4 defines locally symmetric and arithmetic locally symmetric varieties. The definition and all subsequent uses in Section&nbsp;6 are unchanged.</p></li></ol>
