@@ -94,7 +94,7 @@ PRESERVED_SHA256 = {
         "8b7d7fd450db762f246a38fab4a950561c690046e53c673bd628f986fe9d3f4e",
     "jacob_mathilde_notes.pdf": "57163cc8645611e42ec60889bfd65d847097c3b8c7843f06ceae385c3253c7f2",
     "fermat_fano_real_mesh_web.html":
-        "0a48153f51bcc874f6c6330016a43dda617fc9d1b984e71b10b5b82da88760b9",
+        "addf8bdbe47dce582b6efe414b1606b44efd09e1ec47db019a16085288e8a846",
     "s/CV-Daniel-Litt.pdf":
         "5b69a5817b1955be8ea8fc88987efc11f5becd58c7ecf5312b29c1cc4e46d159",
     "s/CV-Daniel-Litt-85b9.pdf":
@@ -110,7 +110,7 @@ PRESERVED_SHA256 = {
 
 PRODUCTION_HTML_SHA256 = {
     "fermat_fano_real_mesh_web.html":
-        "b614c25767870a6cd1f0cc87918b9b0988c433f79bfb48ef58e763961db8d763",
+        "2c4752c4e5bb48704764580d6504857607401e12e35a0ad8b158c28a5922f781",
 }
 
 FORBIDDEN_PUBLIC_COPY = [
