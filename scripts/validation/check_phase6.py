@@ -44,7 +44,7 @@ EXPECTED_DECORATIVE_IMAGES = {
     ("/teaching", "/assets/squarespace/52d8beda1b95-image-asset.webp"),
 }
 EXPECTED_VISUAL_FIDELITY = {
-    "/blog": {"feed-item": 10, "blog-sidebar": 1, "media-slide": 16},
+    "/blog": {"feed-item": 10, "blog-sidebar": 1, "media-slide": 0},
     "/blog/2026/8/11/the-end-of-mathematics": {"blog-sidebar": 1, "media-slide": 16},
     "/blog/2026/2/20/mathematics-in-the-library-of-babel": {"blog-sidebar": 1},
     "/publications-and-preprints": {
@@ -275,8 +275,17 @@ def main() -> int:
         if publications_source.count(field) != 32:
             failures.append(f"structured publications source must contain 32 {field[:-3]} fields")
 
+    blog_paths = set()
+    for source in (content_root / "blog").glob("*.md"):
+        source_text = source.read_text(encoding="utf-8")
+        match = re.search(r'^legacyPath:\s*"([^"]+)"', source_text, flags=re.MULTILINE)
+        is_draft = bool(re.search(r"^draft:\s*true\s*$", source_text, flags=re.MULTILINE))
+        if match and not is_draft:
+            blog_paths.add(match.group(1))
+
     expected_squarespace = expected_lines(validation / "expected-squarespace-paths.txt")
-    expected_sitemap = (expected_squarespace - {"/work"}) | EXTRA_SITEMAP_PATHS
+    # Preserve every migration requirement while allowing newly published posts.
+    expected_sitemap = (expected_squarespace - {"/work"}) | EXTRA_SITEMAP_PATHS | blog_paths
     sitemap_root = ET.parse(dist / "sitemap.xml").getroot()
     sitemap_namespace = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
     sitemap_urls = [node.text or "" for node in sitemap_root.findall("s:url/s:loc", sitemap_namespace)]
@@ -300,13 +309,6 @@ def main() -> int:
     rss_root = ET.parse(dist / "rss.xml").getroot()
     rss_items = rss_root.findall("./channel/item")
     rss_links = [item.findtext("link", "") for item in rss_items]
-    blog_paths = set()
-    for source in (content_root / "blog").glob("*.md"):
-        source_text = source.read_text(encoding="utf-8")
-        match = re.search(r'^legacyPath:\s*"([^"]+)"', source_text, flags=re.MULTILINE)
-        is_draft = bool(re.search(r"^draft:\s*true\s*$", source_text, flags=re.MULTILINE))
-        if match and not is_draft:
-            blog_paths.add(match.group(1))
     if {urlsplit(value).path.rstrip("/") for value in rss_links} != blog_paths:
         failures.append("RSS post paths do not exactly match the published Markdown posts")
     for value in rss_links:

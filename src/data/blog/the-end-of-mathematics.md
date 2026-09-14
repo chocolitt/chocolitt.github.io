@@ -1,5 +1,6 @@
 ---
 title: "The End of Mathematics"
+indexExcerpt: "<p>I'm currently returning to Toronto from a summit on the future of mathematics, at OpenAI. Sebastian Bubeck asked me to talk a bit about the future we'd all like to avoid, where humans are mathematically disempowered. Jacob Tsimerman advised us to try to prioritize detail over correctness, and I have no doubt that I succeeded in deprioritizing correctness.</p>"
 description: "I'm currently returning to Toronto from a summit on the future of mathematics, at OpenAI. Sebastian Bubeck asked me to talk a bit about the future we'd all like to avoid, where humans are mathematically disempowered. Jacob Tsimerman advi…"
 published: "2026-08-11T22:49:34Z"
 draft: false

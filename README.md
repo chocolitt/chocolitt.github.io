@@ -1,6 +1,6 @@
 # daniellitt.com
 
-Astro source for the in-progress migration of `www.daniellitt.com`. Production is still served by the existing Squarespace and GitHub Pages sites; do not merge this branch or change DNS until the migration acceptance gates pass.
+Astro source for the production site at `https://www.daniellitt.com`, hosted by GitHub Pages. The Squarespace-to-Astro migration launched on August 17, 2026 and completed its two-week monitoring and retirement checklist on August 31, 2026.
 
 ## Preview
 
@@ -36,4 +36,6 @@ For an imported post, keep `legacyPath` equal to the original Squarespace path. 
 
 ## Deployment
 
-The GitHub Actions workflow builds and uploads the static Astro output when `main` is updated. Production builds include the Google Analytics tag for `G-SQPKVD92TL`; local and pull-request preview builds do not send analytics. Before the first deployment, configure the repository variable `PUBLIC_FASTCOMMENTS_TENANT_ID`, select GitHub Actions as the Pages source, and follow the staged launch plan. The custom-domain `CNAME` file and DNS cutover are deliberately deferred to the launch phase.
+The GitHub Actions workflow builds and uploads the static Astro output whenever `main` is updated. GitHub Pages serves the site at the canonical custom domain `www.daniellitt.com`; the apex domain and `chocolitt.github.io` redirect there over HTTPS. Production builds include the Google Analytics tag for `G-SQPKVD92TL`; local and pull-request preview builds do not send analytics.
+
+The repository variable `PUBLIC_FASTCOMMENTS_TENANT_ID` supplies the public widget identifier during production builds. Preserve every existing `legacyPath`, and run `pnpm site:preview` before pushing content changes.
